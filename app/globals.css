@@ -22,7 +22,7 @@
   }
 
   ::selection {
-    @apply bg-vermilion text-white;
+    @apply bg-vermilion text-ink;
   }
 }
 
@@ -31,30 +31,32 @@
     @apply mx-auto w-full max-w-container px-5 sm:px-8;
   }
 
-  /* Primary CTA — bulldog vermilion */
+  /* Primary CTA — vermilion block, black type. White on vermilion is only
+     ~3.9:1; black is ~4.6:1, so black wins on both contrast and the poster look. */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 rounded-md bg-vermilion px-6 py-3.5
-           font-display text-sm font-semibold uppercase tracking-widest text-white
+           font-display text-sm font-semibold uppercase tracking-widest text-ink
            transition-all duration-200 hover:bg-vermilion-600 hover:shadow-lift
-           focus:outline-none focus-visible:ring-2 focus-visible:ring-vermilion focus-visible:ring-offset-2;
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2;
   }
 
+  /* For use on vermilion/sage blocks, where a vermilion button would vanish. */
   .btn-dark {
     @apply inline-flex items-center justify-center gap-2 rounded-md bg-ink px-6 py-3.5
-           font-display text-sm font-semibold uppercase tracking-widest text-white
+           font-display text-sm font-semibold uppercase tracking-widest text-cream
            transition-all duration-200 hover:bg-ink-700 hover:shadow-lift;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-md border border-steel-200
-           bg-cream-50 px-6 py-3.5 font-display text-sm font-semibold uppercase tracking-widest text-ink
-           transition-all duration-200 hover:border-ink hover:shadow-card;
+    @apply inline-flex items-center justify-center gap-2 rounded-md border-2 border-ink/25
+           bg-transparent px-6 py-3.5 font-display text-sm font-semibold uppercase tracking-widest text-ink
+           transition-all duration-200 hover:border-ink hover:bg-ink/5;
   }
 
-  /* Eyebrows sit on both cream and ink sections, so vermilion is the one
-     brand colour with enough contrast against either. */
+  /* Colour lives in the blocks now, so the eyebrow is black like the rest of
+     the type — vermilion on cream is only ~3.1:1 and reads as a mistake. */
   .eyebrow {
-    @apply font-sans text-[0.8rem] font-bold uppercase tracking-[0.12em] text-vermilion;
+    @apply font-sans text-[0.8rem] font-bold uppercase tracking-[0.12em] text-ink/70;
   }
 
   .section {

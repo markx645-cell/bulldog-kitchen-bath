@@ -49,7 +49,7 @@ export default function TrustBar() {
             key={p.stat}
             className="mx-auto flex w-full max-w-[16rem] items-center gap-4 sm:mx-0 sm:w-auto sm:max-w-none lg:border-l-2 lg:border-steel-300 lg:py-5 lg:pl-8 lg:first:border-l-0 lg:first:pl-0"
           >
-            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-vermilion text-white">
+            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-vermilion text-ink">
               <TrustIcon name={p.icon} />
             </span>
             <div>

@@ -12,7 +12,7 @@ export default function ServicesGrid({
   sub?: string;
 }) {
   return (
-    <section className="section bg-cream-50">
+    <section className="section bg-cream">
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">{eyebrow}</p>
@@ -25,7 +25,7 @@ export default function ServicesGrid({
             <Link
               key={s.slug}
               href={`/${s.slug}`}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-steel-200 bg-cream-50 shadow-card transition-all hover:-translate-y-1 hover:border-sage hover:shadow-lift"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-steel-200 bg-sage shadow-card transition-all hover:-translate-y-1 hover:border-sage hover:shadow-lift"
             >
               <Photo label={s.name} src={s.image} alt={`${s.name} in Cincinnati`} className="aspect-[16/10] w-full" rounded="rounded-none" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw" />
               <div className="flex flex-1 flex-col p-6">

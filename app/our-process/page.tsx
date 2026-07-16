@@ -22,28 +22,28 @@ const processFaqs = [
 export default function ProcessPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-ink">
+      <section className="relative overflow-hidden bg-sage">
         <div className="glass-sheen absolute inset-0" />
         <div className="container-x relative py-14 lg:py-20">
           <Breadcrumbs items={[{ label: 'Our Process', href: '/our-process' }]} className="mb-6" />
           <p className="eyebrow">How it works</p>
-          <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl">
+          <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl">
             Seven steps, one team, zero surprises
           </h1>
-          <p className="mt-5 max-w-2xl leading-relaxed text-white/85">
+          <p className="mt-5 max-w-2xl leading-relaxed text-ink/75">
             Every Bulldog project follows the same clear path — so you always know what happens next
             and exactly who is responsible for it.
           </p>
         </div>
       </section>
 
-      <section className="section bg-cream-50">
+      <section className="section bg-cream">
         <div className="container-x">
           <div className="mx-auto max-w-3xl">
             <ol className="relative border-l-2 border-steel-200">
               {process.map((s) => (
                 <li key={s.step} className="mb-10 ml-6 last:mb-0" data-reveal>
-                  <span className="absolute -left-[1.15rem] flex h-9 w-9 items-center justify-center rounded-full bg-vermilion font-display text-sm font-bold text-white ring-4 ring-cream">
+                  <span className="absolute -left-[1.15rem] flex h-9 w-9 items-center justify-center rounded-full bg-vermilion font-display text-sm font-bold text-ink ring-4 ring-cream">
                     {s.step}
                   </span>
                   <h2 className="font-display text-xl font-bold text-ink">{s.title}</h2>
@@ -55,7 +55,7 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      <section className="section bg-cream-200">
+      <section className="section bg-cream">
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">At your consultation</p>
@@ -65,7 +65,7 @@ export default function ProcessPage() {
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-3" data-reveal data-reveal-stagger>
             {estimateSteps.map((s) => (
-              <div key={s.step} className="rounded-xl border border-steel-200 bg-cream-50 p-6 shadow-card">
+              <div key={s.step} className="rounded-xl border border-steel-200 bg-sage p-6 shadow-card">
                 <span className="font-display text-3xl font-bold text-sage-600">{s.step}</span>
                 <h3 className="mt-3 font-display text-lg font-bold text-ink">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-steel">{s.body}</p>

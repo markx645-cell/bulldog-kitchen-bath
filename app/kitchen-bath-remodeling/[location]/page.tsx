@@ -67,7 +67,7 @@ export default async function LocationPage({
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-ink">
+      <section className="relative overflow-hidden bg-sage">
         <div className="glass-sheen absolute inset-0" />
         <div
           className="absolute inset-0 opacity-[0.16]"
@@ -87,17 +87,17 @@ export default async function LocationPage({
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="animate-fade-up">
               <p className="eyebrow">{loc.region} · {loc.state}</p>
-              <h1 className="mt-3 font-display text-4xl font-bold leading-[1.03] tracking-tight text-white sm:text-5xl">
+              <h1 className="mt-3 font-display text-4xl font-bold leading-[1.03] tracking-tight text-ink sm:text-5xl">
                 Kitchen &amp; Bath Remodeling in{' '}
                 <span className="text-sage-400">{loc.city}</span>
               </h1>
-              <p className="mt-5 max-w-xl leading-relaxed text-white/85">
+              <p className="mt-5 max-w-xl leading-relaxed text-ink/75">
                 {loc.character} Bulldog Kitchen &amp; Bath brings one organized team, fixed pricing, and
                 a lifetime workmanship warranty to every {loc.city} remodel.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link href="/consult" className="btn-primary">Book a Free Consult</Link>
-                <a href={site.phoneHref} className="btn-ghost !border-ink-700 !bg-transparent !text-white hover:!border-white">
+                <a href={site.phoneHref} className="btn-ghost !border-ink/30 !bg-transparent !text-ink hover:!border-ink">
                   Call {site.phone}
                 </a>
               </div>
@@ -108,7 +108,7 @@ export default async function LocationPage({
       </section>
 
       {/* Local intro */}
-      <section className="section bg-cream-50">
+      <section className="section bg-cream">
         <div className="container-x">
           <div className="mx-auto max-w-3xl text-center">
             <p className="eyebrow">Local expertise</p>
@@ -126,7 +126,7 @@ export default async function LocationPage({
       </section>
 
       {/* Services in this city */}
-      <section className="section bg-cream-200">
+      <section className="section bg-cream">
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">What we remodel in {loc.city}</p>
@@ -139,7 +139,7 @@ export default async function LocationPage({
               <Link
                 key={s.slug}
                 href={`/${s.slug}`}
-                className="group flex flex-col rounded-xl border border-steel-200 bg-cream-50 p-6 shadow-card transition-all hover:-translate-y-1 hover:border-sage hover:shadow-lift"
+                className="group flex flex-col rounded-xl border border-steel-200 bg-sage p-6 shadow-card transition-all hover:-translate-y-1 hover:border-sage hover:shadow-lift"
               >
                 <h3 className="font-display text-base font-bold text-ink group-hover:text-vermilion">{s.name}</h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-steel">{s.short}</p>
@@ -159,7 +159,7 @@ export default async function LocationPage({
       <ProcessSteps compact />
 
       {/* Local reviews */}
-      <section className="section bg-cream-50">
+      <section className="section bg-cream">
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">Near {loc.city}</p>

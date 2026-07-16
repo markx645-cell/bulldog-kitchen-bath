@@ -42,7 +42,7 @@ export default function ServicePage({ service }: { service: Service }) {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-ink">
+      <section className="relative overflow-hidden bg-sage">
         <div className="glass-sheen absolute inset-0" />
         <div
           className="absolute inset-0 opacity-[0.16]"
@@ -62,14 +62,14 @@ export default function ServicePage({ service }: { service: Service }) {
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="animate-fade-up">
               <p className="eyebrow">{service.eyebrow}</p>
-              <h1 className="mt-3 font-display text-4xl font-bold leading-[1.02] tracking-tight text-white sm:text-5xl">
+              <h1 className="mt-3 font-display text-4xl font-bold leading-[1.02] tracking-tight text-ink sm:text-5xl">
                 {service.heroHeadline}{' '}
                 <span className="text-sage-400">{service.heroHighlight}</span>
               </h1>
-              <p className="mt-5 max-w-xl leading-relaxed text-white/85">{service.heroSub}</p>
+              <p className="mt-5 max-w-xl leading-relaxed text-ink/75">{service.heroSub}</p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link href="/consult" className="btn-primary">Book a Free Consult</Link>
-                <a href={site.phoneHref} className="btn-ghost !border-ink-700 !bg-transparent !text-white hover:!border-white">
+                <a href={site.phoneHref} className="btn-ghost !border-ink/30 !bg-transparent !text-ink hover:!border-ink">
                   Call {site.phone}
                 </a>
               </div>
@@ -80,7 +80,7 @@ export default function ServicePage({ service }: { service: Service }) {
       </section>
 
       {/* Intro + benefits */}
-      <section className="section bg-cream-50">
+      <section className="section bg-cream">
         <div className="container-x">
           <div className="mx-auto max-w-3xl text-center">
             <p className="eyebrow">{service.introEyebrow ?? 'Why it matters'}</p>
@@ -91,7 +91,7 @@ export default function ServicePage({ service }: { service: Service }) {
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" data-reveal data-reveal-stagger>
             {service.benefits.map((b) => (
-              <div key={b.title} className="rounded-xl border border-steel-200 bg-cream-200 p-6 shadow-card">
+              <div key={b.title} className="rounded-xl border border-steel-200 bg-sage p-6 shadow-card">
                 <span className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-vermilion/10 text-vermilion">
                   <BenefitIcon name={b.icon} />
                 </span>
@@ -105,13 +105,13 @@ export default function ServicePage({ service }: { service: Service }) {
 
       {/* Features */}
       {service.features && (
-        <section className="section bg-cream-200">
+        <section className="section bg-cream">
           <div className="container-x">
             <div className="grid items-center gap-10 lg:grid-cols-2">
               <Photo label={service.name} src={service.featureImage ?? service.image} alt={`${service.name} detail`} className="aspect-[4/3] w-full shadow-lift" sizes="(max-width:1024px) 100vw, 50vw" />
               <div>
                 {service.features.banner && (
-                  <span className="inline-block bg-vermilion px-4 py-2 font-display text-sm font-bold uppercase tracking-wide text-white">
+                  <span className="inline-block bg-vermilion px-4 py-2 font-display text-sm font-bold uppercase tracking-wide text-ink">
                     {service.features.banner}
                   </span>
                 )}
@@ -137,7 +137,7 @@ export default function ServicePage({ service }: { service: Service }) {
 
       {/* Options */}
       {service.options && service.options.length > 0 && (
-        <section className="section bg-cream-50">
+        <section className="section bg-cream">
           <div className="container-x">
             <div className="mx-auto max-w-2xl text-center">
               <p className="eyebrow">Your options</p>
@@ -147,8 +147,8 @@ export default function ServicePage({ service }: { service: Service }) {
             </div>
             <div className="mt-12 grid gap-6 md:grid-cols-3" data-reveal data-reveal-stagger>
               {service.options.map((o, i) => (
-                <div key={o.title} className="flex flex-col rounded-2xl border border-steel-200 bg-cream-200 p-7 shadow-card">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-vermilion font-display text-lg font-bold text-white">
+                <div key={o.title} className="flex flex-col rounded-2xl border border-steel-200 bg-sage p-7 shadow-card">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-vermilion font-display text-lg font-bold text-ink">
                     {i + 1}
                   </span>
                   <h3 className="mt-4 font-display text-lg font-bold text-ink">{o.title}</h3>

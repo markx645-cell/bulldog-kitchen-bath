@@ -31,7 +31,7 @@ export default function HomePage() {
   return (
     <>
       {/* ---------- HERO ---------- */}
-      <section className="relative overflow-hidden bg-ink">
+      <section className="relative overflow-hidden bg-sage">
         <div className="glass-sheen absolute inset-0" />
         <div
           className="absolute inset-0 opacity-[0.16]"
@@ -44,11 +44,11 @@ export default function HomePage() {
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="animate-fade-up">
               <p className="eyebrow">Cincinnati · Northern Kentucky · One accountable team</p>
-              <h1 className="mt-3 font-display text-4xl font-bold leading-[1.02] tracking-tight text-white sm:text-5xl lg:text-6xl">
+              <h1 className="mt-3 font-display text-4xl font-bold leading-[1.02] tracking-tight text-ink sm:text-5xl lg:text-6xl">
                 Beautiful kitchens &amp; baths.
                 <span className="block text-sage-400">Built by one team.</span>
               </h1>
-              <p className="mt-5 max-w-xl leading-relaxed text-white/85">
+              <p className="mt-5 max-w-xl leading-relaxed text-ink/75">
                 Full-service kitchen and bath remodeling with fixed pricing, in-house design, and
                 concierge-level care — from the first sketch to a lifetime workmanship warranty.
               </p>
@@ -56,14 +56,14 @@ export default function HomePage() {
               <div className="mt-5 flex flex-wrap items-center gap-3">
                 <div className="flex items-center gap-2">
                   <Stars count={5} />
-                  <span className="text-sm font-semibold text-white">{stats.googleRating}/5</span>
-                  <span className="text-sm text-white/70">· {stats.reviewsLabel}</span>
+                  <span className="text-sm font-semibold text-ink">{stats.googleRating}/5</span>
+                  <span className="text-sm text-ink/65">· {stats.reviewsLabel}</span>
                 </div>
               </div>
 
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link href="/consult" className="btn-primary">Book Your Free Consult</Link>
-                <a href={site.phoneHref} className="btn-ghost !border-ink-700 !bg-transparent !text-white hover:!border-white">
+                <a href={site.phoneHref} className="btn-ghost !border-ink/30 !bg-transparent !text-ink hover:!border-ink">
                   Call {site.phone}
                 </a>
               </div>
@@ -74,9 +74,9 @@ export default function HomePage() {
                   <Link
                     key={c.slug}
                     href={`/${c.slug}`}
-                    className="group rounded-lg border border-ink-700 bg-ink-800 px-4 py-3 text-center transition-all hover:border-sage hover:bg-ink-700"
+                    className="group rounded-lg border border-ink/20 bg-ink/5 px-4 py-3 text-center transition-all hover:border-sage hover:bg-ink/10"
                   >
-                    <span className="font-display text-xs font-semibold uppercase tracking-wide text-white group-hover:text-sage-400">
+                    <span className="font-display text-xs font-semibold uppercase tracking-wide text-ink group-hover:text-sage-400">
                       {c.name}
                     </span>
                   </Link>
@@ -101,7 +101,7 @@ export default function HomePage() {
       <ServicesGrid />
 
       {/* ---------- FEATURED PROJECTS ---------- */}
-      <section className="section bg-cream-200">
+      <section className="section bg-cream">
         <div className="container-x">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row sm:items-end">
             <div className="max-w-2xl text-center sm:text-left">
@@ -117,7 +117,7 @@ export default function HomePage() {
               <Link
                 key={p.slug}
                 href="/projects"
-                className="group flex flex-col overflow-hidden rounded-2xl border border-steel-200 bg-cream-50 shadow-card transition-all hover:-translate-y-1 hover:shadow-lift"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-steel-200 bg-sage shadow-card transition-all hover:-translate-y-1 hover:shadow-lift"
               >
                 <Photo label={p.type} src={p.image} alt={p.title} className="aspect-[4/3] w-full" rounded="rounded-none" sizes="(max-width:640px) 100vw, 25vw" />
                 <div className="p-5">
@@ -148,7 +148,7 @@ export default function HomePage() {
       <LocationsLinks />
 
       {/* ---------- REVIEWS ---------- */}
-      <section className="section bg-cream-50">
+      <section className="section bg-cream">
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">In their words</p>

@@ -2,10 +2,10 @@ import { warranty } from '@/content/site';
 
 export default function WarrantyHighlight() {
   return (
-    <section className="section bg-cream-50">
+    <section className="section bg-cream">
       <div className="container-x">
         <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="relative overflow-hidden rounded-2xl bg-ink p-8 shadow-lift sm:p-10">
+          <div className="relative overflow-hidden rounded-2xl bg-vermilion p-8 shadow-lift sm:p-10">
             <div className="glass-sheen absolute inset-0" />
             <div className="relative">
               <span className="flex h-14 w-14 items-center justify-center rounded-full bg-sage text-ink">
@@ -17,17 +17,17 @@ export default function WarrantyHighlight() {
               <p className="mt-6 font-display text-sm uppercase tracking-widest text-sage-400">
                 Backed for life
               </p>
-              <h2 className="mt-2 font-display text-3xl font-bold text-white sm:text-4xl">
+              <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
                 {warranty.headline}
               </h2>
-              <p className="mt-4 text-white/85">{warranty.lead}</p>
+              <p className="mt-4 text-ink/75">{warranty.lead}</p>
             </div>
           </div>
 
           <div className="space-y-6">
             {warranty.points.map((p, i) => (
               <div key={p.title} className="flex gap-4">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-vermilion font-display text-sm font-bold text-white">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-vermilion font-display text-sm font-bold text-ink">
                   {i + 1}
                 </span>
                 <div>

@@ -36,32 +36,32 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-ink">
+      <section className="relative overflow-hidden bg-sage">
         <div className="glass-sheen absolute inset-0" />
         <div className="container-x relative py-12 lg:py-16">
           <Breadcrumbs items={[{ label: 'Contact', href: '/contact' }]} className="mb-6" />
           <div className="grid items-start gap-10 lg:grid-cols-[1fr_0.9fr]">
             <div>
               <p className="eyebrow">Get in touch</p>
-              <h1 className="mt-3 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl">
+              <h1 className="mt-3 font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl">
                 Let’s talk about your project
               </h1>
-              <p className="mt-5 max-w-lg leading-relaxed text-white/85">
+              <p className="mt-5 max-w-lg leading-relaxed text-ink/75">
                 Call us, or send a few details and a Bulldog project consultant will reach out to
                 schedule your free design consultation. No pressure, no obligation.
               </p>
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 {items.map((it) => (
-                  <div key={it.label} className="flex items-start gap-3 rounded-xl border border-ink-700 bg-ink-800 p-4">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-vermilion text-white">
+                  <div key={it.label} className="flex items-start gap-3 rounded-xl border border-ink/20 bg-ink/5 p-4">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-vermilion text-ink">
                       <InfoIcon name={it.icon} />
                     </span>
                     <div>
                       <p className="font-display text-[11px] font-bold uppercase tracking-wide text-sage-400">{it.label}</p>
                       {it.href ? (
-                        <a href={it.href} className="mt-0.5 block font-semibold text-white hover:text-sage-400">{it.value}</a>
+                        <a href={it.href} className="mt-0.5 block font-semibold text-ink hover:text-sage-400">{it.value}</a>
                       ) : (
-                        <p className="mt-0.5 text-sm text-white/85">{it.value}</p>
+                        <p className="mt-0.5 text-sm text-ink/75">{it.value}</p>
                       )}
                     </div>
                   </div>

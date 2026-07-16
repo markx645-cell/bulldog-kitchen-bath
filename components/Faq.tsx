@@ -23,7 +23,7 @@ export default function Faq({
   };
 
   return (
-    <section className="section bg-cream-50">
+    <section className="section bg-cream">
       <div className="container-x">
         {withSchema && (
           <script

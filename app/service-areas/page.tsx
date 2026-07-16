@@ -18,22 +18,22 @@ const byCity = new Map(locations.map((l) => [norm(l.city), l]));
 export default function ServiceAreasPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-ink">
+      <section className="relative overflow-hidden bg-sage">
         <div className="glass-sheen absolute inset-0" />
         <div className="container-x relative py-14 lg:py-20">
           <Breadcrumbs items={[{ label: 'Service Areas', href: '/service-areas' }]} className="mb-6" />
           <p className="eyebrow">Where we work</p>
-          <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl">
+          <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl">
             Remodeling across Greater Cincinnati &amp; Northern Kentucky
           </h1>
-          <p className="mt-5 max-w-2xl leading-relaxed text-white/85">
+          <p className="mt-5 max-w-2xl leading-relaxed text-ink/75">
             Our crews cover the whole map — {locations.length} communities on both sides of the river.
             Find yours below for local detail.
           </p>
         </div>
       </section>
 
-      <section className="section bg-cream-50">
+      <section className="section bg-cream">
         <div className="container-x">
           <div className="grid gap-10 sm:grid-cols-2">
             {serviceAreas.map((g) => (

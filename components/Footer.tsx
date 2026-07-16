@@ -5,13 +5,13 @@ import { site, nav } from '@/content/site';
 export default function Footer() {
   const year = 2026;
   return (
-    <footer className="bg-ink text-white">
+    <footer className="bg-ink text-cream">
       <div className="container-x grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <Link href="/" className="flex items-center gap-3" aria-label={site.name}>
             <Image src="/logo.png" alt={site.name} width={72} height={72} className="h-14 w-auto" />
             <span className="leading-none">
-              <span className="block font-display text-2xl font-extrabold uppercase tracking-tight text-white">
+              <span className="block font-display text-2xl font-extrabold uppercase tracking-tight text-cream">
                 Bulldog
               </span>
               <span className="mt-0.5 block whitespace-nowrap font-display text-[13px] font-bold uppercase tracking-[0.12em] text-sage-400">
@@ -22,26 +22,26 @@ export default function Footer() {
           <p className="mt-4 font-display text-sm uppercase tracking-widest text-sage-400">
             {site.headline}
           </p>
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/80">
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/75">
             Full-service kitchen &amp; bath remodeling for Greater Cincinnati and Northern Kentucky —
             one team, fixed pricing, and a lifetime workmanship warranty.
           </p>
         </div>
 
         <div>
-          <h4 className="mb-4 font-display text-sm uppercase tracking-widest text-white">Services</h4>
-          <ul className="space-y-2 text-sm text-white/80">
+          <h4 className="mb-4 font-display text-sm uppercase tracking-widest text-cream">Services</h4>
+          <ul className="space-y-2 text-sm text-cream/75">
             {nav.services.children.slice(0, 8).map((c) => (
               <li key={c.href}>
-                <Link href={c.href} className="hover:text-white">{c.label}</Link>
+                <Link href={c.href} className="hover:text-cream">{c.label}</Link>
               </li>
             ))}
           </ul>
         </div>
 
         <div>
-          <h4 className="mb-4 font-display text-sm uppercase tracking-widest text-white">Company</h4>
-          <ul className="space-y-2 text-sm text-white/80">
+          <h4 className="mb-4 font-display text-sm uppercase tracking-widest text-cream">Company</h4>
+          <ul className="space-y-2 text-sm text-cream/75">
             {[
               { label: 'About Us', href: '/about' },
               { label: 'Our Process', href: '/our-process' },
@@ -53,19 +53,19 @@ export default function Footer() {
               { label: 'Contact', href: '/contact' },
             ].map((c) => (
               <li key={c.href}>
-                <Link href={c.href} className="hover:text-white">{c.label}</Link>
+                <Link href={c.href} className="hover:text-cream">{c.label}</Link>
               </li>
             ))}
           </ul>
         </div>
 
         <div>
-          <h4 className="mb-4 font-display text-sm uppercase tracking-widest text-white">Get in Touch</h4>
-          <div className="space-y-1 text-sm text-white/80">
-            <a href={site.phoneHref} className="block font-bold text-white hover:text-sage-400">
+          <h4 className="mb-4 font-display text-sm uppercase tracking-widest text-cream">Get in Touch</h4>
+          <div className="space-y-1 text-sm text-cream/75">
+            <a href={site.phoneHref} className="block font-bold text-cream hover:text-sage-400">
               {site.phone}
             </a>
-            <a href={`mailto:${site.email}`} className="block hover:text-white">{site.email}</a>
+            <a href={`mailto:${site.email}`} className="block hover:text-cream">{site.email}</a>
             <p className="pt-2">
               {site.address.street}
               <br />
@@ -80,7 +80,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-ink-700">
-        <div className="container-x flex flex-col items-center justify-between gap-2 py-6 text-xs text-white/60 sm:flex-row">
+        <div className="container-x flex flex-col items-center justify-between gap-2 py-6 text-xs text-cream/60 sm:flex-row">
           <p>
             © {year} {site.name}, a {site.parent} company. Licensed &amp; insured. BBB A+ rated.
           </p>

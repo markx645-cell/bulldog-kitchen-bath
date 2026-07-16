@@ -54,22 +54,22 @@ const faqs = [
 export default function CostPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-ink">
+      <section className="relative overflow-hidden bg-sage">
         <div className="glass-sheen absolute inset-0" />
         <div className="container-x relative py-14 lg:py-20">
           <Breadcrumbs items={[{ label: 'Kitchen Remodel Cost', href: '/kitchen-remodel-cost-cincinnati' }]} className="mb-6" />
           <p className="eyebrow">2026 Pricing Guide</p>
-          <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl">
+          <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl">
             What a kitchen remodel really costs in Cincinnati
           </h1>
-          <p className="mt-5 max-w-2xl leading-relaxed text-white/85">
+          <p className="mt-5 max-w-2xl leading-relaxed text-ink/75">
             Straight, honest price ranges — no “it depends” runaround. Here is what Greater Cincinnati
             homeowners actually spend, and what moves the number up or down.
           </p>
         </div>
       </section>
 
-      <section className="section bg-cream-50">
+      <section className="section bg-cream">
         <div className="container-x">
           <div className="grid gap-6 lg:grid-cols-3" data-reveal data-reveal-stagger>
             {tiers.map((t) => (
@@ -80,7 +80,7 @@ export default function CostPage() {
                 }`}
               >
                 {t.featured && (
-                  <span className="mb-3 w-fit rounded-full bg-vermilion px-3 py-1 font-display text-[11px] font-bold uppercase tracking-wide text-white">
+                  <span className="mb-3 w-fit rounded-full bg-vermilion px-3 py-1 font-display text-[11px] font-bold uppercase tracking-wide text-ink">
                     Most common
                   </span>
                 )}
@@ -105,7 +105,7 @@ export default function CostPage() {
         </div>
       </section>
 
-      <section className="section bg-cream-200">
+      <section className="section bg-cream">
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">What moves the price</p>
@@ -115,7 +115,7 @@ export default function CostPage() {
           </div>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-reveal data-reveal-stagger>
             {factors.map((f) => (
-              <div key={f.title} className="rounded-xl border border-steel-200 bg-cream-50 p-6 shadow-card">
+              <div key={f.title} className="rounded-xl border border-steel-200 bg-sage p-6 shadow-card">
                 <h3 className="font-display text-base font-bold text-ink">{f.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-steel">{f.body}</p>
               </div>

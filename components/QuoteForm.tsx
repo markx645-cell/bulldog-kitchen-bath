@@ -20,7 +20,7 @@ const projectTypes = [
 const timeWindows = ['Morning (9am–12pm)', 'Midday (11am–2pm)', 'Afternoon (2pm–5pm)'];
 
 const inputCls =
-  'w-full rounded-lg border border-steel-200 bg-cream-50 px-3.5 py-2.5 text-sm text-ink placeholder:text-steel-400 focus:border-vermilion focus:outline-none focus:ring-2 focus:ring-vermilion/15';
+  'w-full rounded-lg border border-steel-200 bg-cream px-3.5 py-2.5 text-sm text-ink placeholder:text-steel-400 focus:border-vermilion focus:outline-none focus:ring-2 focus:ring-vermilion/15';
 
 function Label({ children, required }: { children: React.ReactNode; required?: boolean }) {
   return (
@@ -107,7 +107,7 @@ export default function QuoteForm() {
 
   if (submitted) {
     return (
-      <div className="overflow-hidden rounded-2xl bg-cream-50 p-8 text-center shadow-[0_24px_60px_-15px_rgba(22,24,26,0.35)] ring-1 ring-black/5">
+      <div className="overflow-hidden rounded-2xl bg-sage p-8 text-center shadow-[0_24px_60px_-15px_rgba(22,24,26,0.35)] ring-1 ring-black/5">
         <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-vermilion/10">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e73213" strokeWidth="2.5">
             <path d="M20 6L9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
@@ -123,17 +123,17 @@ export default function QuoteForm() {
   }
 
   return (
-    <div className="overflow-hidden rounded-2xl bg-cream-50 shadow-[0_24px_60px_-15px_rgba(22,24,26,0.35)] ring-1 ring-black/5">
+    <div className="overflow-hidden rounded-2xl bg-sage shadow-[0_24px_60px_-15px_rgba(22,24,26,0.35)] ring-1 ring-black/5">
       <div className="bg-vermilion px-6 py-5 sm:px-7">
-        <h3 className="font-display text-xl font-bold text-white sm:text-2xl">
+        <h3 className="font-display text-xl font-bold text-ink sm:text-2xl">
           Book Your Free Design Consultation
         </h3>
-        <p className="mt-1 font-display text-xs font-semibold uppercase tracking-wide text-white/80">
+        <p className="mt-1 font-display text-xs font-semibold uppercase tracking-wide text-ink/75">
           Step {step} of 2
         </p>
-        <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-cream-50/25">
+        <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-cream/25">
           <div
-            className="h-full rounded-full bg-cream-50 transition-all duration-300"
+            className="h-full rounded-full bg-cream transition-all duration-300"
             style={{ width: step === 1 ? '50%' : '100%' }}
           />
         </div>

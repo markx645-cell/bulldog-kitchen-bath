@@ -36,26 +36,26 @@ const pricingFaqs = [
 export default function PricingPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-ink">
+      <section className="relative overflow-hidden bg-sage">
         <div className="glass-sheen absolute inset-0" />
         <div className="container-x relative py-14 lg:py-20">
           <Breadcrumbs items={[{ label: 'Pricing Guide', href: '/pricing-guide' }]} className="mb-6" />
           <p className="eyebrow">2026 Pricing Guide</p>
-          <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl">
+          <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl">
             Honest remodel pricing for Cincinnati
           </h1>
-          <p className="mt-5 max-w-2xl leading-relaxed text-white/85">
+          <p className="mt-5 max-w-2xl leading-relaxed text-ink/75">
             No “call for pricing” games. Here are the typical ranges Greater Cincinnati homeowners
             spend by project — and a fixed-price guarantee once we scope yours.
           </p>
         </div>
       </section>
 
-      <section className="section bg-cream-50">
+      <section className="section bg-cream">
         <div className="container-x">
           <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-steel-200 shadow-card">
             <table className="w-full text-left">
-              <thead className="bg-ink text-white">
+              <thead className="bg-vermilion text-ink">
                 <tr>
                   <th className="px-6 py-4 font-display text-sm font-bold uppercase tracking-wide">Project</th>
                   <th className="px-6 py-4 text-right font-display text-sm font-bold uppercase tracking-wide">Typical Range</th>
@@ -63,7 +63,7 @@ export default function PricingPage() {
               </thead>
               <tbody className="divide-y divide-steel-200">
                 {rows.map((r) => (
-                  <tr key={r.project} className="bg-cream-50 even:bg-cream-200/60">
+                  <tr key={r.project} className="bg-cream even:bg-cream-200/60">
                     <td className="px-6 py-4 text-sm text-ink">{r.project}</td>
                     <td className="px-6 py-4 text-right font-display font-bold text-vermilion">{r.range}</td>
                   </tr>

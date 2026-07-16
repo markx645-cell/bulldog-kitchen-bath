@@ -15,28 +15,28 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-ink">
+      <section className="relative overflow-hidden bg-sage">
         <div className="glass-sheen absolute inset-0" />
         <div className="container-x relative py-14 lg:py-20">
           <Breadcrumbs items={[{ label: 'Projects', href: '/projects' }]} className="mb-6" />
           <p className="eyebrow">Our work</p>
-          <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl">
+          <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl">
             Cincinnati kitchens &amp; baths we’ve transformed
           </h1>
-          <p className="mt-5 max-w-2xl leading-relaxed text-white/85">
+          <p className="mt-5 max-w-2xl leading-relaxed text-ink/75">
             A sample of the homes we’ve remodeled across Greater Cincinnati and Northern Kentucky —
             every one designed, priced, and built by one accountable team.
           </p>
         </div>
       </section>
 
-      <section className="section bg-cream-50">
+      <section className="section bg-cream">
         <div className="container-x">
           <div className="grid gap-8 md:grid-cols-2" data-reveal data-reveal-stagger>
             {projects.map((p) => (
               <article
                 key={p.slug}
-                className="flex flex-col overflow-hidden rounded-2xl border border-steel-200 bg-cream-50 shadow-card"
+                className="flex flex-col overflow-hidden rounded-2xl border border-steel-200 bg-sage shadow-card"
               >
                 <Photo label={`${p.type} · ${p.location}`} src={p.image} alt={p.title} className="aspect-[16/10] w-full" rounded="rounded-none" sizes="(max-width:768px) 100vw, 50vw" />
                 <div className="flex flex-1 flex-col p-6">

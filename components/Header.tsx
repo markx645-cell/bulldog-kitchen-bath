@@ -79,9 +79,9 @@ export default function Header() {
   return (
     <>
       <header className="sticky top-0 z-50 w-full">
-        {/* Top utility bar — desktop */}
-        <div className="hidden bg-ink text-white md:block">
-          <div className="relative h-9 w-full overflow-hidden font-display text-xs uppercase tracking-widest text-white">
+        {/* Top utility bar — desktop: vermilion block, black type */}
+        <div className="hidden bg-vermilion text-ink md:block">
+          <div className="relative h-9 w-full overflow-hidden font-display text-xs uppercase tracking-widest text-ink">
             {/* Offer layer */}
             <div
               className={`absolute inset-0 flex items-center justify-center px-5 transition-all duration-500 ease-in-out sm:px-8 ${
@@ -89,7 +89,7 @@ export default function Header() {
               }`}
             >
               <div className="flex items-center gap-2">
-                <span className="whitespace-nowrap text-[15px] font-semibold text-white">Offer:</span>
+                <span className="whitespace-nowrap text-[15px] font-semibold text-ink">Offer:</span>
                 <Link
                   href="/financing"
                   className="inline-flex items-center whitespace-nowrap rounded-sm bg-sage px-4 py-1 text-[15px] font-bold leading-none text-ink shadow-sm transition hover:opacity-90"
@@ -145,22 +145,22 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile bar 2 — CTA + phone */}
-        <div className="bg-ink md:hidden">
+        {/* Mobile bar 2 — sage/vermilion split, black type (the poster's horizon) */}
+        <div className="bg-vermilion md:hidden">
           <div className="flex h-14 items-stretch">
             <Link
               href="/consult"
               onClick={close}
-              className="flex w-1/2 items-center justify-center whitespace-nowrap bg-vermilion px-3 font-display text-sm font-extrabold uppercase tracking-wide text-white"
+              className="flex w-1/2 items-center justify-center whitespace-nowrap bg-sage px-3 font-display text-sm font-extrabold uppercase tracking-wide text-ink"
               style={{ clipPath: 'polygon(0 0, 100% 0, calc(100% - 24px) 100%, 0 100%)' }}
             >
               Book Estimate
             </Link>
             <a
               href={site.phoneHref}
-              className="flex w-1/2 items-center justify-center gap-2 whitespace-nowrap font-display text-lg font-extrabold tabular-nums text-white"
+              className="flex w-1/2 items-center justify-center gap-2 whitespace-nowrap font-display text-lg font-extrabold tabular-nums text-ink"
             >
-              <PhoneIcon className="text-sage-400" />
+              <PhoneIcon className="text-ink" />
               {site.phone}
             </a>
           </div>
@@ -168,7 +168,7 @@ export default function Header() {
       </header>
 
       {/* Main bar */}
-      <div className="border-b border-steel-200 bg-cream-50/95 backdrop-blur md:sticky md:top-9 md:z-40">
+      <div className="border-b border-steel-200 bg-cream/95 backdrop-blur md:sticky md:top-9 md:z-40">
         <div className="flex h-20 w-full items-center justify-between gap-4 px-5 sm:px-8">
           <Link href="/" className="flex items-center gap-2 sm:gap-3" aria-label={site.name} onClick={close}>
             <Image src="/logo.png" alt={site.name} width={64} height={64} className="h-11 w-auto sm:h-14" priority />
@@ -200,7 +200,7 @@ export default function Header() {
                 </svg>
               </Link>
               {openMenu === nav.services.label && (
-                <div className="absolute left-0 top-full max-h-[70vh] w-72 overflow-y-auto rounded-lg border border-steel-200 bg-cream-50 p-2 shadow-lift">
+                <div className="absolute left-0 top-full max-h-[70vh] w-72 overflow-y-auto rounded-lg border border-steel-200 bg-cream p-2 shadow-lift">
                   {nav.services.children.map((child) => (
                     <Link
                       key={child.href}
@@ -240,7 +240,7 @@ export default function Header() {
                 </svg>
               </Link>
               {openMenu === nav.about.label && (
-                <div className="absolute right-0 top-full w-56 rounded-lg border border-steel-200 bg-cream-50 p-2 shadow-lift">
+                <div className="absolute right-0 top-full w-56 rounded-lg border border-steel-200 bg-cream p-2 shadow-lift">
                   {nav.about.children.map((child) => (
                     <Link
                       key={child.href}
@@ -273,12 +273,12 @@ export default function Header() {
               Free Estimate
             </Link>
             <button
-              className="flex h-11 w-11 items-center justify-center rounded-md bg-ink lg:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-md bg-vermilion lg:hidden"
               onClick={() => setMobileOpen((v) => !v)}
               aria-label="Toggle menu"
               aria-expanded={mobileOpen}
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.2">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16181a" strokeWidth="2.2">
                 {mobileOpen ? (
                   <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" />
                 ) : (
@@ -292,7 +292,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-b border-steel-200 bg-cream-50 lg:hidden">
+        <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-b border-steel-200 bg-cream lg:hidden">
           <nav className="container-x flex flex-col py-1">
             {renderMobileGroup(nav.services)}
             {nav.simple.map((item) => (

@@ -27,23 +27,23 @@ const financingFaqs = [
 export default function FinancingPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-ink">
+      <section className="relative overflow-hidden bg-sage">
         <div className="glass-sheen absolute inset-0" />
         <div className="container-x relative py-14 lg:py-20">
           <Breadcrumbs items={[{ label: 'Financing', href: '/financing' }]} className="mb-6" />
           <p className="eyebrow">Financing</p>
-          <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl">
+          <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl">
             {financing.headline}
           </h1>
-          <p className="mt-5 max-w-2xl leading-relaxed text-white/85">{financing.lead}</p>
+          <p className="mt-5 max-w-2xl leading-relaxed text-ink/75">{financing.lead}</p>
         </div>
       </section>
 
-      <section className="section bg-cream-50">
+      <section className="section bg-cream">
         <div className="container-x">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-reveal data-reveal-stagger>
             {financing.points.map((p) => (
-              <div key={p.small} className="rounded-xl border border-steel-200 bg-cream-200 p-6 text-center shadow-card">
+              <div key={p.small} className="rounded-xl border border-steel-200 bg-sage p-6 text-center shadow-card">
                 <p className="font-display text-4xl font-extrabold text-vermilion">{p.big}</p>
                 <p className="mt-2 text-sm leading-relaxed text-steel">{p.small}</p>
               </div>
@@ -52,7 +52,7 @@ export default function FinancingPage() {
         </div>
       </section>
 
-      <section className="section bg-cream-200">
+      <section className="section bg-cream">
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">Simple &amp; fast</p>
@@ -60,7 +60,7 @@ export default function FinancingPage() {
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-3" data-reveal data-reveal-stagger>
             {steps.map((s) => (
-              <div key={s.step} className="rounded-xl border border-steel-200 bg-cream-50 p-6 shadow-card">
+              <div key={s.step} className="rounded-xl border border-steel-200 bg-sage p-6 shadow-card">
                 <span className="font-display text-3xl font-bold text-sage-600">{s.step}</span>
                 <h3 className="mt-3 font-display text-lg font-bold text-ink">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-steel">{s.body}</p>

@@ -24,7 +24,7 @@ export default function LocationsLinks({ showHeader = true }: { showHeader?: boo
   if (leftover.length) groups.push({ region: 'More Communities We Serve', items: leftover });
 
   return (
-    <section className="section bg-cream-200">
+    <section className="section bg-cream">
       <div className="container-x">
         {showHeader && (
           <div className="mx-auto max-w-2xl text-center">
@@ -40,7 +40,7 @@ export default function LocationsLinks({ showHeader = true }: { showHeader?: boo
         )}
 
         <details
-          className={`group mx-auto max-w-5xl overflow-hidden rounded-xl border border-steel-200 bg-cream-50 shadow-card ${
+          className={`group mx-auto max-w-5xl overflow-hidden rounded-xl border border-steel-200 bg-sage shadow-card ${
             showHeader ? 'mt-8' : ''
           }`}
         >

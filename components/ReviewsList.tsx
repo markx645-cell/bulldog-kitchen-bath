@@ -15,21 +15,21 @@ function MoreArrow() {
 
 function Card({ r }: { r: Review }) {
   return (
-    <figure className="flex flex-col rounded-xl border border-ink-700 bg-ink p-6 shadow-lift">
+    <figure className="flex flex-col rounded-xl border border-ink/15 bg-sage p-6 shadow-lift">
       <div className="flex items-center justify-between">
         <Stars count={r.rating} />
         <span className="font-display text-[11px] font-bold uppercase tracking-wide text-sage-400">
           {r.service}
         </span>
       </div>
-      <blockquote className="mt-3 flex-1 text-sm leading-relaxed text-white/90">“{r.quote}”</blockquote>
-      <figcaption className="mt-4 flex items-center gap-3 border-t border-ink-700 pt-4">
-        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-vermilion font-display text-lg font-bold text-white">
+      <blockquote className="mt-3 flex-1 text-sm leading-relaxed text-ink/80">“{r.quote}”</blockquote>
+      <figcaption className="mt-4 flex items-center gap-3 border-t border-ink/20 pt-4">
+        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-vermilion font-display text-lg font-bold text-ink">
           {r.name.charAt(0)}
         </span>
         <span>
-          <span className="block font-display font-bold text-white">{r.name}</span>
-          <span className="block text-xs text-white/70">{r.location}</span>
+          <span className="block font-display font-bold text-ink">{r.name}</span>
+          <span className="block text-xs text-ink/65">{r.location}</span>
         </span>
       </figcaption>
     </figure>
