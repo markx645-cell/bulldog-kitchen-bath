@@ -13,7 +13,7 @@
   }
 
   body {
-    @apply bg-bone text-ink antialiased;
+    @apply bg-cream text-ink antialiased;
     font-feature-settings: 'ss01', 'cv01';
   }
 
@@ -22,7 +22,7 @@
   }
 
   ::selection {
-    @apply bg-crimson text-white;
+    @apply bg-vermilion text-white;
   }
 }
 
@@ -31,12 +31,12 @@
     @apply mx-auto w-full max-w-container px-5 sm:px-8;
   }
 
-  /* Primary CTA — bulldog crimson */
+  /* Primary CTA — bulldog vermilion */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-md bg-crimson px-6 py-3.5
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-vermilion px-6 py-3.5
            font-display text-sm font-semibold uppercase tracking-widest text-white
-           transition-all duration-200 hover:bg-crimson-600 hover:shadow-lift
-           focus:outline-none focus-visible:ring-2 focus-visible:ring-crimson focus-visible:ring-offset-2;
+           transition-all duration-200 hover:bg-vermilion-600 hover:shadow-lift
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-vermilion focus-visible:ring-offset-2;
   }
 
   .btn-dark {
@@ -47,34 +47,36 @@
 
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2 rounded-md border border-steel-200
-           bg-white px-6 py-3.5 font-display text-sm font-semibold uppercase tracking-widest text-ink
+           bg-cream-50 px-6 py-3.5 font-display text-sm font-semibold uppercase tracking-widest text-ink
            transition-all duration-200 hover:border-ink hover:shadow-card;
   }
 
+  /* Eyebrows sit on both cream and ink sections, so vermilion is the one
+     brand colour with enough contrast against either. */
   .eyebrow {
-    @apply font-sans text-[0.8rem] font-bold uppercase tracking-[0.12em] text-brass;
+    @apply font-sans text-[0.8rem] font-bold uppercase tracking-[0.12em] text-vermilion;
   }
 
   .section {
     @apply py-14 sm:py-16;
   }
 
-  /* Warm sheen for dark sections — a soft brass glow */
+  /* Warm sheen for dark sections — a soft sage glow */
   .glass-sheen {
     background-image: linear-gradient(
       135deg,
-      rgba(176, 141, 87, 0.1) 0%,
-      rgba(176, 141, 87, 0) 45%
+      rgba(157,190,183, 0.1) 0%,
+      rgba(157,190,183, 0) 45%
     );
   }
 
   /* Branded photo placeholder — reads as an intentional tile, never a broken image */
   .photo-frame {
-    background-color: #26262a;
+    background-color: #1f2225;
     background-image:
-      radial-gradient(circle at 25% 20%, rgba(176, 141, 87, 0.22), transparent 45%),
-      radial-gradient(circle at 80% 80%, rgba(200, 16, 46, 0.14), transparent 45%),
-      linear-gradient(135deg, #2a2a2e 0%, #1a1a1a 100%);
+      radial-gradient(circle at 25% 20%, rgba(157,190,183, 0.22), transparent 45%),
+      radial-gradient(circle at 80% 80%, rgba(231,50,19, 0.14), transparent 45%),
+      linear-gradient(135deg, #2c3033 0%, #16181a 100%);
   }
 }
 

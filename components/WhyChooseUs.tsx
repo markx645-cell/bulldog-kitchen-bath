@@ -68,7 +68,7 @@ function PillarIcon({ name }: { name: string }) {
 
 export default function WhyChooseUs() {
   return (
-    <section className="section bg-stone">
+    <section className="section bg-cream-200">
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">Why Cincinnati chooses us</p>
@@ -85,9 +85,9 @@ export default function WhyChooseUs() {
           {pillars.map((p) => (
             <div
               key={p.title}
-              className="rounded-xl border border-steel-200 bg-white p-6 shadow-card transition-colors hover:border-brass"
+              className="rounded-xl border border-steel-200 bg-cream-50 p-6 shadow-card transition-colors hover:border-sage"
             >
-              <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-crimson/10 text-crimson">
+              <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-vermilion/10 text-vermilion">
                 <PillarIcon name={p.icon} />
               </span>
               <h3 className="font-display text-lg font-bold text-ink">{p.title}</h3>

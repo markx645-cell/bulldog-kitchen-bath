@@ -9,7 +9,7 @@ export default function ProcessSteps({
 }) {
   const steps = compact ? process.slice(0, 4) : process;
   return (
-    <section className={`section ${dark ? 'bg-ink' : 'bg-white'}`}>
+    <section className={`section ${dark ? 'bg-ink' : 'bg-cream-50'}`}>
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">How it works</p>
@@ -28,11 +28,11 @@ export default function ProcessSteps({
               key={s.step}
               className={`rounded-xl border p-6 shadow-card transition-colors ${
                 dark
-                  ? 'border-ink-700 bg-ink-800 hover:border-brass'
-                  : 'border-steel-200 bg-white hover:border-brass'
+                  ? 'border-ink-700 bg-ink-800 hover:border-sage'
+                  : 'border-steel-200 bg-cream-50 hover:border-sage'
               }`}
             >
-              <span className={`font-display text-4xl font-bold ${dark ? 'text-brass-400' : 'text-brass'}`}>
+              <span className={`font-display text-4xl font-bold ${dark ? 'text-sage-400' : 'text-sage'}`}>
                 {s.step}
               </span>
               <h3 className={`mt-3 font-display text-lg font-bold ${dark ? 'text-white' : 'text-ink'}`}>

@@ -37,7 +37,7 @@ export default function ConsultPage() {
             <div className="mt-8 space-y-5">
               {estimateSteps.map((s) => (
                 <div key={s.step} className="flex gap-4">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-crimson font-display text-sm font-bold text-white">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-vermilion font-display text-sm font-bold text-white">
                     {s.step}
                   </span>
                   <div>

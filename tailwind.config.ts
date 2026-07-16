@@ -9,32 +9,39 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Bulldog brand palette — kitchen & bath edition
-        crimson: {
-          DEFAULT: '#C8102E', // Bulldog collar red
-          600: '#A00C24',
-          700: '#84091D',
+        // Three-colour palette (Cristiana Couceiro reference):
+        // cream #efe6d5 · sage #9dbeb7 · vermilion #e73213
+        vermilion: {
+          DEFAULT: '#e73213', // primary accent / CTA
+          600: '#c4270d',
+          700: '#9d1e09',
         },
-        // Warm brass — the premium kitchen/bath accent (fixtures, hardware)
-        brass: {
-          DEFAULT: '#B08D57',
-          400: '#C4A876',
-          600: '#8F6F3E',
+        sage: {
+          DEFAULT: '#9dbeb7', // secondary accent — sings on dark
+          400: '#b9d2cd', // lighter, for dark backgrounds
+          600: '#6f9a91', // darker, for legibility on cream
+          900: '#33514c',
         },
+        cream: {
+          DEFAULT: '#efe6d5', // page background
+          50: '#f7f2e7', // lifted card surface
+          200: '#e3d7bf', // section wash
+        },
+        // Near-black, as the poster uses for its figures. Kept for text and
+        // dark sections so the three brand colours stay legible.
         ink: {
-          DEFAULT: '#1A1A1A', // deep charcoal
-          900: '#0C0C0C',
-          800: '#1F1F22',
-          700: '#2A2A2E',
+          DEFAULT: '#16181a',
+          900: '#0d0f10',
+          800: '#1f2225',
+          700: '#2c3033',
         },
+        // Warm neutrals tuned to sit on cream rather than white.
         steel: {
-          DEFAULT: '#57575F',
-          400: '#9C9CA5',
-          300: '#D2D2D8',
-          200: '#E6E6EA',
+          DEFAULT: '#5b5850',
+          400: '#98938a',
+          300: '#cec7b8',
+          200: '#ded6c4',
         },
-        bone: '#FBFAF8', // warm off-white
-        stone: '#F1EEE9', // warm section wash
       },
       fontFamily: {
         display: ['var(--font-display)', 'Archivo', 'system-ui', 'sans-serif'],
@@ -42,8 +49,8 @@ const config: Config = {
         serif: ['var(--font-serif)', 'Georgia', 'Cambria', 'serif'],
       },
       boxShadow: {
-        card: '0 1px 3px rgba(0,0,0,0.06), 0 8px 24px rgba(26,26,26,0.06)',
-        lift: '0 12px 40px rgba(26,26,26,0.12)',
+        card: '0 1px 3px rgba(22,24,26,0.06), 0 8px 24px rgba(22,24,26,0.06)',
+        lift: '0 12px 40px rgba(22,24,26,0.14)',
       },
       maxWidth: {
         container: '1200px',

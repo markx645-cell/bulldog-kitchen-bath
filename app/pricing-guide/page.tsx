@@ -51,7 +51,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <section className="section bg-white">
+      <section className="section bg-cream-50">
         <div className="container-x">
           <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-steel-200 shadow-card">
             <table className="w-full text-left">
@@ -63,9 +63,9 @@ export default function PricingPage() {
               </thead>
               <tbody className="divide-y divide-steel-200">
                 {rows.map((r) => (
-                  <tr key={r.project} className="bg-white even:bg-stone/60">
+                  <tr key={r.project} className="bg-cream-50 even:bg-cream-200/60">
                     <td className="px-6 py-4 text-sm text-ink">{r.project}</td>
-                    <td className="px-6 py-4 text-right font-display font-bold text-crimson">{r.range}</td>
+                    <td className="px-6 py-4 text-right font-display font-bold text-vermilion">{r.range}</td>
                   </tr>
                 ))}
               </tbody>

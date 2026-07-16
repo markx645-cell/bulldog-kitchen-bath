@@ -37,13 +37,13 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      <section className="section bg-white">
+      <section className="section bg-cream-50">
         <div className="container-x">
           <div className="mx-auto max-w-3xl">
             <ol className="relative border-l-2 border-steel-200">
               {process.map((s) => (
                 <li key={s.step} className="mb-10 ml-6 last:mb-0" data-reveal>
-                  <span className="absolute -left-[1.15rem] flex h-9 w-9 items-center justify-center rounded-full bg-crimson font-display text-sm font-bold text-white ring-4 ring-bone">
+                  <span className="absolute -left-[1.15rem] flex h-9 w-9 items-center justify-center rounded-full bg-vermilion font-display text-sm font-bold text-white ring-4 ring-cream">
                     {s.step}
                   </span>
                   <h2 className="font-display text-xl font-bold text-ink">{s.title}</h2>
@@ -55,7 +55,7 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      <section className="section bg-stone">
+      <section className="section bg-cream-200">
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">At your consultation</p>
@@ -65,8 +65,8 @@ export default function ProcessPage() {
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-3" data-reveal data-reveal-stagger>
             {estimateSteps.map((s) => (
-              <div key={s.step} className="rounded-xl border border-steel-200 bg-white p-6 shadow-card">
-                <span className="font-display text-3xl font-bold text-brass">{s.step}</span>
+              <div key={s.step} className="rounded-xl border border-steel-200 bg-cream-50 p-6 shadow-card">
+                <span className="font-display text-3xl font-bold text-sage-600">{s.step}</span>
                 <h3 className="mt-3 font-display text-lg font-bold text-ink">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-steel">{s.body}</p>
               </div>

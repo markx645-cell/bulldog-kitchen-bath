@@ -32,7 +32,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section bg-white">
+      <section className="section bg-cream-50">
         <div className="container-x">
           <div className="grid items-center gap-10 lg:grid-cols-2">
             <Photo label="The Bulldog Team" src="/photos/about-team.jpg" alt="Bulldog Kitchen & Bath remodeling team at work" className="aspect-[4/3] w-full shadow-lift" sizes="(max-width:1024px) 100vw, 50vw" />
@@ -67,7 +67,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-stone">
+      <section className="bg-cream-200">
         <div className="container-x grid gap-8 py-14 text-center sm:grid-cols-2 lg:grid-cols-4">
           {[
             { stat: stats.homesRemodeled, label: 'Kitchens & baths remodeled' },
@@ -76,7 +76,7 @@ export default function AboutPage() {
             { stat: 'Fixed', label: 'Price guarantee' },
           ].map((s) => (
             <div key={s.label}>
-              <p className="font-display text-4xl font-extrabold text-crimson">{s.stat}</p>
+              <p className="font-display text-4xl font-extrabold text-vermilion">{s.stat}</p>
               <p className="mt-2 text-sm text-steel">{s.label}</p>
             </div>
           ))}

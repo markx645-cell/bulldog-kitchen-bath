@@ -14,12 +14,12 @@ export default function Footer() {
               <span className="block font-display text-2xl font-extrabold uppercase tracking-tight text-white">
                 Bulldog
               </span>
-              <span className="mt-0.5 block whitespace-nowrap font-display text-[13px] font-bold uppercase tracking-[0.12em] text-brass-400">
+              <span className="mt-0.5 block whitespace-nowrap font-display text-[13px] font-bold uppercase tracking-[0.12em] text-sage-400">
                 Kitchen &amp; Bath
               </span>
             </span>
           </Link>
-          <p className="mt-4 font-display text-sm uppercase tracking-widest text-brass-400">
+          <p className="mt-4 font-display text-sm uppercase tracking-widest text-sage-400">
             {site.headline}
           </p>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/80">
@@ -62,7 +62,7 @@ export default function Footer() {
         <div>
           <h4 className="mb-4 font-display text-sm uppercase tracking-widest text-white">Get in Touch</h4>
           <div className="space-y-1 text-sm text-white/80">
-            <a href={site.phoneHref} className="block font-bold text-white hover:text-brass-400">
+            <a href={site.phoneHref} className="block font-bold text-white hover:text-sage-400">
               {site.phone}
             </a>
             <a href={`mailto:${site.email}`} className="block hover:text-white">{site.email}</a>

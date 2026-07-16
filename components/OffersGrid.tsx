@@ -3,7 +3,7 @@ import { offers } from '@/content/site';
 
 export default function OffersGrid() {
   return (
-    <section className="section bg-white">
+    <section className="section bg-cream-50">
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">Getting started</p>
@@ -15,9 +15,9 @@ export default function OffersGrid() {
           {offers.map((o) => (
             <div
               key={o.headline}
-              className="flex flex-col rounded-2xl border border-steel-200 bg-stone p-8 shadow-card"
+              className="flex flex-col rounded-2xl border border-steel-200 bg-cream-200 p-8 shadow-card"
             >
-              <span className="w-fit rounded-full bg-crimson px-3 py-1 font-display text-[11px] font-bold uppercase tracking-wide text-white">
+              <span className="w-fit rounded-full bg-vermilion px-3 py-1 font-display text-[11px] font-bold uppercase tracking-wide text-white">
                 {o.tag}
               </span>
               <h3 className="mt-4 font-display text-2xl font-bold text-ink">{o.headline}</h3>

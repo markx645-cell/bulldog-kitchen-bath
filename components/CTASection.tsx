@@ -26,12 +26,12 @@ export default function CTASection({
                 and swap this placeholder for a <video> element when ready. */}
             <div className="photo-frame mt-6 flex aspect-video w-full items-center justify-center overflow-hidden rounded-xl shadow-lift ring-1 ring-white/10">
               <div className="flex flex-col items-center gap-3 px-4 text-center">
-                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-crimson/90 text-white shadow-lift">
+                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-vermilion/90 text-white shadow-lift">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </span>
-                <span className="font-display text-[11px] font-bold uppercase tracking-[0.15em] text-brass-400">
+                <span className="font-display text-[11px] font-bold uppercase tracking-[0.15em] text-sage-400">
                   Remodel walkthrough — coming soon
                 </span>
               </div>

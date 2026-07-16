@@ -50,7 +50,7 @@ export default function Header() {
             height="18"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="#C8102E"
+            stroke="#e73213"
             strokeWidth="2.5"
             className={`shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`}
             aria-hidden="true"
@@ -65,7 +65,7 @@ export default function Header() {
                 key={child.href}
                 href={child.href}
                 onClick={close}
-                className="block py-2 text-sm text-ink hover:text-crimson"
+                className="block py-2 text-sm text-ink hover:text-vermilion"
               >
                 {child.label}
               </Link>
@@ -92,7 +92,7 @@ export default function Header() {
                 <span className="whitespace-nowrap text-[15px] font-semibold text-white">Offer:</span>
                 <Link
                   href="/financing"
-                  className="inline-flex items-center whitespace-nowrap rounded-sm bg-brass px-4 py-1 text-[15px] font-bold leading-none text-white shadow-sm transition hover:opacity-90"
+                  className="inline-flex items-center whitespace-nowrap rounded-sm bg-sage px-4 py-1 text-[15px] font-bold leading-none text-ink shadow-sm transition hover:opacity-90"
                 >
                   {OFFER_TEXT}
                 </Link>
@@ -116,7 +116,7 @@ export default function Header() {
         </div>
 
         {/* Mobile bar 1 */}
-        <div className="bg-bone md:hidden">
+        <div className="bg-cream md:hidden">
           <div className="relative h-9 w-full overflow-hidden font-display text-[9px] font-bold uppercase tracking-normal">
             <div
               className={`absolute inset-0 flex items-center justify-center px-3 transition-all duration-500 ease-in-out ${
@@ -128,7 +128,7 @@ export default function Header() {
                 <Link
                   href="/financing"
                   onClick={close}
-                  className="inline-flex items-center whitespace-nowrap rounded-sm bg-brass px-3 py-1 text-[12px] font-bold leading-none text-white shadow-sm"
+                  className="inline-flex items-center whitespace-nowrap rounded-sm bg-sage px-3 py-1 text-[12px] font-bold leading-none text-ink shadow-sm"
                 >
                   {OFFER_TEXT}
                 </Link>
@@ -151,7 +151,7 @@ export default function Header() {
             <Link
               href="/consult"
               onClick={close}
-              className="flex w-1/2 items-center justify-center whitespace-nowrap bg-crimson px-3 font-display text-sm font-extrabold uppercase tracking-wide text-white"
+              className="flex w-1/2 items-center justify-center whitespace-nowrap bg-vermilion px-3 font-display text-sm font-extrabold uppercase tracking-wide text-white"
               style={{ clipPath: 'polygon(0 0, 100% 0, calc(100% - 24px) 100%, 0 100%)' }}
             >
               Book Estimate
@@ -160,7 +160,7 @@ export default function Header() {
               href={site.phoneHref}
               className="flex w-1/2 items-center justify-center gap-2 whitespace-nowrap font-display text-lg font-extrabold tabular-nums text-white"
             >
-              <PhoneIcon className="text-brass-400" />
+              <PhoneIcon className="text-sage-400" />
               {site.phone}
             </a>
           </div>
@@ -168,7 +168,7 @@ export default function Header() {
       </header>
 
       {/* Main bar */}
-      <div className="border-b border-steel-200 bg-white/95 backdrop-blur md:sticky md:top-9 md:z-40">
+      <div className="border-b border-steel-200 bg-cream-50/95 backdrop-blur md:sticky md:top-9 md:z-40">
         <div className="flex h-20 w-full items-center justify-between gap-4 px-5 sm:px-8">
           <Link href="/" className="flex items-center gap-2 sm:gap-3" aria-label={site.name} onClick={close}>
             <Image src="/logo.png" alt={site.name} width={64} height={64} className="h-11 w-auto sm:h-14" priority />
@@ -176,7 +176,7 @@ export default function Header() {
               <span className="block font-display text-lg font-extrabold uppercase tracking-tight text-ink sm:text-2xl">
                 Bulldog
               </span>
-              <span className="mt-0.5 block whitespace-nowrap font-display text-[10px] font-bold uppercase tracking-[0.12em] text-brass-600 sm:text-[13px]">
+              <span className="mt-0.5 block whitespace-nowrap font-display text-[10px] font-bold uppercase tracking-[0.12em] text-sage-600 sm:text-[13px]">
                 Kitchen &amp; Bath
               </span>
             </span>
@@ -192,7 +192,7 @@ export default function Header() {
             >
               <Link
                 href={nav.services.href}
-                className="flex items-center gap-1 px-3 py-2 font-display text-sm font-semibold uppercase tracking-wide text-ink hover:text-crimson"
+                className="flex items-center gap-1 px-3 py-2 font-display text-sm font-semibold uppercase tracking-wide text-ink hover:text-vermilion"
               >
                 {nav.services.label}
                 <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
@@ -200,12 +200,12 @@ export default function Header() {
                 </svg>
               </Link>
               {openMenu === nav.services.label && (
-                <div className="absolute left-0 top-full max-h-[70vh] w-72 overflow-y-auto rounded-lg border border-steel-200 bg-white p-2 shadow-lift">
+                <div className="absolute left-0 top-full max-h-[70vh] w-72 overflow-y-auto rounded-lg border border-steel-200 bg-cream-50 p-2 shadow-lift">
                   {nav.services.children.map((child) => (
                     <Link
                       key={child.href}
                       href={child.href}
-                      className="block rounded-md px-3 py-2 text-sm text-ink hover:bg-stone hover:text-crimson"
+                      className="block rounded-md px-3 py-2 text-sm text-ink hover:bg-cream-200 hover:text-vermilion"
                     >
                       {child.label}
                     </Link>
@@ -218,7 +218,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="px-3 py-2 font-display text-sm font-semibold uppercase tracking-wide text-ink hover:text-crimson"
+                className="px-3 py-2 font-display text-sm font-semibold uppercase tracking-wide text-ink hover:text-vermilion"
               >
                 {item.label}
               </Link>
@@ -232,7 +232,7 @@ export default function Header() {
             >
               <Link
                 href={nav.about.href}
-                className="flex items-center gap-1 px-3 py-2 font-display text-sm font-semibold uppercase tracking-wide text-ink hover:text-crimson"
+                className="flex items-center gap-1 px-3 py-2 font-display text-sm font-semibold uppercase tracking-wide text-ink hover:text-vermilion"
               >
                 {nav.about.label}
                 <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
@@ -240,12 +240,12 @@ export default function Header() {
                 </svg>
               </Link>
               {openMenu === nav.about.label && (
-                <div className="absolute right-0 top-full w-56 rounded-lg border border-steel-200 bg-white p-2 shadow-lift">
+                <div className="absolute right-0 top-full w-56 rounded-lg border border-steel-200 bg-cream-50 p-2 shadow-lift">
                   {nav.about.children.map((child) => (
                     <Link
                       key={child.href}
                       href={child.href}
-                      className="block rounded-md px-3 py-2 text-sm text-ink hover:bg-stone hover:text-crimson"
+                      className="block rounded-md px-3 py-2 text-sm text-ink hover:bg-cream-200 hover:text-vermilion"
                     >
                       {child.label}
                     </Link>
@@ -260,7 +260,7 @@ export default function Header() {
               <span className="mb-0.5 block font-display text-[10px] font-bold uppercase tracking-[0.25em] text-steel">
                 Call Us
               </span>
-              <span className="block whitespace-nowrap font-display text-2xl font-extrabold tabular-nums text-ink transition-colors hover:text-crimson">
+              <span className="block whitespace-nowrap font-display text-2xl font-extrabold tabular-nums text-ink transition-colors hover:text-vermilion">
                 {site.phone}
               </span>
             </a>
@@ -292,7 +292,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-b border-steel-200 bg-white lg:hidden">
+        <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-b border-steel-200 bg-cream-50 lg:hidden">
           <nav className="container-x flex flex-col py-1">
             {renderMobileGroup(nav.services)}
             {nav.simple.map((item) => (
@@ -300,7 +300,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={close}
-                className="border-b border-steel-200 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-ink hover:text-crimson"
+                className="border-b border-steel-200 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-ink hover:text-vermilion"
               >
                 {item.label}
               </Link>

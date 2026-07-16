@@ -24,7 +24,7 @@ export default function LocationsLinks({ showHeader = true }: { showHeader?: boo
   if (leftover.length) groups.push({ region: 'More Communities We Serve', items: leftover });
 
   return (
-    <section className="section bg-stone">
+    <section className="section bg-cream-200">
       <div className="container-x">
         {showHeader && (
           <div className="mx-auto max-w-2xl text-center">
@@ -40,7 +40,7 @@ export default function LocationsLinks({ showHeader = true }: { showHeader?: boo
         )}
 
         <details
-          className={`group mx-auto max-w-5xl overflow-hidden rounded-xl border border-steel-200 bg-white shadow-card ${
+          className={`group mx-auto max-w-5xl overflow-hidden rounded-xl border border-steel-200 bg-cream-50 shadow-card ${
             showHeader ? 'mt-8' : ''
           }`}
         >
@@ -51,7 +51,7 @@ export default function LocationsLinks({ showHeader = true }: { showHeader?: boo
               height="18"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="#C8102E"
+              stroke="#e73213"
               strokeWidth="2.5"
               className="shrink-0 transition-transform group-open:rotate-180"
               aria-hidden="true"
@@ -62,7 +62,7 @@ export default function LocationsLinks({ showHeader = true }: { showHeader?: boo
           <div className="border-t border-steel-200 px-6 py-6">
             {groups.map((g) => (
               <div key={g.region} className="mb-7 last:mb-0">
-                <p className="mb-3 flex items-center gap-2 font-display text-xs font-bold uppercase tracking-widest text-brass-600">
+                <p className="mb-3 flex items-center gap-2 font-display text-xs font-bold uppercase tracking-widest text-sage-600">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                     <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" />
                     <circle cx="12" cy="10" r="2.5" />
@@ -74,7 +74,7 @@ export default function LocationsLinks({ showHeader = true }: { showHeader?: boo
                     <Link
                       key={it.slug}
                       href={`/kitchen-bath-remodeling/${it.slug}`}
-                      className="text-sm text-steel transition-colors hover:text-crimson hover:underline"
+                      className="text-sm text-steel transition-colors hover:text-vermilion hover:underline"
                     >
                       Remodeling in {it.city}
                     </Link>

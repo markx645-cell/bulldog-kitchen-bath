@@ -39,12 +39,12 @@ export default function FinancingPage() {
         </div>
       </section>
 
-      <section className="section bg-white">
+      <section className="section bg-cream-50">
         <div className="container-x">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-reveal data-reveal-stagger>
             {financing.points.map((p) => (
-              <div key={p.small} className="rounded-xl border border-steel-200 bg-stone p-6 text-center shadow-card">
-                <p className="font-display text-4xl font-extrabold text-crimson">{p.big}</p>
+              <div key={p.small} className="rounded-xl border border-steel-200 bg-cream-200 p-6 text-center shadow-card">
+                <p className="font-display text-4xl font-extrabold text-vermilion">{p.big}</p>
                 <p className="mt-2 text-sm leading-relaxed text-steel">{p.small}</p>
               </div>
             ))}
@@ -52,7 +52,7 @@ export default function FinancingPage() {
         </div>
       </section>
 
-      <section className="section bg-stone">
+      <section className="section bg-cream-200">
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">Simple &amp; fast</p>
@@ -60,8 +60,8 @@ export default function FinancingPage() {
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-3" data-reveal data-reveal-stagger>
             {steps.map((s) => (
-              <div key={s.step} className="rounded-xl border border-steel-200 bg-white p-6 shadow-card">
-                <span className="font-display text-3xl font-bold text-brass">{s.step}</span>
+              <div key={s.step} className="rounded-xl border border-steel-200 bg-cream-50 p-6 shadow-card">
+                <span className="font-display text-3xl font-bold text-sage-600">{s.step}</span>
                 <h3 className="mt-3 font-display text-lg font-bold text-ink">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-steel">{s.body}</p>
               </div>

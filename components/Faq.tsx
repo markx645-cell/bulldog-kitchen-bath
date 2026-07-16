@@ -23,7 +23,7 @@ export default function Faq({
   };
 
   return (
-    <section className="section bg-white">
+    <section className="section bg-cream-50">
       <div className="container-x">
         {withSchema && (
           <script
@@ -46,7 +46,7 @@ export default function Faq({
                     height="20"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#C8102E"
+                    stroke="#e73213"
                     strokeWidth="2.5"
                     className="shrink-0 transition-transform group-open:rotate-180"
                     aria-hidden="true"
@@ -60,7 +60,7 @@ export default function Faq({
           </div>
           <p className="mt-8 text-center text-sm text-steel">
             Still have a question?{' '}
-            <a href={site.phoneHref} className="font-semibold text-crimson hover:underline">
+            <a href={site.phoneHref} className="font-semibold text-vermilion hover:underline">
               Call {site.phone}
             </a>{' '}
             — we’re happy to help.

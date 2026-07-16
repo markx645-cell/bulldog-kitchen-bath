@@ -3,7 +3,7 @@ import { financing } from '@/content/site';
 
 export default function FinancingBand() {
   return (
-    <section className="section bg-stone">
+    <section className="section bg-cream-200">
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">Financing</p>
@@ -16,9 +16,9 @@ export default function FinancingBand() {
           {financing.points.map((p) => (
             <div
               key={p.small}
-              className="rounded-xl border border-steel-200 bg-white p-6 text-center shadow-card"
+              className="rounded-xl border border-steel-200 bg-cream-50 p-6 text-center shadow-card"
             >
-              <p className="font-display text-4xl font-extrabold text-crimson">{p.big}</p>
+              <p className="font-display text-4xl font-extrabold text-vermilion">{p.big}</p>
               <p className="mt-2 text-sm leading-relaxed text-steel">{p.small}</p>
             </div>
           ))}

@@ -30,17 +30,17 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <section className="section bg-white">
+      <section className="section bg-cream-50">
         <div className="container-x">
           <div className="grid gap-8 md:grid-cols-2" data-reveal data-reveal-stagger>
             {projects.map((p) => (
               <article
                 key={p.slug}
-                className="flex flex-col overflow-hidden rounded-2xl border border-steel-200 bg-white shadow-card"
+                className="flex flex-col overflow-hidden rounded-2xl border border-steel-200 bg-cream-50 shadow-card"
               >
                 <Photo label={`${p.type} · ${p.location}`} src={p.image} alt={p.title} className="aspect-[16/10] w-full" rounded="rounded-none" sizes="(max-width:768px) 100vw, 50vw" />
                 <div className="flex flex-1 flex-col p-6">
-                  <p className="font-display text-[11px] font-bold uppercase tracking-widest text-brass-600">
+                  <p className="font-display text-[11px] font-bold uppercase tracking-widest text-sage-600">
                     {p.type} · {p.location}
                   </p>
                   <h2 className="mt-1 font-display text-xl font-bold text-ink">{p.title}</h2>
@@ -48,7 +48,7 @@ export default function ProjectsPage() {
                   <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-1.5">
                     {p.details.map((d) => (
                       <li key={d} className="flex items-center gap-2 text-sm text-ink">
-                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brass" />
+                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-sage-600" />
                         {d}
                       </li>
                     ))}
@@ -59,7 +59,7 @@ export default function ProjectsPage() {
           </div>
           <p className="mx-auto mt-10 max-w-xl text-center text-steel">
             Want to see work like this in your own home?{' '}
-            <Link href="/consult" className="font-semibold text-crimson hover:underline">
+            <Link href="/consult" className="font-semibold text-vermilion hover:underline">
               Book a free consultation
             </Link>{' '}
             and we’ll bring the ideas.

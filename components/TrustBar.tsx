@@ -42,14 +42,14 @@ function TrustIcon({ name }: { name: string }) {
 
 export default function TrustBar() {
   return (
-    <section className="bg-bone">
+    <section className="bg-cream">
       <div className="container-x grid grid-cols-1 gap-x-6 gap-y-8 py-14 sm:grid-cols-2 sm:gap-y-12 sm:py-16 lg:grid-cols-4 lg:gap-y-0">
         {trustPoints.map((p) => (
           <div
             key={p.stat}
             className="mx-auto flex w-full max-w-[16rem] items-center gap-4 sm:mx-0 sm:w-auto sm:max-w-none lg:border-l-2 lg:border-steel-300 lg:py-5 lg:pl-8 lg:first:border-l-0 lg:first:pl-0"
           >
-            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-crimson text-white">
+            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-vermilion text-white">
               <TrustIcon name={p.icon} />
             </span>
             <div>

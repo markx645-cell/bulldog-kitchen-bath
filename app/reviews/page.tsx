@@ -32,14 +32,14 @@ export default function ReviewsPage() {
           <div className="mt-6 flex flex-wrap gap-3">
             {stats.ratings.map((r) => (
               <span key={r.platform} className="rounded-full border border-ink-700 bg-ink-800 px-4 py-2 font-display text-sm font-semibold text-white">
-                {r.platform} <span className="text-brass-400">{r.score}</span>
+                {r.platform} <span className="text-sage-400">{r.score}</span>
               </span>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section bg-white">
+      <section className="section bg-cream-50">
         <div className="container-x">
           <ReviewsList reviews={reviews} />
         </div>

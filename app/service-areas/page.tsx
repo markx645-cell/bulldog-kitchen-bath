@@ -33,13 +33,13 @@ export default function ServiceAreasPage() {
         </div>
       </section>
 
-      <section className="section bg-white">
+      <section className="section bg-cream-50">
         <div className="container-x">
           <div className="grid gap-10 sm:grid-cols-2">
             {serviceAreas.map((g) => (
               <div key={g.region}>
                 <h2 className="flex items-center gap-2 font-display text-lg font-bold text-ink">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8102E" strokeWidth="2" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e73213" strokeWidth="2" aria-hidden="true">
                     <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" />
                     <circle cx="12" cy="10" r="2.5" />
                   </svg>
@@ -53,7 +53,7 @@ export default function ServiceAreasPage() {
                       <Link
                         key={c}
                         href={`/kitchen-bath-remodeling/${loc.slug}`}
-                        className="text-sm text-steel transition-colors hover:text-crimson hover:underline"
+                        className="text-sm text-steel transition-colors hover:text-vermilion hover:underline"
                       >
                         {label}
                       </Link>

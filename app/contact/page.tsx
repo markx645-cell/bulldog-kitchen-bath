@@ -53,13 +53,13 @@ export default function ContactPage() {
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 {items.map((it) => (
                   <div key={it.label} className="flex items-start gap-3 rounded-xl border border-ink-700 bg-ink-800 p-4">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-crimson text-white">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-vermilion text-white">
                       <InfoIcon name={it.icon} />
                     </span>
                     <div>
-                      <p className="font-display text-[11px] font-bold uppercase tracking-wide text-brass-400">{it.label}</p>
+                      <p className="font-display text-[11px] font-bold uppercase tracking-wide text-sage-400">{it.label}</p>
                       {it.href ? (
-                        <a href={it.href} className="mt-0.5 block font-semibold text-white hover:text-brass-400">{it.value}</a>
+                        <a href={it.href} className="mt-0.5 block font-semibold text-white hover:text-sage-400">{it.value}</a>
                       ) : (
                         <p className="mt-0.5 text-sm text-white/85">{it.value}</p>
                       )}

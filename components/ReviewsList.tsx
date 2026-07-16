@@ -18,13 +18,13 @@ function Card({ r }: { r: Review }) {
     <figure className="flex flex-col rounded-xl border border-ink-700 bg-ink p-6 shadow-lift">
       <div className="flex items-center justify-between">
         <Stars count={r.rating} />
-        <span className="font-display text-[11px] font-bold uppercase tracking-wide text-brass-400">
+        <span className="font-display text-[11px] font-bold uppercase tracking-wide text-sage-400">
           {r.service}
         </span>
       </div>
       <blockquote className="mt-3 flex-1 text-sm leading-relaxed text-white/90">“{r.quote}”</blockquote>
       <figcaption className="mt-4 flex items-center gap-3 border-t border-ink-700 pt-4">
-        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-crimson font-display text-lg font-bold text-white">
+        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-vermilion font-display text-lg font-bold text-white">
           {r.name.charAt(0)}
         </span>
         <span>

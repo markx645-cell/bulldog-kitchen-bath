@@ -33,3 +33,5 @@ next-env.d.ts
 
 # Raw video source drops at repo root
 /*.mp4
+
+.vercel

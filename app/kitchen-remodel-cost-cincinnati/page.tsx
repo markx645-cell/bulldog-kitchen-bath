@@ -69,28 +69,28 @@ export default function CostPage() {
         </div>
       </section>
 
-      <section className="section bg-white">
+      <section className="section bg-cream-50">
         <div className="container-x">
           <div className="grid gap-6 lg:grid-cols-3" data-reveal data-reveal-stagger>
             {tiers.map((t) => (
               <div
                 key={t.name}
                 className={`flex flex-col rounded-2xl border p-8 shadow-card ${
-                  t.featured ? 'border-crimson ring-2 ring-crimson/20' : 'border-steel-200'
+                  t.featured ? 'border-vermilion ring-2 ring-vermilion/20' : 'border-steel-200'
                 }`}
               >
                 {t.featured && (
-                  <span className="mb-3 w-fit rounded-full bg-crimson px-3 py-1 font-display text-[11px] font-bold uppercase tracking-wide text-white">
+                  <span className="mb-3 w-fit rounded-full bg-vermilion px-3 py-1 font-display text-[11px] font-bold uppercase tracking-wide text-white">
                     Most common
                   </span>
                 )}
                 <h2 className="font-display text-xl font-bold text-ink">{t.name}</h2>
-                <p className="mt-2 font-display text-3xl font-extrabold text-crimson">{t.range}</p>
+                <p className="mt-2 font-display text-3xl font-extrabold text-vermilion">{t.range}</p>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-steel">{t.blurb}</p>
                 <ul className="mt-5 space-y-2">
                   {t.points.map((p) => (
                     <li key={p} className="flex items-center gap-2 text-sm text-ink">
-                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brass" />
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-sage-600" />
                       {p}
                     </li>
                   ))}
@@ -105,7 +105,7 @@ export default function CostPage() {
         </div>
       </section>
 
-      <section className="section bg-stone">
+      <section className="section bg-cream-200">
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">What moves the price</p>
@@ -115,7 +115,7 @@ export default function CostPage() {
           </div>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-reveal data-reveal-stagger>
             {factors.map((f) => (
-              <div key={f.title} className="rounded-xl border border-steel-200 bg-white p-6 shadow-card">
+              <div key={f.title} className="rounded-xl border border-steel-200 bg-cream-50 p-6 shadow-card">
                 <h3 className="font-display text-base font-bold text-ink">{f.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-steel">{f.body}</p>
               </div>

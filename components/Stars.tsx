@@ -9,8 +9,8 @@ export default function Stars({ count = 5, className = '' }: { count?: number; c
             width="16"
             height="16"
             viewBox="0 0 20 20"
-            fill={filled ? '#B08D57' : 'none'}
-            stroke="#B08D57"
+            fill={filled ? '#9dbeb7' : 'none'}
+            stroke="#9dbeb7"
             strokeWidth={1.4}
             strokeLinejoin="round"
             aria-hidden="true"

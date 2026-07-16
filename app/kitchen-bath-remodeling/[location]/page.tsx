@@ -73,7 +73,7 @@ export default async function LocationPage({
           className="absolute inset-0 opacity-[0.16]"
           style={{
             backgroundImage:
-              'radial-gradient(circle at 18% 22%, rgba(176,141,87,0.5), transparent 45%), radial-gradient(circle at 85% 70%, rgba(200,16,46,0.35), transparent 42%)',
+              'radial-gradient(circle at 18% 22%, rgba(157,190,183,0.5), transparent 45%), radial-gradient(circle at 85% 70%, rgba(231,50,19,0.35), transparent 42%)',
           }}
         />
         <div className="container-x relative py-12 lg:py-16">
@@ -89,7 +89,7 @@ export default async function LocationPage({
               <p className="eyebrow">{loc.region} · {loc.state}</p>
               <h1 className="mt-3 font-display text-4xl font-bold leading-[1.03] tracking-tight text-white sm:text-5xl">
                 Kitchen &amp; Bath Remodeling in{' '}
-                <span className="text-brass-400">{loc.city}</span>
+                <span className="text-sage-400">{loc.city}</span>
               </h1>
               <p className="mt-5 max-w-xl leading-relaxed text-white/85">
                 {loc.character} Bulldog Kitchen &amp; Bath brings one organized team, fixed pricing, and
@@ -108,7 +108,7 @@ export default async function LocationPage({
       </section>
 
       {/* Local intro */}
-      <section className="section bg-white">
+      <section className="section bg-cream-50">
         <div className="container-x">
           <div className="mx-auto max-w-3xl text-center">
             <p className="eyebrow">Local expertise</p>
@@ -126,7 +126,7 @@ export default async function LocationPage({
       </section>
 
       {/* Services in this city */}
-      <section className="section bg-stone">
+      <section className="section bg-cream-200">
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">What we remodel in {loc.city}</p>
@@ -139,11 +139,11 @@ export default async function LocationPage({
               <Link
                 key={s.slug}
                 href={`/${s.slug}`}
-                className="group flex flex-col rounded-xl border border-steel-200 bg-white p-6 shadow-card transition-all hover:-translate-y-1 hover:border-brass hover:shadow-lift"
+                className="group flex flex-col rounded-xl border border-steel-200 bg-cream-50 p-6 shadow-card transition-all hover:-translate-y-1 hover:border-sage hover:shadow-lift"
               >
-                <h3 className="font-display text-base font-bold text-ink group-hover:text-crimson">{s.name}</h3>
+                <h3 className="font-display text-base font-bold text-ink group-hover:text-vermilion">{s.name}</h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-steel">{s.short}</p>
-                <span className="mt-3 inline-flex items-center gap-1 font-display text-xs font-bold uppercase tracking-wide text-crimson">
+                <span className="mt-3 inline-flex items-center gap-1 font-display text-xs font-bold uppercase tracking-wide text-vermilion">
                   Learn more
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="transition-transform group-hover:translate-x-1">
                     <path d="M5 12h14M13 6l6 6-6 6" />
@@ -159,7 +159,7 @@ export default async function LocationPage({
       <ProcessSteps compact />
 
       {/* Local reviews */}
-      <section className="section bg-white">
+      <section className="section bg-cream-50">
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">Near {loc.city}</p>
