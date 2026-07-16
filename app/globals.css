@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-display: 'Archivo', system-ui, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bone text-ink antialiased;
+    font-feature-settings: 'ss01', 'cv01';
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+  }
+
+  ::selection {
+    @apply bg-crimson text-white;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-container px-5 sm:px-8;
+  }
+
+  /* Primary CTA — bulldog crimson */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-crimson px-6 py-3.5
+           font-display text-sm font-semibold uppercase tracking-widest text-white
+           transition-all duration-200 hover:bg-crimson-600 hover:shadow-lift
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-crimson focus-visible:ring-offset-2;
+  }
+
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-ink px-6 py-3.5
+           font-display text-sm font-semibold uppercase tracking-widest text-white
+           transition-all duration-200 hover:bg-ink-700 hover:shadow-lift;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-steel-200
+           bg-white px-6 py-3.5 font-display text-sm font-semibold uppercase tracking-widest text-ink
+           transition-all duration-200 hover:border-ink hover:shadow-card;
+  }
+
+  .eyebrow {
+    @apply font-sans text-[0.8rem] font-bold uppercase tracking-[0.12em] text-brass;
+  }
+
+  .section {
+    @apply py-14 sm:py-16;
+  }
+
+  /* Warm sheen for dark sections — a soft brass glow */
+  .glass-sheen {
+    background-image: linear-gradient(
+      135deg,
+      rgba(176, 141, 87, 0.1) 0%,
+      rgba(176, 141, 87, 0) 45%
+    );
+  }
+
+  /* Branded photo placeholder — reads as an intentional tile, never a broken image */
+  .photo-frame {
+    background-color: #26262a;
+    background-image:
+      radial-gradient(circle at 25% 20%, rgba(176, 141, 87, 0.22), transparent 45%),
+      radial-gradient(circle at 80% 80%, rgba(200, 16, 46, 0.14), transparent 45%),
+      linear-gradient(135deg, #2a2a2e 0%, #1a1a1a 100%);
+  }
+}
+
+/* ---------- Scroll reveal ----------
+   Sections start hidden and fade/rise in as they enter the viewport.
+   Gated behind html.reveal-js (added pre-paint only when JS runs), so
+   no-JS visitors and crawlers always see fully rendered content, and
+   users who prefer reduced motion get everything shown instantly. */
+@media (prefers-reduced-motion: no-preference) {
+  html.reveal-js main section,
+  html.reveal-js [data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+  }
+
+  html.reveal-js main section.reveal-in,
+  html.reveal-js [data-reveal].reveal-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  html.reveal-js [data-reveal-stagger].reveal-in > * {
+    animation: reveal-rise 0.6s ease-out both;
+  }
+  html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(2) { animation-delay: 0.08s; }
+  html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(3) { animation-delay: 0.16s; }
+  html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(4) { animation-delay: 0.24s; }
+  html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(5) { animation-delay: 0.32s; }
+  html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(n + 6) { animation-delay: 0.4s; }
+}
+
+@keyframes reveal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
