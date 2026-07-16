@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { site } from '@/content/site';
 import { projects } from '@/content/projects';
-import Breadcrumbs from '@/components/Breadcrumbs';
 import ProjectsBrowser from './ProjectsBrowser';
 
 export const metadata: Metadata = {
@@ -39,7 +38,6 @@ export default function ProjectsPage() {
       {/* ---------- HERO ---------- */}
       <section className="section">
         <div className="container-x">
-          <Breadcrumbs items={[{ label: 'Projects', href: '/projects' }]} className="mb-8" />
           <p className="eyebrow">Featured Projects</p>
           <h1 className="mt-4 max-w-3xl font-display text-5xl text-ink md:text-7xl">
             Transformations That Speak For Themselves

@@ -19,7 +19,6 @@ import {
 } from 'lucide-react';
 import { site } from '@/content/site';
 import { services } from '@/content/services';
-import Breadcrumbs from '@/components/Breadcrumbs';
 import FaqAccordion from './FaqAccordion';
 
 const service = services['basement-remodel'];
@@ -121,13 +120,6 @@ export default function BasementRemodelPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/40 to-ink/30" />
         <div className="container-x relative flex min-h-[80vh] flex-col justify-end py-24 text-white">
-          <Breadcrumbs
-            items={[
-              { label: 'Services', href: '/services' },
-              { label: 'Basement Remodels', href: '/basement-remodel' },
-            ]}
-            className="mb-8"
-          />
           <p className="font-sans text-xs font-medium uppercase tracking-[0.3em] text-crimson">
             Basement Remodeling in Cincinnati, OH
           </p>

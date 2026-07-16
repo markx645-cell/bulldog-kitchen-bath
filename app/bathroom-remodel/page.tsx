@@ -16,7 +16,6 @@ import {
 } from 'lucide-react';
 import { site } from '@/content/site';
 import { services } from '@/content/services';
-import Breadcrumbs from '@/components/Breadcrumbs';
 import CTASection from '@/components/CTASection';
 
 const service = services['bathroom-remodel'];
@@ -96,13 +95,6 @@ export default function BathroomRemodelPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/40 to-ink/50" />
         <div className="container-x relative flex min-h-[88vh] flex-col justify-end py-24 text-white">
-          <Breadcrumbs
-            items={[
-              { label: 'Services', href: '/services' },
-              { label: 'Full Bathroom Remodels', href: '/bathroom-remodel' },
-            ]}
-            className="mb-8"
-          />
           <p className="font-sans text-xs font-medium uppercase tracking-[0.3em] text-crimson">
             Full Bathroom Remodels
           </p>

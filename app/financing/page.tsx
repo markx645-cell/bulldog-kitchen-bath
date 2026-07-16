@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Phone, Clock, ShieldCheck, Calculator, CheckCircle2 } from 'lucide-react';
 import { site } from '@/content/site';
-import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Financing — Bulldog Kitchen & Bath | Cincinnati, OH',
@@ -66,7 +65,6 @@ export default function FinancingPage() {
       {/* ---------- HERO ---------- */}
       <section className="section">
         <div className="container-x">
-          <Breadcrumbs items={[{ label: 'Financing', href: '/financing' }]} className="mb-8" />
           <p className="eyebrow">Affordable Remodel Financing</p>
           <h1 className="mt-4 max-w-3xl font-display text-5xl text-ink md:text-7xl">
             Build Now. Pay Over Time.

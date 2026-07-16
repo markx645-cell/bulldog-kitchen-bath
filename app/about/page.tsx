@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Home as HomeIcon, Users, ShieldCheck, Award } from 'lucide-react';
 import { values } from '@/content/site';
-import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'About — Bulldog Kitchen & Bath | Cincinnati, OH',
@@ -20,7 +19,6 @@ export default function AboutPage() {
       {/* ---------- HERO ---------- */}
       <section className="section">
         <div className="container-x">
-          <Breadcrumbs items={[{ label: 'About', href: '/about' }]} className="mb-8" />
           <p className="eyebrow">About Bulldog</p>
           <h1 className="mt-4 max-w-3xl font-display text-5xl text-ink md:text-7xl">
             Cincinnati’s Most Organized Remodeler

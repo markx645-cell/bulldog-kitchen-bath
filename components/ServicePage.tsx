@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { Phone, Check, ShieldCheck, Clock, BadgeCheck } from 'lucide-react';
 import { site } from '@/content/site';
 import type { Service } from '@/content/services';
-import Breadcrumbs from '@/components/Breadcrumbs';
 import Faq from '@/components/Faq';
 
 // Mirrors the production ServicePage exactly:
@@ -30,13 +29,6 @@ export default function ServicePage({ service: s }: { service: Service }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/30 to-ink/40" />
         <div className="container-x relative flex min-h-[80vh] flex-col justify-end py-24 text-white">
-          <Breadcrumbs
-            items={[
-              { label: 'Services', href: '/services' },
-              { label: s.name, href: `/${s.slug}` },
-            ]}
-            className="mb-8"
-          />
           {s.eyebrow && (
             <p className="font-sans text-xs font-medium uppercase tracking-[0.3em] text-crimson">
               {s.eyebrow}

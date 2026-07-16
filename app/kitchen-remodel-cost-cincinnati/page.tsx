@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { site } from '@/content/site';
-import Breadcrumbs from '@/components/Breadcrumbs';
 import Faq from '@/components/Faq';
 import FinancingBand from '@/components/FinancingBand';
 import CTASection from '@/components/CTASection';
@@ -57,7 +56,6 @@ export default function CostPage() {
       <section className="relative overflow-hidden">
         <div className="glass-sheen absolute inset-0" />
         <div className="container-x relative py-14 lg:py-20">
-          <Breadcrumbs items={[{ label: 'Kitchen Remodel Cost', href: '/kitchen-remodel-cost-cincinnati' }]} className="mb-6" />
           <p className="eyebrow">2026 Pricing Guide</p>
           <h1 className="mt-3 max-w-3xl font-display text-4xl  leading-[1.05] text-ink sm:text-5xl">
             What a kitchen remodel really costs in Cincinnati

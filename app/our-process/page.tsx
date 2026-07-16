@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, Check, Search, ClipboardList, PencilRuler, Hammer, Smile } from 'lucide-react';
 import { site } from '@/content/site';
-import Breadcrumbs from '@/components/Breadcrumbs';
 import StepNav from './StepNav';
 
 export const metadata: Metadata = {
@@ -152,7 +151,6 @@ export default function OurProcessPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/40 to-ink/40" />
         <div className="container-x relative flex min-h-[70vh] flex-col justify-end py-24 text-white">
-          <Breadcrumbs items={[{ label: 'Our Process', href: '/our-process' }]} className="mb-8" />
           <p className="font-sans text-xs font-medium uppercase tracking-[0.3em] text-crimson">
             The Bulldog Way
           </p>

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { site } from '@/content/site';
-import Breadcrumbs from '@/components/Breadcrumbs';
 import QuoteForm from '@/components/QuoteForm';
 
 export const metadata: Metadata = {
@@ -39,7 +38,6 @@ export default function ContactPage() {
       <section className="relative overflow-hidden">
         <div className="glass-sheen absolute inset-0" />
         <div className="container-x relative py-12 lg:py-16">
-          <Breadcrumbs items={[{ label: 'Contact', href: '/contact' }]} className="mb-6" />
           <div className="grid items-start gap-10 lg:grid-cols-[1fr_0.9fr]">
             <div>
               <p className="eyebrow">Get in touch</p>

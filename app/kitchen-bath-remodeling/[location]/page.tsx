@@ -5,7 +5,6 @@ import { notFound } from 'next/navigation';
 import { site } from '@/content/site';
 import { locations, locationBySlug } from '@/content/locations';
 import { serviceList } from '@/content/services';
-import Breadcrumbs from '@/components/Breadcrumbs';
 import ProcessSteps from '@/components/ProcessSteps';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import Faq from '@/components/Faq';
@@ -77,13 +76,6 @@ export default async function LocationPage({
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="container-x relative py-12 lg:py-16">
-          <Breadcrumbs
-            items={[
-              { label: 'Services', href: '/services' },
-              { label: loc.city, href: `/kitchen-bath-remodeling/${loc.slug}` },
-            ]}
-            className="mb-6"
-          />
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="animate-fade-up">
               <p className="eyebrow">

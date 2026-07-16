@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { site, estimateSteps } from '@/content/site';
-import Breadcrumbs from '@/components/Breadcrumbs';
 import QuoteForm from '@/components/QuoteForm';
 
 export const metadata: Metadata = {
@@ -15,7 +14,6 @@ export default function ConsultPage() {
     <section className="relative overflow-hidden">
       <div className="glass-sheen absolute inset-0" />
       <div className="container-x relative py-12 lg:py-16">
-        <Breadcrumbs items={[{ label: 'Book a Consult', href: '/consult' }]} className="mb-6" />
         <div className="grid items-start gap-10 lg:grid-cols-[1fr_0.9fr]">
           <div className="lg:pt-2">
             <p className="eyebrow">Free · No obligation</p>

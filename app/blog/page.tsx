@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { site } from '@/content/site';
-import Breadcrumbs from '@/components/Breadcrumbs';
 import CTASection from '@/components/CTASection';
 
 export const metadata: Metadata = {
@@ -24,7 +23,6 @@ export default function BlogPage() {
     <>
       <section className="relative overflow-hidden">
         <div className="container-x relative py-14 lg:py-20">
-          <Breadcrumbs items={[{ label: 'Blog', href: '/blog' }]} className="mb-6" />
           <p className="eyebrow">From the team</p>
           <h1 className="mt-3 max-w-3xl font-display text-4xl  leading-[1.05] text-ink sm:text-5xl lg:text-6xl">
             Blog
