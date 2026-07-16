@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { site } from '@/content/site';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import FinancingBand from '@/components/FinancingBand';
@@ -7,83 +8,120 @@ import Faq from '@/components/Faq';
 import CTASection from '@/components/CTASection';
 
 export const metadata: Metadata = {
-  title: 'Pricing Guide — Kitchen & Bath Remodel Costs in Cincinnati',
+  title: 'Remodeling Pricing Guide — Cincinnati, OH',
   description:
-    'Honest 2026 pricing for kitchen, bathroom, and basement remodels in Greater Cincinnati. See typical ranges by project, understand what drives cost, and learn how our fixed-price guarantee works.',
+    'What a kitchen, bathroom or walk-in shower remodel actually costs in Cincinnati. Real ranges, what drives them, and the Price Guarantee that locks your number.',
   alternates: { canonical: '/pricing-guide' },
 };
 
-const rows = [
-  { project: 'Guest / hall bathroom remodel', range: '$12k – $25k' },
-  { project: 'Primary suite bathroom remodel', range: '$25k – $55k' },
-  { project: 'Tub-to-shower conversion', range: '$8k – $18k' },
-  { project: 'Walk-in shower (custom tile)', range: '$10k – $22k' },
-  { project: 'Walk-in tub install', range: '$12k – $25k' },
-  { project: 'Bathroom flooring (with heat)', range: '$3k – $9k' },
-  { project: 'Kitchen refresh', range: '$18k – $35k' },
-  { project: 'Mid-range kitchen remodel', range: '$35k – $65k' },
-  { project: 'Full-gut / open-concept kitchen', range: '$65k – $120k+' },
-  { project: 'Basement finish', range: '$35k – $90k' },
+// Ported from the production pricing guide (TILES).
+const tiles = [
+  {
+    title: 'What is the Cost of a Kitchen Remodel?',
+    label: 'Kitchen Pricing',
+    href: '/kitchens',
+    range: '$35K – $120K+',
+    img: '/assets/service-kitchen.webp',
+    blurb:
+      'From cabinet refreshes to full gut renovations with custom cabinetry, quartz countertops and new layouts.',
+  },
+  {
+    title: 'What is the Cost of a Bathroom Remodel?',
+    label: 'Bathroom Pricing',
+    href: '/bathroom-remodel',
+    range: '$15K – $55K+',
+    img: '/assets/bathroom-hero.webp',
+    blurb:
+      'Hall baths, primary suites, walk-in showers, walk-in tubs and tub/shower combos — finished by our W-2 craftsmen.',
+  },
+  {
+    title: 'What Does a Walk-In Shower Cost?',
+    label: 'Walk-In Shower Pricing',
+    href: '/walk-in-showers',
+    range: '$8K – $20K+',
+    img: '/assets/service-walk-in-shower.webp',
+    blurb:
+      'Most one-day shower conversions, plus fully custom tile showers with frameless glass and curbless entries.',
+  },
 ];
 
 const pricingFaqs = [
-  { q: 'How does your fixed-price guarantee work?', a: 'After your design consultation, we provide one itemized, all-in price. Barring scope you choose to add mid-project — which you approve in writing first — the number in your contract is exactly what you pay.' },
-  { q: 'Why are these ranges so wide?', a: 'Because materials, layout, and the age of your home genuinely move the number. Cabinetry, countertops, tile, and fixtures all span a wide range, and older Cincinnati homes sometimes need electrical or plumbing updates. The only way to know your exact price is a free consultation.' },
-  { q: 'Do you charge for the consultation and design?', a: 'The initial design consultation is free. For larger, design-intensive projects we may use a design agreement that credits toward your build — we will always tell you up front.' },
-  { q: 'Can I finance the whole project?', a: 'Yes — including 0% interest for 18 months on approved credit, with financing available up to $100,000. Checking your rate is a soft pull that will not affect your credit score.' },
+  {
+    q: 'What’s included in your fixed pricing?',
+    a: 'Everything: design, cabinetry, countertops, tile, fixtures, lighting, electrical, plumbing, painting, project management, post-project cleaning, and our Lifetime Workmanship Warranty.',
+  },
+  {
+    q: 'Why are the ranges so wide?',
+    a: 'Because size, layout changes, materials and finish level genuinely move the number. A one-day acrylic shower conversion and a curbless custom tile shower are different projects. Your exact price comes from a free in-home estimate.',
+  },
+  {
+    q: 'Will the price change once you start?',
+    a: 'No. What you sign for is what you pay — that’s our Price Guarantee. We plan and stage everything before demo day, so there are no mid-project change orders.',
+  },
+  {
+    q: 'Do you offer financing?',
+    a: 'Yes. We partner with top home-improvement lenders to offer 0% intro APR plans, fixed monthly payments up to 120 months, and same-as-cash options. Pre-qualification takes 60 seconds with a soft credit pull only — no impact to your score.',
+  },
 ];
 
 export default function PricingPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-sage">
-        <div className="glass-sheen absolute inset-0" />
+      <section className="relative overflow-hidden">
         <div className="container-x relative py-14 lg:py-20">
           <Breadcrumbs items={[{ label: 'Pricing Guide', href: '/pricing-guide' }]} className="mb-6" />
-          <p className="eyebrow">2026 Pricing Guide</p>
-          <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl">
-            Honest remodel pricing for Cincinnati
+          <p className="eyebrow">Pricing Guide · Cincinnati, OH</p>
+          <h1 className="mt-3 max-w-3xl font-display text-4xl  leading-[1.05] text-ink sm:text-5xl lg:text-6xl">
+            What Does a Remodel Actually Cost?
           </h1>
-          <p className="mt-5 max-w-2xl leading-relaxed text-ink/75">
-            No “call for pricing” games. Here are the typical ranges Greater Cincinnati homeowners
-            spend by project — and a fixed-price guarantee once we scope yours.
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink/75">
+            No “call for pricing” runaround. Here are the real ranges Cincinnati homeowners invest —
+            and every project is quoted line-by-line and locked with our Price Guarantee.
           </p>
         </div>
       </section>
 
-      <section className="section bg-cream">
+      <section className="section">
         <div className="container-x">
-          <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-steel-200 shadow-card">
-            <table className="w-full text-left">
-              <thead className="bg-vermilion text-ink">
-                <tr>
-                  <th className="px-6 py-4 font-display text-sm font-bold uppercase tracking-wide">Project</th>
-                  <th className="px-6 py-4 text-right font-display text-sm font-bold uppercase tracking-wide">Typical Range</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-steel-200">
-                {rows.map((r) => (
-                  <tr key={r.project} className="bg-cream even:bg-cream-200/60">
-                    <td className="px-6 py-4 text-sm text-ink">{r.project}</td>
-                    <td className="px-6 py-4 text-right font-display font-bold text-vermilion">{r.range}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="grid gap-6 lg:grid-cols-3" data-reveal data-reveal-stagger>
+            {tiles.map((t) => (
+              <Link key={t.label} href={t.href} className="group glass glass-hover flex flex-col overflow-hidden">
+                <div className="relative aspect-[16/10] w-full overflow-hidden">
+                  <Image
+                    src={t.img}
+                    alt={t.title}
+                    fill
+                    sizes="(max-width:1024px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-7">
+                  <p className="font-sans text-[11px] font-medium uppercase tracking-[0.18em] text-ink/60">
+                    {t.label}
+                  </p>
+                  <h2 className="mt-2 font-display text-2xl text-ink">{t.title}</h2>
+                  <p className="mt-3 font-display text-3xl text-ink">{t.range}</p>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-ink/75">{t.blurb}</p>
+                  <span className="mt-5 inline-flex items-center gap-1.5 font-sans text-xs font-medium uppercase tracking-[0.18em] text-ink">
+                    See details
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+                      <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                  </span>
+                </div>
+              </Link>
+            ))}
           </div>
-          <p className="mx-auto mt-6 max-w-2xl text-center text-sm text-steel">
-            Ranges are typical for Greater Cincinnati &amp; Northern Kentucky in 2026 and vary with
-            materials, layout, and home age. Your fixed quote comes from a free consultation.
+          <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-ink/60">
+            Ranges reflect typical Cincinnati-area projects. Larger or non-standard layouts are quoted
+            individually — call {site.phone} and we’ll talk it through.
           </p>
-          <div className="mt-8 flex justify-center">
-            <Link href="/consult" className="btn-primary">Get Your Fixed Price</Link>
-          </div>
         </div>
       </section>
 
       <FinancingBand />
       <Faq faqs={pricingFaqs} heading="Pricing questions, answered" />
-      <CTASection withForm heading="Want your exact number?" sub={`Book a free design consultation for one honest, itemized, fixed price. No pressure — or call ${site.phone}.`} />
+      <CTASection withForm heading="Want your exact number?" />
     </>
   );
 }

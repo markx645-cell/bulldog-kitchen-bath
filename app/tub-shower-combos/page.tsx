@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import ServicePage from '@/components/ServicePage';
-import { tubShower as service } from '@/content/services';
+import { services } from '@/content/services';
+
+const service = services['tub-shower-combos'];
 
 export const metadata: Metadata = {
   title: service.metaTitle,
   description: service.metaDescription,
-  alternates: { canonical: `/${service.slug}` },
+  alternates: { canonical: '/tub-shower-combos' },
 };
 
 export default function Page() {

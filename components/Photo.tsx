@@ -44,13 +44,13 @@ export default function Photo({
     >
       <span className="pointer-events-none absolute inset-0 opacity-40 [background-image:linear-gradient(135deg,rgba(255,255,255,0.05)_0%,transparent_40%)]" />
       <div className="flex flex-col items-center gap-2 px-4 text-center">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9dbeb7" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#d01d21" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <rect x="3" y="4" width="18" height="14" rx="2" />
           <circle cx="8.5" cy="9" r="1.6" />
           <path d="M21 15l-5-5L5 18" />
         </svg>
         {label && (
-          <span className="font-display text-[11px] font-bold uppercase tracking-[0.15em] text-sage-400">
+          <span className="font-sans text-[11px] font-bold uppercase tracking-[0.15em] text-crimson">
             {label}
           </span>
         )}

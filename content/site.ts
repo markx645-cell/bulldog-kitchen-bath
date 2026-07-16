@@ -1,312 +1,202 @@
 // Canonical business facts for Bulldog Kitchen & Bath.
-// Single source of truth — every page pulls from here.
+// Ported verbatim from the production export (speedy-kitchen-copy-5a2fe50f).
 
 export const site = {
   name: 'Bulldog Kitchen & Bath',
   shortName: 'Bulldog Kitchen & Bath',
   parent: 'Bulldog Remodel Group',
-  tagline: 'Built by One Team.',
+  tagline: 'Built to last, backed for life.',
   headline: 'Beautiful Kitchens & Baths. Built by One Team.',
-  founded: 2009,
-  yearsInBusiness: '15+',
+  positioning: 'Cincinnati’s most organized remodeler',
   url: 'https://bulldogkitchenbath.com',
   phone: '(513) 657-3750',
-  phoneHref: 'tel:+15136573750',
-  email: 'hello@bulldogkitchenbath.com',
+  phoneHref: 'tel:5136573750',
+  // The real site publishes locality only — no street address.
   address: {
-    street: '4030 Smith Rd, Suite 200',
     city: 'Cincinnati',
     state: 'OH',
-    zip: '45209',
   },
-  serviceArea: 'Greater Cincinnati & Northern Kentucky',
+  serviceArea: 'Cincinnati, OH and the surrounding OH, KY & IN tri-state area',
+  serviceAreaShort: 'Ohio, Kentucky & Indiana',
   hours: 'Mon–Fri 9am–5pm',
 } as const;
 
-export const stats = {
-  homesRemodeled: '850+',
-  googleRating: '4.9',
-  reviewsLabel: 'hundreds of 5-star reviews',
-  ratings: [
-    { platform: 'Google', score: '4.9' },
-    { platform: 'BBB', score: 'A+' },
-    { platform: 'Houzz', score: '5.0' },
-    { platform: 'Angi', score: '4.9' },
+// Trust band — exactly the four the production ServicePage shows.
+export const trustPoints = [
+  { icon: 'shield', label: 'Lifetime Warranty' },
+  { icon: 'badge', label: 'Best Price Guarantee' },
+  { icon: 'clock', label: 'Rapid Turnaround' },
+  { icon: 'check', label: 'In-House Installers' },
+] as const;
+
+// "Why Cincinnati Chooses Us" — the six real differentiators.
+export const pillars = [
+  {
+    icon: 'concierge',
+    title: 'Concierge Project Management',
+    body: 'A dedicated on-site Project Manager oversees every trade, every detail, every day. Daily updates, dust barriers, floor protection, and a final professional cleaning.',
+  },
+  {
+    icon: 'design',
+    title: 'Design-Led with In-House Designers',
+    body: 'No cookie-cutter packages. A dedicated interior designer guides curated selections of cabinetry, countertops, tile, lighting, and finishes — with 3D renderings before we build.',
+  },
+  {
+    icon: 'oneteam',
+    title: 'One Team, One Contract',
+    body: 'Forget juggling multiple contractors and invoices. Design, materials, trades, and project management all happen under one accountable roof.',
+  },
+  {
+    icon: 'clock',
+    title: 'Faster Turnarounds, Less Disruption',
+    body: 'An engineered process gets your kitchen or bath done in a fraction of the time of a traditional remodel — without sacrificing craft.',
+  },
+  {
+    icon: 'pricing',
+    title: 'Fixed Pricing, Zero Surprises',
+    body: 'An itemized, fixed-price contract that includes every material, finish, and scope detail. No hidden fees. No mid-project change orders.',
+  },
+  {
+    icon: 'shield',
+    title: 'Lifetime Workmanship Warranty',
+    body: 'Every cabinet, countertop, tile, and fixture we install is backed for life. If it isn’t right, we make it right — quickly and professionally.',
+  },
+] as const;
+
+// The real 7-step homepage process.
+export const process = [
+  { step: '01', title: 'Discovery & Design', body: 'We meet at your home to discuss your vision, take measurements, and explore layouts with initial renderings and selections.' },
+  { step: '02', title: 'Design Refinement', body: 'We refine your design based on your feedback, aligning layouts and selections with your style, function, and budget.' },
+  { step: '03', title: 'Final Approval', body: 'You sign off on all selections and we issue your fixed-price contract. Every detail locked in. No scope creep.' },
+  { step: '04', title: 'Planning & Preparation', body: 'We order and stage all materials, verify final measurements, and coordinate every licensed trade before Day 1.' },
+  { step: '05', title: 'Installation', body: 'Your Project Manager oversees demolition, cabinetry, countertops, tile, plumbing, electrical, and finishing. Daily updates throughout.' },
+  { step: '06', title: 'Final Walkthrough', body: 'We complete fine-tuning and professionally clean your entire home. Your new space is spotless and ready to enjoy.' },
+  { step: '07', title: 'Lifetime Warranty', body: 'You receive your warranty packet and care guidelines. We stand behind our work for life — just a call away.' },
+] as const;
+
+// What happens at the free in-home estimate — the first three real process
+// steps, which is exactly what the visit covers.
+export const estimateSteps = [
+  {
+    step: '01',
+    title: 'Discovery & Design',
+    body: 'We meet at your home to discuss your vision, take measurements, and explore layouts with initial renderings and selections.',
+  },
+  {
+    step: '02',
+    title: 'Design Refinement',
+    body: 'We refine your design based on your feedback, aligning layouts and selections with your style, function, and budget.',
+  },
+  {
+    step: '03',
+    title: 'Final Approval',
+    body: 'You sign off on all selections and we issue your fixed-price contract. Every detail locked in. No scope creep.',
+  },
+] as const;
+
+// What the company stands for (About page).
+export const values = [
+  { icon: 'home', title: 'Locally Owned', body: 'Cincinnati-based and Cincinnati-staffed. We answer to our neighbors.' },
+  { icon: 'oneteam', title: 'In-House Crews', body: 'No rotating subcontractors. Our team handles demo through finish.' },
+  { icon: 'shield', title: 'Lifetime Warranty', body: 'Every project is backed by our Lifetime Workmanship Warranty.' },
+  { icon: 'pricing', title: 'Fixed Pricing', body: 'What you sign for is what you pay. No surprise change orders.' },
+] as const;
+
+export const warranty = {
+  headline: 'The Lifetime Workmanship Warranty',
+  lead: 'Every cabinet, countertop, tile, and fixture we install is backed for life. If it isn’t right, we make it right — quickly and professionally.',
+  points: [
+    { title: 'Backed for life', body: 'Every project is backed by our Lifetime Workmanship Warranty, for as long as you own the home.' },
+    { title: 'One number to call', body: 'You receive your warranty packet and care guidelines at the final walkthrough. We’re just a call away.' },
+    { title: 'In-house installers', body: 'No rotating subcontractors. Our team handles demo through finish — and stands behind it.' },
   ],
 } as const;
 
-export const trustPoints = [
-  { icon: 'star', stat: '4.9★', label: 'Hundreds of 5-star reviews' },
-  { icon: 'medal', stat: '850+', label: 'Cincinnati kitchens & baths' },
-  { icon: 'shield', stat: 'Lifetime', label: 'Workmanship warranty' },
-  { icon: 'clock', stat: 'Fixed', label: 'Price guarantee, no surprises' },
+// Real financing terms, from the production financing page + homepage FAQ.
+export const financing = {
+  headline: 'Flexible financing for your remodel',
+  lead: 'We partner with top home-improvement lenders. Pre-qualification takes 60 seconds with a soft credit pull only — no impact to your score.',
+  points: [
+    { big: '0%', small: 'Intro APR plans available' },
+    { big: '18 mo', small: 'Same-as-cash: no interest if paid in full within the promotional window' },
+    { big: '120 mo', small: 'Fixed monthly payment terms available' },
+    { big: '60 sec', small: 'Pre-qualify with a soft credit pull — no score impact' },
+  ],
+} as const;
+
+// Homepage FAQ — the real eight.
+export const faqs = [
+  { q: 'How long does a typical kitchen or bath remodel take?', a: 'Most full bathroom remodels are completed on-site in 2–5 days, and kitchens in about 7 days. The full process — from initial design meeting to final walkthrough — typically takes 4–8 weeks depending on selections and lead times.' },
+  { q: 'Do you offer financing?', a: 'Yes. We partner with top home-improvement lenders to offer 0% intro APR plans, fixed monthly payments up to 120 months, and same-as-cash options. Pre-qualification takes 60 seconds with a soft credit pull only — no impact to your score. See our Financing page for details.' },
+  { q: 'Do you handle design, demo, and installation?', a: 'Yes. Bulldog Kitchen & Bath is a true one-team remodeler. Our in-house designers, project managers, and licensed trades handle every step under one contract.' },
+  { q: 'Will the quality be the same as a traditional remodel?', a: 'Often better. Because we plan everything before construction starts and use specialized crews, our quality control is tighter. Every component is professionally installed and backed by our Lifetime Workmanship Warranty.' },
+  { q: 'Can I stay in my home during the remodel?', a: 'Yes — most clients do. We isolate the workspace, install protective barriers, and perform daily clean-ups to minimize dust and disruption.' },
+  { q: 'Are my selections limited to pre-set packages?', a: 'Not at all. You have access to a wide range of cabinetry, countertops, tile, and finishes — curated for style, quality, and availability.' },
+  { q: 'What’s included in your fixed pricing?', a: 'Everything: design, cabinetry, countertops, tile, fixtures, lighting, electrical, plumbing, painting, project management, post-project cleaning, and our Lifetime Workmanship Warranty.' },
+  { q: 'Do you offer a warranty on your work?', a: 'Yes. Every project is backed by a Lifetime Workmanship Warranty. If anything ever needs attention, we make it right — quickly and professionally.' },
 ] as const;
 
-// Current offers grid.
+// Two ways to start. Real offers only.
 export const offers = [
   {
     tag: 'Financing',
-    headline: '0% Interest for 18 Months',
-    body: 'Spread your remodel across a year and a half with no interest on approved credit. Soft-pull application, a decision in minutes.',
+    headline: 'Pre-qualify in 60 seconds',
+    body: '0% intro APR plans, fixed monthly payments up to 120 months, and same-as-cash options. Soft credit pull only — no impact to your score.',
     cta: 'See Financing',
     href: '/financing',
   },
   {
     tag: 'No obligation',
-    headline: 'Free Design Consultation',
-    body: 'We walk your space, talk through your wishlist, and hand you a fixed, itemized price — no high-pressure sales, no obligation.',
-    cta: 'Book a Consult',
+    headline: 'Free In-Home Estimate',
+    body: 'We come to you, measure the space, and talk through what’s possible. Fixed pricing before we start — no pressure, no obligation.',
+    cta: 'Book an Estimate',
     href: '/consult',
   },
 ] as const;
 
-// Certifications & affiliations strip.
-export const certifications = [
-  'BBB A+ Accredited',
-  'Licensed & Insured',
-  'In-House Designers',
-  'Lead-Safe Certified',
-  'Lifetime Workmanship Warranty',
-  'Cincinnati Family-Owned',
-] as const;
-
-// "What happens at your free design consultation."
-export const estimateSteps = [
-  {
-    step: '01',
-    title: 'Walk your space',
-    body: 'We measure the room, look at what is working and what is not, and listen to how you actually want to live in it — no sales script.',
-  },
-  {
-    step: '02',
-    title: 'See the fixed price',
-    body: 'You get one clear, itemized number and your financing options laid out, including 0% for 18 months. The price is the price — no change-order games.',
-  },
-  {
-    step: '03',
-    title: 'Meet your one team',
-    body: 'One designer, one project manager, one accountable crew from demo to the final walkthrough. You always know who to call.',
-  },
-] as const;
-
-// Warranty highlight.
-export const warranty = {
-  headline: 'The Bulldog Lifetime Workmanship Warranty',
-  lead: 'Manufacturers warranty their materials. We warranty the work — the tile, the plumbing, the cabinetry, the install — for as long as you own the home.',
-  points: [
-    {
-      title: 'Lifetime workmanship warranty',
-      body: 'Every remodel we build is covered against installation defects for the life of your ownership.',
-    },
-    {
-      title: 'One number to call',
-      body: 'If something is ever off, you call us — not a subcontractor who has moved on. We come back and make it right.',
-    },
-    {
-      title: 'Backed by our own crews',
-      body: 'The people who built it are the people who stand behind it — full-time employees and long-term trade partners, never a rotating cast.',
-    },
-  ],
-} as const;
-
-// Financing detail band.
-export const financing = {
-  headline: 'A beautiful remodel, paid for over time',
-  lead: 'A kitchen or bath you love should not mean draining your savings. Our financing menu is built to keep the monthly number comfortable.',
-  points: [
-    { big: '0%', small: 'Interest for 18 months on approved credit' },
-    { big: '$100k', small: 'Available financing for whole-home projects' },
-    { big: 'Soft pull', small: 'Checking your rate will not affect your credit' },
-    { big: '12 yrs', small: 'Low-payment terms available on larger jobs' },
-  ],
-} as const;
-
-// Value pillars — "Why Cincinnati Chooses Us."
-export const pillars = [
-  {
-    icon: 'concierge',
-    title: 'Concierge Project Management',
-    body: 'One dedicated project manager runs the whole job — scheduling, materials, trades, and updates — so you are never chasing anyone for answers.',
-  },
-  {
-    icon: 'design',
-    title: 'Design-Led, In-House',
-    body: 'Our own designers help you choose layouts, finishes, and fixtures with 3D renderings — you see the room before we swing a hammer.',
-  },
-  {
-    icon: 'oneteam',
-    title: 'One Team, One Contract',
-    body: 'Design, materials, trades, and management all under one roof and one accountable contract. No finger-pointing between vendors.',
-  },
-  {
-    icon: 'clock',
-    title: 'Faster Turnarounds',
-    body: 'Most full bathrooms finish on-site in 2–5 days and kitchens in about a week — because our crews are scheduled tight and stocked ahead.',
-  },
-  {
-    icon: 'pricing',
-    title: 'Fixed-Price Guarantee',
-    body: 'The number in your contract is the number you pay. No mid-project surprises, no creative change orders.',
-  },
-  {
-    icon: 'shield',
-    title: 'Lifetime Workmanship Warranty',
-    body: 'We stand behind every install for as long as you own the home. One call, and we make it right.',
-  },
-] as const;
-
-// "The Bulldog Process" — 7 steps, discovery through lifetime support.
-export const process = [
-  {
-    step: '01',
-    title: 'Discovery Call',
-    body: 'A quick call to understand your space, your goals, and your budget range before we ever set foot in the house.',
-  },
-  {
-    step: '02',
-    title: 'In-Home Consultation',
-    body: 'We measure, photograph, and talk through how you want the room to work. You meet the person who will run your project.',
-  },
-  {
-    step: '03',
-    title: 'Design & 3D Rendering',
-    body: 'Our in-house designers lay out the room and finishes, then show you a 3D rendering so you can see it before you commit.',
-  },
-  {
-    step: '04',
-    title: 'Fixed-Price Proposal',
-    body: 'One itemized, all-in price with your financing options. The number is locked — no change-order surprises.',
-  },
-  {
-    step: '05',
-    title: 'Materials & Scheduling',
-    body: 'We order and stage every material before demo day, so your crew never stalls waiting on a backorder.',
-  },
-  {
-    step: '06',
-    title: 'Build & Concierge Updates',
-    body: 'One accountable crew does the work while your project manager keeps you updated daily and keeps the site clean.',
-  },
-  {
-    step: '07',
-    title: 'Walkthrough & Lifetime Warranty',
-    body: 'We walk the finished room together, fix anything on your punch list, and back the work for as long as you own the home.',
-  },
-] as const;
-
-// Service areas grouped by state, for the service-area block.
+// Grouped for the service-area block. Derived from content/locations.ts.
 export const serviceAreas = [
   {
-    region: 'Cincinnati & Hamilton County, OH',
+    region: 'Ohio',
     cities: [
-      'Hyde Park, OH',
-      'Oakley, OH',
-      'Montgomery, OH',
-      'Blue Ash, OH',
-      'Wyoming, OH',
-      'Madeira, OH',
-      'Indian Hill, OH',
-      'Anderson Township, OH',
-      'Sharonville, OH',
-      'Norwood, OH',
-      'Terrace Park, OH',
-      'Mariemont, OH',
-      'Mt. Lookout, OH',
+      'West Chester, OH', 'Mason, OH', 'Liberty Township, OH', 'Hyde Park, OH', 'Oakley, OH',
+      'Montgomery, OH', 'Blue Ash, OH', 'Loveland, OH', 'Milford, OH', 'Wyoming, OH',
+      'Madeira, OH', 'Indian Hill, OH', 'Anderson Township, OH', 'Sharonville, OH',
+      'Fairfield, OH', 'Hamilton, OH', 'Lebanon, OH', 'Springboro, OH', 'Norwood, OH',
+      'Terrace Park, OH', 'Mariemont, OH', 'Mt. Lookout, OH',
     ],
-  },
-  {
-    region: 'Butler & Warren County, OH',
-    cities: [
-      'West Chester, OH',
-      'Mason, OH',
-      'Liberty Township, OH',
-      'Loveland, OH',
-      'Fairfield, OH',
-      'Hamilton, OH',
-      'Lebanon, OH',
-      'Springboro, OH',
-    ],
-  },
-  {
-    region: 'Clermont County, OH',
-    cities: ['Milford, OH'],
   },
   {
     region: 'Northern Kentucky',
     cities: [
-      'Crestview Hills, KY',
-      'Fort Mitchell, KY',
-      'Edgewood, KY',
-      'Florence, KY',
-      'Union, KY',
-      'Fort Thomas, KY',
-      'Erlanger, KY',
-      'Villa Hills, KY',
+      'Crestview Hills, KY', 'Fort Mitchell, KY', 'Edgewood, KY', 'Florence, KY',
+      'Union, KY', 'Fort Thomas, KY', 'Erlanger, KY', 'Villa Hills, KY',
     ],
   },
 ] as const;
 
 export const serviceCities = serviceAreas.flatMap((a) => [a.region, ...a.cities]);
 
-// Homepage FAQ.
-export const faqs = [
-  {
-    q: 'How long does a remodel take?',
-    a: 'Most full bathroom remodels are completed on-site in 2–5 days, and kitchens in about 7 working days. Larger, design-heavy projects run longer, but you get a firm schedule in your proposal before we start.',
-  },
-  {
-    q: 'Is the price really fixed?',
-    a: 'Yes. Your contract price is all-in and itemized. The only way it changes is if you decide to add scope mid-project — and even then, you approve the number in writing first. No surprise change orders.',
-  },
-  {
-    q: 'Do you handle design, or do I need my own designer?',
-    a: 'We have in-house designers. They help you lay out the space, pick finishes and fixtures, and show you a 3D rendering so you can see the room before we build it. It is all included.',
-  },
-  {
-    q: 'Can I finance my project?',
-    a: 'Yes — including 0% interest for 18 months on approved credit, with financing available up to $100,000 for whole-home projects. Checking your rate is a soft pull that will not affect your credit score.',
-  },
-  {
-    q: 'Do you use subcontractors?',
-    a: 'One accountable team runs your entire job — our own crews and long-term trade partners under a single contract and a single project manager. You always have one number to call.',
-  },
-  {
-    q: 'Is the work guaranteed?',
-    a: 'Every remodel is backed by our lifetime workmanship warranty for as long as you own the home, on top of the manufacturer warranties on your materials and fixtures.',
-  },
-] as const;
-
-// Navigation.
 export const nav = {
   services: {
     label: 'Services',
     href: '/services',
+    // Order and labels match the production header exactly.
     children: [
-      { label: 'Kitchen Remodels', href: '/kitchens' },
-      { label: 'Kitchen Remodeling for Older Homes', href: '/kitchen-remodeling-older-homes' },
-      { label: 'Bathroom Remodels', href: '/bathroom-remodel' },
+      { label: 'Full Bathroom Remodels', href: '/bathroom-remodel' },
       { label: 'Walk-In Showers', href: '/walk-in-showers' },
-      { label: 'Tub-to-Shower Conversions', href: '/tub-shower-combos' },
+      { label: 'Tub Shower Combos', href: '/tub-shower-combos' },
       { label: 'Walk-In Tubs', href: '/walk-in-tubs' },
       { label: 'Bathroom Flooring', href: '/bathroom-flooring' },
+      { label: 'Kitchen Remodels', href: '/kitchens' },
+      { label: 'Kitchen Remodels for Older Homes', href: '/kitchen-remodeling-older-homes' },
       { label: 'Basement Remodels', href: '/basement-remodel' },
-      { label: 'All Services', href: '/services' },
     ],
   },
   simple: [
     { label: 'Our Process', href: '/our-process' },
     { label: 'Pricing', href: '/pricing-guide' },
     { label: 'Financing', href: '/financing' },
+    { label: 'Featured Projects', href: '/projects' },
   ],
-  about: {
-    label: 'More',
-    href: '/about',
-    children: [
-      { label: 'About Us', href: '/about' },
-      { label: 'Projects', href: '/projects' },
-      { label: 'Reviews', href: '/reviews' },
-      { label: 'Service Areas', href: '/service-areas' },
-      { label: 'Contact', href: '/contact' },
-    ],
-  },
 } as const;

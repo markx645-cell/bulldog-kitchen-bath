@@ -29,21 +29,21 @@ function InfoIcon({ name }: { name: string }) {
 export default function ContactPage() {
   const items = [
     { icon: 'phone', label: 'Call or text', value: site.phone, href: site.phoneHref },
-    { icon: 'mail', label: 'Email', value: site.email, href: `mailto:${site.email}` },
-    { icon: 'pin', label: 'Office', value: `${site.address.street}, ${site.address.city}, ${site.address.state} ${site.address.zip}` },
+    { icon: 'pin', label: 'Location', value: `${site.address.city}, ${site.address.state}` },
+    { icon: 'map', label: 'Service area', value: site.serviceAreaShort },
     { icon: 'clock', label: 'Hours', value: site.hours },
   ];
 
   return (
     <>
-      <section className="relative overflow-hidden bg-sage">
+      <section className="relative overflow-hidden">
         <div className="glass-sheen absolute inset-0" />
         <div className="container-x relative py-12 lg:py-16">
           <Breadcrumbs items={[{ label: 'Contact', href: '/contact' }]} className="mb-6" />
           <div className="grid items-start gap-10 lg:grid-cols-[1fr_0.9fr]">
             <div>
               <p className="eyebrow">Get in touch</p>
-              <h1 className="mt-3 font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl">
+              <h1 className="mt-3 font-display text-4xl  leading-[1.05] text-ink sm:text-5xl">
                 Let’s talk about your project
               </h1>
               <p className="mt-5 max-w-lg leading-relaxed text-ink/75">
@@ -53,13 +53,13 @@ export default function ContactPage() {
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 {items.map((it) => (
                   <div key={it.label} className="flex items-start gap-3 rounded-xl border border-ink/20 bg-ink/5 p-4">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-vermilion text-ink">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-crimson text-white">
                       <InfoIcon name={it.icon} />
                     </span>
                     <div>
-                      <p className="font-display text-[11px] font-bold uppercase tracking-wide text-sage-400">{it.label}</p>
+                      <p className="font-sans text-[11px] font-bold uppercase tracking-wide text-crimson">{it.label}</p>
                       {it.href ? (
-                        <a href={it.href} className="mt-0.5 block font-semibold text-ink hover:text-sage-400">{it.value}</a>
+                        <a href={it.href} className="mt-0.5 block font-semibold text-ink hover:text-crimson">{it.value}</a>
                       ) : (
                         <p className="mt-0.5 text-sm text-ink/75">{it.value}</p>
                       )}

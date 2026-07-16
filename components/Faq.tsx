@@ -23,7 +23,7 @@ export default function Faq({
   };
 
   return (
-    <section className="section bg-cream">
+    <section className="section">
       <div className="container-x">
         {withSchema && (
           <script
@@ -34,19 +34,19 @@ export default function Faq({
         <div className="mx-auto max-w-3xl">
           <div className="text-center">
             <p className="eyebrow">{eyebrow}</p>
-            <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">{heading}</h2>
+            <h2 className="mt-2 font-display text-3xl text-ink sm:text-4xl">{heading}</h2>
           </div>
-          <div className="mt-10 divide-y divide-steel-200 border-y border-steel-200">
+          <div className="mt-10 divide-y divide-white/30 border-y border-white/30">
             {faqs.map((f) => (
               <details key={f.q} className="group py-5">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-base font-bold text-ink marker:content-none [&::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-base text-ink marker:content-none [&::-webkit-details-marker]:hidden">
                   {f.q}
                   <svg
                     width="20"
                     height="20"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#e73213"
+                    stroke="#16181a"
                     strokeWidth="2.5"
                     className="shrink-0 transition-transform group-open:rotate-180"
                     aria-hidden="true"
@@ -54,13 +54,13 @@ export default function Faq({
                     <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </summary>
-                <p className="mt-3 leading-relaxed text-steel">{f.a}</p>
+                <p className="mt-3 leading-relaxed text-ink/70">{f.a}</p>
               </details>
             ))}
           </div>
-          <p className="mt-8 text-center text-sm text-steel">
+          <p className="mt-8 text-center text-sm text-ink/70">
             Still have a question?{' '}
-            <a href={site.phoneHref} className="font-semibold text-vermilion hover:underline">
+            <a href={site.phoneHref} className="font-semibold text-ink hover:underline">
               Call {site.phone}
             </a>{' '}
             — we’re happy to help.

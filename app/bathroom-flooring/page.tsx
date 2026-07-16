@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import ServicePage from '@/components/ServicePage';
-import { flooring as service } from '@/content/services';
+import { services } from '@/content/services';
+
+const service = services['bathroom-flooring'];
 
 export const metadata: Metadata = {
   title: service.metaTitle,
   description: service.metaDescription,
-  alternates: { canonical: `/${service.slug}` },
+  alternates: { canonical: '/bathroom-flooring' },
 };
 
 export default function Page() {

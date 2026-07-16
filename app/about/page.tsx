@@ -1,91 +1,106 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { site, stats } from '@/content/site';
+import Image from 'next/image';
+import { Home as HomeIcon, Users, ShieldCheck, Award } from 'lucide-react';
+import { values } from '@/content/site';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import Photo from '@/components/Photo';
-import WhyChooseUs from '@/components/WhyChooseUs';
-import ProcessSteps from '@/components/ProcessSteps';
-import CTASection from '@/components/CTASection';
 
 export const metadata: Metadata = {
-  title: 'About Us — Cincinnati’s Most Organized Remodeler',
+  title: 'About — Bulldog Kitchen & Bath | Cincinnati, OH',
   description:
-    'Bulldog Kitchen & Bath re-engineered remodeling around one accountable team, fixed pricing, and in-house design. Learn how we take the chaos out of kitchen and bath renovations in Cincinnati.',
+    'Bulldog Kitchen & Bath is Cincinnati’s most organized full-service kitchen and bath remodeler. One in-house team. Lifetime workmanship warranty.',
   alternates: { canonical: '/about' },
 };
+
+const icons = { home: HomeIcon, oneteam: Users, shield: ShieldCheck, pricing: Award };
 
 export default function AboutPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-sage">
-        <div className="glass-sheen absolute inset-0" />
-        <div className="container-x relative py-14 lg:py-20">
-          <Breadcrumbs items={[{ label: 'About', href: '/about' }]} className="mb-6" />
-          <p className="eyebrow">About Bulldog Kitchen &amp; Bath</p>
-          <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl">
-            We took the chaos out of remodeling
+      {/* ---------- HERO ---------- */}
+      <section className="section">
+        <div className="container-x">
+          <Breadcrumbs items={[{ label: 'About', href: '/about' }]} className="mb-8" />
+          <p className="eyebrow">About Bulldog</p>
+          <h1 className="mt-4 max-w-3xl font-display text-5xl text-ink md:text-7xl">
+            Cincinnati’s Most Organized Remodeler
           </h1>
-          <p className="mt-5 max-w-2xl leading-relaxed text-ink/75">
-            Most remodels go sideways for the same reasons: too many vendors, no single point of
-            accountability, and a price that moves. We rebuilt the whole process to fix that.
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink/75">
+            We re-engineered the home remodel. What used to take months of chaos, surprise costs, and
+            contractor roulette now happens on a tight, meticulously planned schedule — without
+            sacrificing quality or your peace of mind.
           </p>
         </div>
       </section>
 
-      <section className="section bg-cream">
-        <div className="container-x">
-          <div className="grid items-center gap-10 lg:grid-cols-2">
-            <Photo label="The Bulldog Team" src="/photos/about-team.jpg" alt="Bulldog Kitchen & Bath remodeling team at work" className="aspect-[4/3] w-full shadow-lift" sizes="(max-width:1024px) 100vw, 50vw" />
-            <div>
-              <p className="eyebrow">Our story</p>
-              <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
-                One team, one contract, one number to call
-              </h2>
-              <div className="mt-4 space-y-4 leading-relaxed text-steel">
-                <p>
-                  Bulldog Kitchen &amp; Bath is a {site.parent} company built on a simple idea: a
-                  remodel should be the easiest big project you ever take on, not the most stressful.
-                </p>
-                <p>
-                  So we brought everything under one roof. Our in-house designers plan your space and
-                  show you a 3D rendering. One project manager owns your schedule, your materials, and
-                  your updates. Our own crews and long-term trade partners do the work. And the price
-                  is fixed before demo day — no change-order surprises.
-                </p>
-                <p>
-                  The result is {stats.homesRemodeled} finished Cincinnati kitchens and baths, a{' '}
-                  {stats.googleRating}-star reputation, and a lifetime workmanship warranty we actually
-                  stand behind.
-                </p>
-              </div>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link href="/consult" className="btn-primary">Book a Free Consult</Link>
-                <Link href="/projects" className="btn-ghost">See Our Work</Link>
-              </div>
+      {/* ---------- BUILT ON A BETTER PROCESS ---------- */}
+      <section className="section">
+        <div className="container-x grid items-center gap-12 lg:grid-cols-2">
+          <div className="glass overflow-hidden p-2">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
+              <Image
+                src="/assets/about-kitchen.webp"
+                alt="Bulldog team at work"
+                fill
+                priority
+                sizes="(max-width:1024px) 100vw, 50vw"
+                className="object-cover"
+              />
             </div>
+          </div>
+          <div>
+            <h2 className="mb-6 font-display text-4xl text-ink">Built On A Better Process</h2>
+            <p className="mb-4 leading-relaxed text-ink/75">
+              Every project is led by a dedicated on-site Project Manager, guided by an in-house
+              designer, and executed by licensed trade professionals we trust. One contract. One
+              accountable team.
+            </p>
+            <p className="mb-6 leading-relaxed text-ink/75">
+              Bathrooms in 2–5 days. Kitchens in about 7. All backed for life. That’s the Bulldog
+              way.
+            </p>
+            <Link
+              href="/our-process"
+              className="inline-flex items-center gap-2 border-b border-crimson pb-1 font-sans text-sm tracking-wide text-crimson hover:opacity-80"
+            >
+              See Our Process →
+            </Link>
           </div>
         </div>
       </section>
 
-      <section className="bg-cream-200">
-        <div className="container-x grid gap-8 py-14 text-center sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            { stat: stats.homesRemodeled, label: 'Kitchens & baths remodeled' },
-            { stat: `${stats.googleRating}★`, label: 'Average customer rating' },
-            { stat: 'Lifetime', label: 'Workmanship warranty' },
-            { stat: 'Fixed', label: 'Price guarantee' },
-          ].map((s) => (
-            <div key={s.label}>
-              <p className="font-display text-4xl font-extrabold text-vermilion">{s.stat}</p>
-              <p className="mt-2 text-sm text-steel">{s.label}</p>
-            </div>
-          ))}
+      {/* ---------- WHAT WE STAND FOR ---------- */}
+      <section className="section">
+        <div className="container-x">
+          <h2 className="mb-12 text-center font-display text-4xl text-ink">What We Stand For</h2>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4" data-reveal data-reveal-stagger>
+            {values.map((v) => {
+              const Icon = icons[v.icon as keyof typeof icons] ?? ShieldCheck;
+              return (
+                <div key={v.title} className="border-t-2 border-crimson pt-6">
+                  <Icon className="mb-4 size-8 text-crimson" strokeWidth={1.5} />
+                  <h3 className="mb-3 font-display text-xl text-ink">{v.title}</h3>
+                  <p className="text-sm leading-relaxed text-ink/75">{v.body}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      <WhyChooseUs />
-      <ProcessSteps />
-      <CTASection withForm />
+      {/* ---------- READY TO GET STARTED ---------- */}
+      <section className="section">
+        <div className="container-x">
+          <div className="glass mx-auto max-w-2xl p-12 text-center">
+            <h2 className="mb-6 font-display text-4xl text-ink md:text-5xl">
+              Ready To Get Started?
+            </h2>
+            <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
+              Book A Free Estimate
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

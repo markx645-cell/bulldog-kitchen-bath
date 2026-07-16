@@ -1,82 +1,175 @@
 import type { Metadata } from 'next';
-import { site, financing } from '@/content/site';
+import Link from 'next/link';
+import { Phone, Clock, ShieldCheck, Calculator, CheckCircle2 } from 'lucide-react';
+import { site } from '@/content/site';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import Faq from '@/components/Faq';
-import CTASection from '@/components/CTASection';
 
 export const metadata: Metadata = {
-  title: 'Financing — Pay for Your Remodel Over Time',
+  title: 'Financing — Bulldog Kitchen & Bath | Cincinnati, OH',
   description:
-    'Bulldog Kitchen & Bath financing makes your Cincinnati remodel affordable: 0% interest for 18 months on approved credit, up to $100,000, with a soft-pull application that won’t affect your credit score.',
+    'Flexible financing plans for your Cincinnati kitchen or bath remodel. 0% intro APR, low fixed monthly payments, and same-as-cash options. 60-second pre-qualification, soft pull only.',
   alternates: { canonical: '/financing' },
 };
 
-const steps = [
-  { step: '01', title: 'Check your rate', body: 'A quick soft-pull application shows your options in minutes and will not affect your credit score.' },
-  { step: '02', title: 'Pick your plan', body: 'Choose 0% for 18 months, low-payment long terms, or same-as-cash — whatever keeps the monthly comfortable.' },
-  { step: '03', title: 'Start your remodel', body: 'With financing set, we lock your fixed price and get your project on the schedule.' },
+const plans = [
+  {
+    title: '0% Intro APR',
+    term: 'Up to 18 months',
+    body: 'Pay no interest if the balance is paid in full within the promotional window. Ideal for shorter-term projects.',
+  },
+  {
+    title: 'Low Fixed Monthly',
+    term: '60–120 months',
+    body: 'Predictable, budget-friendly monthly payments with a fixed APR. Spread the cost of a full remodel over time.',
+  },
+  {
+    title: 'Same-As-Cash',
+    term: '12 months',
+    body: 'Use the full project amount today and pay it back interest-free within 12 months. Subject to credit approval.',
+  },
 ];
 
-const financingFaqs = [
-  { q: 'Will checking my rate affect my credit?', a: 'No. The initial application is a soft pull that shows your options without affecting your credit score. A hard pull only happens if you choose to move forward with a plan.' },
-  { q: 'How much can I finance?', a: 'Financing is available up to $100,000 on approved credit, which covers everything from a single bathroom to a whole-home remodel.' },
-  { q: 'Is 0% interest really available?', a: 'Yes — 0% interest for 18 months is available on approved credit. We also offer longer low-payment terms and same-as-cash options for larger projects.' },
-  { q: 'Can I pay it off early?', a: 'Yes. Our financing plans allow early payoff without penalty, so you can pay ahead or clear the balance during a promotional period.' },
+const perks = [
+  {
+    icon: Clock,
+    title: '60-Second Pre-Qualification',
+    body: 'Soft pull only — checking your rate won’t impact your credit score.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'No Hidden Fees',
+    body: 'No prepayment penalties, no application fees, no surprises at closing.',
+  },
+  {
+    icon: Calculator,
+    title: 'Bundled Into Your Quote',
+    body: 'Your fixed-price contract and your monthly payment, side by side. One number to plan around.',
+  },
+];
+
+const steps = [
+  { n: '01', t: 'Book your free estimate', d: 'We design your space and lock in a fixed-price quote.' },
+  { n: '02', t: 'Pre-qualify online', d: '60-second soft credit check. See your rate and term options instantly.' },
+  { n: '03', t: 'Sign and start', d: 'Approve your loan and we begin work. Most projects start within 2–3 weeks.' },
+];
+
+const ctaPoints = [
+  'No obligation',
+  'Soft credit pull only',
+  'Fixed monthly payments',
+  'Approval in minutes',
 ];
 
 export default function FinancingPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-sage">
-        <div className="glass-sheen absolute inset-0" />
-        <div className="container-x relative py-14 lg:py-20">
-          <Breadcrumbs items={[{ label: 'Financing', href: '/financing' }]} className="mb-6" />
-          <p className="eyebrow">Financing</p>
-          <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl">
-            {financing.headline}
+      {/* ---------- HERO ---------- */}
+      <section className="section">
+        <div className="container-x">
+          <Breadcrumbs items={[{ label: 'Financing', href: '/financing' }]} className="mb-8" />
+          <p className="eyebrow">Affordable Remodel Financing</p>
+          <h1 className="mt-4 max-w-3xl font-display text-5xl text-ink md:text-7xl">
+            Build Now. Pay Over Time.
           </h1>
-          <p className="mt-5 max-w-2xl leading-relaxed text-ink/75">{financing.lead}</p>
-        </div>
-      </section>
-
-      <section className="section bg-cream">
-        <div className="container-x">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-reveal data-reveal-stagger>
-            {financing.points.map((p) => (
-              <div key={p.small} className="rounded-xl border border-steel-200 bg-sage p-6 text-center shadow-card">
-                <p className="font-display text-4xl font-extrabold text-vermilion">{p.big}</p>
-                <p className="mt-2 text-sm leading-relaxed text-steel">{p.small}</p>
-              </div>
-            ))}
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink/75">
+            Don’t put your dream kitchen or bath on hold. Bulldog partners with top home-improvement
+            lenders to get you flexible financing — fast approvals, fixed rates, and no impact to
+            your credit to check.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
+              Get Pre-Qualified
+            </Link>
+            <a href={site.phoneHref} className="btn-ghost inline-flex items-center gap-2">
+              <Phone className="size-4" /> {site.phone}
+            </a>
           </div>
         </div>
       </section>
 
-      <section className="section bg-cream">
+      {/* ---------- PLANS ---------- */}
+      <section className="section">
         <div className="container-x">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">Simple &amp; fast</p>
-            <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">How financing works</h2>
+          <div className="mx-auto mb-12 max-w-2xl text-center">
+            <p className="eyebrow">Financing Options</p>
+            <h2 className="mt-3 font-display text-4xl text-ink md:text-5xl">Plans Built Around You</h2>
           </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-3" data-reveal data-reveal-stagger>
-            {steps.map((s) => (
-              <div key={s.step} className="rounded-xl border border-steel-200 bg-sage p-6 shadow-card">
-                <span className="font-display text-3xl font-bold text-sage-600">{s.step}</span>
-                <h3 className="mt-3 font-display text-lg font-bold text-ink">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-steel">{s.body}</p>
+          <div className="grid gap-6 md:grid-cols-3" data-reveal data-reveal-stagger>
+            {plans.map((p) => (
+              <div key={p.title} className="glass glass-hover flex flex-col p-8">
+                <div className="mb-2 font-sans text-xs font-medium uppercase tracking-[0.18em] text-crimson">
+                  {p.term}
+                </div>
+                <h3 className="mb-3 font-display text-2xl text-ink">{p.title}</h3>
+                <p className="text-sm leading-relaxed text-ink/75">{p.body}</p>
               </div>
             ))}
           </div>
-          <p className="mx-auto mt-8 max-w-2xl text-center text-xs text-steel">
-            Financing is provided by third-party lenders on approved credit. Terms, rates, and
-            promotional periods are subject to lender approval. Ask your Bulldog consultant for current
-            offers or call {site.phone}.
+          <p className="mx-auto mt-6 max-w-2xl text-center text-xs text-ink/60">
+            All financing offered through third-party lenders. Rates and terms subject to credit
+            approval.
           </p>
         </div>
       </section>
 
-      <Faq faqs={financingFaqs} heading="Financing questions, answered" />
-      <CTASection withForm heading="Let’s make it affordable" />
+      {/* ---------- PERKS ---------- */}
+      <section className="section">
+        <div className="container-x grid gap-10 md:grid-cols-3">
+          {perks.map((p) => (
+            <div key={p.title}>
+              <p.icon className="mb-4 size-8 text-crimson" strokeWidth={1.5} />
+              <h3 className="mb-3 font-display text-xl text-ink">{p.title}</h3>
+              <p className="text-sm leading-relaxed text-ink/75">{p.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ---------- HOW IT WORKS ---------- */}
+      <section className="section">
+        <div className="container-x max-w-3xl">
+          <p className="eyebrow">How It Works</p>
+          <h2 className="mb-10 mt-3 font-display text-4xl text-ink md:text-5xl">
+            Three Steps To A Funded Project
+          </h2>
+          <ol className="space-y-6">
+            {steps.map((s) => (
+              <li key={s.n} className="flex gap-6 border-t border-ink/10 pt-6">
+                <div className="w-12 shrink-0 font-display text-3xl text-crimson">{s.n}</div>
+                <div>
+                  <h3 className="mb-2 font-display text-xl text-ink">{s.t}</h3>
+                  <p className="text-sm leading-relaxed text-ink/75">{s.d}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* ---------- CTA ---------- */}
+      <section className="section">
+        <div className="container-x">
+          <div className="glass mx-auto max-w-2xl p-12 text-center">
+            <h2 className="mb-4 font-display text-4xl text-ink md:text-5xl">
+              Ready To Run The Numbers?
+            </h2>
+            <p className="mb-8 text-ink/75">
+              Tell us about your project and we’ll send over financing options tailored to your
+              remodel and budget.
+            </p>
+            <ul className="mx-auto mb-10 grid max-w-md gap-3 text-left text-sm sm:grid-cols-2">
+              {ctaPoints.map((i) => (
+                <li key={i} className="flex items-center gap-2 text-ink/85">
+                  <CheckCircle2 className="size-4 shrink-0 text-crimson" /> {i}
+                </li>
+              ))}
+            </ul>
+            <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
+              Start My Application
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

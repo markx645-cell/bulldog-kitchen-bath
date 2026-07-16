@@ -24,15 +24,15 @@ export default function LocationsLinks({ showHeader = true }: { showHeader?: boo
   if (leftover.length) groups.push({ region: 'More Communities We Serve', items: leftover });
 
   return (
-    <section className="section bg-cream">
+    <section className="section">
       <div className="container-x">
         {showHeader && (
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">Service area</p>
-            <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
+            <h2 className="mt-2 font-display text-3xl text-ink sm:text-4xl">
               Kitchen &amp; Bath Remodeling by Community
             </h2>
-            <p className="mt-4 text-steel">
+            <p className="mt-4 text-ink/70">
               We remodel kitchens and bathrooms across Greater Cincinnati and Northern Kentucky —{' '}
               {locations.length} communities and counting. Find yours below.
             </p>
@@ -40,18 +40,18 @@ export default function LocationsLinks({ showHeader = true }: { showHeader?: boo
         )}
 
         <details
-          className={`group mx-auto max-w-5xl overflow-hidden rounded-xl border border-steel-200 bg-sage shadow-card ${
+          className={`group mx-auto max-w-5xl overflow-hidden rounded-xl glass ${
             showHeader ? 'mt-8' : ''
           }`}
         >
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 font-display text-sm font-bold uppercase tracking-wide text-ink marker:content-none [&::-webkit-details-marker]:hidden">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 font-sans text-sm font-bold uppercase tracking-wide text-ink marker:content-none [&::-webkit-details-marker]:hidden">
             View all {locations.length} communities we serve
             <svg
               width="18"
               height="18"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="#e73213"
+              stroke="#16181a"
               strokeWidth="2.5"
               className="shrink-0 transition-transform group-open:rotate-180"
               aria-hidden="true"
@@ -59,10 +59,10 @@ export default function LocationsLinks({ showHeader = true }: { showHeader?: boo
               <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </summary>
-          <div className="border-t border-steel-200 px-6 py-6">
+          <div className="border-t border-white/30 px-6 py-6">
             {groups.map((g) => (
               <div key={g.region} className="mb-7 last:mb-0">
-                <p className="mb-3 flex items-center gap-2 font-display text-xs font-bold uppercase tracking-widest text-sage-600">
+                <p className="mb-3 flex items-center gap-2 font-sans text-xs font-bold uppercase tracking-widest text-crimson">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                     <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" />
                     <circle cx="12" cy="10" r="2.5" />
@@ -74,7 +74,7 @@ export default function LocationsLinks({ showHeader = true }: { showHeader?: boo
                     <Link
                       key={it.slug}
                       href={`/kitchen-bath-remodeling/${it.slug}`}
-                      className="text-sm text-steel transition-colors hover:text-vermilion hover:underline"
+                      className="text-sm text-ink/70 transition-colors hover:text-ink hover:underline"
                     >
                       Remodeling in {it.city}
                     </Link>

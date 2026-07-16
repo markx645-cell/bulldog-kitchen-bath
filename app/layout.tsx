@@ -1,29 +1,32 @@
 import type { Metadata } from 'next';
-import { Inter, Archivo, Playfair_Display } from 'next/font/google';
+import { Anton, Oswald, Inter } from 'next/font/google';
 import './globals.css';
-import { site, stats } from '@/content/site';
+import { site } from '@/content/site';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Backdrop from '@/components/Backdrop';
 import RevealObserver from '@/components/RevealObserver';
 
-const inter = Inter({
+// Matches the production stack:
+// --font-display: Anton | --font-serif: Oswald | --font-sans: Inter
+const anton = Anton({
   subsets: ['latin'],
-  variable: '--font-sans',
-  display: 'swap',
-});
-
-const archivo = Archivo({
-  subsets: ['latin'],
-  weight: ['500', '600', '700', '800', '900'],
+  weight: ['400'], // Anton ships a single weight
   variable: '--font-display',
   display: 'swap',
 });
 
-const playfair = Playfair_Display({
+const oswald = Oswald({
   subsets: ['latin'],
-  weight: ['500', '600', '700'],
-  style: ['italic', 'normal'],
-  variable: '--font-serif',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-condensed',
+  display: 'swap',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-sans',
   display: 'swap',
 });
 
@@ -57,7 +60,7 @@ export const metadata: Metadata = {
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#e73213',
+  themeColor: '#16181a',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -67,29 +70,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     name: site.name,
     '@id': site.url,
     url: site.url,
-    telephone: site.phone,
-    email: site.email,
+    telephone: '+1-513-657-3750',
     priceRange: '$$$',
+    // Locality only — the real business publishes no street address, and an
+    // aggregateRating would be fabricated (there are no published reviews).
     address: {
       '@type': 'PostalAddress',
-      streetAddress: site.address.street,
       addressLocality: site.address.city,
       addressRegion: site.address.state,
-      postalCode: site.address.zip,
       addressCountry: 'US',
     },
-    areaServed: ['Cincinnati OH', 'Northern Kentucky'],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: stats.googleRating,
-      reviewCount: '200',
-    },
+    areaServed: site.serviceArea,
   };
 
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${archivo.variable} ${playfair.variable}`}
+      className={`${inter.variable} ${anton.variable} ${oswald.variable}`}
       suppressHydrationWarning
     >
       <body>
@@ -102,6 +99,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
+        <Backdrop />
         <Header />
         <main>{children}</main>
         <Footer />

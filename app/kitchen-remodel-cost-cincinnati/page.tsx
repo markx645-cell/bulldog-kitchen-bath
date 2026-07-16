@@ -54,12 +54,12 @@ const faqs = [
 export default function CostPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-sage">
+      <section className="relative overflow-hidden">
         <div className="glass-sheen absolute inset-0" />
         <div className="container-x relative py-14 lg:py-20">
           <Breadcrumbs items={[{ label: 'Kitchen Remodel Cost', href: '/kitchen-remodel-cost-cincinnati' }]} className="mb-6" />
           <p className="eyebrow">2026 Pricing Guide</p>
-          <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl">
+          <h1 className="mt-3 max-w-3xl font-display text-4xl  leading-[1.05] text-ink sm:text-5xl">
             What a kitchen remodel really costs in Cincinnati
           </h1>
           <p className="mt-5 max-w-2xl leading-relaxed text-ink/75">
@@ -69,28 +69,28 @@ export default function CostPage() {
         </div>
       </section>
 
-      <section className="section bg-cream">
+      <section className="section">
         <div className="container-x">
           <div className="grid gap-6 lg:grid-cols-3" data-reveal data-reveal-stagger>
             {tiers.map((t) => (
               <div
                 key={t.name}
                 className={`flex flex-col rounded-2xl border p-8 shadow-card ${
-                  t.featured ? 'border-vermilion ring-2 ring-vermilion/20' : 'border-steel-200'
+                  t.featured ? 'border-white/60 ring-2 ring-ink/20' : 'border-white/30'
                 }`}
               >
                 {t.featured && (
-                  <span className="mb-3 w-fit rounded-full bg-vermilion px-3 py-1 font-display text-[11px] font-bold uppercase tracking-wide text-ink">
+                  <span className="mb-3 w-fit rounded-full bg-ink px-3 py-1 font-sans text-[11px] font-bold uppercase tracking-wide text-ink">
                     Most common
                   </span>
                 )}
-                <h2 className="font-display text-xl font-bold text-ink">{t.name}</h2>
-                <p className="mt-2 font-display text-3xl font-extrabold text-vermilion">{t.range}</p>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-steel">{t.blurb}</p>
+                <h2 className="font-display text-xl text-ink">{t.name}</h2>
+                <p className="mt-2 font-display text-3xl text-ink">{t.range}</p>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-ink/70">{t.blurb}</p>
                 <ul className="mt-5 space-y-2">
                   {t.points.map((p) => (
                     <li key={p} className="flex items-center gap-2 text-sm text-ink">
-                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-sage-600" />
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-crimson-600" />
                       {p}
                     </li>
                   ))}
@@ -98,26 +98,26 @@ export default function CostPage() {
               </div>
             ))}
           </div>
-          <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-steel">
+          <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-ink/70">
             Ranges are typical for Greater Cincinnati in 2026 and vary with materials, layout, and the
             age of your home. The only way to know your number is a free consultation and a fixed quote.
           </p>
         </div>
       </section>
 
-      <section className="section bg-cream">
+      <section className="section">
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">What moves the price</p>
-            <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
+            <h2 className="mt-2 font-display text-3xl text-ink sm:text-4xl">
               Six factors that shape your number
             </h2>
           </div>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-reveal data-reveal-stagger>
             {factors.map((f) => (
-              <div key={f.title} className="rounded-xl border border-steel-200 bg-sage p-6 shadow-card">
-                <h3 className="font-display text-base font-bold text-ink">{f.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-steel">{f.body}</p>
+              <div key={f.title} className="glass glass-hover p-6">
+                <h3 className="font-display text-base text-ink">{f.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink/70">{f.body}</p>
               </div>
             ))}
           </div>

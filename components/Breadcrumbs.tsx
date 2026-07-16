@@ -23,9 +23,9 @@ export default function Breadcrumbs({
     })),
   };
 
-  const link = tone === 'light' ? 'text-ink/75 hover:text-ink' : 'text-steel hover:text-ink';
+  const link = tone === 'light' ? 'text-ink/75 hover:text-ink' : 'text-ink/70 hover:text-ink';
   const current = tone === 'light' ? 'text-ink' : 'text-ink';
-  const sep = tone === 'light' ? 'text-ink/40' : 'text-steel-400';
+  const sep = tone === 'light' ? 'text-ink/40' : 'text-ink/45';
 
   return (
     <nav

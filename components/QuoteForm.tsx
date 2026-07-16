@@ -20,13 +20,13 @@ const projectTypes = [
 const timeWindows = ['Morning (9am–12pm)', 'Midday (11am–2pm)', 'Afternoon (2pm–5pm)'];
 
 const inputCls =
-  'w-full rounded-lg border border-steel-200 bg-cream px-3.5 py-2.5 text-sm text-ink placeholder:text-steel-400 focus:border-vermilion focus:outline-none focus:ring-2 focus:ring-vermilion/15';
+  'w-full rounded-lg border border-ink/15 bg-bone px-3.5 py-2.5 text-sm text-ink placeholder:text-ink/40 focus:border-crimson focus:outline-none focus:ring-2 focus:ring-crimson/20';
 
 function Label({ children, required }: { children: React.ReactNode; required?: boolean }) {
   return (
-    <label className="mb-1.5 block font-display text-[11px] font-bold uppercase tracking-wide text-ink">
+    <label className="mb-1.5 block font-sans text-[11px] font-bold uppercase tracking-wide text-ink">
       {children}
-      {required && <span className="text-vermilion"> *</span>}
+      {required && <span className="text-ink"> *</span>}
     </label>
   );
 }
@@ -107,14 +107,14 @@ export default function QuoteForm() {
 
   if (submitted) {
     return (
-      <div className="overflow-hidden rounded-2xl bg-sage p-8 text-center shadow-[0_24px_60px_-15px_rgba(22,24,26,0.35)] ring-1 ring-black/5">
-        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-vermilion/10">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e73213" strokeWidth="2.5">
+      <div className="overflow-hidden rounded-2xl glass p-8 text-center shadow-[0_24px_60px_-15px_rgba(22,24,26,0.35)] ring-1 ring-black/5">
+        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white/30">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16181a" strokeWidth="2.5">
             <path d="M20 6L9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
-        <h3 className="font-display text-xl font-bold text-ink">Request received</h3>
-        <p className="mt-2 text-sm text-steel">
+        <h3 className="font-display text-xl text-ink">Request received</h3>
+        <p className="mt-2 text-sm text-ink/70">
           Thanks — a Bulldog project consultant will reach out shortly to schedule your free design
           consultation.
         </p>
@@ -123,17 +123,17 @@ export default function QuoteForm() {
   }
 
   return (
-    <div className="overflow-hidden rounded-2xl bg-sage shadow-[0_24px_60px_-15px_rgba(22,24,26,0.35)] ring-1 ring-black/5">
-      <div className="bg-vermilion px-6 py-5 sm:px-7">
-        <h3 className="font-display text-xl font-bold text-ink sm:text-2xl">
+    <div className="overflow-hidden rounded-2xl glass shadow-[0_24px_60px_-15px_rgba(22,24,26,0.35)] ring-1 ring-black/5">
+      <div className="bg-ink px-6 py-5 sm:px-7">
+        <h3 className="font-display text-xl text-ink sm:text-2xl">
           Book Your Free Design Consultation
         </h3>
-        <p className="mt-1 font-display text-xs font-semibold uppercase tracking-wide text-ink/75">
+        <p className="mt-1 font-sans text-xs font-semibold uppercase tracking-wide text-ink/75">
           Step {step} of 2
         </p>
-        <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-cream/25">
+        <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-ink/15">
           <div
-            className="h-full rounded-full bg-cream transition-all duration-300"
+            className="h-full rounded-full bg-white transition-all duration-300"
             style={{ width: step === 1 ? '50%' : '100%' }}
           />
         </div>
@@ -183,13 +183,13 @@ export default function QuoteForm() {
                 onChange={set('message')}
               />
             </div>
-            <label className="flex items-start gap-2.5 text-xs leading-relaxed text-steel">
+            <label className="flex items-start gap-2.5 text-xs leading-relaxed text-ink/70">
               <input
                 type="checkbox"
                 required
                 checked={data.agree}
                 onChange={set('agree')}
-                className="mt-0.5 h-4 w-4 shrink-0 accent-vermilion"
+                className="mt-0.5 h-4 w-4 shrink-0 accent-ink"
               />
               <span>
                 I agree to be contacted by Bulldog Kitchen &amp; Bath by phone, text, or email about

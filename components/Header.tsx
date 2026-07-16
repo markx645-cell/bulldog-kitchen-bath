@@ -37,11 +37,11 @@ export default function Header() {
   }) => {
     const isOpen = openGroup === group.label;
     return (
-      <div key={group.label} className="border-b border-steel-200">
+      <div key={group.label} className="border-b border-white/30">
         <button
           type="button"
           onClick={() => setOpenGroup(isOpen ? null : group.label)}
-          className="flex w-full items-center justify-between py-3.5 font-display text-sm font-bold uppercase tracking-wide text-ink"
+          className="flex w-full items-center justify-between py-3.5 font-sans text-sm font-bold uppercase tracking-wide text-ink"
           aria-expanded={isOpen}
         >
           {group.label}
@@ -50,7 +50,7 @@ export default function Header() {
             height="18"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="#e73213"
+            stroke="#16181a"
             strokeWidth="2.5"
             className={`shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`}
             aria-hidden="true"
@@ -65,7 +65,7 @@ export default function Header() {
                 key={child.href}
                 href={child.href}
                 onClick={close}
-                className="block py-2 text-sm text-ink hover:text-vermilion"
+                className="block py-2 font-sans text-sm uppercase tracking-[0.04em] text-ink hover:text-crimson"
               >
                 {child.label}
               </Link>
@@ -79,9 +79,9 @@ export default function Header() {
   return (
     <>
       <header className="sticky top-0 z-50 w-full">
-        {/* Top utility bar — desktop: vermilion block, black type */}
-        <div className="hidden bg-vermilion text-ink md:block">
-          <div className="relative h-9 w-full overflow-hidden font-display text-xs uppercase tracking-widest text-ink">
+        {/* Top utility bar — desktop */}
+        <div className="hidden bg-ink text-ink md:block">
+          <div className="relative h-9 w-full overflow-hidden font-sans text-xs uppercase tracking-widest text-ink">
             {/* Offer layer */}
             <div
               className={`absolute inset-0 flex items-center justify-center px-5 transition-all duration-500 ease-in-out sm:px-8 ${
@@ -92,7 +92,7 @@ export default function Header() {
                 <span className="whitespace-nowrap text-[15px] font-semibold text-ink">Offer:</span>
                 <Link
                   href="/financing"
-                  className="inline-flex items-center whitespace-nowrap rounded-sm bg-sage px-4 py-1 text-[15px] font-bold leading-none text-ink shadow-sm transition hover:opacity-90"
+                  className="inline-flex items-center whitespace-nowrap rounded-sm bg-crimson px-4 py-1 text-[15px] font-bold leading-none text-white shadow-sm transition hover:opacity-90"
                 >
                   {OFFER_TEXT}
                 </Link>
@@ -117,7 +117,7 @@ export default function Header() {
 
         {/* Mobile bar 1 */}
         <div className="bg-cream md:hidden">
-          <div className="relative h-9 w-full overflow-hidden font-display text-[9px] font-bold uppercase tracking-normal">
+          <div className="relative h-9 w-full overflow-hidden font-sans text-[9px] font-bold uppercase tracking-normal">
             <div
               className={`absolute inset-0 flex items-center justify-center px-3 transition-all duration-500 ease-in-out ${
                 showOffer ? 'translate-y-0 opacity-100' : 'pointer-events-none -translate-y-full opacity-0'
@@ -128,7 +128,7 @@ export default function Header() {
                 <Link
                   href="/financing"
                   onClick={close}
-                  className="inline-flex items-center whitespace-nowrap rounded-sm bg-sage px-3 py-1 text-[12px] font-bold leading-none text-ink shadow-sm"
+                  className="inline-flex items-center whitespace-nowrap rounded-sm bg-crimson px-3 py-1 text-[12px] font-bold leading-none text-white shadow-sm"
                 >
                   {OFFER_TEXT}
                 </Link>
@@ -145,20 +145,20 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile bar 2 — sage/vermilion split, black type (the poster's horizon) */}
-        <div className="bg-vermilion md:hidden">
+        {/* Mobile bar 2 — CTA + phone */}
+        <div className="bg-ink md:hidden">
           <div className="flex h-14 items-stretch">
             <Link
               href="/consult"
               onClick={close}
-              className="flex w-1/2 items-center justify-center whitespace-nowrap bg-sage px-3 font-display text-sm font-extrabold uppercase tracking-wide text-ink"
+              className="flex w-1/2 items-center justify-center whitespace-nowrap bg-crimson px-3 font-sans text-sm font-extrabold uppercase tracking-wide text-white"
               style={{ clipPath: 'polygon(0 0, 100% 0, calc(100% - 24px) 100%, 0 100%)' }}
             >
               Book Estimate
             </Link>
             <a
               href={site.phoneHref}
-              className="flex w-1/2 items-center justify-center gap-2 whitespace-nowrap font-display text-lg font-extrabold tabular-nums text-ink"
+              className="flex w-1/2 items-center justify-center gap-2 whitespace-nowrap font-display text-lg  tabular-nums text-ink"
             >
               <PhoneIcon className="text-ink" />
               {site.phone}
@@ -168,15 +168,15 @@ export default function Header() {
       </header>
 
       {/* Main bar */}
-      <div className="border-b border-steel-200 bg-cream/95 backdrop-blur md:sticky md:top-9 md:z-40">
+      <div className="border-b border-ink/10 bg-bone/85 backdrop-blur-xl md:sticky md:top-9 md:z-40">
         <div className="flex h-20 w-full items-center justify-between gap-4 px-5 sm:px-8">
           <Link href="/" className="flex items-center gap-2 sm:gap-3" aria-label={site.name} onClick={close}>
             <Image src="/logo.png" alt={site.name} width={64} height={64} className="h-11 w-auto sm:h-14" priority />
             <span className="leading-none">
-              <span className="block font-display text-lg font-extrabold uppercase tracking-tight text-ink sm:text-2xl">
+              <span className="block font-display text-lg  uppercase text-ink sm:text-2xl">
                 Bulldog
               </span>
-              <span className="mt-0.5 block whitespace-nowrap font-display text-[10px] font-bold uppercase tracking-[0.12em] text-sage-600 sm:text-[13px]">
+              <span className="mt-0.5 block whitespace-nowrap font-sans text-[10px] font-bold uppercase tracking-[0.12em] text-crimson sm:text-[13px]">
                 Kitchen &amp; Bath
               </span>
             </span>
@@ -192,7 +192,7 @@ export default function Header() {
             >
               <Link
                 href={nav.services.href}
-                className="flex items-center gap-1 px-3 py-2 font-display text-sm font-semibold uppercase tracking-wide text-ink hover:text-vermilion"
+                className="flex items-center gap-1 px-3 py-2 font-sans text-sm font-semibold uppercase tracking-wide text-ink hover:text-ink"
               >
                 {nav.services.label}
                 <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
@@ -200,12 +200,20 @@ export default function Header() {
                 </svg>
               </Link>
               {openMenu === nav.services.label && (
-                <div className="absolute left-0 top-full max-h-[70vh] w-72 overflow-y-auto rounded-lg border border-steel-200 bg-cream p-2 shadow-lift">
+                <div className="absolute left-0 top-full max-h-[70vh] w-72 overflow-y-auto rounded-lg border border-ink/10 bg-bone/95 p-2 shadow-lift backdrop-blur-xl">
+                  {/* Production puts "View All Services" at the top of the menu */}
+                  <Link
+                    href={nav.services.href}
+                    className="block rounded-md px-3 py-2 font-sans text-xs font-semibold uppercase tracking-[0.12em] text-crimson hover:bg-crimson/5"
+                  >
+                    View All Services →
+                  </Link>
+                  <span className="my-1 block border-t border-ink/10" aria-hidden="true" />
                   {nav.services.children.map((child) => (
                     <Link
                       key={child.href}
                       href={child.href}
-                      className="block rounded-md px-3 py-2 text-sm text-ink hover:bg-cream-200 hover:text-vermilion"
+                      className="block rounded-md px-3 py-2 font-sans text-sm uppercase tracking-[0.04em] text-ink hover:bg-ink/5"
                     >
                       {child.label}
                     </Link>
@@ -218,49 +226,20 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="px-3 py-2 font-display text-sm font-semibold uppercase tracking-wide text-ink hover:text-vermilion"
+                className="px-3 py-2 font-sans text-sm font-semibold uppercase tracking-wide text-ink hover:text-ink"
               >
                 {item.label}
               </Link>
             ))}
 
-            {/* More dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setOpenMenu(nav.about.label)}
-              onMouseLeave={() => setOpenMenu(null)}
-            >
-              <Link
-                href={nav.about.href}
-                className="flex items-center gap-1 px-3 py-2 font-display text-sm font-semibold uppercase tracking-wide text-ink hover:text-vermilion"
-              >
-                {nav.about.label}
-                <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
-                  <path d="M6 8L1 3h10z" />
-                </svg>
-              </Link>
-              {openMenu === nav.about.label && (
-                <div className="absolute right-0 top-full w-56 rounded-lg border border-steel-200 bg-cream p-2 shadow-lift">
-                  {nav.about.children.map((child) => (
-                    <Link
-                      key={child.href}
-                      href={child.href}
-                      className="block rounded-md px-3 py-2 text-sm text-ink hover:bg-cream-200 hover:text-vermilion"
-                    >
-                      {child.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
           </nav>
 
           <div className="flex items-center gap-3 sm:gap-4">
             <a href={site.phoneHref} className="hidden text-right leading-none lg:block">
-              <span className="mb-0.5 block font-display text-[10px] font-bold uppercase tracking-[0.25em] text-steel">
+              <span className="mb-0.5 block font-sans text-[10px] font-bold uppercase tracking-[0.25em] text-ink/70">
                 Call Us
               </span>
-              <span className="block whitespace-nowrap font-display text-2xl font-extrabold tabular-nums text-ink transition-colors hover:text-vermilion">
+              <span className="block whitespace-nowrap font-display text-2xl  tabular-nums text-ink transition-colors hover:text-ink">
                 {site.phone}
               </span>
             </a>
@@ -273,7 +252,7 @@ export default function Header() {
               Free Estimate
             </Link>
             <button
-              className="flex h-11 w-11 items-center justify-center rounded-md bg-vermilion lg:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-md bg-ink lg:hidden"
               onClick={() => setMobileOpen((v) => !v)}
               aria-label="Toggle menu"
               aria-expanded={mobileOpen}
@@ -292,7 +271,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-b border-steel-200 bg-cream lg:hidden">
+        <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-b border-ink/10 bg-bone/95 backdrop-blur-xl lg:hidden">
           <nav className="container-x flex flex-col py-1">
             {renderMobileGroup(nav.services)}
             {nav.simple.map((item) => (
@@ -300,12 +279,11 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={close}
-                className="border-b border-steel-200 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-ink hover:text-vermilion"
+                className="border-b border-white/30 py-3.5 font-sans text-sm font-bold uppercase tracking-wide text-ink hover:text-ink"
               >
                 {item.label}
               </Link>
             ))}
-            {renderMobileGroup(nav.about)}
           </nav>
         </div>
       )}

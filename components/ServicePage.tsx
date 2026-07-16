@@ -1,168 +1,97 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import { Phone, Check, ShieldCheck, Clock, BadgeCheck } from 'lucide-react';
 import { site } from '@/content/site';
 import type { Service } from '@/content/services';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import Photo from '@/components/Photo';
 import Faq from '@/components/Faq';
-import CTASection from '@/components/CTASection';
-import ProcessSteps from '@/components/ProcessSteps';
-import LocationsLinks from '@/components/LocationsLinks';
 
-function BenefitIcon({ name }: { name?: string }) {
-  const common = {
-    width: 24,
-    height: 24,
-    viewBox: '0 0 24 24',
-    fill: 'none',
-    stroke: 'currentColor',
-    strokeWidth: 1.8,
-    strokeLinecap: 'round' as const,
-    strokeLinejoin: 'round' as const,
-    'aria-hidden': true as const,
-  };
-  switch (name) {
-    case 'clock':
-      return <svg {...common}><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>;
-    case 'shield':
-      return <svg {...common}><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" /><path d="M9 12l2 2 4-4" /></svg>;
-    case 'pricing':
-      return <svg {...common}><path d="M12 1v22" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>;
-    case 'design':
-      return <svg {...common}><path d="M12 19l7-7 3 3-7 7-3-3z" /><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" /><circle cx="11" cy="11" r="2" /></svg>;
-    case 'accessible':
-      return <svg {...common}><circle cx="12" cy="4" r="2" /><path d="M6 8h12" /><path d="M9 8v6l-2 6" /><path d="M15 8v6l2 6" /><path d="M9 12h6" /></svg>;
-    case 'oneteam':
-      return <svg {...common}><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /></svg>;
-    default:
-      return <svg {...common}><path d="M20 6L9 17l-5-5" /></svg>;
-  }
-}
+// Mirrors the production ServicePage exactly:
+// Hero (full-bleed) -> Why -> Includes -> Turnaround -> Trust band -> Quote -> BudgetTiers
+export default function ServicePage({ service: s }: { service: Service }) {
+  const trust = [
+    { icon: ShieldCheck, label: 'Lifetime Warranty' },
+    { icon: BadgeCheck, label: 'Best Price Guarantee' },
+    { icon: Clock, label: 'Rapid Turnaround' },
+    { icon: Check, label: 'In-House Installers' },
+  ];
 
-export default function ServicePage({ service }: { service: Service }) {
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-sage">
-        <div className="glass-sheen absolute inset-0" />
-        <div
-          className="absolute inset-0 opacity-[0.16]"
-          style={{
-            backgroundImage:
-              'radial-gradient(circle at 18% 22%, rgba(157,190,183,0.5), transparent 45%), radial-gradient(circle at 85% 70%, rgba(231,50,19,0.35), transparent 42%)',
-          }}
+      {/* ---------- HERO ---------- */}
+      <section className="relative min-h-[80vh] overflow-hidden">
+        <Image
+          src={s.image}
+          alt={s.title}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
-        <div className="container-x relative py-12 lg:py-16">
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/30 to-ink/40" />
+        <div className="container-x relative flex min-h-[80vh] flex-col justify-end py-24 text-white">
           <Breadcrumbs
             items={[
               { label: 'Services', href: '/services' },
-              { label: service.name, href: `/${service.slug}` },
+              { label: s.name, href: `/${s.slug}` },
             ]}
-            className="mb-6"
+            className="mb-8"
           />
-          <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
-            <div className="animate-fade-up">
-              <p className="eyebrow">{service.eyebrow}</p>
-              <h1 className="mt-3 font-display text-4xl font-bold leading-[1.02] tracking-tight text-ink sm:text-5xl">
-                {service.heroHeadline}{' '}
-                <span className="text-sage-400">{service.heroHighlight}</span>
-              </h1>
-              <p className="mt-5 max-w-xl leading-relaxed text-ink/75">{service.heroSub}</p>
-              <div className="mt-7 flex flex-wrap gap-3">
-                <Link href="/consult" className="btn-primary">Book a Free Consult</Link>
-                <a href={site.phoneHref} className="btn-ghost !border-ink/30 !bg-transparent !text-ink hover:!border-ink">
-                  Call {site.phone}
-                </a>
-              </div>
+          {s.eyebrow && (
+            <p className="font-sans text-xs font-medium uppercase tracking-[0.3em] text-crimson">
+              {s.eyebrow}
+            </p>
+          )}
+          <h1 className="mt-4 max-w-3xl font-display text-5xl leading-tight md:text-6xl lg:text-7xl">
+            {s.title}
+          </h1>
+          {s.region && <p className="mt-4 text-lg text-white/90">{s.region}</p>}
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link href="/consult" className="btn-primary !bg-crimson hover:!bg-crimson-600">
+              Book Estimate
+            </Link>
+            <a
+              href={site.phoneHref}
+              className="inline-flex items-center gap-2 rounded-full border border-white/60 px-7 py-4 font-sans text-xs font-medium uppercase tracking-[0.18em] text-white transition hover:bg-white hover:text-ink"
+            >
+              <Phone className="size-4" /> Contact Us
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- WHY — "The Bulldog Way" ---------- */}
+      {s.whyBody && (
+        <section className="section">
+          <div className="container-x grid gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <p className="eyebrow">The Bulldog Way</p>
+              <h2 className="mt-3 font-display text-4xl leading-tight text-ink md:text-5xl">
+                {s.whyTitle}
+              </h2>
             </div>
-            <Photo label={service.name} src={service.image} alt={`${service.name} project by Bulldog Kitchen & Bath`} className="aspect-[4/3] w-full shadow-lift" priority sizes="(max-width:1024px) 100vw, 45vw" />
-          </div>
-        </div>
-      </section>
-
-      {/* Intro + benefits */}
-      <section className="section bg-cream">
-        <div className="container-x">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow">{service.introEyebrow ?? 'Why it matters'}</p>
-            <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
-              {service.introHeading ?? 'Built right, by one team'}
-            </h2>
-            <p className="mt-4 leading-relaxed text-steel">{service.intro}</p>
-          </div>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" data-reveal data-reveal-stagger>
-            {service.benefits.map((b) => (
-              <div key={b.title} className="rounded-xl border border-steel-200 bg-sage p-6 shadow-card">
-                <span className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-vermilion/10 text-vermilion">
-                  <BenefitIcon name={b.icon} />
-                </span>
-                <h3 className="font-display text-base font-bold text-ink">{b.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-steel">{b.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Features */}
-      {service.features && (
-        <section className="section bg-cream">
-          <div className="container-x">
-            <div className="grid items-center gap-10 lg:grid-cols-2">
-              <Photo label={service.name} src={service.featureImage ?? service.image} alt={`${service.name} detail`} className="aspect-[4/3] w-full shadow-lift" sizes="(max-width:1024px) 100vw, 50vw" />
-              <div>
-                {service.features.banner && (
-                  <span className="inline-block bg-vermilion px-4 py-2 font-display text-sm font-bold uppercase tracking-wide text-ink">
-                    {service.features.banner}
-                  </span>
-                )}
-                <h2 className="mt-4 font-display text-3xl font-bold text-ink sm:text-4xl">
-                  {service.features.heading}
-                </h2>
-                {service.features.sub && <p className="mt-3 text-steel">{service.features.sub}</p>}
-                <ul className="mt-6 space-y-3">
-                  {service.features.items.map((it) => (
-                    <li key={it} className="flex items-start gap-3">
-                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e73213" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="mt-0.5 shrink-0">
-                        <path d="M20 6L9 17l-5-5" />
-                      </svg>
-                      <span className="text-ink">{it}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div className="text-lg leading-relaxed text-ink/75 lg:col-span-8">
+              <p>{s.whyBody}</p>
             </div>
           </div>
         </section>
       )}
 
-      {/* Options */}
-      {service.options && service.options.length > 0 && (
-        <section className="section bg-cream">
+      {/* ---------- INCLUDES ---------- */}
+      {s.includes.length > 0 && (
+        <section className="section">
           <div className="container-x">
-            <div className="mx-auto max-w-2xl text-center">
-              <p className="eyebrow">Your options</p>
-              <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
-                {service.optionsHeading ?? 'Ways to build it'}
-              </h2>
-            </div>
-            <div className="mt-12 grid gap-6 md:grid-cols-3" data-reveal data-reveal-stagger>
-              {service.options.map((o, i) => (
-                <div key={o.title} className="flex flex-col rounded-2xl border border-steel-200 bg-sage p-7 shadow-card">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-vermilion font-display text-lg font-bold text-ink">
-                    {i + 1}
-                  </span>
-                  <h3 className="mt-4 font-display text-lg font-bold text-ink">{o.title}</h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-steel">{o.blurb}</p>
-                  <ul className="mt-4 space-y-1.5 border-t border-steel-200 pt-4">
-                    {o.bullets.map((b) => (
-                      <li key={b} className="flex items-center gap-2 text-sm text-ink">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6f9a91" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="shrink-0">
-                          <path d="M20 6L9 17l-5-5" />
-                        </svg>
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
+            <h2 className="mb-12 text-center font-display text-4xl text-ink md:text-5xl">
+              {s.includesTitle}
+            </h2>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-reveal data-reveal-stagger>
+              {s.includes.map((it) => (
+                <div key={it.title} className="glass glass-hover flex flex-col gap-3 p-8">
+                  <div className="flex items-center gap-3">
+                    <Check className="size-5 shrink-0 text-crimson" />
+                    <h3 className="font-display text-xl text-ink">{it.title}</h3>
+                  </div>
+                  <p className="text-sm leading-relaxed text-ink/75">{it.body}</p>
                 </div>
               ))}
             </div>
@@ -170,13 +99,99 @@ export default function ServicePage({ service }: { service: Service }) {
         </section>
       )}
 
-      <ProcessSteps compact />
+      {/* ---------- TURNAROUND ---------- */}
+      {s.turnaroundTitle && (
+        <section className="section">
+          <div className="container-x">
+            <div className="glass grid items-center gap-12 p-10 sm:p-14 lg:grid-cols-3">
+              <div className="flex justify-center">
+                <div className="flex size-40 items-center justify-center rounded-full border-2 border-crimson/60">
+                  <Clock className="size-16 text-crimson" strokeWidth={1.25} />
+                </div>
+              </div>
+              <div className="lg:col-span-2">
+                <h3 className="font-display text-3xl text-ink md:text-4xl">{s.turnaroundTitle}</h3>
+                <p className="mt-4 text-lg leading-relaxed text-ink/75">{s.turnaroundBody}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
-      <Faq faqs={service.faqs} heading={`${service.name}: your questions, answered`} />
+      {/* ---------- TRUST BAND ---------- */}
+      <section className="section">
+        <div className="container-x">
+          <div className="glass grid grid-cols-2 gap-8 p-8 md:grid-cols-4">
+            {trust.map((t) => (
+              <div key={t.label} className="flex flex-col items-center gap-2 text-center">
+                <t.icon className="size-8 text-crimson" />
+                <div className="font-sans text-xs uppercase tracking-widest text-ink">{t.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      <LocationsLinks />
+      {/* ---------- CLOSING QUOTE ---------- */}
+      {s.closingQuote && (
+        <section className="section">
+          <div className="container-x">
+            <div className="glass mx-auto max-w-3xl p-12 text-center">
+              <p className="font-display text-2xl italic leading-relaxed text-ink md:text-3xl">
+                “{s.closingQuote}”
+              </p>
+              <Link href="/consult" className="btn-primary mt-10 !bg-crimson hover:!bg-crimson-600">
+                Book Your Free Estimate
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
-      <CTASection withForm heading={`Ready to start your ${service.name.toLowerCase()}?`} />
+      {/* ---------- BUDGET TIERS (renders after the quote, as production does) ---------- */}
+      {s.budget && s.budget.tiers.length > 0 && (
+        <section className="section">
+          <div className="container-x">
+            <div className="mx-auto max-w-2xl text-center">
+              <p className="eyebrow">Budget ranges</p>
+              <h2 className="mt-3 font-display text-4xl text-ink md:text-5xl">{s.budget.title}</h2>
+              {s.budget.intro && <p className="mt-4 leading-relaxed text-ink/75">{s.budget.intro}</p>}
+            </div>
+            <div className="mt-12 grid gap-6 lg:grid-cols-3" data-reveal data-reveal-stagger>
+              {s.budget.tiers.map((t) => (
+                <div
+                  key={t.name}
+                  className={`glass flex flex-col p-8 ${t.highlight ? 'ring-2 ring-crimson/40' : ''}`}
+                >
+                  {t.highlight && (
+                    <span className="mb-3 w-fit rounded-full bg-crimson px-3 py-1 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white">
+                      Most popular
+                    </span>
+                  )}
+                  <h3 className="font-display text-2xl text-ink">{t.name}</h3>
+                  <p className="mt-2 font-display text-3xl text-crimson">{t.range}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-ink/75">{t.tagline}</p>
+                  <ul className="mt-5 space-y-2 border-t border-ink/10 pt-5">
+                    {t.includes.map((inc) => (
+                      <li key={inc} className="flex items-start gap-2 text-sm text-ink/85">
+                        <Check className="mt-0.5 size-4 shrink-0 text-crimson" />
+                        {inc}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            {s.budget.footnote && (
+              <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-ink/60">
+                {s.budget.footnote}
+              </p>
+            )}
+          </div>
+        </section>
+      )}
+
+      {s.faqs.length > 0 && <Faq faqs={s.faqs} heading={`${s.name}: your questions`} />}
     </>
   );
 }
