@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import { Phone, ArrowLeft } from 'lucide-react';
 import { site } from '@/content/site';
 import { projects, projectBySlug } from '@/content/projects';
-import Breadcrumbs from '@/components/Breadcrumbs';
-import CTASection from '@/components/CTASection';
+import Gallery from './Gallery';
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -22,7 +21,7 @@ export async function generateMetadata({
   const p = projectBySlug[slug];
   if (!p) return {};
   return {
-    title: p.title,
+    title: `${p.title} | ${site.name}`,
     description: p.description,
     alternates: { canonical: `/projects/${p.slug}` },
     openGraph: {
@@ -42,87 +41,138 @@ export default async function ProjectPage({
   const p = projectBySlug[slug];
   if (!p) notFound();
 
-  const idx = projects.findIndex((x) => x.slug === p.slug);
-  const next = projects[(idx + 1) % projects.length];
-  const [lead, ...rest] = p.photos;
-
   return (
     <>
-      <section className="relative overflow-hidden">
-        <div className="container-x relative py-12 lg:py-16">
-          <Breadcrumbs
-            items={[
-              { label: 'Projects', href: '/projects' },
-              { label: p.title, href: `/projects/${p.slug}` },
-            ]}
-            className="mb-6"
-          />
-          <div className="max-w-3xl">
-            <p className="eyebrow">Featured project</p>
-            <h1 className="mt-3 font-display text-4xl  leading-[1.05] text-ink sm:text-5xl lg:text-6xl">
-              {p.title}
-            </h1>
-            {p.description && (
-              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink/75">{p.description}</p>
+      {/* ---------- HEADER / INTRO ---------- */}
+      <section className="section">
+        <div className="container-x">
+          <Link
+            href="/projects"
+            className="mb-8 inline-flex items-center gap-2 font-sans text-xs font-semibold uppercase tracking-[0.25em] text-crimson hover:opacity-80"
+          >
+            <ArrowLeft className="size-3" /> All Projects
+          </Link>
+
+          <h1 className="max-w-4xl font-display text-5xl leading-tight text-ink md:text-6xl lg:text-7xl">
+            {p.title}
+          </h1>
+
+          <div className="mt-10 grid max-w-3xl gap-6 text-sm sm:grid-cols-2">
+            {p.loc && (
+              <div>
+                <div className="mb-2 font-sans text-[10px] uppercase tracking-[0.25em] text-crimson">
+                  Remodel Location
+                </div>
+                <div className="text-ink">{p.loc}</div>
+              </div>
             )}
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link href="/consult" className="btn-primary">Book a Free Estimate</Link>
-              <a href={site.phoneHref} className="btn-ghost">Call {site.phone}</a>
-            </div>
+            {p.type && (
+              <div>
+                <div className="mb-2 font-sans text-[10px] uppercase tracking-[0.25em] text-crimson">
+                  Project Type
+                </div>
+                <div className="text-ink">{p.type}</div>
+              </div>
+            )}
           </div>
 
-          {lead && (
-            <div className="glass mt-10 overflow-hidden p-2">
-              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl">
-                <Image
-                  src={lead.src}
-                  alt={lead.alt}
-                  fill
-                  priority
-                  sizes="(max-width:1024px) 100vw, 1160px"
-                  className="object-cover"
-                />
-              </div>
-            </div>
+          {p.description && (
+            <p className="mt-10 max-w-3xl text-lg leading-relaxed text-ink/75">{p.description}</p>
           )}
         </div>
       </section>
 
-      {rest.length > 0 && (
+      {/* ---------- KEY FEATURES (only on the pages that have them) ---------- */}
+      {p.keyFeatures && p.keyFeatures.length > 0 && (
         <section className="section">
-          <div className="container-x">
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-reveal data-reveal-stagger>
-              {rest.map((photo) => (
-                <figure key={photo.src} className="glass overflow-hidden p-2">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
-                    <Image
-                      src={photo.src}
-                      alt={photo.alt}
-                      fill
-                      sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-500 hover:scale-105"
-                    />
-                  </div>
-                </figure>
-              ))}
+          <div className="container-x grid gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <p className="eyebrow">The Details</p>
+              <h2 className="mt-3 font-display text-4xl leading-tight text-ink md:text-5xl">
+                Key Features
+              </h2>
             </div>
-            <p className="mt-6 text-center text-sm text-ink/60">
-              {p.photos.length} photo{p.photos.length === 1 ? '' : 's'} from this project
-            </p>
+            <div className="lg:col-span-8">
+              <ul className="space-y-5 text-lg leading-relaxed">
+                {p.keyFeatures.map((f) => (
+                  <li key={f.k} className="border-b border-ink/10 pb-5">
+                    <span className="font-semibold text-ink">{f.k}: </span>
+                    <span className="text-ink/75">{f.v}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </section>
       )}
 
+      {/* ---------- DESIGN INSIGHT ---------- */}
+      {p.designInsight && (
+        <section className="section">
+          <div className="container-x grid gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <p className="eyebrow">Design Insight</p>
+              <h2 className="mt-3 font-display text-4xl leading-tight text-ink md:text-5xl">
+                {p.designInsight.heading}
+              </h2>
+            </div>
+            <div className="space-y-5 text-lg leading-relaxed text-ink/75 lg:col-span-8">
+              {p.designInsight.paragraphs.map((par) => (
+                <p key={par.slice(0, 40)}>{par}</p>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ---------- PROJECT DETAILS ---------- */}
+      {p.projectDetails && p.projectDetails.length > 0 && (
+        <section className="section">
+          <div className="container-x grid gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <p className="eyebrow">Specifications</p>
+              <h2 className="mt-3 font-display text-4xl leading-tight text-ink md:text-5xl">
+                Project Details
+              </h2>
+            </div>
+            <div className="space-y-5 text-lg leading-relaxed lg:col-span-8">
+              {p.projectDetails.map((d) => (
+                <div key={d.k} className="border-b border-ink/10 pb-5">
+                  <span className="font-semibold text-ink">{d.k}: </span>
+                  <span className="text-ink/75">{d.v}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ---------- HERO PHOTO + GALLERY + LIGHTBOX ---------- */}
+      <Gallery photos={p.photos} />
+
+      {/* ---------- CTA ---------- */}
       <section className="section">
-        <div className="container-x flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <Link href="/projects" className="btn-ghost">← All projects</Link>
-          <Link href={`/projects/${next.slug}`} className="btn-ghost">
-            Next: {next.title} →
-          </Link>
+        <div className="container-x">
+          <div className="glass mx-auto max-w-3xl p-12 text-center">
+            <p className="eyebrow">Like What You See?</p>
+            <h2 className="mb-6 mt-4 font-display text-4xl leading-tight text-ink md:text-5xl">
+              Let’s design your space next.
+            </h2>
+            <p className="text-lg leading-relaxed text-ink/75">
+              Free in-home consultations across Cincinnati and the surrounding OH, KY and IN
+              tri-state area.
+            </p>
+            <div className="mt-10 flex flex-wrap justify-center gap-4">
+              <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
+                Book Free Estimate
+              </Link>
+              <a href={site.phoneHref} className="btn-ghost inline-flex items-center gap-2">
+                <Phone className="size-4" /> {site.phone}
+              </a>
+            </div>
+          </div>
         </div>
       </section>
-
-      <CTASection withForm heading="Want a space like this?" />
     </>
   );
 }

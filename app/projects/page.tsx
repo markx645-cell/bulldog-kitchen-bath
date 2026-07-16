@@ -1,74 +1,71 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
+import { site } from '@/content/site';
 import { projects } from '@/content/projects';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import CTASection from '@/components/CTASection';
+import ProjectsBrowser from './ProjectsBrowser';
 
 export const metadata: Metadata = {
-  title: 'Featured Projects — Cincinnati Kitchen & Bath Remodels',
+  title: 'Featured Projects — Bulldog Kitchen & Bath | Cincinnati, OH',
   description:
-    'Browse Bulldog Kitchen & Bath’s featured kitchen, bathroom, basement and whole-home remodels. Real projects, built by one in-house team and backed for life.',
+    'Recent kitchen, bath, basement, and laundry remodels from Bulldog Kitchen & Bath across Cincinnati neighborhoods.',
   alternates: { canonical: '/projects' },
+  openGraph: {
+    title: 'Featured Projects — Bulldog Kitchen & Bath',
+    description: 'Real Cincinnati homes. Real homeowners. Real results.',
+  },
 };
 
 export default function ProjectsPage() {
+  // ItemList structured data, as the production route emits.
+  const itemListJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: projects.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: p.title,
+      url: `${site.url}/projects/${p.slug}`,
+    })),
+  };
+
   return (
     <>
-      <section className="relative overflow-hidden">
-        <div className="container-x relative py-14 lg:py-20">
-          <Breadcrumbs items={[{ label: 'Projects', href: '/projects' }]} className="mb-6" />
-          <p className="eyebrow">Our work</p>
-          <h1 className="mt-3 max-w-3xl font-display text-4xl  leading-[1.05] text-ink sm:text-5xl lg:text-6xl">
-            Featured Projects
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+      />
+
+      {/* ---------- HERO ---------- */}
+      <section className="section">
+        <div className="container-x">
+          <Breadcrumbs items={[{ label: 'Projects', href: '/projects' }]} className="mb-8" />
+          <p className="eyebrow">Featured Projects</p>
+          <h1 className="mt-4 max-w-3xl font-display text-5xl text-ink md:text-7xl">
+            Transformations That Speak For Themselves
           </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink/75">
-            {projects.length} kitchens, bathrooms, basements and whole-home remodels — every one
-            designed and installed by one in-house team, and backed by our Lifetime Workmanship
-            Warranty.
+          <p className="mt-6 max-w-2xl text-lg text-ink/75">
+            Real Cincinnati homes. Real homeowners. Real results.
           </p>
         </div>
       </section>
 
+      {/* ---------- FILTER + SEARCH + GRID ---------- */}
+      <ProjectsBrowser />
+
+      {/* ---------- CTA ---------- */}
       <section className="section">
         <div className="container-x">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-reveal data-reveal-stagger>
-            {projects.map((p) => (
-              <Link
-                key={p.slug}
-                href={`/projects/${p.slug}`}
-                className="group glass glass-hover flex flex-col overflow-hidden"
-              >
-                {p.photos[0] && (
-                  <div className="relative aspect-[4/3] w-full overflow-hidden">
-                    <Image
-                      src={p.photos[0].src}
-                      alt={p.photos[0].alt}
-                      fill
-                      sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                )}
-                <div className="flex flex-1 flex-col p-6">
-                  <h2 className="font-display text-xl text-ink">{p.title}</h2>
-                  {p.description && (
-                    <p className="mt-2 flex-1 text-sm leading-relaxed text-ink/70">{p.description}</p>
-                  )}
-                  <span className="mt-4 inline-flex items-center gap-1.5 font-sans text-xs font-medium uppercase tracking-[0.18em] text-ink">
-                    View project
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="transition-transform group-hover:translate-x-1">
-                      <path d="M5 12h14M13 6l6 6-6 6" />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
-            ))}
+          <div className="glass mx-auto max-w-2xl p-12 text-center">
+            <h2 className="mb-6 font-display text-4xl text-ink md:text-5xl">
+              Want Yours Featured Next?
+            </h2>
+            <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
+              Start Your Project
+            </Link>
           </div>
         </div>
       </section>
-
-      <CTASection withForm />
     </>
   );
 }
