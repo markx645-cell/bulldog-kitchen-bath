@@ -71,11 +71,11 @@ export default function WhyChooseUs() {
     <section className="section bg-sage">
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow">Why Cincinnati chooses us</p>
+          <p className="eyebrow text-ink">Why Cincinnati chooses us</p>
           <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
             One organized team, zero surprises
           </h2>
-          <p className="mt-4 text-ink/75">
+          <p className="mt-4 text-ink">
             We re-engineered remodeling so you deal with one accountable team from design to the final
             walkthrough — with the price and schedule locked before we start.
           </p>
@@ -87,11 +87,11 @@ export default function WhyChooseUs() {
               key={p.title}
               className="rounded-xl bg-vermilion p-6 shadow-card transition-transform hover:-translate-y-1"
             >
-              <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-ink/15 text-ink">
+              <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-ink/15 text-white">
                 <PillarIcon name={p.icon} />
               </span>
-              <h3 className="font-display text-lg font-bold text-ink">{p.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink/80">{p.body}</p>
+              <h3 className="font-display text-lg font-bold text-white">{p.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-ink">{p.body}</p>
             </div>
           ))}
         </div>
