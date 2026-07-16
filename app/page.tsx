@@ -46,7 +46,7 @@ export default function HomePage() {
               <p className="eyebrow">Cincinnati · Northern Kentucky · One accountable team</p>
               <h1 className="mt-3 font-display text-4xl font-bold leading-[1.02] tracking-tight text-ink sm:text-5xl lg:text-6xl">
                 Beautiful kitchens &amp; baths.
-                <span className="block text-sage-400">Built by one team.</span>
+                <span className="block text-vermilion">Built by one team.</span>
               </h1>
               <p className="mt-5 max-w-xl leading-relaxed text-ink/75">
                 Full-service kitchen and bath remodeling with fixed pricing, in-house design, and

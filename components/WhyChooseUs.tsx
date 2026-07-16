@@ -72,7 +72,7 @@ export default function WhyChooseUs() {
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow text-ink">Why Cincinnati chooses us</p>
-          <h2 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
+          <h2 className="mt-2 font-display text-3xl font-bold text-vermilion sm:text-4xl">
             One organized team, zero surprises
           </h2>
           <p className="mt-4 text-ink">
@@ -91,7 +91,7 @@ export default function WhyChooseUs() {
                 <PillarIcon name={p.icon} />
               </span>
               <h3 className="font-display text-lg font-bold text-white">{p.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink">{p.body}</p>
+              <p className="mt-2 text-sm leading-relaxed text-white">{p.body}</p>
             </div>
           ))}
         </div>
