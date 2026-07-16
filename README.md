@@ -50,3 +50,5 @@ across every page at once.
    -movflags +faststart -c:a aac -b:a 96k public/videos/remodel.mp4`). Note the
    source footage is portrait (9:16), so the CTA slot needs a portrait container.
 3. **Domain** — point `bulldogkitchenbath.com` at the Vercel project.
+
+<!-- deploy pipeline verified -->
