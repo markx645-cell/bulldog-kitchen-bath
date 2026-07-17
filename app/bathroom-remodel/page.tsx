@@ -16,9 +16,20 @@ import {
 } from 'lucide-react';
 import { site } from '@/content/site';
 import { services } from '@/content/services';
-import CTASection from '@/components/CTASection';
+import BathroomInterestForm from '@/components/BathroomInterestForm';
 
 const service = services['bathroom-remodel'];
+
+// The production "Our Services" footer list. Every one of its six links points
+// at "/" upstream; pointed at the real service pages here.
+const otherServices = [
+  { label: 'Full Bathroom Remodels', href: '/bathroom-remodel' },
+  { label: 'Walk-In Showers', href: '/walk-in-showers' },
+  { label: 'Tub & Shower Combos', href: '/tub-shower-combos' },
+  { label: 'Bathroom Flooring', href: '/bathroom-flooring' },
+  { label: 'Walk-In Tubs', href: '/walk-in-tubs' },
+  { label: 'Kitchens', href: '/kitchens' },
+];
 
 export const metadata: Metadata = {
   title: service.metaTitle,
@@ -348,7 +359,50 @@ export default function BathroomRemodelPage() {
         </div>
       </section>
 
-      <CTASection withForm heading="Contact us today" />
+      {/* ---------- CONTACT ---------- */}
+      <section id="contact" className="section">
+        <div className="container-x">
+          <div className="mb-12 max-w-3xl">
+            <p className="eyebrow">Contact Us Today</p>
+            <h2 className="mb-6 mt-4 font-display text-4xl leading-tight text-ink md:text-5xl">
+              Tell us about your project — we’ll take it from there.
+            </h2>
+            <p className="mb-6 text-lg leading-relaxed text-ink/75">
+              Share a few details and a member of our team will reach out to get the ball rolling.
+              Estimates are always free and there’s no pressure to move forward.
+            </p>
+            <a
+              href={site.phoneHref}
+              className="inline-flex items-center gap-3 font-display text-2xl text-ink transition hover:text-crimson"
+            >
+              <Phone className="size-5 text-crimson" /> {site.phone}
+            </a>
+          </div>
+
+          <div className="glass max-w-3xl p-6 md:p-10">
+            <BathroomInterestForm />
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- OTHER SERVICES ---------- */}
+      <section className="section">
+        <div className="container-x text-center">
+          <p className="eyebrow">Explore More</p>
+          <h2 className="mb-10 mt-4 font-display text-3xl text-ink md:text-4xl">Our Services</h2>
+          <div className="flex flex-wrap justify-center gap-x-10 gap-y-4">
+            {otherServices.map((s) => (
+              <Link
+                key={s.href}
+                href={s.href}
+                className="border-b border-transparent pb-1 font-display text-lg text-ink transition hover:border-crimson hover:text-crimson"
+              >
+                {s.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }

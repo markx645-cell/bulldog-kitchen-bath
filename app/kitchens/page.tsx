@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import ServicePage from '@/components/ServicePage';
+import KitchenInterestForm from '@/components/KitchenInterestForm';
 import { services } from '@/content/services';
 
 const service = services['kitchens'];
@@ -53,6 +54,22 @@ export default function Page() {
             >
               Older Home Guide <ArrowRight className="size-3" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- KITCHEN INTEREST FORM ---------- */}
+      <section id="kitchen-interest" className="section">
+        <div className="container-x max-w-3xl">
+          <p className="eyebrow text-center">Kitchen Interest Form</p>
+          <h2 className="mb-4 mt-3 text-center font-display text-4xl text-ink md:text-5xl">
+            Tell Us About Your Kitchen Project
+          </h2>
+          <p className="mb-12 text-center text-ink/75">
+            The more you share, the more accurate your estimate will be.
+          </p>
+          <div className="glass p-6 md:p-10">
+            <KitchenInterestForm />
           </div>
         </div>
       </section>

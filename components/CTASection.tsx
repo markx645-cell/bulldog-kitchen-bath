@@ -21,22 +21,6 @@ export default function CTASection({
           <div className="lg:pt-2">
             <p className="eyebrow">{site.headline}</p>
             <h2 className="mt-3 font-display text-3xl text-ink sm:text-4xl">{heading}</h2>
-
-            {/* Video slot — drop a compressed walkthrough at /public/videos/remodel.mp4
-                and swap this placeholder for a <video> element when ready. */}
-            <div className="photo-frame mt-6 flex aspect-video w-full items-center justify-center overflow-hidden rounded-xl shadow-lift ring-1 ring-ink/10">
-              <div className="flex flex-col items-center gap-3 px-4 text-center">
-                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-crimson text-white shadow-lift">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </span>
-                <span className="font-sans text-[11px] font-bold uppercase tracking-[0.15em] text-crimson">
-                  Remodel walkthrough — coming soon
-                </span>
-              </div>
-            </div>
-
             <p className="mt-6 max-w-lg text-ink/75">{sub}</p>
             {pitch && <p className="mt-4 max-w-lg text-ink/75">{pitch}</p>}
             <a
