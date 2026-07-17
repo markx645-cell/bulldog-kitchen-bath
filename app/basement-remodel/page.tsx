@@ -19,7 +19,7 @@ import {
 } from 'lucide-react';
 import { site } from '@/content/site';
 import { services } from '@/content/services';
-import FaqAccordion from './FaqAccordion';
+import FaqAccordion from '@/components/FaqAccordion';
 
 const service = services['basement-remodel'];
 
@@ -132,7 +132,7 @@ export default function BasementRemodelPage() {
             lifetime workmanship warranty.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <Link href="/consult" className="btn-primary !bg-crimson hover:!bg-crimson-600">
+            <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
               Book Your Free Estimate
             </Link>
             <a
@@ -300,7 +300,7 @@ export default function BasementRemodelPage() {
               basement.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/consult" className="btn-primary !bg-crimson hover:!bg-crimson-600">
+              <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
                 Book Your Free Estimate
               </Link>
               <a href={site.phoneHref} className="btn-ghost inline-flex items-center gap-2">

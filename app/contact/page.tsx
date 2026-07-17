@@ -1,74 +1,81 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
+import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { site } from '@/content/site';
-import QuoteForm from '@/components/QuoteForm';
+import BookEstimateForm from '@/components/BookEstimateForm';
 
 export const metadata: Metadata = {
-  title: 'Contact — Book Your Free Kitchen or Bath Consult',
+  title: 'Contact — Bulldog Kitchen & Bath | Cincinnati, OH',
   description:
-    'Contact Bulldog Kitchen & Bath in Cincinnati. Call (513) 657-3750 or request a free design consultation online. Serving Greater Cincinnati and Northern Kentucky, Mon–Fri 9am–5pm.',
+    'Get a free in-home estimate for your kitchen or bath remodel in Cincinnati. Call (513) 657-3750 or send us a message.',
   alternates: { canonical: '/contact' },
+  openGraph: {
+    title: 'Contact Bulldog Kitchen & Bath',
+    description:
+      'Free in-home estimates across Cincinnati, Northern Kentucky, and Southeast Indiana.',
+  },
 };
 
-function InfoIcon({ name }: { name: string }) {
-  const common = { width: 22, height: 22, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.9, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, 'aria-hidden': true as const };
-  switch (name) {
-    case 'phone':
-      return <svg {...common}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" /></svg>;
-    case 'mail':
-      return <svg {...common}><rect x="2" y="4" width="20" height="16" rx="2" /><path d="M22 7l-10 6L2 7" /></svg>;
-    case 'pin':
-      return <svg {...common}><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" /><circle cx="12" cy="10" r="3" /></svg>;
-    case 'clock':
-      return <svg {...common}><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>;
-    default:
-      return null;
-  }
-}
-
 export default function ContactPage() {
-  const items = [
-    { icon: 'phone', label: 'Call or text', value: site.phone, href: site.phoneHref },
-    { icon: 'pin', label: 'Location', value: `${site.address.city}, ${site.address.state}` },
-    { icon: 'map', label: 'Service area', value: site.serviceAreaShort },
-    { icon: 'clock', label: 'Hours', value: site.hours },
+  const details = [
+    { icon: Phone, label: 'Phone', value: site.phone, href: site.phoneHref },
+    { icon: Mail, label: 'Email', value: site.email, href: `mailto:${site.email}` },
+    { icon: MapPin, label: 'Service Area', value: site.serviceAreaLine },
+    { icon: Clock, label: 'Hours', value: site.hoursLine },
   ];
 
   return (
     <>
-      <section className="relative overflow-hidden">
-        <div className="glass-sheen absolute inset-0" />
-        <div className="container-x relative py-12 lg:py-16">
-          <div className="grid items-start gap-10 lg:grid-cols-[1fr_0.9fr]">
-            <div>
-              <p className="eyebrow">Get in touch</p>
-              <h1 className="mt-3 font-display text-4xl  leading-[1.05] text-ink sm:text-5xl">
-                Let’s talk about your project
-              </h1>
-              <p className="mt-5 max-w-lg leading-relaxed text-ink/75">
-                Call us, or send a few details and a Bulldog project consultant will reach out to
-                schedule your free design consultation. No pressure, no obligation.
-              </p>
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                {items.map((it) => (
-                  <div key={it.label} className="flex items-start gap-3 rounded-xl border border-ink/20 bg-ink/5 p-4">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-crimson text-white">
-                      <InfoIcon name={it.icon} />
-                    </span>
-                    <div>
-                      <p className="font-sans text-[11px] font-bold uppercase tracking-wide text-crimson">{it.label}</p>
-                      {it.href ? (
-                        <a href={it.href} className="mt-0.5 block font-semibold text-ink hover:text-crimson">{it.value}</a>
-                      ) : (
-                        <p className="mt-0.5 text-sm text-ink/75">{it.value}</p>
-                      )}
+      {/* ---------- HERO ---------- */}
+      <section className="section">
+        <div className="container-x">
+          <p className="eyebrow">Get In Touch</p>
+          <h1 className="mt-4 max-w-3xl font-display text-5xl text-ink md:text-7xl">
+            Let’s Talk About Your Space
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg text-ink/75">
+            Free in-home consultation. No pressure, no surprises — just real numbers and a real plan.
+          </p>
+        </div>
+      </section>
+
+      {/* ---------- DETAILS + FORM ---------- */}
+      <section className="section">
+        <div className="container-x grid gap-16 lg:grid-cols-2">
+          <div>
+            <h2 className="mb-8 font-display text-3xl text-ink">Reach Us Directly</h2>
+            <ul className="space-y-6">
+              {details.map((d) => (
+                <li key={d.label} className="flex gap-4">
+                  <d.icon className="mt-1 size-5 shrink-0 text-crimson" />
+                  <div>
+                    <div className="font-sans text-xs uppercase tracking-widest text-ink/60">
+                      {d.label}
                     </div>
+                    {d.href ? (
+                      <a href={d.href} className="text-lg text-ink hover:text-crimson">
+                        {d.value}
+                      </a>
+                    ) : (
+                      <div className="text-lg text-ink">{d.value}</div>
+                    )}
                   </div>
-                ))}
-              </div>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-10 border-t border-ink/10 pt-6 text-sm text-ink/70">
+              <p>
+                Need financing options?{' '}
+                <Link href="/financing" className="text-crimson hover:underline">
+                  See our financing plans →
+                </Link>
+              </p>
             </div>
-            <div className="lg:justify-self-end">
-              <QuoteForm />
-            </div>
+          </div>
+
+          <div className="glass p-8">
+            <h2 className="mb-6 font-display text-3xl text-ink">Book An Estimate</h2>
+            <BookEstimateForm />
           </div>
         </div>
       </section>

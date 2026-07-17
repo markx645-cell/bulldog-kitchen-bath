@@ -243,7 +243,7 @@ export default function OurProcessPage() {
               consultations across Cincinnati and the surrounding tri-state area.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <Link href="/consult" className="btn-primary !bg-crimson hover:!bg-crimson-600">
+              <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
                 Book Free Estimate
               </Link>
               <a href={site.phoneHref} className="btn-ghost inline-flex items-center gap-2">

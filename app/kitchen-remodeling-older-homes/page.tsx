@@ -177,7 +177,7 @@ export default function OlderHomesPage() {
             the present without erasing the character that made you love the house.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <Link href="/consult" className="btn-primary !bg-crimson hover:!bg-crimson-600">
+            <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
               Book Free Estimate
             </Link>
             <a
@@ -446,7 +446,7 @@ export default function OlderHomesPage() {
               workmanship warranty.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/consult" className="btn-primary !bg-crimson hover:!bg-crimson-600">
+              <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
                 Book Free Estimate
               </Link>
               <a href={site.phoneHref} className="btn-ghost inline-flex items-center gap-2">

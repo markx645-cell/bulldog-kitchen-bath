@@ -92,7 +92,7 @@ export default async function LocationPage({
                 Fixed pricing, licensed trades, and a Lifetime Workmanship Warranty on every project.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
-                <Link href="/consult" className="btn-primary">Book Estimate</Link>
+                <Link href="/contact" className="btn-primary">Book Estimate</Link>
                 <a href={site.phoneHref} className="btn-ghost">Call {site.phone}</a>
               </div>
             </div>

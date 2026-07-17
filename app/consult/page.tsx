@@ -1,59 +1,81 @@
 import type { Metadata } from 'next';
-import { site, estimateSteps } from '@/content/site';
-import QuoteForm from '@/components/QuoteForm';
+import { CheckCircle2, Phone, Mail, MapPin } from 'lucide-react';
+import { site } from '@/content/site';
+import ConsultForm from './ConsultForm';
 
 export const metadata: Metadata = {
-  title: 'Book a Free Design Consultation',
+  title: 'Book a Free Consultation — Bulldog Kitchen & Bath',
   description:
-    'Book your free, no-obligation kitchen or bath design consultation with Bulldog Kitchen & Bath. Meet your designer, see a 3D rendering, and get one honest fixed price. Serving Greater Cincinnati.',
+    "Schedule a free 15-minute consultation with Bulldog Kitchen & Bath. Tell us about your kitchen or bath project and we'll get back to you within one business day.",
   alternates: { canonical: '/consult' },
+  openGraph: {
+    title: 'Book a Free Consultation — Bulldog Kitchen & Bath',
+    description: 'Tell us about your project and book a quick 15-minute call.',
+    url: `${site.url}/consult`,
+  },
 };
+
+const EXPECT = [
+  'A real person reads every request — usually same day.',
+  'A 15-minute call to understand the scope, budget, and timing.',
+  "If we're a good fit, we book a free in-home estimate.",
+];
 
 export default function ConsultPage() {
   return (
-    <section className="relative overflow-hidden">
-      <div className="glass-sheen absolute inset-0" />
-      <div className="container-x relative py-12 lg:py-16">
-        <div className="grid items-start gap-10 lg:grid-cols-[1fr_0.9fr]">
-          <div className="lg:pt-2">
-            <p className="eyebrow">Free · No obligation</p>
-            <h1 className="mt-3 font-display text-4xl  leading-[1.05] text-ink sm:text-5xl">
-              Book your free design consultation
-            </h1>
-            <p className="mt-4 text-sm font-medium text-ink/70">
-              Fixed pricing · In-house installers · Lifetime Workmanship Warranty
-            </p>
-            <p className="mt-5 max-w-lg leading-relaxed text-ink/75">
-              Here’s exactly what happens — no high-pressure sales, no “today-only” games. Just a plan
-              and an honest number.
-            </p>
-
-            <div className="mt-8 space-y-5">
-              {estimateSteps.map((s) => (
-                <div key={s.step} className="flex gap-4">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-ink font-sans text-sm font-bold text-ink">
-                    {s.step}
-                  </span>
-                  <div>
-                    <h2 className="font-display text-lg text-ink">{s.title}</h2>
-                    <p className="mt-1 text-sm text-ink/75">{s.body}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <a
-              href={site.phoneHref}
-              className="btn-ghost mt-8 !border-ink/30 !bg-transparent !text-ink hover:!border-ink"
-            >
-              Prefer to call? {site.phone}
-            </a>
-          </div>
-          <div className="lg:justify-self-end">
-            <QuoteForm />
-          </div>
+    <>
+      {/* ---------- HERO ---------- */}
+      <section className="section">
+        <div className="container-x">
+          <p className="eyebrow">Free 15-Minute Consultation</p>
+          <h1 className="mt-4 max-w-3xl font-display text-5xl leading-[1.05] text-ink md:text-6xl lg:text-7xl">
+            Let’s Talk About Your Project
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg text-ink/75">
+            Tell us a little about your space and when you’re free. We’ll follow up within one
+            business day to lock in a quick call — no pressure, no sales pitch.
+          </p>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* ---------- SIDE RAIL + FORM ---------- */}
+      <section className="section">
+        <div className="container-x grid items-start gap-12 lg:grid-cols-[1fr_2fr]">
+          <aside className="space-y-8 lg:sticky lg:top-32">
+            <div>
+              <h2 className="mb-4 font-display text-2xl text-ink">What to expect</h2>
+              <ul className="space-y-4 text-sm text-ink/75">
+                {EXPECT.map((e) => (
+                  <li key={e} className="flex gap-3">
+                    <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-crimson" />
+                    <span>{e}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="space-y-3 border-t border-ink/10 pt-6 text-sm">
+              <div className="flex items-center gap-3">
+                <Phone className="size-4 shrink-0 text-crimson" />
+                <a href={site.phoneHref} className="text-ink hover:text-crimson">
+                  {site.phone}
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
+                <Mail className="size-4 shrink-0 text-crimson" />
+                <a href={`mailto:${site.email}`} className="text-ink hover:text-crimson">
+                  {site.email}
+                </a>
+              </div>
+              <div className="flex items-center gap-3 text-ink/70">
+                <MapPin className="size-4 shrink-0 text-crimson" />
+                Cincinnati, OH · N. KY · SE IN
+              </div>
+            </div>
+          </aside>
+
+          <ConsultForm />
+        </div>
+      </section>
+    </>
   );
 }

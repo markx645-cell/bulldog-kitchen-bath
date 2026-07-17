@@ -90,7 +90,7 @@ export default function ServicesPage() {
             workmanship warranty.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <Link href="/consult" className="btn-primary !bg-crimson hover:!bg-crimson-600">
+            <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
               Book A Free Estimate
             </Link>
             <a href={site.phoneHref} className="btn-ghost inline-flex items-center gap-2">

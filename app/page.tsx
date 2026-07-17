@@ -44,7 +44,7 @@ export default function HomePage() {
               </p>
 
               <div className="mt-7 flex flex-wrap gap-3">
-                <Link href="/consult" className="btn-primary">Book Your Free Consult</Link>
+                <Link href="/contact" className="btn-primary">Book Your Free Consult</Link>
                 <a href={site.phoneHref} className="btn-ghost !border-ink/30 !bg-transparent !text-ink hover:!border-ink">
                   Call {site.phone}
                 </a>

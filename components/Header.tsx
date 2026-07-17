@@ -149,7 +149,7 @@ export default function Header() {
         <div className="bg-ink md:hidden">
           <div className="flex h-14 items-stretch">
             <Link
-              href="/consult"
+              href="/contact"
               onClick={close}
               className="flex w-1/2 items-center justify-center whitespace-nowrap bg-crimson px-3 font-sans text-sm font-extrabold uppercase tracking-wide text-white"
               style={{ clipPath: 'polygon(0 0, 100% 0, calc(100% - 24px) 100%, 0 100%)' }}
@@ -244,7 +244,7 @@ export default function Header() {
               </span>
             </a>
             <Link
-              href="/consult"
+              href="/contact"
               className="hidden btn-primary !px-5 !py-2 text-center !leading-tight lg:inline-flex"
             >
               Book Your

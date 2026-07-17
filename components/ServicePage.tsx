@@ -39,7 +39,7 @@ export default function ServicePage({ service: s }: { service: Service }) {
           </h1>
           {s.region && <p className="mt-4 text-lg text-white/90">{s.region}</p>}
           <div className="mt-8 flex flex-wrap gap-4">
-            <Link href="/consult" className="btn-primary !bg-crimson hover:!bg-crimson-600">
+            <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
               Book Estimate
             </Link>
             <a
@@ -132,7 +132,7 @@ export default function ServicePage({ service: s }: { service: Service }) {
               <p className="font-display text-2xl italic leading-relaxed text-ink md:text-3xl">
                 “{s.closingQuote}”
               </p>
-              <Link href="/consult" className="btn-primary mt-10 !bg-crimson hover:!bg-crimson-600">
+              <Link href="/contact" className="btn-primary mt-10 !bg-crimson hover:!bg-crimson-600">
                 Book Your Free Estimate
               </Link>
             </div>

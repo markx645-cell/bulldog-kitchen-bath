@@ -62,7 +62,7 @@ export default function CTASection({
         <h2 className="max-w-2xl font-display text-3xl text-ink sm:text-4xl">{heading}</h2>
         <p className="max-w-xl text-ink/75">{sub}</p>
         <div className="flex flex-col gap-3 sm:flex-row">
-          <Link href="/consult" className="btn-primary">
+          <Link href="/contact" className="btn-primary">
             Book a Free Consult
           </Link>
           <a href={site.phoneHref} className="btn-ghost !bg-transparent !text-ink !border-ink/30 hover:!border-ink">

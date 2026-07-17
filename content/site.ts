@@ -11,6 +11,8 @@ export const site = {
   url: 'https://bulldogkitchenbath.com',
   phone: '(513) 657-3750',
   phoneHref: 'tel:5136573750',
+  // Published on the contact page. Note the bulldogremodel.com domain.
+  email: 'hello@bulldogremodel.com',
   // The real site publishes locality only — no street address.
   address: {
     city: 'Cincinnati',
@@ -18,7 +20,9 @@ export const site = {
   },
   serviceArea: 'Cincinnati, OH and the surrounding OH, KY & IN tri-state area',
   serviceAreaShort: 'Ohio, Kentucky & Indiana',
+  serviceAreaLine: 'Cincinnati, OH · Northern KY · Southeast IN',
   hours: 'Mon–Fri 9am–5pm',
+  hoursLine: 'Mon–Fri 9am–5pm · Sat by appointment',
 } as const;
 
 // Trust band — exactly the four the production ServicePage shows.
@@ -150,7 +154,7 @@ export const offers = [
     headline: 'Free In-Home Estimate',
     body: 'We come to you, measure the space, and talk through what’s possible. Fixed pricing before we start — no pressure, no obligation.',
     cta: 'Book an Estimate',
-    href: '/consult',
+    href: '/contact',
   },
 ] as const;
 

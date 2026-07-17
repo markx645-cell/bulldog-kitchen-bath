@@ -106,7 +106,7 @@ export default function BathroomRemodelPage() {
             have been the first time.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <Link href="/consult" className="btn-primary !bg-crimson hover:!bg-crimson-600">
+            <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
               Book a Free Estimate
             </Link>
             <a
@@ -329,7 +329,7 @@ export default function BathroomRemodelPage() {
                   phone.
                 </p>
               </div>
-              <Link href="/consult" className="btn-primary mt-10 !bg-crimson hover:!bg-crimson-600">
+              <Link href="/contact" className="btn-primary mt-10 !bg-crimson hover:!bg-crimson-600">
                 Schedule Your Consultation
               </Link>
             </div>
