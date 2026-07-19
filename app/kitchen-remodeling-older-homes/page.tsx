@@ -178,7 +178,7 @@ export default function OlderHomesPage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
-              Book Free Estimate
+              Let’s Discuss Your Project
             </Link>
             <a
               href={site.phoneHref}
@@ -447,7 +447,7 @@ export default function OlderHomesPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
-                Book Free Estimate
+                Let’s Discuss Your Project
               </Link>
               <a href={site.phoneHref} className="btn-ghost inline-flex items-center gap-2">
                 <Phone className="size-4" /> {site.phone}

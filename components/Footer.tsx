@@ -13,6 +13,7 @@ export default function Footer() {
     { label: 'Walk-In Tubs', href: '/walk-in-tubs' },
     { label: 'Kitchen Remodeling', href: '/kitchens' },
     { label: 'Basement Remodels', href: '/basement-remodel' },
+    { label: 'Accessory Dwelling Units', href: '/accessory-dwelling-units' },
   ];
 
   const company = [
@@ -30,11 +31,11 @@ export default function Footer() {
         <div>
           <Link href="/" aria-label={site.name} className="inline-block">
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt={`${site.name} — kitchen and bathroom remodel`}
-              width={220}
-              height={220}
-              className="mb-4 h-40 w-auto rounded-md bg-white/95 p-2"
+              width={750}
+              height={900}
+              className="mb-4 h-40 w-auto"
             />
           </Link>
           <p className="max-w-xs text-sm leading-relaxed text-white/90">

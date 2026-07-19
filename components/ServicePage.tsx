@@ -7,7 +7,16 @@ import Faq from '@/components/Faq';
 
 // Mirrors the production ServicePage exactly:
 // Hero (full-bleed) -> Why -> Includes -> Turnaround -> Trust band -> Quote -> BudgetTiers
-export default function ServicePage({ service: s }: { service: Service }) {
+// `children` renders after the Includes grid and before the Turnaround block,
+// so extra sections land mid-body and the turnaround + closing quote stay as
+// the page's closing argument, directly above the FAQ.
+export default function ServicePage({
+  service: s,
+  children,
+}: {
+  service: Service;
+  children?: React.ReactNode;
+}) {
   const trust = [
     { icon: ShieldCheck, label: 'Lifetime Warranty' },
     { icon: BadgeCheck, label: 'Best Price Guarantee' },
@@ -40,7 +49,7 @@ export default function ServicePage({ service: s }: { service: Service }) {
           {s.region && <p className="mt-4 text-lg text-white/90">{s.region}</p>}
           <div className="mt-8 flex flex-wrap gap-4">
             <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
-              Book Estimate
+              Let’s Discuss Your Project
             </Link>
             <a
               href={site.phoneHref}
@@ -91,6 +100,8 @@ export default function ServicePage({ service: s }: { service: Service }) {
         </section>
       )}
 
+      {children}
+
       {/* ---------- TURNAROUND ---------- */}
       {s.turnaroundTitle && (
         <section className="section">
@@ -133,7 +144,7 @@ export default function ServicePage({ service: s }: { service: Service }) {
                 “{s.closingQuote}”
               </p>
               <Link href="/contact" className="btn-primary mt-10 !bg-crimson hover:!bg-crimson-600">
-                Book Your Free Estimate
+                Let’s Discuss Your Project
               </Link>
             </div>
           </div>

@@ -26,7 +26,7 @@ export async function generateMetadata({
   if (!loc) return {};
   return {
     title: `Kitchen & Bath Remodeling in ${loc.city}, ${loc.state}`,
-    description: `Full-service kitchen and bath remodeling in ${loc.longName}, ${loc.state}. One in-house team, fixed pricing, and a Lifetime Workmanship Warranty. Free in-home estimate.`,
+    description: `Full-service kitchen and bath remodeling in ${loc.longName}, ${loc.state}. One in-house team, fixed pricing, and a Lifetime Workmanship Warranty. In-home estimates available.`,
     alternates: { canonical: `/kitchen-bath-remodeling/${loc.slug}` },
   };
 }
@@ -92,7 +92,7 @@ export default async function LocationPage({
                 Fixed pricing, licensed trades, and a Lifetime Workmanship Warranty on every project.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
-                <Link href="/contact" className="btn-primary">Book Estimate</Link>
+                <Link href="/contact" className="btn-primary">Let’s Discuss Your Project</Link>
                 <a href={site.phoneHref} className="btn-ghost">Call {site.phone}</a>
               </div>
             </div>

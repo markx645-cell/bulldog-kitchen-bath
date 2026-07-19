@@ -21,7 +21,9 @@ export async function generateMetadata({
   const p = projectBySlug[slug];
   if (!p) return {};
   return {
-    title: `${p.title} | ${site.name}`,
+    // The layout template appends the brand; don't repeat it here.
+    // openGraph.title below is standalone (no template), so it keeps the brand.
+    title: p.title,
     description: p.description,
     alternates: { canonical: `/projects/${p.slug}` },
     openGraph: {
@@ -159,12 +161,12 @@ export default async function ProjectPage({
               Let’s design your space next.
             </h2>
             <p className="text-lg leading-relaxed text-ink/75">
-              Free in-home consultations across Cincinnati and the surrounding OH, KY and IN
+              In-home consultations across Cincinnati and the surrounding OH, KY and IN
               tri-state area.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
-                Book Free Estimate
+                Let’s Discuss Your Project
               </Link>
               <a href={site.phoneHref} className="btn-ghost inline-flex items-center gap-2">
                 <Phone className="size-4" /> {site.phone}

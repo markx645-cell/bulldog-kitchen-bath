@@ -5,7 +5,7 @@ import CTASection from '@/components/CTASection';
 
 export const metadata: Metadata = {
   title: 'Blog',
-  description: 'Articles, tips, and inspiration from Bulldog Kitchen & Bath.',
+  description: 'Articles, tips, and inspiration from Bulldog Remodel Group.',
   alternates: { canonical: '/blog' },
 };
 
@@ -28,7 +28,7 @@ export default function BlogPage() {
             Blog
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink/75">
-            Articles, tips, and inspiration from Bulldog Kitchen &amp; Bath.
+            Articles, tips, and inspiration from Bulldog Remodel Group.
           </p>
         </div>
       </section>

@@ -5,7 +5,7 @@ import { Phone, ArrowRight } from 'lucide-react';
 import { site } from '@/content/site';
 
 export const metadata: Metadata = {
-  title: 'Remodeling Pricing Guide | Bulldog Remodel Group — Cincinnati, OH',
+  title: 'Remodeling Pricing Guide — Cincinnati, OH',
   description:
     'Honest cost ranges for kitchen remodels, bathroom remodels and walk-in showers across Cincinnati and the Ohio, Kentucky, Indiana tri-state area.',
   alternates: { canonical: '/pricing-guide' },
@@ -159,7 +159,7 @@ export default function PricingPage() {
             <p>
               The figures above are real ranges from past projects we’ve completed across the
               Cincinnati tri-state area. Every home is unique, and so is every quote. The only way to
-              know your project’s exact number is a free in-home consultation.
+              know your project’s exact number is an in-home consultation.
             </p>
             <p className="pt-2 font-sans text-sm uppercase tracking-widest text-ink/80">
               * What you sign for is what you pay. Bulldog Price Guarantee.
@@ -195,12 +195,12 @@ export default function PricingPage() {
               Get a real number for your project.
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink/75">
-              Free, no-pressure in-home consultations across Cincinnati and the surrounding OH, KY
+              No-pressure in-home consultations across Cincinnati and the surrounding OH, KY
               and IN tri-state area.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
-                Book Free Estimate
+                Let’s Discuss Your Project
               </Link>
               <a
                 href={site.phoneHref}

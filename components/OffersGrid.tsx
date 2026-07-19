@@ -17,7 +17,7 @@ export default function OffersGrid() {
               key={o.headline}
               className="flex flex-col glass glass-hover p-8"
             >
-              <span className="w-fit rounded-full bg-ink px-3 py-1 font-sans text-[11px] font-bold uppercase tracking-wide text-ink">
+              <span className="w-fit rounded-full bg-ink px-3 py-1 font-sans text-[11px] font-bold uppercase tracking-wide text-white">
                 {o.tag}
               </span>
               <h3 className="mt-4 font-display text-2xl text-ink">{o.headline}</h3>

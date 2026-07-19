@@ -35,3 +35,9 @@ next-env.d.ts
 /*.mp4
 
 .vercel
+
+# Local working files / raw source drops — not site assets
+/for you.txt
+/logo
+/new logo.png
+/video/

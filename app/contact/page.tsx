@@ -5,14 +5,14 @@ import { site } from '@/content/site';
 import BookEstimateForm from '@/components/BookEstimateForm';
 
 export const metadata: Metadata = {
-  title: 'Contact — Bulldog Kitchen & Bath | Cincinnati, OH',
+  title: 'Contact — Cincinnati, OH',
   description:
-    'Get a free in-home estimate for your kitchen or bath remodel in Cincinnati. Call (513) 657-3750 or send us a message.',
+    'Get an in-home estimate for your kitchen or bath remodel in Cincinnati. Call (513) 657-3750 or send us a message.',
   alternates: { canonical: '/contact' },
   openGraph: {
-    title: 'Contact Bulldog Kitchen & Bath',
+    title: 'Contact Bulldog Remodel Group',
     description:
-      'Free in-home estimates across Cincinnati, Northern Kentucky, and Southeast Indiana.',
+      'In-home estimates across Cincinnati, Northern Kentucky, and Southeast Indiana.',
   },
 };
 
@@ -34,7 +34,7 @@ export default function ContactPage() {
             Let’s Talk About Your Space
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-ink/75">
-            Free in-home consultation. No pressure, no surprises — just real numbers and a real plan.
+            In-home consultation. No pressure, no surprises — just real numbers and a real plan.
           </p>
         </div>
       </section>

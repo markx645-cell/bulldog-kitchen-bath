@@ -37,12 +37,12 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description:
-    'Full-service kitchen and bath remodeling for Greater Cincinnati and Northern Kentucky. Fixed pricing, in-house design, one accountable team, and a lifetime workmanship warranty. Book a free consult.',
+    'Full-service kitchen and bath remodeling for Greater Cincinnati and Northern Kentucky. Fixed pricing, in-house design, one accountable team, and a lifetime workmanship warranty. Book a consult.',
   keywords: [
     'kitchen remodeling Cincinnati',
     'bathroom remodeling Cincinnati',
     'kitchen and bath remodel Northern Kentucky',
-    'Bulldog Kitchen & Bath',
+    'Bulldog Remodel Group',
   ],
   alternates: { canonical: '/' },
   openGraph: {

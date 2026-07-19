@@ -1,13 +1,19 @@
-// Canonical business facts for Bulldog Kitchen & Bath.
+// Canonical business facts for Bulldog Remodel Group.
 // Ported verbatim from the production export (speedy-kitchen-copy-5a2fe50f).
 
 export const site = {
-  name: 'Bulldog Kitchen & Bath',
-  shortName: 'Bulldog Kitchen & Bath',
+  name: 'Bulldog Remodel Group',
+  shortName: 'Bulldog Remodel Group',
   parent: 'Bulldog Remodel Group',
   tagline: 'Built to last, backed for life.',
-  headline: 'Beautiful Kitchens & Baths. Built by One Team.',
+  // Umbrella line for the Remodel Group brand — grounded in the logo's own
+  // "Whole Home Remodeling" claim rather than kitchen-and-bath only. Feeds the
+  // header ticker, the OG title and the CTA eyebrows.
+  headline: 'Whole-Home Remodeling. Built by One Team.',
   positioning: 'Cincinnati’s most organized remodeler',
+  // TODO: swap to the new Remodel Group domain before launch. This single value
+  // drives metadataBase, every canonical URL, all og:url tags, the sitemap and
+  // the JSON-LD — so changing it here updates the whole site.
   url: 'https://bulldogkitchenbath.com',
   phone: '(513) 657-3750',
   phoneHref: 'tel:5136573750',
@@ -78,7 +84,7 @@ export const process = [
   { step: '07', title: 'Lifetime Warranty', body: 'You receive your warranty packet and care guidelines. We stand behind our work for life — just a call away.' },
 ] as const;
 
-// What happens at the free in-home estimate — the first three real process
+// What happens at the in-home estimate — the first three real process
 // steps, which is exactly what the visit covers.
 export const estimateSteps = [
   {
@@ -132,7 +138,7 @@ export const financing = {
 export const faqs = [
   { q: 'How long does a typical kitchen or bath remodel take?', a: 'Most full bathroom remodels are completed on-site in 2–5 days, and kitchens in about 7 days. The full process — from initial design meeting to final walkthrough — typically takes 4–8 weeks depending on selections and lead times.' },
   { q: 'Do you offer financing?', a: 'Yes. We partner with top home-improvement lenders to offer 0% intro APR plans, fixed monthly payments up to 120 months, and same-as-cash options. Pre-qualification takes 60 seconds with a soft credit pull only — no impact to your score. See our Financing page for details.' },
-  { q: 'Do you handle design, demo, and installation?', a: 'Yes. Bulldog Kitchen & Bath is a true one-team remodeler. Our in-house designers, project managers, and licensed trades handle every step under one contract.' },
+  { q: 'Do you handle design, demo, and installation?', a: 'Yes. Bulldog Remodel Group is a true one-team remodeler. Our in-house designers, project managers, and licensed trades handle every step under one contract.' },
   { q: 'Will the quality be the same as a traditional remodel?', a: 'Often better. Because we plan everything before construction starts and use specialized crews, our quality control is tighter. Every component is professionally installed and backed by our Lifetime Workmanship Warranty.' },
   { q: 'Can I stay in my home during the remodel?', a: 'Yes — most clients do. We isolate the workspace, install protective barriers, and perform daily clean-ups to minimize dust and disruption.' },
   { q: 'Are my selections limited to pre-set packages?', a: 'Not at all. You have access to a wide range of cabinetry, countertops, tile, and finishes — curated for style, quality, and availability.' },
@@ -151,7 +157,7 @@ export const offers = [
   },
   {
     tag: 'No obligation',
-    headline: 'Free In-Home Estimate',
+    headline: 'In-Home Estimate',
     body: 'We come to you, measure the space, and talk through what’s possible. Fixed pricing before we start — no pressure, no obligation.',
     cta: 'Book an Estimate',
     href: '/contact',
@@ -195,6 +201,7 @@ export const nav = {
       { label: 'Kitchen Remodels', href: '/kitchens' },
       { label: 'Kitchen Remodels for Older Homes', href: '/kitchen-remodeling-older-homes' },
       { label: 'Basement Remodels', href: '/basement-remodel' },
+      { label: 'Accessory Dwelling Units (ADU)', href: '/accessory-dwelling-units' },
     ],
   },
   simple: [

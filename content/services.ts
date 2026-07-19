@@ -46,7 +46,7 @@ export const serviceList: Service[] = [
     "short": "Down-to-the-studs bathroom remodels handled by one in-house team. Custom vanities, tile, fixtures and finishes.",
     "image": "/assets/bathroom-hero.webp",
     "order": 1,
-    "metaTitle": "Full Bathroom Remodels | Bulldog Kitchen & Bath",
+    "metaTitle": "Full Bathroom Remodels",
     "metaDescription": "Down-to-the-studs full bathroom remodels with one in-house team, lifetime warranty and a price guarantee. Reimagine your space from the ground up.",
     "eyebrow": "Serving Ohio, Kentucky & Indiana",
     "title": "Full Bathroom Remodel Budget Ranges",
@@ -157,11 +157,11 @@ export const serviceList: Service[] = [
     "short": "From dreadful tub to stunning walk-in shower in as little as one day. Anti-slip ADA bases, Triple-Lock Seam backerboard, lifetime warranty.",
     "image": "/assets/service-walk-in-shower.webp",
     "order": 2,
-    "metaTitle": "Walk-In Showers | Bulldog Remodel Group",
+    "metaTitle": "Walk-In Showers",
     "metaDescription": "Beautiful walk-in showers installed in as little as one day. Anti-slip ADA bases, Triple-Lock Seam backerboard, and a lifetime warranty.",
     "eyebrow": "Serving Ohio, Kentucky & Indiana",
     "title": "Walk-In Showers, Installed In As Little As One Day",
-    "region": "Free in-home estimates across the tri-state area",
+    "region": "In-home estimates across the tri-state area",
     "whyTitle": "From Dreadful Tub to Walk-In Shower in 1 Day",
     "whyBody": "The walk-in shower is our best seller for a reason. The ease of accessibility combined with a beautiful aesthetic can bring any bathroom to life in as little as one day. Pairing our stunning acrylic bases with one of our many wall systems creates a bathroom you'll be proud to show off — and one that will serve you for years to come.",
     "includesTitle": "Every Walk-In Shower Installation Includes",
@@ -205,7 +205,7 @@ export const serviceList: Service[] = [
     ],
     "turnaroundTitle": "Quick Turnaround Guarantee",
     "turnaroundBody": "Most walk-in shower installs are completed in a single day. You won't lose a week of your life — or a week of your bathroom — to your remodel.",
-    "closingQuote": "Still on the fence? Give us a call or book a free in-home consultation and let's talk through what's possible.",
+    "closingQuote": "Still on the fence? Give us a call or book an in-home consultation and let's talk through what's possible.",
     "faqs": [],
     "budget": {
       "title": "Walk-In Shower Budget Ranges",
@@ -267,7 +267,7 @@ export const serviceList: Service[] = [
     "short": "The best of both worlds. Handcrafted insulated tubs paired with custom wall systems — depths from 13″ to 22″.",
     "image": "/assets/service-tub-combo.webp",
     "order": 3,
-    "metaTitle": "Tub Shower Combos | Bulldog Kitchen & Bath",
+    "metaTitle": "Tub Shower Combos",
     "metaDescription": "Versatile tub & shower combinations with handcrafted tubs, spray-foam insulation, depth options 13″–22″ and a lifetime warranty.",
     "eyebrow": "Serving Ohio, Kentucky & Indiana",
     "title": "Versatile Tub Shower Combinations",
@@ -315,7 +315,7 @@ export const serviceList: Service[] = [
     ],
     "turnaroundTitle": "Quick Turnaround Guarantee",
     "turnaroundBody": "Most tub/shower combos are completed in 1–2 days. We respect your time and your home — clean job site, on-time finish, no living-out-of-suitcases.",
-    "closingQuote": "Not sure if a combo is right for your space? Book a free in-home consult and we'll help you figure it out.",
+    "closingQuote": "Not sure if a combo is right for your space? Book an in-home consult and we'll help you figure it out.",
     "faqs": [],
     "budget": null
   },
@@ -325,7 +325,7 @@ export const serviceList: Service[] = [
     "short": "Custom-fabricated walk-in tubs with whirlpool, air spa, in-line heaters and aromatherapy.",
     "image": "/assets/service-walk-in-tub.webp",
     "order": 4,
-    "metaTitle": "Walk-In Tubs | Bulldog Kitchen & Bath",
+    "metaTitle": "Walk-In Tubs",
     "metaDescription": "Custom walk-in tubs with whirlpool, air spa, in-line heaters, and aromatherapy. Accessible bathing without sacrificing luxury.",
     "eyebrow": "Serving Ohio, Kentucky & Indiana",
     "title": "Walk-In Tubs Done Right",
@@ -395,7 +395,7 @@ export const serviceList: Service[] = [
     "short": "Premier flooring installation — luxury vinyl, porcelain tile and natural stone. Waterproof prep, slip-resistant finishes.",
     "image": "/assets/service-flooring.webp",
     "order": 5,
-    "metaTitle": "Bathroom Flooring Installation | Bulldog Kitchen & Bath",
+    "metaTitle": "Bathroom Flooring Installation",
     "metaDescription": "Premier bathroom flooring installation. Luxury vinyl, porcelain tile and waterproof options from expert consultation to flawless finish.",
     "eyebrow": "You Can Count On Us",
     "title": "Premier Bathroom Flooring Installation",
@@ -443,7 +443,7 @@ export const serviceList: Service[] = [
     ],
     "turnaroundTitle": "Most Floors Done in 1–2 Days",
     "turnaroundBody": "We schedule materials before we start, so when our team arrives the work moves fast. Most bathroom floors are fully installed and walkable inside two days.",
-    "closingQuote": "The right floor changes the whole room. Let's pick yours together — free in-home consult, no pressure.",
+    "closingQuote": "The right floor changes the whole room. Let's pick yours together — book an in-home consult, no pressure.",
     "faqs": [],
     "budget": null
   },
@@ -453,8 +453,8 @@ export const serviceList: Service[] = [
     "short": "Full kitchen remodels — cabinets, countertops, flooring, backsplash and plumbing. The same craftsmanship we bring to every bath.",
     "image": "/assets/service-kitchen.webp",
     "order": 6,
-    "metaTitle": "Kitchen Remodeling in Cincinnati, OH | Bulldog Kitchen & Bath",
-    "metaDescription": "Expert kitchen remodel Cincinnati services. Bulldog Kitchen & Bath handles cabinets, countertops & flooring. Call (513) 657-3750 for a free estimate.",
+    "metaTitle": "Kitchen Remodeling in Cincinnati, OH",
+    "metaDescription": "Expert kitchen remodel Cincinnati services. Bulldog Remodel Group handles cabinets, countertops & flooring. Call (513) 657-3750 to book an estimate.",
     "eyebrow": "Serving Ohio, Kentucky & Indiana",
     "title": "Kitchen Remodeling in Cincinnati, OH",
     "region": "One team, in-house — demo to final hardware",
@@ -501,7 +501,7 @@ export const serviceList: Service[] = [
     ],
     "turnaroundTitle": "Most Kitchens Done in About 7 Days",
     "turnaroundBody": "With one in-house team and every material staged before demo day, most full kitchen remodels wrap in roughly one week on-site — not the months other contractors quote.",
-    "closingQuote": "Still on the fence? Give us a call or book a free in-home consultation and let's talk through what's possible.",
+    "closingQuote": "Still on the fence? Give us a call or book an in-home consultation and let's talk through what's possible.",
     "faqs": [],
     "budget": {
       "title": "Kitchen Remodel Budget Ranges",
@@ -564,8 +564,8 @@ export const serviceList: Service[] = [
     "short": "Pre-war bungalows, mid-century ranches and century farmhouses, brought into the present without losing their character.",
     "image": "/assets/service-kitchen.webp",
     "order": 7,
-    "metaTitle": "Kitchen Remodeling for Older Homes in Cincinnati | Bulldog Kitchen & Bath",
-    "metaDescription": "Remodeling a kitchen in an older Cincinnati home? Learn what to expect with wiring, plumbing, layout and permits — plus realistic budgets and timelines from Bulldog Kitchen & Bath.",
+    "metaTitle": "Kitchen Remodeling for Older Homes in Cincinnati",
+    "metaDescription": "Remodeling a kitchen in an older Cincinnati home? Learn what to expect with wiring, plumbing, layout and permits — plus realistic budgets and timelines from Bulldog Remodel Group.",
     "eyebrow": "Older Home Specialists · Cincinnati, OH",
     "title": "Kitchen Remodeling for Older Homes in Cincinnati",
     "region": "Pre-war bungalows, mid-century ranches, century-old farmhouses — they all share one thing: a kitchen built for a very different way of living. Here’s how we bring them into the present without erasing the character that made you love the house.",
@@ -606,8 +606,8 @@ export const serviceList: Service[] = [
     "short": "Finished basements built by one accountable team — fixed pricing, licensed trades, backed for life.",
     "image": "/assets/basement-hero.webp",
     "order": 8,
-    "metaTitle": "Basement Remodeling in Cincinnati, OH | Bulldog Kitchen & Bath",
-    "metaDescription": "Full-service basement remodeling in Cincinnati by one accountable team. Finished living spaces, basement bathrooms, wet bars and kitchenettes. Fixed pricing, lifetime workmanship warranty. Free estimate: (513) 657-3750.",
+    "metaTitle": "Basement Remodeling in Cincinnati, OH",
+    "metaDescription": "Full-service basement remodeling in Cincinnati by one accountable team. Finished living spaces, basement bathrooms, wet bars and kitchenettes. Fixed pricing, lifetime workmanship warranty. Call (513) 657-3750 to book an estimate.",
     "eyebrow": "Serving Ohio, Kentucky & Indiana",
     "title": "Basement Remodels",
     "region": "",
@@ -654,7 +654,98 @@ export const serviceList: Service[] = [
       },
       {
         "q": "What does a basement remodel cost?",
-        "a": "It depends on square footage, whether you add a bath or bar, and your finishes. We give you an itemized, fixed-price quote up front so there are no surprises. Book a free estimate for an exact number."
+        "a": "It depends on square footage, whether you add a bath or bar, and your finishes. We give you an itemized, fixed-price quote up front so there are no surprises. Book an estimate for an exact number."
+      }
+    ],
+    "budget": null
+  },
+  {
+    "slug": "accessory-dwelling-units",
+    "name": "Accessory Dwelling Units (ADU)",
+    "short": "Detached guest houses, garage conversions and in-law suites — designed, permitted and built by one accountable team.",
+    "image": "/assets/service-adu.webp",
+    "order": 9,
+    "metaTitle": "Accessory Dwelling Units (ADU)",
+    "metaDescription": "ADU design and construction in Cincinnati — detached guest houses, garage conversions and in-law suites. Zoning and permits handled, fixed pricing, lifetime workmanship warranty.",
+    "eyebrow": "Serving Ohio, Kentucky & Indiana",
+    "title": "Accessory Dwelling Units, Built by One Team",
+    "region": "Detached guest houses, garage conversions, and in-law suites across Greater Cincinnati",
+    "whyTitle": "A Second Home on Your Own Lot",
+    "whyBody": "An ADU is a complete, self-contained living space on the property you already own — a detached backyard cottage, a converted garage, or a finished addition with its own entrance, kitchen and bath. Families use them for aging parents, adult children, guests, a home office, or rental income. They are also the most demanding thing we build: a single project that combines foundation and framing with a full kitchen, a full bathroom, and its own plumbing, electrical and HVAC. That is exactly the work we already do every day — just under one roof instead of two. One contract, one project manager, one accountable team from zoning review to the final walkthrough.",
+    "includesTitle": "What Every ADU Project Includes",
+    "includes": [
+      {
+        "title": "Zoning Review First",
+        "body": "Before anything is designed, we confirm what your lot actually allows. Rules differ by municipality across the tri-state, so we check yours up front — not after you've paid for drawings."
+      },
+      {
+        "title": "Permits & Inspections Managed",
+        "body": "We pull the permits, coordinate every inspection, and keep the paperwork moving so you never have to chase a plans examiner."
+      },
+      {
+        "title": "In-House Design & 3D Renderings",
+        "body": "A dedicated designer plans the layout, storage and finishes, and you see the space in 3D before a single board is cut."
+      },
+      {
+        "title": "Foundation & Framing",
+        "body": "Slab, footings, framing, roofing and siding for detached builds — or structural, insulation and moisture work for a garage conversion."
+      },
+      {
+        "title": "A Real Kitchen",
+        "body": "Full kitchen or kitchenette with cabinetry, countertops, sink and appliance hookups — built to the same standard as the kitchens in our portfolio."
+      },
+      {
+        "title": "A Full Bathroom",
+        "body": "Complete bath with shower or tub, vanity, toilet and waterproofed wet areas. Our core trade, handled in-house."
+      },
+      {
+        "title": "Utilities Run & Connected",
+        "body": "Plumbing supply and drainage, electrical service and panel work, HVAC, and code-compliant egress, smoke and CO detection."
+      },
+      {
+        "title": "Price Guarantee",
+        "body": "The number you sign for is the number you pay. Every material, finish and scope detail is itemized before we break ground."
+      },
+      {
+        "title": "Lifetime Workmanship Warranty",
+        "body": "The same warranty that backs every kitchen and bath we install backs your ADU. If it isn't right, we make it right."
+      }
+    ],
+    "turnaroundTitle": "Planned Before It's Built",
+    "turnaroundBody": "An ADU is a larger build than a single-room remodel, and anyone who promises you a fixed number of days before seeing your lot is guessing. What we do promise is that the schedule is set before demolition starts: zoning confirmed, permits filed, materials ordered and staged, every trade booked. You get a realistic timeline in writing, a dedicated project manager, and daily updates — not a moving target.",
+    "closingQuote": "Not sure whether your lot can take an ADU? That's the first thing we'll find out — book an in-home consultation and we'll tell you straight.",
+    "faqs": [
+      {
+        "q": "What exactly is an ADU?",
+        "a": "An accessory dwelling unit is a second, self-contained living space on the same lot as your main house. It has its own entrance, kitchen or kitchenette, bathroom, and sleeping area. It can be detached (a backyard cottage), attached (an addition with a private entrance), or a conversion of existing space like a garage or basement."
+      },
+      {
+        "q": "Am I allowed to build one on my property?",
+        "a": "That depends on your municipality, your lot size and your zoning district — and it genuinely varies across Cincinnati, Northern Kentucky and Southeast Indiana. We start every ADU project by confirming what your specific lot allows, before you spend anything on design."
+      },
+      {
+        "q": "What can I use it for?",
+        "a": "Most of our clients are thinking about aging parents, adult children, long-term guests, a private home office or studio, or rental income. Whether short- or long-term rental is permitted is a local rules question we'll check alongside the zoning review."
+      },
+      {
+        "q": "Is a garage conversion cheaper than building detached?",
+        "a": "Usually, yes — you already have a foundation, walls and a roof. The work shifts to insulation, moisture control, utilities, egress and finishes. We'll price both approaches if your lot supports either, so you can compare real numbers rather than guesses."
+      },
+      {
+        "q": "How long does an ADU take?",
+        "a": "Longer than a kitchen or bath — you're adding permitting and, for detached builds, foundation and framing. The honest answer is that it depends on your scope and your municipality's review times. We give you a realistic written schedule once zoning and design are settled, and we stage all materials before starting so the build itself runs tight."
+      },
+      {
+        "q": "What does an ADU cost?",
+        "a": "It varies more than any other project we do — a garage conversion and a new detached cottage aren't in the same range. Once we've seen your lot and settled the scope, you get one itemized, fixed-price contract covering everything. Book an in-home consultation for a real number."
+      },
+      {
+        "q": "Do you handle design and construction, or just the build?",
+        "a": "Both. Our in-house designer plans the layout and finishes with 3D renderings, and our own crews handle the build through final walkthrough — under one contract, with one project manager."
+      },
+      {
+        "q": "Does an ADU add value to my home?",
+        "a": "It adds real, permitted, livable square footage and a use case most homes don't have, which buyers notice. As with any addition, quality of workmanship is what protects that value over time — which is why ours is backed for life."
       }
     ],
     "budget": null

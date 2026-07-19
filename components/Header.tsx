@@ -18,7 +18,8 @@ function PhoneIcon({ className }: { className?: string }) {
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
-  const [openGroup, setOpenGroup] = useState<string | null>(null);
+  // Services starts expanded in the mobile drawer — it's the primary nav.
+  const [openGroup, setOpenGroup] = useState<string | null>(nav.services.label);
   const [showOffer, setShowOffer] = useState(true);
   useEffect(() => {
     const id = setTimeout(() => setShowOffer((v) => !v), showOffer ? 10000 : 5000);
@@ -27,7 +28,9 @@ export default function Header() {
 
   const close = () => {
     setMobileOpen(false);
-    setOpenGroup(null);
+    // Reset to the default (Services expanded), not collapsed — otherwise the
+    // drawer would open collapsed on every visit after the first.
+    setOpenGroup(nav.services.label);
   };
 
   const renderMobileGroup = (group: {
@@ -80,8 +83,10 @@ export default function Header() {
     <>
       <header className="sticky top-0 z-50 w-full">
         {/* Top utility bar — desktop */}
-        <div className="hidden bg-ink text-ink md:block">
-          <div className="relative h-9 w-full overflow-hidden font-sans text-xs uppercase tracking-widest text-ink">
+        {/* Dark glass, matching .glass-dark: translucent ink over the blurred
+            backdrop rather than flat black. White type — dark type vanishes. */}
+        <div className="hidden border-b border-white/10 bg-ink/75 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl md:block">
+          <div className="relative h-9 w-full overflow-hidden font-sans text-xs uppercase tracking-widest text-white/90">
             {/* Offer layer */}
             <div
               className={`absolute inset-0 flex items-center justify-center px-5 transition-all duration-500 ease-in-out sm:px-8 ${
@@ -89,7 +94,7 @@ export default function Header() {
               }`}
             >
               <div className="flex items-center gap-2">
-                <span className="whitespace-nowrap text-[15px] font-semibold text-ink">Offer:</span>
+                <span className="whitespace-nowrap text-[15px] font-semibold text-white">Offer:</span>
                 <Link
                   href="/financing"
                   className="inline-flex items-center whitespace-nowrap rounded-sm bg-crimson px-4 py-1 text-[15px] font-bold leading-none text-white shadow-sm transition hover:opacity-90"
@@ -115,8 +120,8 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile bar 1 */}
-        <div className="bg-cream md:hidden">
+        {/* Mobile bar 1 — dark glass, same treatment as the desktop top bar */}
+        <div className="border-b border-white/10 bg-ink/75 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl md:hidden">
           <div className="relative h-9 w-full overflow-hidden font-sans text-[9px] font-bold uppercase tracking-normal">
             <div
               className={`absolute inset-0 flex items-center justify-center px-3 transition-all duration-500 ease-in-out ${
@@ -124,7 +129,7 @@ export default function Header() {
               }`}
             >
               <div className="flex items-center gap-1.5">
-                <span className="whitespace-nowrap text-[12px] text-ink">Offer:</span>
+                <span className="whitespace-nowrap text-[12px] text-white">Offer:</span>
                 <Link
                   href="/financing"
                   onClick={close}
@@ -139,28 +144,27 @@ export default function Header() {
                 showOffer ? 'pointer-events-none translate-y-full opacity-0' : 'translate-y-0 opacity-100'
               }`}
             >
-              <span className="whitespace-nowrap text-ink">Serving Cincinnati &amp; N. Kentucky</span>
-              <span className="whitespace-nowrap text-ink">{site.hours}</span>
+              <span className="whitespace-nowrap text-white/90">Serving Cincinnati &amp; N. Kentucky</span>
+              <span className="whitespace-nowrap text-white/90">{site.hours}</span>
             </div>
           </div>
         </div>
 
-        {/* Mobile bar 2 — CTA + phone */}
-        <div className="bg-ink md:hidden">
-          <div className="flex h-14 items-stretch">
+        {/* Mobile bar 2 — two rounded, shadowed buttons on light glass */}
+        <div className="border-b border-white/40 bg-white/25 shadow-[inset_0_1px_0_rgba(255,255,255,0.55)] backdrop-blur-xl md:hidden">
+          <div className="flex items-stretch gap-2.5 px-3 py-2.5">
             <Link
               href="/contact"
               onClick={close}
-              className="flex w-1/2 items-center justify-center whitespace-nowrap bg-crimson px-3 font-sans text-sm font-extrabold uppercase tracking-wide text-white"
-              style={{ clipPath: 'polygon(0 0, 100% 0, calc(100% - 24px) 100%, 0 100%)' }}
+              className="flex w-1/2 items-center justify-center rounded-xl bg-crimson px-3 py-2.5 text-center font-sans text-[11px] font-extrabold uppercase leading-tight tracking-wide text-white shadow-[0_8px_20px_-6px_rgba(208,29,33,0.55)] transition hover:bg-crimson-600"
             >
-              Book Estimate
+              Let’s Discuss Your Project
             </Link>
             <a
               href={site.phoneHref}
-              className="flex w-1/2 items-center justify-center gap-2 whitespace-nowrap font-display text-lg  tabular-nums text-ink"
+              className="flex w-1/2 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-white/60 bg-white/40 px-3 py-2.5 font-display text-lg tabular-nums text-crimson shadow-[0_8px_20px_-6px_rgba(22,24,26,0.25),inset_0_1px_0_rgba(255,255,255,0.7)] backdrop-blur-md transition hover:bg-white/60"
             >
-              <PhoneIcon className="text-ink" />
+              <PhoneIcon className="text-crimson" />
               {site.phone}
             </a>
           </div>
@@ -168,16 +172,33 @@ export default function Header() {
       </header>
 
       {/* Main bar */}
-      <div className="border-b border-ink/10 bg-bone/85 backdrop-blur-xl md:sticky md:top-9 md:z-40">
+      {/* Light glass. Kept at 70% bone rather than the .glass 20% — this bar sits
+          over arbitrary page content (including dark hero images) and nav type
+          has to stay legible while scrolling.
+          z sits above the top utility bar (z-50) so the overhanging logo can
+          paint over it. The bar's own box never overlaps that bar, so only the
+          logo actually crosses into it. */}
+      <div className="border-b border-white/40 bg-bone/50 shadow-[inset_0_1px_0_rgba(255,255,255,0.55)] backdrop-blur-2xl md:sticky md:top-9 md:z-[60]">
         <div className="flex h-20 w-full items-center justify-between gap-4 px-5 sm:px-8">
           <Link href="/" className="flex items-center gap-2 sm:gap-3" aria-label={site.name} onClick={close}>
-            <Image src="/logo.png" alt={site.name} width={64} height={64} className="h-11 w-auto sm:h-14" priority />
+            {/* Portrait badge (750x900). On desktop it deliberately overhangs the
+                h-20 bar in both directions: at 115px, centring leaves ~18px
+                proud top and bottom, so it rides up over the black utility bar
+                and still breaks out below. The bar keeps its 80px height. */}
+            <Image
+              src="/logo.webp"
+              alt={site.name}
+              width={750}
+              height={900}
+              className="h-12 w-auto sm:h-16 lg:h-[7.2rem]"
+              priority
+            />
             <span className="leading-none">
               <span className="block font-display text-lg  uppercase text-ink sm:text-2xl">
                 Bulldog
               </span>
               <span className="mt-0.5 block whitespace-nowrap font-sans text-[10px] font-bold uppercase tracking-[0.12em] text-crimson sm:text-[13px]">
-                Kitchen &amp; Bath
+                Remodel Group
               </span>
             </span>
           </Link>
@@ -200,7 +221,7 @@ export default function Header() {
                 </svg>
               </Link>
               {openMenu === nav.services.label && (
-                <div className="absolute left-0 top-full max-h-[70vh] w-72 overflow-y-auto rounded-lg border border-ink/10 bg-bone/95 p-2 shadow-lift backdrop-blur-xl">
+                <div className="absolute left-0 top-full max-h-[70vh] w-72 overflow-y-auto rounded-2xl border border-white/50 bg-bone/95 p-2 shadow-[0_8px_32px_rgba(22,24,26,0.14),inset_0_1px_0_rgba(255,255,255,0.7)] backdrop-blur-2xl">
                   {/* Production puts "View All Services" at the top of the menu */}
                   <Link
                     href={nav.services.href}
@@ -239,24 +260,25 @@ export default function Header() {
               <span className="mb-0.5 block font-sans text-[10px] font-bold uppercase tracking-[0.25em] text-ink/70">
                 Call Us
               </span>
-              <span className="block whitespace-nowrap font-display text-2xl  tabular-nums text-ink transition-colors hover:text-ink">
+              <span className="block whitespace-nowrap font-display text-2xl tabular-nums text-crimson transition-colors hover:text-crimson-600">
                 {site.phone}
               </span>
             </a>
             <Link
               href="/contact"
-              className="hidden btn-primary !px-5 !py-2 text-center !leading-tight lg:inline-flex"
+              className="hidden btn-primary !bg-crimson !px-5 !py-2 text-center !leading-tight hover:!bg-crimson-600 lg:inline-flex"
             >
-              Book Your
+              Let’s Discuss
               <br />
-              Free Estimate
+              Your Project
             </Link>
             <button
-              className="flex h-11 w-11 items-center justify-center rounded-md bg-ink lg:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/40 bg-white/25 shadow-[inset_0_1px_0_rgba(255,255,255,0.55)] backdrop-blur-md transition hover:border-white/60 hover:bg-white/40 lg:hidden"
               onClick={() => setMobileOpen((v) => !v)}
               aria-label="Toggle menu"
               aria-expanded={mobileOpen}
             >
+              {/* Dark stroke — the button is light glass now. */}
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16181a" strokeWidth="2.2">
                 {mobileOpen ? (
                   <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" />
@@ -271,7 +293,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-b border-ink/10 bg-bone/95 backdrop-blur-xl lg:hidden">
+        <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-b border-white/40 bg-bone/95 shadow-[inset_0_1px_0_rgba(255,255,255,0.55)] backdrop-blur-2xl lg:hidden">
           <nav className="container-x flex flex-col py-1">
             {renderMobileGroup(nav.services)}
             {nav.simple.map((item) => (

@@ -2,8 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import type { Metadata } from 'next';
-import { site, faqs } from '@/content/site';
-import { serviceList } from '@/content/services';
+import { faqs } from '@/content/site';
 import { projects } from '@/content/projects';
 import ServicesGrid from '@/components/ServicesGrid';
 import WhyChooseUs from '@/components/WhyChooseUs';
@@ -13,13 +12,13 @@ import CTASection from '@/components/CTASection';
 import Photo from '@/components/Photo';
 
 export const metadata: Metadata = {
-  title: 'Kitchen & Bath Remodeling in Cincinnati & Northern Kentucky',
+  // The layout's title template does not apply to the root segment, so the
+  // brand is spelled out here rather than appended automatically.
+  title: 'Bulldog Remodel Group | Kitchen & Bath Remodeling in Cincinnati & N. Kentucky',
   description:
-    'Bulldog Kitchen & Bath — Cincinnati’s most organized remodeler. Full-service kitchen and bath remodeling with fixed pricing, in-house design, and a lifetime workmanship warranty. Book a free consult.',
+    'Bulldog Remodel Group — Cincinnati’s most organized remodeler. Full-service kitchen and bath remodeling with fixed pricing, in-house design, and a lifetime workmanship warranty. Book a consult.',
   alternates: { canonical: '/' },
 };
-
-const heroChips = serviceList.slice(0, 6);
 
 // The four projects the production homepage features.
 const FEATURED_SLUGS = ['1217', 'sb-refined-warmth-kitchen-remodel', 'pure-bliss', 'sb-elevated-living-basement-remodel'];
@@ -43,33 +42,24 @@ export default function HomePage() {
                 concierge-level care — from the first sketch to a lifetime workmanship warranty.
               </p>
 
+              {/* Two CTAs, matching the production hero. */}
               <div className="mt-7 flex flex-wrap gap-3">
-                <Link href="/contact" className="btn-primary">Book Your Free Consult</Link>
-                <a href={site.phoneHref} className="btn-ghost !border-ink/30 !bg-transparent !text-ink hover:!border-ink">
-                  Call {site.phone}
-                </a>
-              </div>
-
-              {/* Service selector chips */}
-              <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
-                {heroChips.map((c) => (
-                  <Link
-                    key={c.slug}
-                    href={`/${c.slug}`}
-                    className="group rounded-full border border-white/40 bg-white/20 px-4 py-3 text-center backdrop-blur-md transition-all hover:border-white/70 hover:bg-white/35"
-                  >
-                    <span className="font-sans text-xs font-semibold uppercase tracking-wide text-ink">
-                      {c.name}
-                    </span>
-                  </Link>
-                ))}
+                <Link href="/contact" className="btn-primary inline-flex items-center gap-2">
+                  Let’s Discuss Your Project <ArrowRight className="size-4" />
+                </Link>
+                <Link
+                  href="/projects"
+                  className="btn-ghost !border-ink/30 !bg-transparent !text-ink hover:!border-ink"
+                >
+                  View Our Featured Projects
+                </Link>
               </div>
             </div>
 
             <Photo
               label="Cincinnati Kitchen Remodel"
               src="/assets/hero-kitchen.webp"
-              alt="Luxury kitchen and bathroom remodel by Bulldog Kitchen & Bath"
+              alt="Luxury kitchen and bathroom remodel by Bulldog Remodel Group"
               className="aspect-[4/3] w-full shadow-lift"
               priority
               sizes="(max-width:1024px) 100vw, 48vw"
@@ -188,7 +178,7 @@ export default function HomePage() {
             </div>
           </div>
           <div>
-            <p className="eyebrow">About Bulldog Kitchen &amp; Bath</p>
+            <p className="eyebrow">About Bulldog Remodel Group</p>
             <h2 className="mb-6 mt-3 font-display text-4xl text-ink md:text-5xl">
               Cincinnati’s most <em>organized</em> kitchen &amp; bath remodeler
             </h2>

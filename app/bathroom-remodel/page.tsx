@@ -87,7 +87,7 @@ const trustBadges = [
   { icon: ShieldCheck, label: 'Lifetime Warranty' },
   { icon: Users, label: 'In-House Installers' },
   { icon: BadgeCheck, label: 'Best Price Guarantee' },
-  { icon: Sparkles, label: 'Free Estimates' },
+  { icon: Sparkles, label: 'In-Home Estimates' },
   { icon: Clock, label: 'Rapid Turnaround' },
 ];
 
@@ -118,7 +118,7 @@ export default function BathroomRemodelPage() {
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
-              Book a Free Estimate
+              Let’s Discuss Your Project
             </Link>
             <a
               href={site.phoneHref}
@@ -341,7 +341,7 @@ export default function BathroomRemodelPage() {
                 </p>
               </div>
               <Link href="/contact" className="btn-primary mt-10 !bg-crimson hover:!bg-crimson-600">
-                Schedule Your Consultation
+                Let’s Discuss Your Project
               </Link>
             </div>
             <div className="grid grid-cols-2 gap-4">
@@ -369,7 +369,7 @@ export default function BathroomRemodelPage() {
             </h2>
             <p className="mb-6 text-lg leading-relaxed text-ink/75">
               Share a few details and a member of our team will reach out to get the ball rolling.
-              Estimates are always free and there’s no pressure to move forward.
+              There’s no obligation and no pressure to move forward.
             </p>
             <a
               href={site.phoneHref}

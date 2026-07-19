@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-// TODO: replace with the Bulldog Kitchen & Bath GoHighLevel (or CRM) webhook URL
+// TODO: replace with the Bulldog Remodel Group GoHighLevel (or CRM) webhook URL
 // before going live. Until then, submissions are attempted but silently no-op.
 const WEBHOOK_URL = '';
 
@@ -70,7 +70,7 @@ export default function QuoteForm() {
       preferred_date: data.date,
       preferred_time: data.time,
       consent: data.agree,
-      source: 'Bulldog Kitchen & Bath Website',
+      source: 'Bulldog Remodel Group Website',
       page: typeof window !== 'undefined' ? window.location.href : '',
     };
     try {
@@ -115,7 +115,7 @@ export default function QuoteForm() {
         </div>
         <h3 className="font-display text-xl text-ink">Request received</h3>
         <p className="mt-2 text-sm text-ink/70">
-          Thanks — a Bulldog project consultant will reach out shortly to schedule your free design
+          Thanks — a Bulldog project consultant will reach out shortly to schedule your design
           consultation.
         </p>
       </div>
@@ -124,16 +124,16 @@ export default function QuoteForm() {
 
   return (
     <div className="overflow-hidden rounded-2xl glass shadow-[0_24px_60px_-15px_rgba(22,24,26,0.35)] ring-1 ring-black/5">
-      <div className="bg-ink px-6 py-5 sm:px-7">
+      <div className="border-b border-ink/10 px-6 py-5 sm:px-7">
         <h3 className="font-display text-xl text-ink sm:text-2xl">
-          Book Your Free Design Consultation
+          Book Your Design Consultation
         </h3>
-        <p className="mt-1 font-sans text-xs font-semibold uppercase tracking-wide text-ink/75">
+        <p className="mt-1 font-sans text-xs font-semibold uppercase tracking-wide text-ink/70">
           Step {step} of 2
         </p>
         <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-ink/15">
           <div
-            className="h-full rounded-full bg-white transition-all duration-300"
+            className="h-full rounded-full bg-crimson transition-all duration-300"
             style={{ width: step === 1 ? '50%' : '100%' }}
           />
         </div>
@@ -192,7 +192,7 @@ export default function QuoteForm() {
                 className="mt-0.5 h-4 w-4 shrink-0 accent-ink"
               />
               <span>
-                I agree to be contacted by Bulldog Kitchen &amp; Bath by phone, text, or email about
+                I agree to be contacted by Bulldog Remodel Group by phone, text, or email about
                 my request. Message and data rates may apply.
               </span>
             </label>

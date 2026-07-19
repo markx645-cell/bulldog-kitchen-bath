@@ -72,7 +72,7 @@ const trustBadges = [
   { icon: ShieldCheck, label: 'Lifetime Warranty' },
   { icon: Users, label: 'In-House Installers' },
   { icon: BadgeCheck, label: 'Best Price Guarantee' },
-  { icon: Sparkles, label: 'Free Estimates' },
+  { icon: Sparkles, label: 'In-Home Estimates' },
   { icon: Clock, label: 'Rapid Turnaround' },
 ];
 
@@ -133,7 +133,7 @@ export default function BasementRemodelPage() {
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
-              Book Your Free Estimate
+              Let’s Discuss Your Project
             </Link>
             <a
               href={site.phoneHref}
@@ -301,7 +301,7 @@ export default function BasementRemodelPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
-                Book Your Free Estimate
+                Let’s Discuss Your Project
               </Link>
               <a href={site.phoneHref} className="btn-ghost inline-flex items-center gap-2">
                 <Phone className="size-4" /> Call {site.phone}

@@ -83,7 +83,9 @@ export default function ProjectsBrowser() {
     <>
       {/* Filter + search bar */}
       <section className="sticky top-[88px] z-30 border-y border-ink/10 bg-bone/90 backdrop-blur-xl md:top-[96px] lg:top-[104px]">
-        <div className="container-x flex flex-wrap items-center justify-between gap-4 py-4">
+        {/* lg:pl-36 clears the header logo, which overhangs the bar on desktop
+            and sits above this bar (header z-40 > z-30). */}
+        <div className="container-x flex flex-wrap items-center justify-between gap-4 py-4 lg:pl-36">
           <div className="flex flex-wrap gap-2">
             {CATEGORIES.map((c) => {
               const active = category === c.id;

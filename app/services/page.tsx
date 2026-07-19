@@ -5,9 +5,9 @@ import { Phone, ArrowRight } from 'lucide-react';
 import { site } from '@/content/site';
 
 export const metadata: Metadata = {
-  title: 'Our Services | Bulldog Kitchen & Bath',
+  title: 'Our Services',
   description:
-    'Full bathroom remodels, walk-in showers, tub shower combos, bathroom flooring, walk-in tubs and kitchen remodels — built by one in-house team and backed for life.',
+    'Full bathroom remodels, walk-in showers, tub shower combos, bathroom flooring, walk-in tubs, kitchen remodels, basements and accessory dwelling units — built by one in-house team and backed for life.',
   alternates: { canonical: '/services' },
 };
 
@@ -72,6 +72,13 @@ const services = [
     blurb:
       'A finished basement is the most cost-effective square footage you can add. Living spaces, basement bathrooms, wet bars and guest suites — designed and built by one in-house team.',
   },
+  {
+    title: 'Accessory Dwelling Units (ADU)',
+    to: '/accessory-dwelling-units',
+    image: '/assets/service-adu.webp',
+    blurb:
+      'Detached guest houses, garage conversions and in-law suites. Zoning reviewed and permits managed up front, then designed and built by one accountable team.',
+  },
 ];
 
 export default function ServicesPage() {
@@ -91,7 +98,7 @@ export default function ServicesPage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
-              Book A Free Estimate
+              Let’s Discuss Your Project
             </Link>
             <a href={site.phoneHref} className="btn-ghost inline-flex items-center gap-2">
               <Phone className="size-4" /> {site.phone}
@@ -140,7 +147,7 @@ export default function ServicesPage() {
             <div>
               <p className="eyebrow">Ready When You Are</p>
               <h2 className="mt-3 font-display text-4xl text-ink md:text-5xl">
-                Get Your Free In-Home Estimate
+                Get Your In-Home Estimate
               </h2>
               <p className="mt-4 max-w-xl text-ink/75">
                 Real numbers, real timelines, no pressure. We’ll walk your space, talk through

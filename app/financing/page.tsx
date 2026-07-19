@@ -4,7 +4,7 @@ import { Phone, Clock, ShieldCheck, Calculator, CheckCircle2 } from 'lucide-reac
 import { site } from '@/content/site';
 
 export const metadata: Metadata = {
-  title: 'Financing — Bulldog Kitchen & Bath | Cincinnati, OH',
+  title: 'Financing — Cincinnati, OH',
   description:
     'Flexible financing plans for your Cincinnati kitchen or bath remodel. 0% intro APR, low fixed monthly payments, and same-as-cash options. 60-second pre-qualification, soft pull only.',
   alternates: { canonical: '/financing' },
@@ -47,7 +47,7 @@ const perks = [
 ];
 
 const steps = [
-  { n: '01', t: 'Book your free estimate', d: 'We design your space and lock in a fixed-price quote.' },
+  { n: '01', t: 'Book your estimate', d: 'We design your space and lock in a fixed-price quote.' },
   { n: '02', t: 'Pre-qualify online', d: '60-second soft credit check. See your rate and term options instantly.' },
   { n: '03', t: 'Sign and start', d: 'Approve your loan and we begin work. Most projects start within 2–3 weeks.' },
 ];

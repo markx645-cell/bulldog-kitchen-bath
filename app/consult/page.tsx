@@ -4,12 +4,12 @@ import { site } from '@/content/site';
 import ConsultForm from './ConsultForm';
 
 export const metadata: Metadata = {
-  title: 'Book a Free Consultation — Bulldog Kitchen & Bath',
+  title: 'Book a Consultation',
   description:
-    "Schedule a free 15-minute consultation with Bulldog Kitchen & Bath. Tell us about your kitchen or bath project and we'll get back to you within one business day.",
+    "Schedule a 15-minute consultation with Bulldog Remodel Group. Tell us about your kitchen or bath project and we'll get back to you within one business day.",
   alternates: { canonical: '/consult' },
   openGraph: {
-    title: 'Book a Free Consultation — Bulldog Kitchen & Bath',
+    title: 'Book a Consultation — Bulldog Remodel Group',
     description: 'Tell us about your project and book a quick 15-minute call.',
     url: `${site.url}/consult`,
   },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const EXPECT = [
   'A real person reads every request — usually same day.',
   'A 15-minute call to understand the scope, budget, and timing.',
-  "If we're a good fit, we book a free in-home estimate.",
+  "If we're a good fit, we book an in-home estimate.",
 ];
 
 export default function ConsultPage() {
@@ -27,7 +27,7 @@ export default function ConsultPage() {
       {/* ---------- HERO ---------- */}
       <section className="section">
         <div className="container-x">
-          <p className="eyebrow">Free 15-Minute Consultation</p>
+          <p className="eyebrow">15-Minute Consultation</p>
           <h1 className="mt-4 max-w-3xl font-display text-5xl leading-[1.05] text-ink md:text-6xl lg:text-7xl">
             Let’s Talk About Your Project
           </h1>

@@ -62,7 +62,9 @@ export default function StepNav({ steps }: { steps: Step[] }) {
       id="step-nav"
       className="sticky top-[88px] z-30 border-y border-ink/10 bg-bone/90 backdrop-blur-xl md:top-[96px] lg:top-[104px]"
     >
-      <div className="container-x flex flex-wrap justify-center gap-x-8 gap-y-2 py-4 font-sans text-xs uppercase tracking-[0.25em]">
+      {/* lg:pl-36 keeps the centred steps clear of the header logo, which
+          overhangs the bar on desktop and paints above this one. */}
+      <div className="container-x flex flex-wrap justify-center gap-x-8 gap-y-2 py-4 font-sans text-xs uppercase tracking-[0.25em] lg:pl-36">
         {steps.map((s) => {
           const isActive = active === s.id;
           return (

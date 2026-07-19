@@ -6,9 +6,9 @@ import FaqAccordion from '@/components/FaqAccordion';
 
 export const metadata: Metadata = {
   title:
-    'How Much Does a Kitchen Remodel Cost in Cincinnati? (2026 Guide) | Bulldog Kitchen & Bath',
+    'How Much Does a Kitchen Remodel Cost in Cincinnati? (2026 Guide)',
   description:
-    'What a kitchen remodel really costs in Cincinnati in 2026: typical price ranges by project level, what drives the cost, timelines, and how fixed pricing prevents surprises. Free estimate: (513) 657-3750.',
+    'What a kitchen remodel really costs in Cincinnati in 2026: typical price ranges by project level, what drives the cost, timelines, and how fixed pricing prevents surprises. Call (513) 657-3750.',
   alternates: { canonical: '/kitchen-remodel-cost-cincinnati' },
   openGraph: {
     title: 'How Much Does a Kitchen Remodel Cost in Cincinnati? (2026 Guide)',
@@ -83,7 +83,7 @@ const faqs = [
   },
   {
     q: 'Can I get a quote without a surprise mid-project bill?',
-    a: 'Yes — that’s the point of our fixed-price contract. Book a free estimate and we’ll itemize everything before work begins.',
+    a: 'Yes — that’s the point of our fixed-price contract. Book an estimate and we’ll itemize everything before work begins.',
   },
   {
     q: 'Do you offer financing?',
@@ -250,7 +250,7 @@ export default function CostPage() {
           </div>
           <p className="mt-4 text-xs text-ink/60">
             Ranges are typical for the Cincinnati metro and vary with kitchen size and selections. We
-            provide an exact, itemized fixed price after a free in-home consultation.
+            provide an exact, itemized fixed price after an in-home consultation.
           </p>
         </div>
       </section>
@@ -323,7 +323,7 @@ export default function CostPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
-                Book Your Free Estimate
+                Let’s Discuss Your Project
               </Link>
               <a
                 href={site.phoneHref}

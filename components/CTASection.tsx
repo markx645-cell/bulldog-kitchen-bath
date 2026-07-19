@@ -4,7 +4,7 @@ import QuoteForm from '@/components/QuoteForm';
 
 export default function CTASection({
   heading = 'Ready for a kitchen or bath you love?',
-  sub = 'Free design consultation. One fixed price. No high-pressure sales — that’s a promise, not a pitch.',
+  sub = 'In-home design consultation. One fixed price. No high-pressure sales — that’s a promise, not a pitch.',
   pitch = 'Meet your designer and project manager, see a 3D rendering of your space, and get an honest, all-in number. One team, start to finish.',
   withForm = false,
 }: {
@@ -47,7 +47,7 @@ export default function CTASection({
         <p className="max-w-xl text-ink/75">{sub}</p>
         <div className="flex flex-col gap-3 sm:flex-row">
           <Link href="/contact" className="btn-primary">
-            Book a Free Consult
+            Let’s Discuss Your Project
           </Link>
           <a href={site.phoneHref} className="btn-ghost !bg-transparent !text-ink !border-ink/30 hover:!border-ink">
             Call {site.phone}

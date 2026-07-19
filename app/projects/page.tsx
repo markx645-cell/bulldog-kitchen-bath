@@ -5,12 +5,12 @@ import { projects } from '@/content/projects';
 import ProjectsBrowser from './ProjectsBrowser';
 
 export const metadata: Metadata = {
-  title: 'Featured Projects — Bulldog Kitchen & Bath | Cincinnati, OH',
+  title: 'Featured Projects — Cincinnati, OH',
   description:
-    'Recent kitchen, bath, basement, and laundry remodels from Bulldog Kitchen & Bath across Cincinnati neighborhoods.',
+    'Recent kitchen, bath, basement, and laundry remodels from Bulldog Remodel Group across Cincinnati neighborhoods.',
   alternates: { canonical: '/projects' },
   openGraph: {
-    title: 'Featured Projects — Bulldog Kitchen & Bath',
+    title: 'Featured Projects — Bulldog Remodel Group',
     description: 'Real Cincinnati homes. Real homeowners. Real results.',
   },
 };

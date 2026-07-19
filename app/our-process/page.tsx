@@ -6,7 +6,7 @@ import { site } from '@/content/site';
 import StepNav from './StepNav';
 
 export const metadata: Metadata = {
-  title: 'Our Process | Bulldog Remodel Group',
+  title: 'Our Process',
   description:
     'From first call to lifetime warranty — the five-step Bulldog Remodel Group process: Educate, Discover, Design, Build, Enjoy. Serving Ohio, Kentucky and Indiana.',
   alternates: { canonical: '/our-process' },
@@ -239,12 +239,12 @@ export default function OurProcessPage() {
               A well-organized process means a great experience.
             </h2>
             <p className="text-lg leading-relaxed text-ink/75">
-              Let’s see if Bulldog Remodel Group is the right fit for your home. Free in-home
+              Let’s see if Bulldog Remodel Group is the right fit for your home. In-home
               consultations across Cincinnati and the surrounding tri-state area.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
-                Book Free Estimate
+                Let’s Discuss Your Project
               </Link>
               <a href={site.phoneHref} className="btn-ghost inline-flex items-center gap-2">
                 <Phone className="size-4" /> {site.phone}

@@ -27,7 +27,7 @@ export default function WarrantyHighlight() {
           <div className="space-y-6">
             {warranty.points.map((p, i) => (
               <div key={p.title} className="flex gap-4">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-ink font-sans text-sm font-bold text-ink">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-ink font-sans text-sm font-bold text-white">
                   {i + 1}
                 </span>
                 <div>

@@ -5,9 +5,9 @@ import { Home as HomeIcon, Users, ShieldCheck, Award } from 'lucide-react';
 import { values } from '@/content/site';
 
 export const metadata: Metadata = {
-  title: 'About — Bulldog Kitchen & Bath | Cincinnati, OH',
+  title: 'About — Cincinnati, OH',
   description:
-    'Bulldog Kitchen & Bath is Cincinnati’s most organized full-service kitchen and bath remodeler. One in-house team. Lifetime workmanship warranty.',
+    'Bulldog Remodel Group is Cincinnati’s most organized full-service kitchen and bath remodeler. One in-house team. Lifetime workmanship warranty.',
   alternates: { canonical: '/about' },
 };
 
@@ -94,7 +94,7 @@ export default function AboutPage() {
               Ready To Get Started?
             </h2>
             <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
-              Book A Free Estimate
+              Let’s Discuss Your Project
             </Link>
           </div>
         </div>
