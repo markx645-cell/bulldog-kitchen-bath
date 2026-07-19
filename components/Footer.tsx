@@ -14,6 +14,8 @@ export default function Footer() {
     { label: 'Kitchen Remodeling', href: '/kitchens' },
     { label: 'Basement Remodels', href: '/basement-remodel' },
     { label: 'Accessory Dwelling Units', href: '/accessory-dwelling-units' },
+    { label: 'Barndominiums', href: '/barndominiums' },
+    { label: 'Custom Homes', href: '/custom-homes' },
   ];
 
   const company = [

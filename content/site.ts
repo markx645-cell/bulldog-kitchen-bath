@@ -202,6 +202,8 @@ export const nav = {
       { label: 'Kitchen Remodels for Older Homes', href: '/kitchen-remodeling-older-homes' },
       { label: 'Basement Remodels', href: '/basement-remodel' },
       { label: 'Accessory Dwelling Units (ADU)', href: '/accessory-dwelling-units' },
+      { label: 'Barndominiums', href: '/barndominiums' },
+      { label: 'Custom Homes', href: '/custom-homes' },
     ],
   },
   simple: [

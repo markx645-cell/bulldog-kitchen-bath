@@ -749,6 +749,188 @@ export const serviceList: Service[] = [
       }
     ],
     "budget": null
+  },
+  {
+    "slug": "barndominiums",
+    "name": "Barndominiums",
+    "short": "Barn-style homes with open spans and a shop under the same roof — designed, permitted and built by one accountable team.",
+    "image": "/assets/service-barndominium.webp",
+    "order": 10,
+    "metaTitle": "Barndominiums",
+    "metaDescription": "Barndominium design and construction around Cincinnati — new builds, shell finish-outs and barn conversions. Zoning and permits handled, fixed pricing, lifetime workmanship warranty.",
+    "eyebrow": "Serving Ohio, Kentucky & Indiana",
+    "title": "Barndominiums, Built by One Team",
+    "region": "New builds, shell finish-outs and barn conversions across the Greater Cincinnati region",
+    "whyTitle": "A Barn on the Outside. A Home on the Inside.",
+    "whyBody": "A barndominium is a barn-style building finished as a full residence — usually post-frame or steel-framed, with clear spans instead of interior load-bearing walls. That structure is the whole point: without walls holding the roof up, the floor plan is genuinely yours, and a workshop or garage can sit under the same roof as the kitchen. What separates a good one from a cold, echoing metal box is everything that happens after the shell goes up — insulation, moisture control, and interiors built to the same standard as a house. That part is our day job. We handle the site and zoning review, the permits, the shell, and every finish inside it, under one contract with one project manager.",
+    "includesTitle": "What Every Barndominium Project Includes",
+    "includes": [
+      {
+        "title": "Site & Zoning Review First",
+        "body": "Before anything is designed, we confirm what your parcel allows. Residential use of a post-frame building isn't automatic, and rules differ sharply between townships — we check yours up front."
+      },
+      {
+        "title": "Permits & Inspections Managed",
+        "body": "We pull the permits, book every inspection, and keep the paperwork moving so you're not chasing a county office."
+      },
+      {
+        "title": "In-House Design & 3D Renderings",
+        "body": "Clear spans mean the layout is wide open. A dedicated designer plans how you'll actually use it, and you see it in 3D before anything is framed."
+      },
+      {
+        "title": "Foundation & Shell",
+        "body": "Slab, posts or steel framing, roofing and siding — engineered for your span, your snow load and your site."
+      },
+      {
+        "title": "Insulation & Moisture Control",
+        "body": "The step that separates a home from a shed. Closed-cell spray foam, a proper vapor strategy and sealed penetrations, so the building doesn't sweat, drum in the rain, or cost a fortune to heat."
+      },
+      {
+        "title": "A Real Kitchen",
+        "body": "Full cabinetry, countertops, appliances and lighting — built to the same standard as the kitchens in our portfolio, not a builder-grade afterthought."
+      },
+      {
+        "title": "Full Bathrooms",
+        "body": "Complete baths with waterproofed wet areas, tile, vanities and fixtures. Our core trade, handled in-house."
+      },
+      {
+        "title": "Utilities Run & Connected",
+        "body": "Electrical service and panel, plumbing supply and drainage, HVAC sized for an open-span building, plus septic and well coordination where there's no municipal hookup."
+      },
+      {
+        "title": "Fixed Price & Lifetime Warranty",
+        "body": "One itemized contract covering every material and scope detail, and the same Lifetime Workmanship Warranty that backs every kitchen and bath we install."
+      }
+    ],
+    "turnaroundTitle": "Planned Before It’s Built",
+    "turnaroundBody": "A barndominium is a ground-up build, and the schedule depends on your parcel as much as your plans — utility runs, septic approval and county review times all move the date. So we don't quote a number before we've seen the site. What we do commit to is that the schedule is settled before the slab is poured: zoning confirmed, permits filed, shell package ordered, every trade booked. You get a realistic timeline in writing, a dedicated project manager, and updates as it goes up.",
+    "closingQuote": "Wondering whether your land will take one? That's the first thing we'll find out — book an in-home consultation and we'll tell you straight.",
+    "faqs": [
+      {
+        "q": "What exactly is a barndominium?",
+        "a": "A barn-style building finished as a full-time residence. Most are post-frame or steel-framed, which means the roof is carried by posts or columns rather than interior walls — so you get large open spans and a floor plan that isn't dictated by structure. Many combine living space with a shop, garage or storage under the same roof."
+      },
+      {
+        "q": "Can I build one on my land?",
+        "a": "It depends on the parcel. Zoning has to permit residential use, and some districts treat post-frame buildings differently from conventional houses. Setbacks, minimum square footage, septic capacity and road access all matter too. We check all of it for your specific address before you spend anything on design."
+      },
+      {
+        "q": "Is it cheaper than building a conventional house?",
+        "a": "Often, per square foot — a simple envelope and clear spans are efficient to build, and you can enclose a lot of space for the money. But the finishes inside cost what finishes cost, and rural sites can add expense a city lot doesn't: longer utility runs, a septic system, a well, or a driveway. It's fair to say you usually get more space per dollar, not that the project is cheap."
+      },
+      {
+        "q": "Won't a metal building be cold, or loud in the rain?",
+        "a": "Only if it's insulated like a barn. Done properly — closed-cell spray foam against the shell, a deliberate vapor strategy, sealed penetrations and the right underlayment — a barndominium is quiet and holds temperature as well as a conventional house. This is the single biggest thing people get wrong, which is why it's a line item on every quote we write."
+      },
+      {
+        "q": "Can I put a workshop or garage under the same roof?",
+        "a": "Yes, and it's one of the main reasons people choose this build. The shop side needs its own treatment though — fire separation between the shop and living space, separate heating, and drainage if you'll be working on vehicles. We plan those in from the start rather than retrofitting them."
+      },
+      {
+        "q": "Do you build the shell, or only finish the inside?",
+        "a": "Either. We do complete turnkey builds, and we also finish out shells that are already standing — including barns and outbuildings being converted to living space. If you've already got a shell up, we'll assess what's there before quoting the finish-out."
+      },
+      {
+        "q": "How long does it take?",
+        "a": "Longer than a remodel — you're adding site work, a foundation and a shell to everything that goes inside. The honest answer is that it depends on your parcel and your county's review times. We give you a realistic written schedule once the site review and design are settled."
+      },
+      {
+        "q": "What does it cost?",
+        "a": "It varies more than anything else we build — a shell finish-out and a turnkey build on raw land aren't in the same range, and site conditions move the number a lot. Once we've walked the property and settled the scope, you get one itemized, fixed-price contract. See our financing page for current options, and note that a ground-up build is typically financed differently from a remodel."
+      }
+    ],
+    "budget": null
+  },
+  {
+    "slug": "custom-homes",
+    "name": "Custom Homes",
+    "short": "Ground-up homes designed around how you actually live — one team, one contract, one fixed price.",
+    "image": "/assets/service-custom-home.webp",
+    "order": 11,
+    "metaTitle": "Custom Homes",
+    "metaDescription": "Custom home design and construction across Greater Cincinnati, Northern Kentucky and Southeast Indiana. Design-build or build to your plans, with fixed pricing and a lifetime workmanship warranty.",
+    "eyebrow": "Serving Ohio, Kentucky & Indiana",
+    "title": "Custom Homes, Built by One Team",
+    "region": "Design-build and build-to-plan homes across Greater Cincinnati, Northern Kentucky and Southeast Indiana",
+    "whyTitle": "The House You Actually Want",
+    "whyBody": "A production home is a floor plan someone else chose, with three finish packages and a lot number. A custom home starts from the other end: how your family really uses a house — where the light lands in the morning, whether the kitchen opens to the yard, how many people are actually home at 6pm. We've spent years being the people who fix production-built kitchens and baths that never worked, so we know exactly which decisions people regret. Building the whole house is the same work at a different scale: one accountable team, one contract, one fixed price, and a dedicated project manager from the first sketch to the final walkthrough.",
+    "includesTitle": "What Every Custom Home Build Includes",
+    "includes": [
+      {
+        "title": "Lot & Feasibility Review",
+        "body": "Before you commit, we look at what the site will actually take — soils, slope, setbacks, utilities, access and what the zoning allows. Some lots cost far more to build on than they look."
+      },
+      {
+        "title": "Permits & Inspections Managed",
+        "body": "We pull the permits, book every inspection and keep the paperwork moving so you're not chasing a plans examiner."
+      },
+      {
+        "title": "In-House Design & 3D Renderings",
+        "body": "Your designer plans the layout, storage, lighting and finishes, and you walk the house in 3D before a single footing is poured."
+      },
+      {
+        "title": "Foundation & Framing",
+        "body": "Footings, foundation, framing, roofing and exterior — engineered for your site and inspected at every stage."
+      },
+      {
+        "title": "The Envelope, Done Properly",
+        "body": "Insulation, air sealing and windows specified for Ohio Valley winters. Getting this right during framing costs a fraction of fixing it later, and it's what your heating bill answers to for the next thirty years."
+      },
+      {
+        "title": "Kitchens & Baths",
+        "body": "The rooms we're known for, built to the same standard as everything in our portfolio — not the builder-grade versions you'd replace in five years."
+      },
+      {
+        "title": "Utilities Run & Connected",
+        "body": "Electrical service and panel, plumbing supply and drainage, HVAC sized for the house you're actually getting, plus septic and well coordination where there's no municipal hookup."
+      },
+      {
+        "title": "Fixed Price, Itemized",
+        "body": "One contract listing every material, finish and scope detail. Allowances are written as real numbers, not placeholders that quietly grow."
+      },
+      {
+        "title": "Lifetime Workmanship Warranty",
+        "body": "The same warranty that backs every kitchen and bath we install backs the whole house. If it isn't right, we make it right."
+      }
+    ],
+    "turnaroundTitle": "Settled Before We Break Ground",
+    "turnaroundBody": "Most custom home horror stories start the same way: construction begins before the decisions are made, and every unmade choice becomes a change order. We work backwards from that. Design is finished, selections are made, allowances are real numbers, permits are filed and materials are ordered before the excavator arrives. That front-loading is why we can hand you a fixed price and a written schedule — and why the number you approve is the number you pay.",
+    "closingQuote": "Got a lot already, or still looking for one? Either way that's the right first conversation — book an in-home consultation and we'll talk it through.",
+    "faqs": [
+      {
+        "q": "Do I need to own land first?",
+        "a": "No, but it changes where we start. If you already have a lot, the first step is a feasibility review of that specific site. If you're still looking, we'd rather look at candidates with you before you buy — the difference between an easy lot and a difficult one can be tens of thousands of dollars in site work, and it isn't obvious from the listing."
+      },
+      {
+        "q": "Can I bring my own architect or plans?",
+        "a": "Yes. We build to plans you already have, and we also do design-build where our in-house designer handles it start to finish. If you're bringing plans, we'll review them for constructability and cost before quoting — it's better to raise an issue at the drawing stage than at framing."
+      },
+      {
+        "q": "How is this different from buying a production or spec home?",
+        "a": "A production builder sells a fixed set of plans with a few finish packages, built at volume. Custom means the plan is drawn for your family and your lot, and the specification is yours — including the parts you can't see later, like insulation, windows and mechanicals. It costs more per square foot and it takes longer. What you get is a house that fits."
+      },
+      {
+        "q": "How do you keep the price from creeping?",
+        "a": "By finishing the decisions before construction starts and writing allowances as real numbers rather than placeholders. Most overruns aren't the builder's greed — they're a kitchen that was never fully specified, priced optimistically, then chosen for real in month four. We'd rather have that conversation up front."
+      },
+      {
+        "q": "How long does a custom home take?",
+        "a": "Longer than a remodel, and it depends on the design, your lot and your jurisdiction's review times. We won't quote a number before we've seen the site and settled the scope. Once design and permits are sorted you get a realistic written schedule, a dedicated project manager and regular updates."
+      },
+      {
+        "q": "What does a custom home cost?",
+        "a": "It depends on size, site and specification, and honestly ranges too widely for a number here to be useful. What we can commit to is that once the design is settled you get one itemized, fixed-price contract covering everything. See our financing page for current options — note that a ground-up build is financed differently from a remodel."
+      },
+      {
+        "q": "Can you build in a particular style?",
+        "a": "Yes. We build traditional, transitional and modern, and we're comfortable matching a neighborhood's character where that matters — or a deed restriction requires it. Style is a design conversation, not a constraint on who builds it."
+      },
+      {
+        "q": "Can you tear down and rebuild on an existing lot?",
+        "a": "Yes, and it's increasingly common in established neighborhoods where the location is right but the house isn't. Demolition, utility disconnects and reconnects, and any historic or overlay-district review get handled as part of the same contract."
+      }
+    ],
+    "budget": null
   }
 ];
 

@@ -205,7 +205,17 @@ export default function Header() {
 
           {/* Desktop nav */}
           <nav className="hidden items-center gap-1 lg:flex">
-            {/* Services dropdown */}
+            {nav.simple.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="px-3 py-2 font-sans text-sm font-semibold uppercase tracking-wide text-ink hover:text-ink"
+              >
+                {item.label}
+              </Link>
+            ))}
+
+            {/* Services dropdown — last in the bar */}
             <div
               className="relative"
               onMouseEnter={() => setOpenMenu(nav.services.label)}
@@ -220,8 +230,10 @@ export default function Header() {
                   <path d="M6 8L1 3h10z" />
                 </svg>
               </Link>
+              {/* right-0: Services is the last item in the bar, so the panel
+                  opens leftward instead of running off the edge. */}
               {openMenu === nav.services.label && (
-                <div className="absolute left-0 top-full max-h-[70vh] w-72 overflow-y-auto rounded-2xl border border-white/50 bg-bone/95 p-2 shadow-[0_8px_32px_rgba(22,24,26,0.14),inset_0_1px_0_rgba(255,255,255,0.7)] backdrop-blur-2xl">
+                <div className="absolute right-0 top-full max-h-[70vh] w-72 overflow-y-auto rounded-2xl border border-white/50 bg-bone/95 p-2 shadow-[0_8px_32px_rgba(22,24,26,0.14),inset_0_1px_0_rgba(255,255,255,0.7)] backdrop-blur-2xl">
                   {/* Production puts "View All Services" at the top of the menu */}
                   <Link
                     href={nav.services.href}
@@ -242,17 +254,6 @@ export default function Header() {
                 </div>
               )}
             </div>
-
-            {nav.simple.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="px-3 py-2 font-sans text-sm font-semibold uppercase tracking-wide text-ink hover:text-ink"
-              >
-                {item.label}
-              </Link>
-            ))}
-
           </nav>
 
           <div className="flex items-center gap-3 sm:gap-4">
@@ -295,7 +296,6 @@ export default function Header() {
       {mobileOpen && (
         <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-b border-white/40 bg-bone/95 shadow-[inset_0_1px_0_rgba(255,255,255,0.55)] backdrop-blur-2xl lg:hidden">
           <nav className="container-x flex flex-col py-1">
-            {renderMobileGroup(nav.services)}
             {nav.simple.map((item) => (
               <Link
                 key={item.href}
@@ -306,6 +306,9 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
+            {/* Services last — its 11 children would otherwise push every other
+                link below the fold when expanded. */}
+            {renderMobileGroup(nav.services)}
           </nav>
         </div>
       )}

@@ -79,6 +79,20 @@ const services = [
     blurb:
       'Detached guest houses, garage conversions and in-law suites. Zoning reviewed and permits managed up front, then designed and built by one accountable team.',
   },
+  {
+    title: 'Barndominiums',
+    to: '/barndominiums',
+    image: '/assets/service-barndominium.webp',
+    blurb:
+      'Barn-style homes with open spans and a shop under the same roof. Turnkey builds, shell finish-outs and barn conversions — zoning, permits and finishes all handled in-house.',
+  },
+  {
+    title: 'Custom Homes',
+    to: '/custom-homes',
+    image: '/assets/service-custom-home.webp',
+    blurb:
+      'Ground-up homes designed around how you actually live. Design-build or build to your own plans, with one contract, one fixed price and a lifetime workmanship warranty.',
+  },
 ];
 
 export default function ServicesPage() {

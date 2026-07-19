@@ -1,102 +1,92 @@
 import type { Metadata } from 'next';
-import {
-  Banknote,
-  HeartHandshake,
-  GraduationCap,
-  Briefcase,
-  House,
-  Building2,
-  Warehouse,
-} from 'lucide-react';
+import { PencilRuler, MapPinned, SunMedium, Eye, DraftingCompass, Blocks, LandPlot } from 'lucide-react';
 import ServicePage from '@/components/ServicePage';
 import ExpandingTriptych, { type TriptychImage } from '@/components/ExpandingTriptych';
 import { services } from '@/content/services';
 import { site } from '@/content/site';
 
-const service = services['accessory-dwelling-units'];
-
-const gallery: [TriptychImage, TriptychImage, TriptychImage] = [
-  {
-    src: '/assets/service-adu-1.webp',
-    alt: 'Detached backyard accessory dwelling unit with its own deck and private entrance',
-  },
-  {
-    src: '/assets/service-adu-2.webp',
-    alt: 'Open-plan ADU interior with living area and full kitchen',
-  },
-  {
-    src: '/assets/service-adu-3.webp',
-    alt: 'Compact ADU bathroom with walk-in shower, tiled walls and in-unit laundry',
-  },
-];
-
-// Why homeowners actually build one. These are the four motivations we hear
-// most; the rental-income note stays honest about local rules.
-const reasons = [
-  {
-    icon: Banknote,
-    title: 'Rental Income',
-    body: 'A second unit on land you already own can bring in steady monthly income. What kind of letting is permitted varies by municipality, so we confirm the rules for your address during the zoning review — before you commit to anything.',
-  },
-  {
-    icon: HeartHandshake,
-    title: 'Aging Parents',
-    body: 'Keep family close without moving anyone into a spare bedroom. A single-level unit with a step-free entry, a walk-in shower and grab bars gives them independence and privacy, and puts you a few steps away instead of across town.',
-  },
-  {
-    icon: GraduationCap,
-    title: 'Adult Children',
-    body: 'A first place of their own that isn’t a rental across the city. Their own entrance, kitchen and bath — the independence of moving out, without the cost of moving away.',
-  },
-  {
-    icon: Briefcase,
-    title: 'Guests, Work, or Both',
-    body: 'A proper guest suite over the holidays, a home office with a door that actually closes, or a studio. Because it’s a full dwelling, it can change jobs as your family does.',
-  },
-];
-
-// The three builds, and what each one really involves.
-const types = [
-  {
-    icon: House,
-    title: 'Detached',
-    body: 'A standalone cottage in the back yard. The most private option and the most involved build — foundation, framing, roofing and siding, plus utilities run out from the house.',
-  },
-  {
-    icon: Building2,
-    title: 'Attached',
-    body: 'An addition sharing a wall with your home, but with its own entrance and no interior door. Cheaper than detached because one wall and part of the roofline already exist.',
-  },
-  {
-    icon: Warehouse,
-    title: 'Conversion',
-    body: 'A garage or basement turned into a legal dwelling. Usually the most cost-effective route: the shell is already standing, so the work is insulation, moisture control, utilities, egress and finishes.',
-  },
-];
+const service = services['custom-homes'];
 
 export const metadata: Metadata = {
   title: service.metaTitle,
   description: service.metaDescription,
-  alternates: { canonical: '/accessory-dwelling-units' },
+  alternates: { canonical: '/custom-homes' },
 };
 
+const gallery: [TriptychImage, TriptychImage, TriptychImage] = [
+  {
+    src: '/assets/service-custom-home-1.webp',
+    alt: 'Custom home exterior at dusk with stone entry, dormers and landscaped drive',
+  },
+  {
+    src: '/assets/service-custom-home-2.webp',
+    alt: 'Custom home living room with fireplace, built-in shelving and hardwood floors',
+  },
+  {
+    src: '/assets/service-custom-home-3.webp',
+    alt: 'Custom home kitchen with marble island, wood cabinetry and pendant lighting',
+  },
+];
+
+// Why build custom rather than buy.
+const reasons = [
+  {
+    icon: PencilRuler,
+    title: 'A Plan Built Around You',
+    body: 'Not a floor plan chosen by a developer for a lot they hadn’t seen yet. Where the light lands, how the kitchen opens to the yard, whether the laundry is where you actually do laundry — those are decisions worth making yourself.',
+  },
+  {
+    icon: MapPinned,
+    title: 'Build Where You Want To Live',
+    body: 'You’re not limited to whatever a developer is releasing this quarter. Your lot, your street, your school district — including a tear-down in a neighborhood that’s already right.',
+  },
+  {
+    icon: SunMedium,
+    title: 'Efficiency Designed In',
+    body: 'Insulation, air sealing, window specification and HVAC sizing get decided during design, not value-engineered out at framing. It costs a fraction to do properly now, and your heating bill answers to it for decades.',
+  },
+  {
+    icon: Eye,
+    title: 'You See It Go Up',
+    body: 'Every stage inspected, every stage visible, with one project manager who knows your build. You’re not taking a finished house on trust — you watched what went behind the drywall.',
+  },
+];
+
+// The three ways a build starts.
+const types = [
+  {
+    icon: DraftingCompass,
+    title: 'Design-Build',
+    body: 'We do both halves. Our in-house designer draws the house with you, then our crews build it — one contract, one point of accountability, no gap between the person who drew it and the person who has to make it work.',
+  },
+  {
+    icon: Blocks,
+    title: 'Build To Your Plans',
+    body: 'You already have an architect, or plans you love. We review them for constructability and cost first, flag anything that will cause trouble on site, then build to them.',
+  },
+  {
+    icon: LandPlot,
+    title: 'Tear-Down & Rebuild',
+    body: 'The location is right but the house isn’t. Demolition, utility disconnects and reconnects, and any historic or overlay-district review are handled inside the same contract.',
+  },
+];
+
 export default function Page() {
-  // Service + FAQ structured data, matching the pattern on our other
-  // FAQ-carrying service pages.
+  // Service + FAQ structured data, matching our other FAQ-carrying service pages.
   const serviceSchema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    serviceType: 'Accessory Dwelling Unit (ADU) Construction',
+    serviceType: 'Custom Home Design and Construction',
     provider: {
       '@type': 'GeneralContractor',
       name: site.name,
       telephone: '+1-513-657-3750',
-      areaServed: 'Greater Cincinnati, OH (25-mile radius)',
+      areaServed: 'Greater Cincinnati, OH and the surrounding OH, KY & IN region',
       url: site.url,
     },
     areaServed: { '@type': 'City', name: 'Cincinnati' },
     description:
-      'Design and construction of accessory dwelling units in the Greater Cincinnati area, including detached guest houses, garage conversions and attached in-law suites.',
+      'Design-build and build-to-plan custom home construction across Greater Cincinnati, Northern Kentucky and Southeast Indiana, including tear-down and rebuild projects.',
   };
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -126,17 +116,17 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ---------- WHY BUILD ONE ---------- */}
+        {/* ---------- WHY BUILD CUSTOM ---------- */}
         <section className="section">
           <div className="container-x">
             <div className="mx-auto max-w-2xl text-center">
-              <p className="eyebrow">Why Build One</p>
+              <p className="eyebrow">Why Build Custom</p>
               <h2 className="mt-3 font-display text-4xl leading-tight text-ink md:text-5xl">
-                Four reasons Cincinnati homeowners add an ADU
+                What you get that you can’t buy finished
               </h2>
               <p className="mt-4 leading-relaxed text-ink/75">
-                Most people arrive with one of these in mind — and often end up using the space for
-                two or three of them over the years.
+                A custom home costs more per square foot than a production one. These are the four
+                things people tell us made it worth it.
               </p>
             </div>
             <div className="mt-12 grid gap-6 md:grid-cols-2" data-reveal data-reveal-stagger>
@@ -153,17 +143,17 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ---------- THREE WAYS TO BUILD ---------- */}
+        {/* ---------- THREE WAYS TO START ---------- */}
         <section className="section">
           <div className="container-x">
             <div className="mx-auto max-w-2xl text-center">
-              <p className="eyebrow">Three Ways To Build</p>
+              <p className="eyebrow">Three Ways To Start</p>
               <h2 className="mt-3 font-display text-4xl leading-tight text-ink md:text-5xl">
-                Detached, attached, or a conversion
+                Design it with us, or bring your own plans
               </h2>
               <p className="mt-4 leading-relaxed text-ink/75">
-                Which of these your lot supports is the first thing we check. Where more than one
-                works, we price them side by side so you can compare real numbers.
+                Where you begin depends on how far along you already are. All three end the same way
+                — one fixed price and a lifetime workmanship warranty.
               </p>
             </div>
             <div className="mt-12 grid gap-6 lg:grid-cols-3" data-reveal data-reveal-stagger>
