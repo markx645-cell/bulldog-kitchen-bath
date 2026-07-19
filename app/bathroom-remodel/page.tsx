@@ -17,6 +17,8 @@ import {
 import { site } from '@/content/site';
 import { services } from '@/content/services';
 import BathroomInterestForm from '@/components/BathroomInterestForm';
+import ExpandingTriptych from '@/components/ExpandingTriptych';
+import { serviceGalleries } from '@/content/serviceGalleries';
 
 const service = services['bathroom-remodel'];
 
@@ -224,6 +226,13 @@ export default function BathroomRemodelPage() {
           {budget.footnote && (
             <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-ink/60">{budget.footnote}</p>
           )}
+        </div>
+      </section>
+
+      {/* ---------- EXPANDING TRIPTYCH (images only) ---------- */}
+      <section className="section">
+        <div className="container-x">
+          <ExpandingTriptych images={serviceGalleries['bathroom-remodel']} />
         </div>
       </section>
 

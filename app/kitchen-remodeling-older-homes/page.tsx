@@ -15,6 +15,8 @@ import {
 } from 'lucide-react';
 import { site } from '@/content/site';
 import { services } from '@/content/services';
+import ExpandingTriptych from '@/components/ExpandingTriptych';
+import { serviceGalleries } from '@/content/serviceGalleries';
 
 const service = services['kitchen-remodeling-older-homes'];
 
@@ -361,6 +363,13 @@ export default function OlderHomesPage() {
           </div>
         </div>
       </section>
+      {/* ---------- EXPANDING TRIPTYCH (images only) ---------- */}
+      <section className="section">
+        <div className="container-x">
+          <ExpandingTriptych images={serviceGalleries['kitchen-remodeling-older-homes']} />
+        </div>
+      </section>
+
 
       {/* ---------- BUDGET RANGES ---------- */}
       <section className="section">

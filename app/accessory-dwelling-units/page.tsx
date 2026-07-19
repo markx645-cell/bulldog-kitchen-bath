@@ -9,26 +9,12 @@ import {
   Warehouse,
 } from 'lucide-react';
 import ServicePage from '@/components/ServicePage';
-import ExpandingTriptych, { type TriptychImage } from '@/components/ExpandingTriptych';
+import ExpandingTriptych from '@/components/ExpandingTriptych';
 import { services } from '@/content/services';
 import { site } from '@/content/site';
+import { serviceGalleries } from '@/content/serviceGalleries';
 
 const service = services['accessory-dwelling-units'];
-
-const gallery: [TriptychImage, TriptychImage, TriptychImage] = [
-  {
-    src: '/assets/service-adu-1.webp',
-    alt: 'Detached backyard accessory dwelling unit with its own deck and private entrance',
-  },
-  {
-    src: '/assets/service-adu-2.webp',
-    alt: 'Open-plan ADU interior with living area and full kitchen',
-  },
-  {
-    src: '/assets/service-adu-3.webp',
-    alt: 'Compact ADU bathroom with walk-in shower, tiled walls and in-unit laundry',
-  },
-];
 
 // Why homeowners actually build one. These are the four motivations we hear
 // most; the rental-income note stays honest about local rules.
@@ -122,7 +108,7 @@ export default function Page() {
         {/* ---------- EXPANDING TRIPTYCH (images only) ---------- */}
         <section className="section">
           <div className="container-x">
-            <ExpandingTriptych images={gallery} />
+            <ExpandingTriptych images={serviceGalleries['accessory-dwelling-units']} />
           </div>
         </section>
 

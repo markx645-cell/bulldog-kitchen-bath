@@ -2,8 +2,10 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import ServicePage from '@/components/ServicePage';
+import ExpandingTriptych from '@/components/ExpandingTriptych';
 import KitchenInterestForm from '@/components/KitchenInterestForm';
 import { services } from '@/content/services';
+import { serviceGalleries } from '@/content/serviceGalleries';
 
 const service = services['kitchens'];
 
@@ -16,7 +18,14 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <ServicePage service={service} />
+      <ServicePage service={service}>
+        {/* ---------- EXPANDING TRIPTYCH (images only) ---------- */}
+        <section className="section">
+          <div className="container-x">
+            <ExpandingTriptych images={serviceGalleries['kitchens']} />
+          </div>
+        </section>
+      </ServicePage>
 
       {/* Cross-links to the cost guide + older-home guide, as production has */}
       <section className="section">

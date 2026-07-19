@@ -83,10 +83,13 @@ export default function ProjectsBrowser() {
     <>
       {/* Filter + search bar */}
       <section className="sticky top-[88px] z-30 border-y border-ink/10 bg-bone/90 backdrop-blur-xl md:top-[96px] lg:top-[104px]">
-        {/* lg:pl-36 clears the header logo, which overhangs the bar on desktop
-            and sits above this bar (header z-40 > z-30). */}
-        <div className="container-x flex flex-wrap items-center justify-between gap-4 py-4 lg:pl-36">
-          <div className="flex flex-wrap gap-2">
+        {/* lg:pl-32 (128px) clears the header logo, which overhangs this bar on
+            desktop and paints above it (header z-60 > z-30). The logo is 96px
+            wide and starts at the header's 32px gutter, so 128px is exact.
+            xl:flex-nowrap keeps the filters and search on one line once there's
+            room; below that it still wraps rather than overflowing. */}
+        <div className="container-x flex flex-wrap items-center justify-between gap-4 py-4 lg:pl-32 xl:flex-nowrap">
+          <div className="flex flex-wrap gap-2 xl:flex-nowrap">
             {CATEGORIES.map((c) => {
               const active = category === c.id;
               return (
@@ -110,7 +113,9 @@ export default function ProjectsBrowser() {
             })}
           </div>
 
-          <div className="relative w-full sm:w-80">
+          {/* Flexes into whatever space the filters leave, rather than holding a
+              fixed 320px that forced it onto its own line. */}
+          <div className="relative w-full sm:w-80 xl:w-auto xl:min-w-[13rem] xl:max-w-xs xl:flex-1">
             <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-ink/40" />
             <input
               type="search"

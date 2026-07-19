@@ -1,26 +1,12 @@
 import type { Metadata } from 'next';
 import { Maximize2, Wrench, LayoutGrid, ShieldCheck, Hammer, House, Warehouse } from 'lucide-react';
 import ServicePage from '@/components/ServicePage';
-import ExpandingTriptych, { type TriptychImage } from '@/components/ExpandingTriptych';
+import ExpandingTriptych from '@/components/ExpandingTriptych';
 import { services } from '@/content/services';
 import { site } from '@/content/site';
+import { serviceGalleries } from '@/content/serviceGalleries';
 
 const service = services['barndominiums'];
-
-const gallery: [TriptychImage, TriptychImage, TriptychImage] = [
-  {
-    src: '/assets/service-barndominium-1.webp',
-    alt: 'Barn-style home exterior with standing-seam metal roof and sliding barn doors',
-  },
-  {
-    src: '/assets/service-barndominium-2.webp',
-    alt: 'Open-plan barndominium interior with vaulted ceiling and exposed timber trusses',
-  },
-  {
-    src: '/assets/service-barndominium-3.webp',
-    alt: 'Modern farmhouse kitchen with exposed beam, custom cabinetry and professional range',
-  },
-];
 
 export const metadata: Metadata = {
   title: service.metaTitle,
@@ -112,7 +98,7 @@ export default function Page() {
         {/* ---------- EXPANDING TRIPTYCH (images only) ---------- */}
         <section className="section">
           <div className="container-x">
-            <ExpandingTriptych images={gallery} />
+            <ExpandingTriptych images={serviceGalleries['barndominiums']} />
           </div>
         </section>
 

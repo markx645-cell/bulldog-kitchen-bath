@@ -20,6 +20,8 @@ import {
 import { site } from '@/content/site';
 import { services } from '@/content/services';
 import FaqAccordion from '@/components/FaqAccordion';
+import ExpandingTriptych from '@/components/ExpandingTriptych';
+import { serviceGalleries } from '@/content/serviceGalleries';
 
 const service = services['basement-remodel'];
 
@@ -187,6 +189,13 @@ export default function BasementRemodelPage() {
           </div>
         </div>
       </section>
+      {/* ---------- EXPANDING TRIPTYCH (images only) ---------- */}
+      <section className="section">
+        <div className="container-x">
+          <ExpandingTriptych images={serviceGalleries['basement-remodel']} />
+        </div>
+      </section>
+
 
       {/* ---------- WHY HOMEOWNERS CHOOSE US ---------- */}
       <section className="section">

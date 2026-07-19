@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import { PencilRuler, MapPinned, SunMedium, Eye, DraftingCompass, Blocks, LandPlot } from 'lucide-react';
 import ServicePage from '@/components/ServicePage';
-import ExpandingTriptych, { type TriptychImage } from '@/components/ExpandingTriptych';
+import ExpandingTriptych from '@/components/ExpandingTriptych';
 import { services } from '@/content/services';
 import { site } from '@/content/site';
+import { serviceGalleries } from '@/content/serviceGalleries';
 
 const service = services['custom-homes'];
 
@@ -12,21 +13,6 @@ export const metadata: Metadata = {
   description: service.metaDescription,
   alternates: { canonical: '/custom-homes' },
 };
-
-const gallery: [TriptychImage, TriptychImage, TriptychImage] = [
-  {
-    src: '/assets/service-custom-home-1.webp',
-    alt: 'Custom home exterior at dusk with stone entry, dormers and landscaped drive',
-  },
-  {
-    src: '/assets/service-custom-home-2.webp',
-    alt: 'Custom home living room with fireplace, built-in shelving and hardwood floors',
-  },
-  {
-    src: '/assets/service-custom-home-3.webp',
-    alt: 'Custom home kitchen with marble island, wood cabinetry and pendant lighting',
-  },
-];
 
 // Why build custom rather than buy.
 const reasons = [
@@ -112,7 +98,7 @@ export default function Page() {
         {/* ---------- EXPANDING TRIPTYCH (images only) ---------- */}
         <section className="section">
           <div className="container-x">
-            <ExpandingTriptych images={gallery} />
+            <ExpandingTriptych images={serviceGalleries['custom-homes']} />
           </div>
         </section>
 
