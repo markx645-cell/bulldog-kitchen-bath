@@ -1,8 +1,9 @@
 import type { MetadataRoute } from 'next';
 import { site } from '@/content/site';
 import { serviceList } from '@/content/services';
-import { locations } from '@/content/locations';
 import { projects } from '@/content/projects';
+import { locations } from '@/content/locations';
+import { bathroomRemodelCopy } from '@/content/location-copy/bathroom-remodel';
 
 export const dynamic = 'force-static';
 
@@ -26,12 +27,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const servicePaths = serviceList.map((s) => ({ path: `/${s.slug}`, priority: 0.9 }));
   const projectPaths = projects.map((p) => ({ path: `/projects/${p.slug}`, priority: 0.6 }));
-  const locationPaths = locations.map((l) => ({
-    path: `/kitchen-bath-remodeling/${l.slug}`,
-    priority: 0.7,
-  }));
 
-  return [...staticPaths, ...servicePaths, ...projectPaths, ...locationPaths].map((p) => ({
+  // Service × neighborhood pages — only those we have written local copy for.
+  const bathroomLocationPaths = locations
+    .filter((l) => bathroomRemodelCopy[l.slug])
+    .map((l) => ({ path: `/bathroom-remodel/${l.slug}`, priority: 0.8 }));
+
+  return [...staticPaths, ...servicePaths, ...projectPaths, ...bathroomLocationPaths].map((p) => ({
     url: `${base}${p.path}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,

@@ -164,7 +164,9 @@ export const offers = [
   },
 ] as const;
 
-// Grouped for the service-area block. Derived from content/locations.ts.
+// The cities we serve, grouped by region. Currently unused — the per-city
+// location pages and the footer service-area block have both been removed.
+// Kept as reference data if a service-area section is ever reinstated.
 export const serviceAreas = [
   {
     region: 'Ohio',
