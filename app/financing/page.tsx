@@ -112,7 +112,7 @@ export default function FinancingPage() {
 
       {/* ---------- PERKS ---------- */}
       <section className="section">
-        <div className="container-x grid gap-10 md:grid-cols-3">
+        <div className="container-x grid gap-10 md:grid-cols-3" data-reveal data-reveal-stagger>
           {perks.map((p) => (
             <div key={p.title}>
               <p.icon className="mb-4 size-8 text-crimson" strokeWidth={1.5} />

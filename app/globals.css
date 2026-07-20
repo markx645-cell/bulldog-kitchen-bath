@@ -126,14 +126,43 @@
     transform: none;
   }
 
+  /* Staggered children — a domino: each card tips forward onto its top edge
+     and settles, one after the next in DOM order.
+     The list runs to 12 because the service "includes" grids carry up to nine
+     cards: capping at the 6th (as this used to) made the last four land
+     together, which read as a pop rather than a sequence. */
+  /* Two timing regimes, because strict sequencing does not scale.
+
+     Cards 1–6 are strictly sequential: each delay equals the full 0.45s
+     duration of the card before it, so nothing overlaps. That is the domino
+     everyone actually sees, since most grids here hold six or fewer.
+
+     From the 7th card the step tightens to 0.15s. Grids that large (the
+     11-card services grid, the 9-card service "includes" grid) would otherwise
+     run past five seconds, and visitors scroll past the bottom row before it
+     arrives. The tail overlaps slightly; it still reads as a cascade, and the
+     whole thing lands inside ~3.5s. */
   html.reveal-js [data-reveal-stagger].reveal-in > * {
-    animation: reveal-rise 0.6s ease-out both;
+    transform-origin: 50% 0%;
+    animation: reveal-domino 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
-  html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(2) { animation-delay: 0.08s; }
-  html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(3) { animation-delay: 0.16s; }
-  html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(4) { animation-delay: 0.24s; }
-  html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(5) { animation-delay: 0.32s; }
-  html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(n + 6) { animation-delay: 0.4s; }
+
+  /* Strict, no overlap */
+  html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(2)  { animation-delay: 0.45s; }
+  html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(3)  { animation-delay: 0.9s; }
+  html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(4)  { animation-delay: 1.35s; }
+  html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(5)  { animation-delay: 1.8s; }
+  html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(6)  { animation-delay: 2.25s; }
+
+  /* Tightened tail for large grids */
+  html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(7)  { animation-delay: 2.4s; }
+  html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(8)  { animation-delay: 2.55s; }
+  html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(9)  { animation-delay: 2.7s; }
+  html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(10) { animation-delay: 2.85s; }
+  html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(11) { animation-delay: 3s; }
+  html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(12) { animation-delay: 3.15s; }
+  html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(13) { animation-delay: 3.3s; }
+  html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(n + 14) { animation-delay: 3.45s; }
 }
 
 @keyframes reveal-rise {
@@ -144,5 +173,23 @@
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* Domino: hinged at the top edge (transform-origin is set on the element), the
+   card tips back and falls forward into place. The perspective lives in the
+   transform rather than on the parent so the effect works on any grid without
+   the container needing a 3D context. */
+@keyframes reveal-domino {
+  from {
+    opacity: 0;
+    transform: perspective(900px) rotateX(-38deg) translateY(14px) scale(0.97);
+  }
+  60% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: perspective(900px) rotateX(0deg) translateY(0) scale(1);
   }
 }

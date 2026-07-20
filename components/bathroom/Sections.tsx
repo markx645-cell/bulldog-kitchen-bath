@@ -330,7 +330,7 @@ export function TrustedPartnerSection({ neighborhood }: { neighborhood?: string 
               Let’s Discuss Your Project
             </Link>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4" data-reveal data-reveal-stagger>
             {trustBadges.map((b) => (
               <div
                 key={b.label}

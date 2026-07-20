@@ -214,7 +214,7 @@ export default function BasementRemodelPage() {
               Why Cincinnati homeowners finish their basement with us.
             </h2>
           </div>
-          <ul className="grid gap-x-12 gap-y-8 md:grid-cols-2">
+          <ul className="grid gap-x-12 gap-y-8 md:grid-cols-2" data-reveal data-reveal-stagger>
             {why.map((w) => (
               <li key={w.title} className="flex items-start gap-4">
                 <CheckCircle2 className="mt-1 size-5 shrink-0 text-crimson" />
@@ -282,7 +282,11 @@ export default function BasementRemodelPage() {
       {/* ---------- TRUST BADGES ---------- */}
       <section className="section">
         <div className="container-x">
-          <div className="glass grid grid-cols-2 gap-8 p-8 md:grid-cols-3 lg:grid-cols-6">
+          <div
+            className="glass grid grid-cols-2 gap-8 p-8 md:grid-cols-3 lg:grid-cols-6"
+            data-reveal
+            data-reveal-stagger
+          >
             {trustBadges.map((t) => (
               <div key={t.label} className="flex flex-col items-center gap-2 text-center">
                 <t.icon className="size-7 text-crimson" />
