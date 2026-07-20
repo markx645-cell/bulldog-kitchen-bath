@@ -22,6 +22,8 @@ import { services } from '@/content/services';
 import FaqAccordion from '@/components/FaqAccordion';
 import ExpandingTriptych from '@/components/ExpandingTriptych';
 import { serviceGalleries } from '@/content/serviceGalleries';
+import InvestSection from '@/components/InvestSection';
+import { serviceInvest } from '@/content/serviceInvest';
 
 const service = services['basement-remodel'];
 
@@ -196,6 +198,12 @@ export default function BasementRemodelPage() {
         </div>
       </section>
 
+      {/* ---------- INVEST IN YOUR FUTURE ----------
+          Shared with every other service page. The trust badges are already
+          covered by this page's own "why homeowners choose us" block below, so
+          TrustedPartnerSection is deliberately not added here — it would be a
+          second run at the same argument. */}
+      <InvestSection copy={serviceInvest['basement-remodel']} />
 
       {/* ---------- WHY HOMEOWNERS CHOOSE US ---------- */}
       <section className="section">

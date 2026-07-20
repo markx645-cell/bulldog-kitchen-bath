@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import SharedInvestSection from '@/components/InvestSection';
+import { serviceInvest } from '@/content/serviceInvest';
 import {
   Phone,
   ShieldCheck,
@@ -234,58 +236,12 @@ export function TriptychSection() {
 }
 
 /** "Invest in your future" — ROI, plus the two detail photos. */
+/**
+ * Delegates to the shared component so the bathroom pages and every other
+ * service render the same section. The copy lives in content/serviceInvest.ts.
+ */
 export function InvestSection({ neighborhood }: { neighborhood?: string }) {
-  return (
-    <section className="section">
-      <div className="container-x grid items-center gap-16 lg:grid-cols-2">
-        <div>
-          <p className="eyebrow">
-            {neighborhood ? `Invest in your future in ${neighborhood}` : 'Invest in your future'}
-          </p>
-          <h2 className="mb-8 mt-4 font-display text-4xl leading-tight text-ink md:text-5xl">
-            A bathroom that pays you back — daily and at resale.
-          </h2>
-          <div className="space-y-5 text-lg leading-relaxed text-ink/75">
-            <p>
-              Beyond the look and feel, a full bathroom remodel is one of the smartest moves you can
-              make in your home. It consistently ranks at the top for return on investment — so
-              you’re not just upgrading your morning routine, you’re adding real value to the
-              property itself.
-            </p>
-            <blockquote className="border-l-2 border-crimson pl-6 font-display text-2xl italic leading-snug text-ink">
-              There’s something special about handing a homeowner the keys to a bathroom that’s been
-              completely reimagined from the ground up. If you’re still weighing it, give us a call —
-              we love walking people through what’s possible.
-            </blockquote>
-          </div>
-        </div>
-        <div className="grid grid-cols-2 gap-4">
-          <div className="glass relative aspect-[4/5] overflow-hidden p-1.5">
-            <div className="relative size-full overflow-hidden rounded-xl">
-              <Image
-                src="/assets/bathroom-detail-1.webp"
-                alt="Marble walk-in shower with brass rainfall fixture"
-                fill
-                sizes="(max-width:1024px) 50vw, 25vw"
-                className="object-cover"
-              />
-            </div>
-          </div>
-          <div className="glass relative mt-12 aspect-[4/5] overflow-hidden p-1.5">
-            <div className="relative size-full overflow-hidden rounded-xl">
-              <Image
-                src="/assets/bathroom-detail-2.webp"
-                alt="Custom double vanity with arched mirror and brass hardware"
-                fill
-                sizes="(max-width:1024px) 50vw, 25vw"
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+  return <SharedInvestSection copy={serviceInvest['bathroom-remodel']} neighborhood={neighborhood} />;
 }
 
 /** "Honest answers" — the three objections we actually hear. */

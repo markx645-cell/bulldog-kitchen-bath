@@ -4,8 +4,6 @@ import Image from 'next/image';
 import {
   Phone,
   Check,
-  ShieldCheck,
-  Clock,
   Wrench,
   Ruler,
   Zap,
@@ -17,6 +15,9 @@ import { site } from '@/content/site';
 import { services } from '@/content/services';
 import ExpandingTriptych from '@/components/ExpandingTriptych';
 import { serviceGalleries } from '@/content/serviceGalleries';
+import InvestSection from '@/components/InvestSection';
+import { serviceInvest } from '@/content/serviceInvest';
+import { TrustedPartnerSection } from '@/components/bathroom/Sections';
 
 const service = services['kitchen-remodeling-older-homes'];
 
@@ -120,13 +121,6 @@ const checklist = [
   'Load-bearing wall locations and header sizing',
   'Existing ventilation and ductwork routing',
   'Insulation, air sealing, and any signs of pest or mold',
-];
-
-const trust = [
-  { icon: ShieldCheck, label: 'Lifetime Warranty' },
-  { icon: Check, label: 'Price Guarantee' },
-  { icon: Clock, label: 'Permits Handled' },
-  { icon: Wrench, label: 'In-House Crews' },
 ];
 
 const faqs = [
@@ -370,6 +364,8 @@ export default function OlderHomesPage() {
         </div>
       </section>
 
+      {/* ---------- INVEST IN YOUR FUTURE — shared with every service page ---------- */}
+      <InvestSection copy={serviceInvest['kitchen-remodeling-older-homes']} />
 
       {/* ---------- BUDGET RANGES ---------- */}
       <section className="section">
@@ -411,19 +407,11 @@ export default function OlderHomesPage() {
         </div>
       </section>
 
-      {/* ---------- TRUST BAND ---------- */}
-      <section className="section">
-        <div className="container-x">
-          <div className="glass grid grid-cols-2 gap-8 p-8 md:grid-cols-4">
-            {trust.map((t) => (
-              <div key={t.label} className="flex flex-col items-center gap-2 text-center">
-                <t.icon className="size-8 text-crimson" />
-                <div className="font-sans text-sm uppercase tracking-widest text-ink">{t.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ---------- YOUR TRUSTED PARTNER ----------
+          Replaces the four-icon trust band that used to sit here: it carries the
+          same badges plus Locally Owned and In-Home Estimates, along with the
+          copy and CTA, so the band was a strict subset of it. */}
+      <TrustedPartnerSection />
 
       {/* ---------- FAQ ---------- */}
       <section className="section">

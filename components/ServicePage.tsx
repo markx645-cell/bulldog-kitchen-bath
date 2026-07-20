@@ -1,15 +1,22 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Check, ShieldCheck, Clock, BadgeCheck } from 'lucide-react';
+import { Phone, Check, Clock } from 'lucide-react';
 import { site } from '@/content/site';
 import type { Service } from '@/content/services';
 import Faq from '@/components/Faq';
+import InvestSection from '@/components/InvestSection';
+import { serviceInvest } from '@/content/serviceInvest';
+import { TrustedPartnerSection } from '@/components/bathroom/Sections';
 
 // Mirrors the production ServicePage exactly:
 // Hero (full-bleed) -> Why -> Includes -> Turnaround -> Trust band -> Quote -> BudgetTiers
 // `children` renders after the Includes grid and before the Turnaround block,
 // so extra sections land mid-body and the turnaround + closing quote stay as
 // the page's closing argument, directly above the FAQ.
+//
+// The body is exported separately as ServicePageBody so the service hub and its
+// 170 location pages render from one source and cannot drift — the same rule
+// components/bathroom/Sections.tsx follows for Full Bathroom Remodels.
 export default function ServicePage({
   service: s,
   children,
@@ -17,13 +24,6 @@ export default function ServicePage({
   service: Service;
   children?: React.ReactNode;
 }) {
-  const trust = [
-    { icon: ShieldCheck, label: 'Lifetime Warranty' },
-    { icon: BadgeCheck, label: 'Best Price Guarantee' },
-    { icon: Clock, label: 'Rapid Turnaround' },
-    { icon: Check, label: 'In-House Installers' },
-  ];
-
   return (
     <>
       {/* ---------- HERO ---------- */}
@@ -61,12 +61,43 @@ export default function ServicePage({
         </div>
       </section>
 
+      <ServicePageBody service={s}>{children}</ServicePageBody>
+    </>
+  );
+}
+
+/**
+ * Everything below the hero, shared by the service hub and every
+ * /{service}/[location] page.
+ *
+ * `neighborhood` localizes the section headings — the location pages carry the
+ * full master experience, so what makes them distinct is the hero, the local
+ * relevance block, the localized FAQ and these headings, not a reduced page.
+ * `faqs` lets a location page put its own questions ahead of the shared ones.
+ */
+export function ServicePageBody({
+  service: s,
+  neighborhood,
+  faqs,
+  children,
+}: {
+  service: Service;
+  neighborhood?: string;
+  faqs?: { q: string; a: string }[];
+  children?: React.ReactNode;
+}) {
+  const inPlace = neighborhood ? ` in ${neighborhood}` : '';
+  const faqList = faqs ?? s.faqs;
+  const invest = serviceInvest[s.slug];
+
+  return (
+    <>
       {/* ---------- WHY — "The Bulldog Way" ---------- */}
       {s.whyBody && (
         <section className="section">
           <div className="container-x grid gap-12 lg:grid-cols-12">
             <div className="lg:col-span-4">
-              <p className="eyebrow">The Bulldog Way</p>
+              <p className="eyebrow">The Bulldog Way{inPlace}</p>
               <h2 className="mt-3 font-display text-4xl leading-tight text-ink md:text-5xl">
                 {s.whyTitle}
               </h2>
@@ -82,7 +113,8 @@ export default function ServicePage({
       {s.includes.length > 0 && (
         <section className="section">
           <div className="container-x">
-            <h2 className="mb-12 text-center font-display text-4xl text-ink md:text-5xl">
+            {neighborhood && <p className="eyebrow text-center">In {neighborhood}</p>}
+            <h2 className="mb-12 mt-3 text-center font-display text-4xl text-ink md:text-5xl">
               {s.includesTitle}
             </h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-reveal data-reveal-stagger>
@@ -102,6 +134,12 @@ export default function ServicePage({
 
       {children}
 
+      {/* ---------- INVEST IN YOUR FUTURE ----------
+          Same section the bathroom-remodel pages carry; copy per service from
+          content/serviceInvest.ts. Omitted where no copy has been written
+          rather than rendered with something generic. */}
+      {invest && <InvestSection copy={invest} neighborhood={neighborhood} />}
+
       {/* ---------- TURNAROUND ---------- */}
       {s.turnaroundTitle && (
         <section className="section">
@@ -113,7 +151,10 @@ export default function ServicePage({
                 </div>
               </div>
               <div className="lg:col-span-2">
-                <h3 className="font-display text-3xl text-ink md:text-4xl">{s.turnaroundTitle}</h3>
+                <h3 className="font-display text-3xl text-ink md:text-4xl">
+                  {s.turnaroundTitle}
+                  {inPlace}
+                </h3>
                 <p className="mt-4 text-lg leading-relaxed text-ink/75">{s.turnaroundBody}</p>
               </div>
             </div>
@@ -121,19 +162,12 @@ export default function ServicePage({
         </section>
       )}
 
-      {/* ---------- TRUST BAND ---------- */}
-      <section className="section">
-        <div className="container-x">
-          <div className="glass grid grid-cols-2 gap-8 p-8 md:grid-cols-4">
-            {trust.map((t) => (
-              <div key={t.label} className="flex flex-col items-center gap-2 text-center">
-                <t.icon className="size-8 text-crimson" />
-                <div className="font-sans text-xs uppercase tracking-widest text-ink">{t.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ---------- YOUR TRUSTED PARTNER ----------
+          Replaces the four-icon trust band that used to sit here. It carries the
+          same badges plus Locally Owned and In-Home Estimates, the "why
+          homeowners choose us" copy and a CTA — so the band would have been a
+          strict subset of it rendered twice. */}
+      <TrustedPartnerSection neighborhood={neighborhood} />
 
       {/* ---------- CLOSING QUOTE ---------- */}
       {s.closingQuote && (
@@ -156,8 +190,11 @@ export default function ServicePage({
         <section className="section">
           <div className="container-x">
             <div className="mx-auto max-w-2xl text-center">
-              <p className="eyebrow">Budget ranges</p>
-              <h2 className="mt-3 font-display text-4xl text-ink md:text-5xl">{s.budget.title}</h2>
+              <p className="eyebrow">Budget ranges{inPlace}</p>
+              <h2 className="mt-3 font-display text-4xl text-ink md:text-5xl">
+                {s.budget.title}
+                {inPlace}
+              </h2>
               {s.budget.intro && <p className="mt-4 leading-relaxed text-ink/75">{s.budget.intro}</p>}
             </div>
             <div className="mt-12 grid gap-6 lg:grid-cols-3" data-reveal data-reveal-stagger>
@@ -194,7 +231,9 @@ export default function ServicePage({
         </section>
       )}
 
-      {s.faqs.length > 0 && <Faq faqs={s.faqs} heading={`${s.name}: your questions`} />}
+      {faqList.length > 0 && (
+        <Faq faqs={faqList} heading={`${s.name}${inPlace}: your questions`} />
+      )}
     </>
   );
 }
