@@ -24,8 +24,14 @@ import ExpandingTriptych from '@/components/ExpandingTriptych';
 import { serviceGalleries } from '@/content/serviceGalleries';
 import InvestSection from '@/components/InvestSection';
 import { serviceInvest } from '@/content/serviceInvest';
+import AreasWeServe from '@/components/AreasWeServe';
+import { locations } from '@/content/locations';
+import { basementRemodelCopy } from '@/content/location-copy/basement-remodel';
 
 const service = services['basement-remodel'];
+
+// Only the neighborhoods we've written real local copy for.
+const basementLocations = locations.filter((l) => basementRemodelCopy[l.slug]);
 
 export const metadata: Metadata = {
   title: service.metaTitle,
@@ -338,6 +344,16 @@ export default function BasementRemodelPage() {
           </div>
         </div>
       </section>
+
+      {/* ---------- AREAS WE SERVE — collapsed, but the links stay in the
+          static HTML so the location pages remain discoverable. ---------- */}
+      <AreasWeServe
+        locations={basementLocations}
+        hrefBase="/basement-remodel"
+        serviceLabel="Basement Remodeling"
+        heading="Basement finishing near you"
+        intro="Whether a basement can be finished depends on what is happening below grade. Here’s what that means where you live."
+      />
     </>
   );
 }

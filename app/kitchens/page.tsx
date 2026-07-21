@@ -6,8 +6,14 @@ import ExpandingTriptych from '@/components/ExpandingTriptych';
 import KitchenInterestForm from '@/components/KitchenInterestForm';
 import { services } from '@/content/services';
 import { serviceGalleries } from '@/content/serviceGalleries';
+import AreasWeServe from '@/components/AreasWeServe';
+import { locations } from '@/content/locations';
+import { kitchensCopy } from '@/content/location-copy/kitchens';
 
 const service = services['kitchens'];
+
+// Only the neighborhoods we've written real local copy for.
+const kitchenLocations = locations.filter((l) => kitchensCopy[l.slug]);
 
 export const metadata: Metadata = {
   title: service.metaTitle,
@@ -82,6 +88,16 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* ---------- AREAS WE SERVE — collapsed, but the links stay in the
+          static HTML so the location pages remain discoverable. ---------- */}
+      <AreasWeServe
+        locations={kitchenLocations}
+        hrefBase="/kitchens"
+        serviceLabel="Kitchen Remodeling"
+        heading="Kitchen remodeling near you"
+        intro="What a kitchen project involves depends on the house it goes into. Here’s what that means where you live."
+      />
     </>
   );
 }

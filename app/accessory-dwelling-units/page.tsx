@@ -13,8 +13,14 @@ import ExpandingTriptych from '@/components/ExpandingTriptych';
 import { services } from '@/content/services';
 import { site } from '@/content/site';
 import { serviceGalleries } from '@/content/serviceGalleries';
+import AreasWeServe from '@/components/AreasWeServe';
+import { locations } from '@/content/locations';
+import { aduCopy } from '@/content/location-copy/accessory-dwelling-units';
 
 const service = services['accessory-dwelling-units'];
+
+// Only the neighborhoods we've written real local copy for.
+const aduLocations = locations.filter((l) => aduCopy[l.slug]);
 
 // Why homeowners actually build one. These are the four motivations we hear
 // most; the rental-income note stays honest about local rules.
@@ -166,6 +172,16 @@ export default function Page() {
           </div>
         </section>
       </ServicePage>
+
+      {/* ---------- AREAS WE SERVE — collapsed, but the links stay in the
+          static HTML so the location pages remain discoverable. ---------- */}
+      <AreasWeServe
+        locations={aduLocations}
+        hrefBase="/accessory-dwelling-units"
+        serviceLabel="ADU Builders"
+        heading="ADU builders near you"
+        intro="Whether an ADU is possible depends on your lot and your jurisdiction. Here’s what that means where you live."
+      />
     </>
   );
 }
