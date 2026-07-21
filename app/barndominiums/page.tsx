@@ -5,8 +5,16 @@ import ExpandingTriptych from '@/components/ExpandingTriptych';
 import { services } from '@/content/services';
 import { site } from '@/content/site';
 import { serviceGalleries } from '@/content/serviceGalleries';
+import AreasWeServe from '@/components/AreasWeServe';
+import { locations } from '@/content/locations';
+import { barndominiumCopy } from '@/content/location-copy/barndominiums';
 
 const service = services['barndominiums'];
+
+// Deliberately NOT all 170. A barndominium needs acreage, so these are the
+// communities where one is genuinely realistic — see the note at the top of
+// content/location-copy/barndominiums.ts.
+const barndominiumLocations = locations.filter((l) => barndominiumCopy[l.slug]);
 
 export const metadata: Metadata = {
   title: service.metaTitle,
@@ -156,6 +164,17 @@ export default function Page() {
           </div>
         </section>
       </ServicePage>
+
+      {/* ---------- AREAS WE SERVE — the communities with the acreage a
+          barndominium actually needs. The wording is deliberately honest that
+          this is a shorter list than our other services carry. ---------- */}
+      <AreasWeServe
+        locations={barndominiumLocations}
+        hrefBase="/barndominiums"
+        serviceLabel="Barndominium Builders"
+        heading="Where a barndominium actually works"
+        intro="A barndominium needs land, so this list is shorter than our other services — these are the communities where the acreage genuinely supports one. Don’t see yours? Call us anyway; we build across the whole region and we’ll tell you straight whether your land will take one."
+      />
     </>
   );
 }
