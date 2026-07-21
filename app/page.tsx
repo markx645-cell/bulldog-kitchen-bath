@@ -9,6 +9,7 @@ import WhyChooseUs from '@/components/WhyChooseUs';
 import ProcessSteps from '@/components/ProcessSteps';
 import Faq from '@/components/Faq';
 import CTASection from '@/components/CTASection';
+import ServiceAreaSection from '@/components/ServiceAreaSection';
 import Photo from '@/components/Photo';
 
 export const metadata: Metadata = {
@@ -67,6 +68,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <WhyChooseUs />
 
       <ServicesGrid />
 
@@ -162,8 +165,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <WhyChooseUs />
-
       <ProcessSteps />
 
       {/* ---------- ABOUT ---------- */}
@@ -204,6 +205,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Coverage, not navigation — the names here are plain text on purpose.
+          See the note at the top of ServiceAreaSection. */}
+      <ServiceAreaSection />
 
       <Faq faqs={faqs} />
 
