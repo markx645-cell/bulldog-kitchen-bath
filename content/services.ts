@@ -737,7 +737,7 @@ export const serviceList: Service[] = [
       },
       {
         "q": "What does an ADU cost?",
-        "a": "It varies more than any other project we do — a garage conversion and a new detached cottage aren't in the same range. Once we've seen your lot and settled the scope, you get one itemized, fixed-price contract covering everything. Book an in-home consultation for a real number."
+        "a": "It varies more than any other project we do, because the two routes aren't really comparable. A converted garage or basement uses a shell that already stands, so the work is insulation, moisture control, utilities, egress and finishes. A detached cottage is a small house built from the ground up — foundation, framing, roof and siding, a full kitchen and bath, and services run out from the main house — so it is priced closer to ground-up construction than to a remodel. That is worth knowing before you settle on a design. Once we've seen your lot and agreed the scope you get one itemized, fixed-price contract covering everything, and our financing page sets out the options — a detached build is financed differently from a remodel."
       },
       {
         "q": "Do you handle design and construction, or just the build?",
