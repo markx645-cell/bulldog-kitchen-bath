@@ -23,7 +23,9 @@ export default function ProcessSteps({
           <h2 className="mt-3 font-display text-4xl text-ink md:text-5xl">{heading}</h2>
           <p className="mt-4 text-ink/75">{sub}</p>
         </div>
-        <ol className="grid gap-8 md:grid-cols-2 lg:grid-cols-4" data-reveal data-reveal-stagger>
+        {/* Drop rather than the domino tip: the steps read as a sequence, so
+            they fall in from above strictly one at a time. */}
+        <ol className="grid gap-8 md:grid-cols-2 lg:grid-cols-4" data-reveal data-reveal-drop>
           {steps.map((s) => (
             <li key={s.step} className="border-t border-ink/15 pt-6">
               <div className="mb-3 font-sans text-xs font-medium tracking-[0.3em] text-crimson">

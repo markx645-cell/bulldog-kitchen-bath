@@ -85,7 +85,7 @@ export const serviceList: Service[] = [
     "closingQuote": "",
     "faqs": [
       {
-        "q": "It sounds expensive.",
+        "q": "Is a full remodel worth the investment?",
         "a": "A full remodel is an investment, but it's one that pays back. We're priced competitively for the region, and bathroom remodels consistently rank among the highest-ROI projects you can make to a home — most of our clients recover a meaningful share of the cost at resale."
       },
       {
@@ -93,7 +93,7 @@ export const serviceList: Service[] = [
         "a": "Most full bathroom remodels are completed on-site in just 2–5 days. Our team works efficiently and tells you up front what to expect, so you always know how much longer you'll be sharing the hall bath."
       },
       {
-        "q": "The disruption sounds like a lot.",
+        "q": "How disruptive is it day to day?",
         "a": "We hear this often. Our crew handles demo through final touches in-house — no rotating subs, no strangers in your home for months. We keep the workspace clean every day and are out by 6pm so your evenings stay yours."
       }
     ],
@@ -459,7 +459,7 @@ export const serviceList: Service[] = [
     "title": "Kitchen Remodeling in Cincinnati, OH",
     "region": "One team, in-house — demo to final hardware",
     "whyTitle": "While We're At It, Let's Take A Look At Your Kitchen",
-    "whyBody": "It's not in our name, but we love a good kitchen remodel. There's something special about transforming the most-used room in the house into a space that actually works for the people living in it — and looks great doing it. Whether you're starting from scratch or just ready for a serious upgrade, our team brings the same craftsmanship and attention to detail to your kitchen that we do to every bathroom we touch.",
+    "whyBody": "The kitchen is the room a household actually lives in, and it's the work we're proudest of. There's something special about transforming the most-used room in the house into a space that actually works for the people living in it — and looks great doing it. Whether you're starting from scratch or ready for a serious upgrade, the same in-house team handles it from demolition through final hardware, with one contract and one project manager throughout.",
     "includesTitle": "Our Kitchen Remodel Services Include",
     "includes": [
       {
@@ -646,7 +646,7 @@ export const serviceList: Service[] = [
       },
       {
         "q": "Can you add a bathroom or wet bar to my basement?",
-        "a": "Yes — it's one of our strengths as a full-service kitchen and bath remodeler. Plumbing and electrical are handled in-house as part of one contract."
+        "a": "Yes — it's one of our strengths as a full-service remodeler. Plumbing and electrical are handled in-house as part of one contract."
       },
       {
         "q": "Do you handle design and construction, or just the build?",
@@ -708,7 +708,7 @@ export const serviceList: Service[] = [
       },
       {
         "title": "Lifetime Workmanship Warranty",
-        "body": "The same warranty that backs every kitchen and bath we install backs your ADU. If it isn't right, we make it right."
+        "body": "The same Lifetime Workmanship Warranty that backs every project we build backs your ADU. If it isn't right, we make it right."
       }
     ],
     "turnaroundTitle": "Planned Before It's Built",
@@ -799,7 +799,7 @@ export const serviceList: Service[] = [
       },
       {
         "title": "Fixed Price & Lifetime Warranty",
-        "body": "One itemized contract covering every material and scope detail, and the same Lifetime Workmanship Warranty that backs every kitchen and bath we install."
+        "body": "One itemized contract covering every material and scope detail, and the same Lifetime Workmanship Warranty that backs every project we build."
       }
     ],
     "turnaroundTitle": "Planned Before It’s Built",
@@ -890,7 +890,7 @@ export const serviceList: Service[] = [
       },
       {
         "title": "Lifetime Workmanship Warranty",
-        "body": "The same warranty that backs every kitchen and bath we install backs the whole house. If it isn't right, we make it right."
+        "body": "The same Lifetime Workmanship Warranty that backs every project we build backs the whole house. If it isn't right, we make it right."
       }
     ],
     "turnaroundTitle": "Settled Before We Break Ground",

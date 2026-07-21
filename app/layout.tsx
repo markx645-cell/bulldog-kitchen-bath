@@ -33,11 +33,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | Kitchen & Bath Remodeling in Cincinnati & N. Kentucky`,
+    default: `${site.name} | Whole-Home Remodeling in Cincinnati & N. Kentucky`,
     template: `%s | ${site.name}`,
   },
   description:
-    'Full-service kitchen and bath remodeling for Greater Cincinnati and Northern Kentucky. Fixed pricing, in-house design, one accountable team, and a lifetime workmanship warranty. Book a consult.',
+    'Whole-home remodeling for Greater Cincinnati and Northern Kentucky — kitchens, bathrooms, basements, ADUs and custom builds. Fixed pricing, in-house design, one accountable team, and a lifetime workmanship warranty.',
   keywords: [
     'kitchen remodeling Cincinnati',
     'bathroom remodeling Cincinnati',

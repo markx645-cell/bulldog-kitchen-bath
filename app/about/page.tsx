@@ -7,7 +7,7 @@ import { values } from '@/content/site';
 export const metadata: Metadata = {
   title: 'About — Cincinnati, OH',
   description:
-    'Bulldog Remodel Group is Cincinnati’s most organized full-service kitchen and bath remodeler. One in-house team. Lifetime workmanship warranty.',
+    'Bulldog Remodel Group is Cincinnati’s most organized full-service remodeler. One in-house team. Lifetime workmanship warranty.',
   alternates: { canonical: '/about' },
 };
 

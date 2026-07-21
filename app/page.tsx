@@ -14,9 +14,9 @@ import Photo from '@/components/Photo';
 export const metadata: Metadata = {
   // The layout's title template does not apply to the root segment, so the
   // brand is spelled out here rather than appended automatically.
-  title: 'Bulldog Remodel Group | Kitchen & Bath Remodeling in Cincinnati & N. Kentucky',
+  title: 'Bulldog Remodel Group | Whole-Home Remodeling in Cincinnati & N. Kentucky',
   description:
-    'Bulldog Remodel Group — Cincinnati’s most organized remodeler. Full-service kitchen and bath remodeling with fixed pricing, in-house design, and a lifetime workmanship warranty. Book a consult.',
+    'Bulldog Remodel Group — Cincinnati’s most organized remodeler. Kitchens, bathrooms, basements, ADUs and custom builds with fixed pricing, in-house design, and a lifetime workmanship warranty. Book a consult.',
   alternates: { canonical: '/' },
 };
 
@@ -82,7 +82,10 @@ export default function HomePage() {
             </div>
             <Link href="/projects" className="btn-ghost shrink-0">View all projects</Link>
           </div>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" data-reveal data-reveal-stagger>
+          {/* Slide rather than the domino tip: these are wide photo cards in a
+              single row, and they read better arriving as one left-to-right
+              wave than hinging individually. */}
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" data-reveal data-reveal-slide>
             {featured.map((p) => (
               <Link
                 key={p.slug}

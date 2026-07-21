@@ -163,6 +163,39 @@
   html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(12) { animation-delay: 3.15s; }
   html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(13) { animation-delay: 3.3s; }
   html.reveal-js [data-reveal-stagger].reveal-in > *:nth-child(n + 14) { animation-delay: 3.45s; }
+
+  /* Group slide — a single row of wide cards drifting in from the left.
+     Distinct from the domino above: these are large photo cards, and a hinge
+     tip on something that size reads as heavy. The 0.1s step is deliberately
+     short so the cards overlap and arrive as one wave travelling left to
+     right, rather than one-at-a-time. */
+  html.reveal-js [data-reveal-slide].reveal-in > * {
+    animation: reveal-slide-x 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  html.reveal-js [data-reveal-slide].reveal-in > *:nth-child(2) { animation-delay: 0.1s; }
+  html.reveal-js [data-reveal-slide].reveal-in > *:nth-child(3) { animation-delay: 0.2s; }
+  html.reveal-js [data-reveal-slide].reveal-in > *:nth-child(4) { animation-delay: 0.3s; }
+  html.reveal-js [data-reveal-slide].reveal-in > *:nth-child(5) { animation-delay: 0.4s; }
+  html.reveal-js [data-reveal-slide].reveal-in > *:nth-child(n + 6) { animation-delay: 0.5s; }
+
+  /* Drop — items fall in from above, one at a time. Delay equals the 0.4s
+     duration so nothing overlaps: step 2 does not begin until step 1 has
+     landed. Kept to 0.4s rather than the domino's 0.45s because these lists
+     run to seven or eight items and the total adds up. */
+  html.reveal-js [data-reveal-drop].reveal-in > * {
+    animation: reveal-drop 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  html.reveal-js [data-reveal-drop].reveal-in > *:nth-child(2) { animation-delay: 0.4s; }
+  html.reveal-js [data-reveal-drop].reveal-in > *:nth-child(3) { animation-delay: 0.8s; }
+  html.reveal-js [data-reveal-drop].reveal-in > *:nth-child(4) { animation-delay: 1.2s; }
+  html.reveal-js [data-reveal-drop].reveal-in > *:nth-child(5) { animation-delay: 1.6s; }
+  html.reveal-js [data-reveal-drop].reveal-in > *:nth-child(6) { animation-delay: 2s; }
+  html.reveal-js [data-reveal-drop].reveal-in > *:nth-child(7) { animation-delay: 2.4s; }
+  html.reveal-js [data-reveal-drop].reveal-in > *:nth-child(8) { animation-delay: 2.8s; }
+  /* Past the 8th the step tightens, so a long list still lands inside ~3.5s. */
+  html.reveal-js [data-reveal-drop].reveal-in > *:nth-child(9)  { animation-delay: 3s; }
+  html.reveal-js [data-reveal-drop].reveal-in > *:nth-child(10) { animation-delay: 3.2s; }
+  html.reveal-js [data-reveal-drop].reveal-in > *:nth-child(n + 11) { animation-delay: 3.4s; }
 }
 
 @keyframes reveal-rise {
@@ -173,6 +206,37 @@
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* Drop: the item falls in from above and settles. */
+@keyframes reveal-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-38px);
+  }
+  60% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Group slide: cards enter from the left and settle. Paired with a short
+   stagger so a row reads as one wave rather than separate arrivals. */
+@keyframes reveal-slide-x {
+  from {
+    opacity: 0;
+    transform: translateX(-44px);
+  }
+  70% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 

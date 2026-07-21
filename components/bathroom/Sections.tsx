@@ -45,7 +45,7 @@ const replacements = [
 
 const objections = [
   {
-    q: 'It sounds expensive.',
+    q: 'Is a full remodel worth the investment?',
     a: 'A full remodel is an investment, but it’s one that pays back. We’re priced competitively for the region, and bathroom remodels consistently rank among the highest-ROI projects you can make to a home — most of our clients recover a meaningful share of the cost at resale.',
   },
   {
@@ -53,7 +53,7 @@ const objections = [
     a: 'Most full bathroom remodels are completed on-site in just 2–5 days. Our team works efficiently and tells you up front what to expect, so you always know how much longer you’ll be sharing the hall bath.',
   },
   {
-    q: 'The disruption sounds like a lot.',
+    q: 'How disruptive is it day to day?',
     a: 'We hear this often. Our crew handles demo through final touches in-house — no rotating subs, no strangers in your home for months. We keep the workspace clean every day and are out by 6pm so your evenings stay yours.',
   },
 ];
