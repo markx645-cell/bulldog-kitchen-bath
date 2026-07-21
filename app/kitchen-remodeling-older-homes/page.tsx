@@ -17,9 +17,15 @@ import ExpandingTriptych from '@/components/ExpandingTriptych';
 import { serviceGalleries } from '@/content/serviceGalleries';
 import InvestSection from '@/components/InvestSection';
 import { serviceInvest } from '@/content/serviceInvest';
-import { TrustedPartnerSection } from '@/components/bathroom/Sections';
+import { ContactSection, TrustedPartnerSection } from '@/components/bathroom/Sections';
+import AreasWeServe from '@/components/AreasWeServe';
+import { locations } from '@/content/locations';
+import { olderHomesCopy } from '@/content/location-copy/kitchen-remodeling-older-homes';
 
 const service = services['kitchen-remodeling-older-homes'];
+
+// Only the neighborhoods we've written real local copy for.
+const olderHomesLocations = locations.filter((l) => olderHomesCopy[l.slug]);
 
 export const metadata: Metadata = {
   title: service.metaTitle,
@@ -453,6 +459,19 @@ export default function OlderHomesPage() {
           </div>
         </div>
       </section>
+
+      {/* Same contact form, same position as this page's 170 location pages. */}
+      <ContactSection service={service.name} />
+
+      {/* ---------- AREAS WE SERVE — collapsed, but the links stay in the
+          static HTML so the location pages remain discoverable. ---------- */}
+      <AreasWeServe
+        locations={olderHomesLocations}
+        hrefBase="/kitchen-remodeling-older-homes"
+        serviceLabel="Older Home Kitchen Remodeling"
+        heading="Older-home kitchen remodeling near you"
+        intro="Housing age varies street by street around Cincinnati. Here’s what an older kitchen usually means where you live."
+      />
     </>
   );
 }
