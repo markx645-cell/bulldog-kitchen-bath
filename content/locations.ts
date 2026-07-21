@@ -454,7 +454,7 @@ export const locations: Location[] = [
     neighborhood: 'Covington',
     state: 'KY',
     zip: '41011',
-    county: 'Hamilton County, OH',
+    county: 'Kenton County, KY',
     adjacent: [
       { name: 'Newport', slug: 'newport' },
       { name: 'Bellevue', slug: 'bellevue' },
@@ -465,7 +465,7 @@ export const locations: Location[] = [
     neighborhood: 'Newport',
     state: 'KY',
     zip: '41071',
-    county: 'Hamilton County, OH',
+    county: 'Campbell County, KY',
     adjacent: [
       { name: 'Covington', slug: 'covington' },
       { name: 'Bellevue', slug: 'bellevue' },
@@ -477,7 +477,7 @@ export const locations: Location[] = [
     neighborhood: 'Bellevue',
     state: 'KY',
     zip: '41073',
-    county: 'Hamilton County, OH',
+    county: 'Campbell County, KY',
     adjacent: [
       { name: 'Newport', slug: 'newport' },
       { name: 'Fort Thomas', slug: 'fort-thomas' },
@@ -489,7 +489,7 @@ export const locations: Location[] = [
     neighborhood: 'Fort Thomas',
     state: 'KY',
     zip: '41075',
-    county: 'Hamilton County, OH',
+    county: 'Campbell County, KY',
     adjacent: [
       { name: 'Newport', slug: 'newport' },
       { name: 'Bellevue', slug: 'bellevue' },
@@ -500,7 +500,7 @@ export const locations: Location[] = [
     neighborhood: 'Florence',
     state: 'KY',
     zip: '41042',
-    county: 'Hamilton County, OH',
+    county: 'Boone County, KY',
     adjacent: [
       { name: 'Erlanger', slug: 'erlanger' },
     ],
@@ -510,7 +510,7 @@ export const locations: Location[] = [
     neighborhood: 'Erlanger',
     state: 'KY',
     zip: '41018',
-    county: 'Hamilton County, OH',
+    county: 'Kenton County, KY',
     adjacent: [
       { name: 'Florence', slug: 'florence' },
     ],
@@ -520,7 +520,7 @@ export const locations: Location[] = [
     neighborhood: 'Mason',
     state: 'OH',
     zip: '45040',
-    county: 'Hamilton County, OH',
+    county: 'Warren County, OH',
     adjacent: [
       { name: 'West Chester', slug: 'west-chester' },
     ],
@@ -530,7 +530,7 @@ export const locations: Location[] = [
     neighborhood: 'West Chester',
     state: 'OH',
     zip: '45069',
-    county: 'Hamilton County, OH',
+    county: 'Butler County, OH',
     adjacent: [
       { name: 'Mason', slug: 'mason' },
     ],
