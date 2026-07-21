@@ -5,8 +5,14 @@ import ExpandingTriptych from '@/components/ExpandingTriptych';
 import { services } from '@/content/services';
 import { site } from '@/content/site';
 import { serviceGalleries } from '@/content/serviceGalleries';
+import AreasWeServe from '@/components/AreasWeServe';
+import { locations } from '@/content/locations';
+import { customHomesCopy } from '@/content/location-copy/custom-homes';
 
 const service = services['custom-homes'];
+
+// Only the neighborhoods we've written real local copy for.
+const customHomeLocations = locations.filter((l) => customHomesCopy[l.slug]);
 
 export const metadata: Metadata = {
   title: service.metaTitle,
@@ -156,6 +162,16 @@ export default function Page() {
           </div>
         </section>
       </ServicePage>
+
+      {/* ---------- AREAS WE SERVE — collapsed, but the links stay in the
+          static HTML so the location pages remain discoverable. ---------- */}
+      <AreasWeServe
+        locations={customHomeLocations}
+        hrefBase="/custom-homes"
+        serviceLabel="Custom Home Builders"
+        heading="Custom home builders near you"
+        intro="What a lot will take differs street by street. Here’s what building new means where you’re looking."
+      />
     </>
   );
 }
