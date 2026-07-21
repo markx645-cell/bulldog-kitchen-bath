@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 import { site } from '@/content/site';
 import { services } from '@/content/services';
-import BathroomInterestForm from '@/components/BathroomInterestForm';
+import BasicContactForm from '@/components/BasicContactForm';
 import ExpandingTriptych from '@/components/ExpandingTriptych';
 import { serviceGalleries } from '@/content/serviceGalleries';
 
@@ -351,9 +351,12 @@ export function TrustedPartnerSection({ neighborhood }: { neighborhood?: string 
 export function ContactSection({
   place,
   neighborhood,
+  service,
 }: {
   place?: string;
   neighborhood?: string;
+  /** Service name, so the form's dropdown pre-selects what the page is about. */
+  service?: string;
 }) {
   return (
     <section id="contact" className="section">
@@ -378,7 +381,7 @@ export function ContactSection({
         </div>
 
         <div className="glass max-w-3xl p-6 md:p-10">
-          <BathroomInterestForm />
+          <BasicContactForm service={service} location={place ?? neighborhood} />
         </div>
       </div>
     </section>

@@ -6,7 +6,7 @@ import type { Service } from '@/content/services';
 import Faq from '@/components/Faq';
 import InvestSection from '@/components/InvestSection';
 import { serviceInvest } from '@/content/serviceInvest';
-import { TrustedPartnerSection } from '@/components/bathroom/Sections';
+import { ContactSection, TrustedPartnerSection } from '@/components/bathroom/Sections';
 
 // Mirrors the production ServicePage exactly:
 // Hero (full-bleed) -> Why -> Includes -> Turnaround -> Trust band -> Quote -> BudgetTiers
@@ -62,6 +62,12 @@ export default function ServicePage({
       </section>
 
       <ServicePageBody service={s}>{children}</ServicePageBody>
+
+      {/* Same contact form the location pages carry, in the same position —
+          a location page is a copy of its master page, so the form must match.
+          Lives here rather than in ServicePageBody because ServiceLocationPage
+          renders ContactSection itself; putting it in the body would double it. */}
+      <ContactSection service={s.name} />
     </>
   );
 }

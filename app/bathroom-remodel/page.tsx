@@ -80,7 +80,7 @@ export default function BathroomRemodelPage() {
       <HonestAnswersSection />
       <OutdatedSection />
       <TrustedPartnerSection />
-      <ContactSection />
+      <ContactSection service={service.name} />
 
       {/* ---------- AREAS WE SERVE — collapsed, but links stay in the HTML ---------- */}
       <AreasWeServe

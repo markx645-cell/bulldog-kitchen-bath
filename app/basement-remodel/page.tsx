@@ -25,6 +25,7 @@ import { serviceGalleries } from '@/content/serviceGalleries';
 import InvestSection from '@/components/InvestSection';
 import { serviceInvest } from '@/content/serviceInvest';
 import AreasWeServe from '@/components/AreasWeServe';
+import { ContactSection } from '@/components/bathroom/Sections';
 import { locations } from '@/content/locations';
 import { basementRemodelCopy } from '@/content/location-copy/basement-remodel';
 
@@ -344,6 +345,9 @@ export default function BasementRemodelPage() {
           </div>
         </div>
       </section>
+
+      {/* Same contact form, same position as this page's 170 location pages. */}
+      <ContactSection service={service.name} />
 
       {/* ---------- AREAS WE SERVE — collapsed, but the links stay in the
           static HTML so the location pages remain discoverable. ---------- */}

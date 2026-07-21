@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import ServicePage from '@/components/ServicePage';
 import ExpandingTriptych from '@/components/ExpandingTriptych';
-import KitchenInterestForm from '@/components/KitchenInterestForm';
 import { services } from '@/content/services';
 import { serviceGalleries } from '@/content/serviceGalleries';
 import AreasWeServe from '@/components/AreasWeServe';
@@ -73,21 +72,10 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ---------- KITCHEN INTEREST FORM ---------- */}
-      <section id="kitchen-interest" className="section">
-        <div className="container-x max-w-3xl">
-          <p className="eyebrow text-center">Kitchen Interest Form</p>
-          <h2 className="mb-4 mt-3 text-center font-display text-4xl text-ink md:text-5xl">
-            Tell Us About Your Kitchen Project
-          </h2>
-          <p className="mb-12 text-center text-ink/75">
-            The more you share, the more accurate your estimate will be.
-          </p>
-          <div className="glass p-6 md:p-10">
-            <KitchenInterestForm />
-          </div>
-        </div>
-      </section>
+      {/* The kitchen-specific interest form was removed here: ServicePage now
+          renders the shared ContactSection, and this page's 170 location pages
+          carry that same form. Two different forms on the master page and its
+          copies is exactly the inconsistency we were fixing. */}
 
       {/* ---------- AREAS WE SERVE — collapsed, but the links stay in the
           static HTML so the location pages remain discoverable. ---------- */}

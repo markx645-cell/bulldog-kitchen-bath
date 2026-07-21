@@ -203,7 +203,7 @@ export default function ServiceLocationPage({
         )}
       </ServicePageBody>
 
-      <ContactSection place={place} neighborhood={loc.neighborhood} />
+      <ContactSection place={place} neighborhood={loc.neighborhood} service={service.name} />
 
       {/* ---------- INTERNAL-LINK MESH: up, sideways, across (localized) ---------- */}
       <section className="section">

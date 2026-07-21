@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, MapPin } from 'lucide-react';
 import { site } from '@/content/site';
+import { services } from '@/content/services';
 import { type Location, type Adjacent, placeName } from '@/content/locations';
 import FaqAccordion from '@/components/FaqAccordion';
 import {
@@ -217,7 +218,13 @@ export default function LocationServicePage({
         </div>
       </section>
 
-      <ContactSection place={place} neighborhood={loc.neighborhood} />
+      {/* Canonical service name from the service list, not config.serviceName —
+          the form's dropdown options come from that same list. */}
+      <ContactSection
+        place={place}
+        neighborhood={loc.neighborhood}
+        service={services[config.slug]?.name}
+      />
 
       {/* ---------- INTERNAL-LINK MESH: up, sideways, across (localized) ---------- */}
       <section className="section">
