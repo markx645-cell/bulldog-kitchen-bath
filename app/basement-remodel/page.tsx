@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
+import Photo from '@/components/Photo';
 import {
   Phone,
   ShieldCheck,
@@ -119,39 +119,43 @@ export default function BasementRemodelPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      {/* ---------- HERO ---------- */}
-      <section className="relative min-h-[80vh] overflow-hidden">
-        <Image
-          src="/assets/basement-hero.webp"
-          alt="Finished basement family room remodel in Cincinnati with sectional, wet bar and recessed lighting"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/40 to-ink/30" />
-        <div className="container-x relative flex min-h-[80vh] flex-col justify-end py-24 text-white">
-          <p className="font-sans text-xs font-medium uppercase tracking-[0.3em] text-crimson">
-            Basement Remodeling in Cincinnati, OH
-          </p>
-          <h1 className="mt-6 max-w-4xl font-display text-5xl leading-[1.05] md:text-7xl">
-            Turn Your Unfinished Basement Into the Best Room in the House
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-white/85">
-            A finished basement is the most cost-effective square footage you can add to a Cincinnati
-            home. We design, build, and finish it with one in-house team, a fixed price, and a
-            lifetime workmanship warranty.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
-              Let’s Discuss Your Project
-            </Link>
-            <a
-              href={site.phoneHref}
-              className="inline-flex items-center gap-2 rounded-full border border-white/60 px-7 py-4 font-sans text-xs font-medium uppercase tracking-[0.18em] text-white transition hover:bg-white hover:text-ink"
-            >
-              <Phone className="size-4" /> Call {site.phone}
-            </a>
+      {/* ---------- HERO ----------
+          Homepage hero design (two-column, text left, rounded Photo card right),
+          matching the other hubs. Keeps this page's own copy and image. */}
+      <section className="relative overflow-hidden">
+        <div className="container-x relative py-12 lg:py-16">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="animate-fade-up">
+              <p className="eyebrow">Basement Remodeling in Cincinnati, OH</p>
+              <h1 className="mt-3 font-display text-4xl leading-[1.02] text-ink sm:text-5xl lg:text-6xl">
+                Turn Your Unfinished Basement Into the Best Room in the House
+              </h1>
+              <p className="mt-5 max-w-xl leading-relaxed text-ink/75">
+                A finished basement is the most cost-effective square footage you can add to a
+                Cincinnati home. We design, build, and finish it with one in-house team, a fixed
+                price, and a lifetime workmanship warranty.
+              </p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link href="/contact" className="btn-primary inline-flex items-center gap-2">
+                  Let’s Discuss Your Project <ArrowRight className="size-4" />
+                </Link>
+                <a
+                  href={site.phoneHref}
+                  className="btn-ghost inline-flex items-center gap-2 !border-ink/30 !bg-transparent !text-ink hover:!border-ink"
+                >
+                  <Phone className="size-4" /> Call {site.phone}
+                </a>
+              </div>
+            </div>
+
+            <Photo
+              label="Finished Basement Remodel"
+              src="/assets/basement-hero.webp"
+              alt="Finished basement family room remodel in Cincinnati with sectional, wet bar and recessed lighting"
+              className="aspect-[4/3] w-full shadow-lift"
+              priority
+              sizes="(max-width:1024px) 100vw, 48vw"
+            />
           </div>
         </div>
       </section>

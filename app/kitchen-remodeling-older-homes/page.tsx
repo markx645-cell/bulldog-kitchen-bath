@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
 import {
   Phone,
   Check,
@@ -10,9 +9,11 @@ import {
   Droplets,
   Hammer,
   FileCheck,
+  ArrowRight,
 } from 'lucide-react';
 import { site } from '@/content/site';
 import { services } from '@/content/services';
+import Photo from '@/components/Photo';
 import ExpandingTriptych from '@/components/ExpandingTriptych';
 import { serviceGalleries } from '@/content/serviceGalleries';
 import InvestSection from '@/components/InvestSection';
@@ -155,39 +156,43 @@ const faqs = [
 export default function OlderHomesPage() {
   return (
     <>
-      {/* ---------- HERO ---------- */}
-      <section className="relative min-h-[70vh] overflow-hidden">
-        <Image
-          src={service.image}
-          alt="Remodeled kitchen in an older Cincinnati home"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/30 to-ink/40" />
-        <div className="container-x relative flex min-h-[70vh] flex-col justify-end py-24 text-white">
-          <p className="font-sans text-xs font-medium uppercase tracking-[0.3em] text-crimson">
-            Older Home Specialists · Cincinnati, OH
-          </p>
-          <h1 className="mt-4 max-w-4xl font-display text-4xl leading-tight md:text-6xl lg:text-7xl">
-            Kitchen Remodeling for Older Homes in Cincinnati
-          </h1>
-          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/90 md:text-xl">
-            Pre-war bungalows, mid-century ranches, century-old farmhouses — they all share one
-            thing: a kitchen built for a very different way of living. Here’s how we bring them into
-            the present without erasing the character that made you love the house.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
-              Let’s Discuss Your Project
-            </Link>
-            <a
-              href={site.phoneHref}
-              className="inline-flex items-center gap-2 rounded-full border border-white/60 px-7 py-4 font-sans text-xs font-medium uppercase tracking-[0.18em] text-white transition hover:bg-white hover:text-ink"
-            >
-              <Phone className="size-4" /> {site.phone}
-            </a>
+      {/* ---------- HERO ----------
+          Homepage hero design (two-column, text left, rounded Photo card right),
+          matching the other hubs. Keeps this page's own copy and image. */}
+      <section className="relative overflow-hidden">
+        <div className="container-x relative py-12 lg:py-16">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="animate-fade-up">
+              <p className="eyebrow">Older Home Specialists · Cincinnati, OH</p>
+              <h1 className="mt-3 font-display text-4xl leading-[1.02] text-ink sm:text-5xl lg:text-6xl">
+                Kitchen Remodeling for Older Homes in Cincinnati
+              </h1>
+              <p className="mt-5 max-w-xl leading-relaxed text-ink/75">
+                Pre-war bungalows, mid-century ranches, century-old farmhouses — they all share one
+                thing: a kitchen built for a very different way of living. Here’s how we bring them
+                into the present without erasing the character that made you love the house.
+              </p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link href="/contact" className="btn-primary inline-flex items-center gap-2">
+                  Let’s Discuss Your Project <ArrowRight className="size-4" />
+                </Link>
+                <a
+                  href={site.phoneHref}
+                  className="btn-ghost inline-flex items-center gap-2 !border-ink/30 !bg-transparent !text-ink hover:!border-ink"
+                >
+                  <Phone className="size-4" /> {site.phone}
+                </a>
+              </div>
+            </div>
+
+            <Photo
+              label="Older Home Kitchen Remodel"
+              src={service.image}
+              alt="Remodeled kitchen in an older Cincinnati home"
+              className="aspect-[4/3] w-full shadow-lift"
+              priority
+              sizes="(max-width:1024px) 100vw, 48vw"
+            />
           </div>
         </div>
       </section>

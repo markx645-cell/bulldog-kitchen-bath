@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
-import { Phone } from 'lucide-react';
+import { Phone, ArrowRight } from 'lucide-react';
 import { site } from '@/content/site';
+import Photo from '@/components/Photo';
 import { services } from '@/content/services';
 import AreasWeServe from '@/components/AreasWeServe';
 import { locations } from '@/content/locations';
@@ -34,38 +34,43 @@ export const metadata: Metadata = {
 export default function BathroomRemodelPage() {
   return (
     <>
-      {/* ---------- HERO ---------- */}
-      <section className="relative min-h-[88vh] overflow-hidden">
-        <Image
-          src="/assets/bathroom-hero.webp"
-          alt="Luxury full bathroom remodel with marble shower, freestanding tub and custom vanity"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/40 to-ink/50" />
-        <div className="container-x relative flex min-h-[88vh] flex-col justify-end py-24 text-white">
-          <p className="font-sans text-xs font-medium uppercase tracking-[0.3em] text-crimson">
-            Full Bathroom Remodels
-          </p>
-          <h1 className="mt-6 max-w-3xl font-display text-5xl leading-[1.05] md:text-7xl">
-            Reimagined down to the studs.
-          </h1>
-          <p className="mt-6 max-w-xl text-lg text-white/85">
-            One in-house team. One signed price. One bathroom built from scratch — the way it should
-            have been the first time.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
-              Let’s Discuss Your Project
-            </Link>
-            <a
-              href={site.phoneHref}
-              className="inline-flex items-center gap-2 rounded-full border border-white/60 px-7 py-4 font-sans text-xs font-medium uppercase tracking-[0.18em] text-white transition hover:bg-white hover:text-ink"
-            >
-              <Phone className="size-4" /> {site.phone}
-            </a>
+      {/* ---------- HERO ----------
+          The homepage hero design (two-column, text left, rounded Photo card
+          right), matching the 8 shared-hero hubs. Keeps this page's own copy
+          and image. */}
+      <section className="relative overflow-hidden">
+        <div className="container-x relative py-12 lg:py-16">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="animate-fade-up">
+              <p className="eyebrow">Full Bathroom Remodels</p>
+              <h1 className="mt-3 font-display text-4xl leading-[1.02] text-ink sm:text-5xl lg:text-6xl">
+                Reimagined down to the studs.
+              </h1>
+              <p className="mt-5 max-w-xl leading-relaxed text-ink/75">
+                One in-house team. One signed price. One bathroom built from scratch — the way it
+                should have been the first time.
+              </p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link href="/contact" className="btn-primary inline-flex items-center gap-2">
+                  Let’s Discuss Your Project <ArrowRight className="size-4" />
+                </Link>
+                <a
+                  href={site.phoneHref}
+                  className="btn-ghost inline-flex items-center gap-2 !border-ink/30 !bg-transparent !text-ink hover:!border-ink"
+                >
+                  <Phone className="size-4" /> {site.phone}
+                </a>
+              </div>
+            </div>
+
+            <Photo
+              label="Full Bathroom Remodel"
+              src="/assets/bathroom-hero.webp"
+              alt="Luxury full bathroom remodel with marble shower, freestanding tub and custom vanity"
+              className="aspect-[4/3] w-full shadow-lift"
+              priority
+              sizes="(max-width:1024px) 100vw, 48vw"
+            />
           </div>
         </div>
       </section>

@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import Image from 'next/image';
-import { Phone, Check, Clock } from 'lucide-react';
+import { Phone, Check, Clock, ArrowRight } from 'lucide-react';
 import { site } from '@/content/site';
 import type { Service } from '@/content/services';
+import Photo from '@/components/Photo';
 import Faq from '@/components/Faq';
 import InvestSection from '@/components/InvestSection';
 import { serviceInvest } from '@/content/serviceInvest';
@@ -26,37 +26,43 @@ export default function ServicePage({
 }) {
   return (
     <>
-      {/* ---------- HERO ---------- */}
-      <section className="relative min-h-[80vh] overflow-hidden">
-        <Image
-          src={s.image}
-          alt={s.title}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/30 to-ink/40" />
-        <div className="container-x relative flex min-h-[80vh] flex-col justify-end py-24 text-white">
-          {s.eyebrow && (
-            <p className="font-sans text-xs font-medium uppercase tracking-[0.3em] text-crimson">
-              {s.eyebrow}
-            </p>
-          )}
-          <h1 className="mt-4 max-w-3xl font-display text-5xl leading-tight md:text-6xl lg:text-7xl">
-            {s.title}
-          </h1>
-          {s.region && <p className="mt-4 text-lg text-white/90">{s.region}</p>}
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
-              Let’s Discuss Your Project
-            </Link>
-            <a
-              href={site.phoneHref}
-              className="inline-flex items-center gap-2 rounded-full border border-white/60 px-7 py-4 font-sans text-xs font-medium uppercase tracking-[0.18em] text-white transition hover:bg-white hover:text-ink"
-            >
-              <Phone className="size-4" /> Contact Us
-            </a>
+      {/* ---------- HERO ----------
+          The homepage hero, reused: two-column grid, text left, a rounded Photo
+          card on the right (shadow-lift, no fade). Stacks on mobile into the same
+          card. Shared by all 8 ServicePage hubs; the 3 bespoke hubs and the
+          location pages keep their own heroes. */}
+      <section className="relative overflow-hidden">
+        <div className="container-x relative py-12 lg:py-16">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="animate-fade-up">
+              {s.eyebrow && <p className="eyebrow">{s.eyebrow}</p>}
+              <h1 className="mt-3 font-display text-4xl leading-[1.02] text-ink sm:text-5xl lg:text-6xl">
+                {s.title}
+              </h1>
+              {s.region && (
+                <p className="mt-5 max-w-xl leading-relaxed text-ink/75">{s.region}</p>
+              )}
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link href="/contact" className="btn-primary inline-flex items-center gap-2">
+                  Let’s Discuss Your Project <ArrowRight className="size-4" />
+                </Link>
+                <a
+                  href={site.phoneHref}
+                  className="btn-ghost inline-flex items-center gap-2 !border-ink/30 !bg-transparent !text-ink hover:!border-ink"
+                >
+                  <Phone className="size-4" /> {site.phone}
+                </a>
+              </div>
+            </div>
+
+            <Photo
+              label={s.title}
+              src={s.image}
+              alt={s.title}
+              className="aspect-[4/3] w-full shadow-lift"
+              priority
+              sizes="(max-width:1024px) 100vw, 48vw"
+            />
           </div>
         </div>
       </section>
