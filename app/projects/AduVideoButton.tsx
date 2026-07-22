@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { PlayCircle, X } from 'lucide-react';
+import { X } from 'lucide-react';
 
 /**
  * Full-width button above the projects filter bar that opens the ADU build reel
@@ -31,9 +31,21 @@ export default function AduVideoButton() {
         onClick={() => setOpen(true)}
         className="group flex w-full items-center gap-4 rounded-2xl border border-white/50 bg-white/40 p-4 text-left shadow-lift backdrop-blur-md transition hover:bg-white/60 sm:p-5"
       >
-        <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-crimson text-white transition group-hover:scale-105">
-          <PlayCircle className="size-7" strokeWidth={1.75} />
-        </span>
+        {/* Glossy play triangle — no circle. Vertical gradient + shadow for sheen. */}
+        <svg
+          viewBox="0 0 24 24"
+          className="size-11 shrink-0 transition group-hover:scale-110"
+          aria-hidden="true"
+        >
+          <defs>
+            <linearGradient id="adu-play-gloss" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#ef5457" />
+              <stop offset="50%" stopColor="#d01d21" />
+              <stop offset="100%" stopColor="#8c0d10" />
+            </linearGradient>
+          </defs>
+          <path d="M8 5v14l11-7z" fill="url(#adu-play-gloss)" />
+        </svg>
         <span className="min-w-0">
           <span className="block font-display text-lg leading-tight text-ink sm:text-xl">
             A beautiful 2-bed ADU we recently built
