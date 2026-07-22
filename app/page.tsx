@@ -10,6 +10,8 @@ import ProcessSteps from '@/components/ProcessSteps';
 import Faq from '@/components/Faq';
 import CTASection from '@/components/CTASection';
 import ServiceAreaSection from '@/components/ServiceAreaSection';
+import TestimonialsCarousel from '@/components/TestimonialsCarousel';
+import Reviews from '@/components/Reviews';
 import Photo from '@/components/Photo';
 
 export const metadata: Metadata = {
@@ -205,6 +207,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <Reviews limit={6} />
+
+      <TestimonialsCarousel />
 
       {/* Coverage, not navigation — the names here are plain text on purpose.
           See the note at the top of ServiceAreaSection. */}

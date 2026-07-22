@@ -20,6 +20,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/kitchen-remodel-cost-cincinnati', priority: 0.8 },
     { path: '/financing', priority: 0.7 },
     { path: '/projects', priority: 0.7 },
+    { path: '/reviews', priority: 0.6 },
+    { path: '/video-testimonials', priority: 0.6 },
     { path: '/blog', priority: 0.6 },
     { path: '/contact', priority: 0.7 },
     { path: '/consult', priority: 0.8 },
