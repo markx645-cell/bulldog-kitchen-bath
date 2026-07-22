@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import { faqs } from '@/content/site';
 import { projects } from '@/content/projects';
 import ServicesGrid from '@/components/ServicesGrid';
+import AduShowcase from '@/components/AduShowcase';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import ProcessSteps from '@/components/ProcessSteps';
 import Faq from '@/components/Faq';
@@ -74,6 +75,8 @@ export default function HomePage() {
       <WhyChooseUs />
 
       <ServicesGrid />
+
+      <AduShowcase />
 
       {/* ---------- FEATURED PROJECTS ---------- */}
       <section className="section">
@@ -208,7 +211,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Reviews limit={6} />
+      <Reviews variant="grid" />
 
       <TestimonialsCarousel />
 

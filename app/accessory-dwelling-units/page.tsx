@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import ServicePage from '@/components/ServicePage';
 import ExpandingTriptych from '@/components/ExpandingTriptych';
+import AduShowcase from '@/components/AduShowcase';
 import { services } from '@/content/services';
 import { site } from '@/content/site';
 import { serviceGalleries } from '@/content/serviceGalleries';
@@ -110,7 +111,8 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <ServicePage service={service}>
+      {/* The real-build video sits just above "What Every ADU Project Includes". */}
+      <ServicePage service={service} beforeIncludes={<AduShowcase />}>
         {/* ---------- EXPANDING TRIPTYCH (images only) ---------- */}
         <section className="section">
           <div className="container-x">

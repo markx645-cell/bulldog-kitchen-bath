@@ -20,9 +20,12 @@ import { ContactSection, TrustedPartnerSection } from '@/components/bathroom/Sec
 export default function ServicePage({
   service: s,
   children,
+  beforeIncludes,
 }: {
   service: Service;
   children?: React.ReactNode;
+  /** Rendered just above the "…Includes" grid. */
+  beforeIncludes?: React.ReactNode;
 }) {
   return (
     <>
@@ -67,7 +70,9 @@ export default function ServicePage({
         </div>
       </section>
 
-      <ServicePageBody service={s}>{children}</ServicePageBody>
+      <ServicePageBody service={s} beforeIncludes={beforeIncludes}>
+        {children}
+      </ServicePageBody>
 
       {/* Same contact form the location pages carry, in the same position —
           a location page is a copy of its master page, so the form must match.
@@ -92,11 +97,14 @@ export function ServicePageBody({
   neighborhood,
   faqs,
   children,
+  beforeIncludes,
 }: {
   service: Service;
   neighborhood?: string;
   faqs?: { q: string; a: string }[];
   children?: React.ReactNode;
+  /** Rendered just above the "…Includes" grid. */
+  beforeIncludes?: React.ReactNode;
 }) {
   const inPlace = neighborhood ? ` in ${neighborhood}` : '';
   const faqList = faqs ?? s.faqs;
@@ -120,6 +128,8 @@ export function ServicePageBody({
           </div>
         </section>
       )}
+
+      {beforeIncludes}
 
       {/* ---------- INCLUDES ---------- */}
       {s.includes.length > 0 && (

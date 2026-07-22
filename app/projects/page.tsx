@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { site } from '@/content/site';
 import { projects } from '@/content/projects';
 import ProjectsBrowser from './ProjectsBrowser';
+import AduVideoButton from './AduVideoButton';
 
 export const metadata: Metadata = {
   title: 'Featured Projects — Cincinnati, OH',
@@ -45,6 +46,16 @@ export default function ProjectsPage() {
           <p className="mt-6 max-w-2xl text-lg text-ink/75">
             Real Cincinnati homes. Real homeowners. Real results.
           </p>
+
+          {/* Video button, close under the heading */}
+          <div className="mt-8">
+            <AduVideoButton />
+          </div>
+
+          {/* Intro to the browsable grid, above the filter/search bar */}
+          <h2 className="mt-12 font-display text-3xl text-ink sm:text-4xl">
+            Go through all our projects
+          </h2>
         </div>
       </section>
 
