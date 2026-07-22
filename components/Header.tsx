@@ -79,6 +79,73 @@ export default function Header() {
     );
   };
 
+  // Desktop hover dropdown. Handles a group with no href (a pure menu like
+  // "More") and right-alignment for the rightmost trigger so its panel doesn't
+  // overflow the viewport edge.
+  const renderDesktopDropdown = (
+    group: {
+      label: string;
+      href?: string;
+      children: readonly { label: string; href: string }[];
+    },
+    align: 'left' | 'right' = 'left',
+  ) => {
+    const triggerClass =
+      'flex items-center gap-1 px-3 py-2 font-sans text-sm font-semibold uppercase tracking-wide text-ink hover:text-ink';
+    const chevron = (
+      <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+        <path d="M6 8L1 3h10z" />
+      </svg>
+    );
+    return (
+      <div
+        key={group.label}
+        className="relative"
+        onMouseEnter={() => setOpenMenu(group.label)}
+        onMouseLeave={() => setOpenMenu(null)}
+      >
+        {group.href ? (
+          <Link href={group.href} className={triggerClass}>
+            {group.label}
+            {chevron}
+          </Link>
+        ) : (
+          <button type="button" aria-expanded={openMenu === group.label} className={triggerClass}>
+            {group.label}
+            {chevron}
+          </button>
+        )}
+        {openMenu === group.label && (
+          <div
+            className={`absolute top-full ${align === 'right' ? 'right-0' : 'left-0'} max-h-[70vh] w-72 overflow-y-auto rounded-2xl border border-white/50 bg-bone/95 p-2 shadow-[0_8px_32px_rgba(22,24,26,0.14),inset_0_1px_0_rgba(255,255,255,0.7)] backdrop-blur-2xl`}
+          >
+            {group.children.map((child) => (
+              <Link
+                key={child.href}
+                href={child.href}
+                className="block rounded-md px-3 py-2 font-sans text-sm uppercase tracking-[0.04em] text-ink hover:bg-ink/5"
+              >
+                {child.label}
+              </Link>
+            ))}
+            {/* Only groups that are also a page get the "view all" footer link. */}
+            {group.href && (
+              <>
+                <span className="my-1 block border-t border-ink/10" aria-hidden="true" />
+                <Link
+                  href={group.href}
+                  className="block rounded-md px-3 py-2 font-sans text-xs font-semibold uppercase tracking-[0.12em] text-crimson hover:bg-crimson/5"
+                >
+                  View All Services →
+                </Link>
+              </>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  };
+
   return (
     <>
       <header className="sticky top-0 z-50 w-full">
@@ -203,47 +270,11 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* Desktop nav */}
+          {/* Desktop nav — Services dropdown, top-level items, then More dropdown */}
           <nav className="hidden items-center gap-1 lg:flex">
-            {/* Services dropdown — first in the bar */}
-            <div
-              className="relative"
-              onMouseEnter={() => setOpenMenu(nav.services.label)}
-              onMouseLeave={() => setOpenMenu(null)}
-            >
-              <Link
-                href={nav.services.href}
-                className="flex items-center gap-1 px-3 py-2 font-sans text-sm font-semibold uppercase tracking-wide text-ink hover:text-ink"
-              >
-                {nav.services.label}
-                <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
-                  <path d="M6 8L1 3h10z" />
-                </svg>
-              </Link>
-              {openMenu === nav.services.label && (
-                <div className="absolute left-0 top-full max-h-[70vh] w-72 overflow-y-auto rounded-2xl border border-white/50 bg-bone/95 p-2 shadow-[0_8px_32px_rgba(22,24,26,0.14),inset_0_1px_0_rgba(255,255,255,0.7)] backdrop-blur-2xl">
-                  {nav.services.children.map((child) => (
-                    <Link
-                      key={child.href}
-                      href={child.href}
-                      className="block rounded-md px-3 py-2 font-sans text-sm uppercase tracking-[0.04em] text-ink hover:bg-ink/5"
-                    >
-                      {child.label}
-                    </Link>
-                  ))}
-                  {/* "View All Services" sits at the bottom, after the list */}
-                  <span className="my-1 block border-t border-ink/10" aria-hidden="true" />
-                  <Link
-                    href={nav.services.href}
-                    className="block rounded-md px-3 py-2 font-sans text-xs font-semibold uppercase tracking-[0.12em] text-crimson hover:bg-crimson/5"
-                  >
-                    View All Services →
-                  </Link>
-                </div>
-              )}
-            </div>
+            {renderDesktopDropdown(nav.services, 'left')}
 
-            {nav.simple.map((item) => (
+            {nav.desktopSimple.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -252,6 +283,8 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
+
+            {renderDesktopDropdown(nav.more)}
           </nav>
 
           <div className="flex items-center gap-3 sm:gap-4">
@@ -295,7 +328,7 @@ export default function Header() {
         <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-b border-white/40 bg-bone/95 shadow-[inset_0_1px_0_rgba(255,255,255,0.55)] backdrop-blur-2xl lg:hidden">
           <nav className="container-x flex flex-col py-1">
             {renderMobileGroup(nav.services)}
-            {nav.simple.map((item) => (
+            {nav.mobileSimple.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}

@@ -208,10 +208,31 @@ export const nav = {
       { label: 'Custom Homes', href: '/custom-homes' },
     ],
   },
-  simple: [
+  // Desktop-only "More" dropdown. No href — it's a pure menu, not a page.
+  // Pricing and Financing moved here off the top-level bar, plus the two new
+  // dedicated pages.
+  more: {
+    label: 'More',
+    children: [
+      { label: 'Pricing', href: '/pricing-guide' },
+      { label: 'Financing', href: '/financing' },
+      { label: 'Reviews', href: '/reviews' },
+      { label: 'Video Testimonials', href: '/video-testimonials' },
+    ],
+  },
+  // Desktop top-level items, shown between Services and More.
+  desktopSimple: [
+    { label: 'Our Process', href: '/our-process' },
+    { label: 'Featured Projects', href: '/projects' },
+  ],
+  // Mobile stays a flat list — everything as it was, plus the two new pages.
+  // No "More" grouping on mobile (deliberately differs from desktop).
+  mobileSimple: [
     { label: 'Our Process', href: '/our-process' },
     { label: 'Pricing', href: '/pricing-guide' },
     { label: 'Financing', href: '/financing' },
     { label: 'Featured Projects', href: '/projects' },
+    { label: 'Reviews', href: '/reviews' },
+    { label: 'Video Testimonials', href: '/video-testimonials' },
   ],
 } as const;
