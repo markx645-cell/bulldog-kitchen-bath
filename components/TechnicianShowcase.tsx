@@ -72,19 +72,56 @@ const SLIDES = [
   },
 ];
 
+const N = SLIDES.length;
+// The real slides with a clone of the last prepended and the first appended, so
+// the track can slide past either end and snap back invisibly — a seamless loop
+// with no rewind. Real slides occupy TRACK positions 1..N.
+const TRACK = [SLIDES[N - 1], ...SLIDES, SLIDES[0]];
+
 export default function TechnicianShowcase() {
-  const [active, setActive] = useState(0);
+  // idx indexes TRACK; it starts on the first real slide (position 1).
+  const [idx, setIdx] = useState(1);
+  const [animate, setAnimate] = useState(true);
+
+  const active = (((idx - 1) % N) + N) % N; // 0..N-1, for the text/thumbnails/counter
   const s = SLIDES[active];
 
-  // Wrap-around navigation so prev/next loop past the ends.
-  const go = (dir: 1 | -1) => setActive((a) => (a + dir + SLIDES.length) % SLIDES.length);
+  const go = (dir: 1 | -1) => {
+    setAnimate(true);
+    setIdx((i) => i + dir);
+  };
+  const select = (i: number) => {
+    setAnimate(true);
+    setIdx(i + 1);
+  };
 
-  // Auto-advance every 10s. Depending on `active` restarts the timer after any
-  // change (manual or auto), so each slide gets a full 10 seconds on screen.
+  // Once a slide onto a clone finishes, jump (without animation) to the matching
+  // real slide, so the next move continues the same direction — no rewind.
+  const onSlideEnd = () => {
+    if (idx === N + 1) {
+      setAnimate(false);
+      setIdx(1);
+    } else if (idx === 0) {
+      setAnimate(false);
+      setIdx(N);
+    }
+  };
+
+  // Re-enable the transition on the frame after a snap.
   useEffect(() => {
-    const id = setInterval(() => setActive((a) => (a + 1) % SLIDES.length), 10000);
+    if (animate) return;
+    const r = requestAnimationFrame(() => setAnimate(true));
+    return () => cancelAnimationFrame(r);
+  }, [animate]);
+
+  // Auto-advance every 10s; keyed to idx so it resets after any change.
+  useEffect(() => {
+    const id = setInterval(() => {
+      setAnimate(true);
+      setIdx((i) => i + 1);
+    }, 10000);
     return () => clearInterval(id);
-  }, [active]);
+  }, [idx]);
 
   return (
     <section className="section">
@@ -115,22 +152,29 @@ export default function TechnicianShowcase() {
             <p className="mt-4 leading-relaxed text-ink/75">{s.body}</p>
           </div>
 
-          {/* Image */}
+          {/* Image — a sliding track that translates to the active slide */}
           <div className="w-full lg:order-2">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/50 bg-white/40 shadow-lift">
-              {SLIDES.map((slide, i) => (
-                <Image
-                  key={slide.src}
-                  src={slide.src}
-                  alt={slide.alt}
-                  fill
-                  sizes="(max-width:1024px) 100vw, 45vw"
-                  className={`object-cover transition-opacity duration-500 ${
-                    i === active ? 'opacity-100' : 'opacity-0'
-                  }`}
-                  priority={i === 0}
-                />
-              ))}
+              <div
+                className={`flex h-full w-full ${
+                  animate ? 'transition-transform duration-500 ease-out' : ''
+                }`}
+                style={{ transform: `translateX(-${idx * 100}%)` }}
+                onTransitionEnd={onSlideEnd}
+              >
+                {TRACK.map((slide, i) => (
+                  <div key={i} className="relative h-full w-full shrink-0">
+                    <Image
+                      src={slide.src}
+                      alt={slide.alt}
+                      fill
+                      sizes="(max-width:1024px) 100vw, 45vw"
+                      className="object-cover"
+                      priority={i === 1}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
           </div>
@@ -177,7 +221,7 @@ export default function TechnicianShowcase() {
                 role="tab"
                 aria-selected={on}
                 aria-label={slide.title}
-                onClick={() => setActive(i)}
+                onClick={() => select(i)}
                 className={`relative aspect-[4/3] w-full overflow-hidden rounded-xl border-2 transition ${
                   on ? 'border-crimson' : 'border-transparent opacity-60 hover:opacity-100'
                 }`}
