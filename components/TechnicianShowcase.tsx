@@ -127,14 +127,9 @@ export default function TechnicianShowcase() {
     <section className="section">
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow">The Bulldog Crew</p>
-          <h2 className="mt-3 font-display text-4xl leading-tight text-ink md:text-5xl">
+          <h2 className="font-display text-4xl leading-tight text-ink md:text-5xl">
             We bring your vision to life
           </h2>
-          <p className="mt-4 leading-relaxed text-ink/75">
-            No rotating subcontractors — the same in-house team designs, builds, and finishes your
-            home. Here’s what that looks like on the job.
-          </p>
         </div>
 
         {/* Content keeps full width; arrows overlay the side corners (absolute,
@@ -153,7 +148,7 @@ export default function TechnicianShowcase() {
           </div>
 
           {/* Image — a sliding track that translates to the active slide */}
-          <div className="w-full lg:order-2">
+          <div className="relative w-full lg:order-2">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/50 bg-white/40 shadow-lift">
               <div
                 className={`flex h-full w-full ${
@@ -176,27 +171,28 @@ export default function TechnicianShowcase() {
                 ))}
               </div>
             </div>
-          </div>
-          </div>
 
-          {/* Prev / next — absolute, tucked into the side gutters (on top of the
-              content edges, not consuming layout width). Loop past the ends. */}
-          <button
-            type="button"
-            onClick={() => go(-1)}
-            aria-label="Previous service"
-            className="absolute -left-2 top-1/2 z-10 flex size-10 -translate-y-1/2 items-center justify-center glass rounded-full text-ink transition hover:text-crimson sm:-left-4 sm:size-12 lg:-left-6"
-          >
-            <ChevronLeft className="size-5" />
-          </button>
-          <button
-            type="button"
-            onClick={() => go(1)}
-            aria-label="Next service"
-            className="absolute -right-2 top-1/2 z-10 flex size-10 -translate-y-1/2 items-center justify-center glass rounded-full text-ink transition hover:text-crimson sm:-right-4 sm:size-12 lg:-right-6"
-          >
-            <ChevronRight className="size-5" />
-          </button>
+            {/* Prev / next — anchored to the image so they stay vertically
+                centered on the picture at every size (on the picture on mobile,
+                pushed into the side gutters on desktop). Loop past the ends. */}
+            <button
+              type="button"
+              onClick={() => go(-1)}
+              aria-label="Previous service"
+              className="absolute left-2 top-1/2 z-10 flex size-10 -translate-y-1/2 items-center justify-center glass rounded-full text-ink transition hover:text-crimson sm:size-12 lg:-left-6"
+            >
+              <ChevronLeft className="size-5" />
+            </button>
+            <button
+              type="button"
+              onClick={() => go(1)}
+              aria-label="Next service"
+              className="absolute right-2 top-1/2 z-10 flex size-10 -translate-y-1/2 items-center justify-center glass rounded-full text-ink transition hover:text-crimson sm:size-12 lg:-right-6"
+            >
+              <ChevronRight className="size-5" />
+            </button>
+          </div>
+          </div>
         </div>
 
         {/* Slide counter, above the first thumbnail */}
