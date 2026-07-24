@@ -84,11 +84,15 @@ export default function WhyChooseUs() {
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-reveal data-reveal-stagger>
           {pillars.map((p) => (
             <div key={p.title} className="glass glass-hover p-6">
-              <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-white/50 bg-white/40 text-ink backdrop-blur-md">
-                <PillarIcon name={p.icon} />
-              </span>
-              <h3 className="font-display text-lg text-ink">{p.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink/80">{p.body}</p>
+              {/* Icon + title share a row on mobile (less vertical space); the
+                  icon stacks above the title from sm up. */}
+              <div className="flex items-center gap-3 sm:block">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/50 bg-white/40 text-ink backdrop-blur-md sm:mb-4">
+                  <PillarIcon name={p.icon} />
+                </span>
+                <h3 className="font-display text-lg text-ink">{p.title}</h3>
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-ink/80">{p.body}</p>
             </div>
           ))}
         </div>

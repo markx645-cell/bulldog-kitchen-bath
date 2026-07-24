@@ -8,6 +8,7 @@ import ServicesGrid from '@/components/ServicesGrid';
 import AduShowcase from '@/components/AduShowcase';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import ProcessSteps from '@/components/ProcessSteps';
+import TechnicianShowcase from '@/components/TechnicianShowcase';
 import Faq from '@/components/Faq';
 import CTASection from '@/components/CTASection';
 import ServiceAreaSection from '@/components/ServiceAreaSection';
@@ -73,6 +74,8 @@ export default function HomePage() {
       </section>
 
       <WhyChooseUs />
+
+      <TechnicianShowcase />
 
       <ServicesGrid />
 
