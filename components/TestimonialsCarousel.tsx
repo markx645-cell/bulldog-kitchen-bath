@@ -1,53 +1,38 @@
 'use client';
 
-import { useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
-import Photo from '@/components/Photo';
+import Image from 'next/image';
+import { useState } from 'react';
+import { Play, Quote, Star, User } from 'lucide-react';
 import { testimonials } from '@/content/testimonials';
 
 /**
- * Homepage video-testimonial carousel.
+ * Video testimonials — round clickable face frames on the left, the selected
+ * person's name and words in the middle, and their video on the right.
  *
- * Data comes from content/testimonials.ts. Tiles with no `thumbnail` render the
- * branded placeholder frame (never a fabricated face); tiles with no `videoUrl`
- * have an inert play button. When a real `videoUrl` is present the tile opens it
- * in a lightbox. If the data array is empty the whole section removes itself.
- *
- * A scroll-snap row rather than a JS-driven slider: it works without hydration,
- * the arrows just scroll it, and the dots track scroll position.
+ * Data comes from content/testimonials.ts. A face with no `thumbnail` shows a
+ * person-icon frame; a testimonial with no `videoUrl` shows the video area as a
+ * placeholder. If the array is empty the whole section removes itself.
  */
 export default function TestimonialsCarousel() {
-  const scroller = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
-  const [playing, setPlaying] = useState<number | null>(null);
+  // Direction of the last switch: 1 = a later face (content enters from below),
+  // -1 = an earlier face (enters from above). Drives the slide animation.
+  const [dir, setDir] = useState(1);
+
+  // Whether the active testimonial's video is playing. Faces start on their
+  // poster thumbnail; the real <video> only loads once play is clicked.
+  const [playing, setPlaying] = useState(false);
+
+  const select = (i: number) => {
+    if (i === active) return;
+    setDir(i > active ? 1 : -1);
+    setActive(i);
+    setPlaying(false);
+  };
 
   if (testimonials.length === 0) return null;
-
-  // Scroll by roughly one card so the arrows advance a tile at a time.
-  const nudge = (dir: 1 | -1) => {
-    const el = scroller.current;
-    if (!el) return;
-    const card = el.querySelector<HTMLElement>('[data-card]');
-    const step = card ? card.offsetWidth + 16 : el.clientWidth * 0.8;
-    el.scrollBy({ left: dir * step, behavior: 'smooth' });
-  };
-
-  // Keep the active dot in sync with the scroll position.
-  const onScroll = () => {
-    const el = scroller.current;
-    if (!el) return;
-    const card = el.querySelector<HTMLElement>('[data-card]');
-    const step = card ? card.offsetWidth + 16 : 1;
-    setActive(Math.round(el.scrollLeft / step));
-  };
-
-  const scrollToIndex = (i: number) => {
-    const el = scroller.current;
-    if (!el) return;
-    const card = el.querySelector<HTMLElement>('[data-card]');
-    const step = card ? card.offsetWidth + 16 : el.clientWidth * 0.8;
-    el.scrollTo({ left: i * step, behavior: 'smooth' });
-  };
+  const t = testimonials[active];
+  const slide = dir === 1 ? 'animate-slide-in-up' : 'animate-slide-in-down';
 
   return (
     <section className="section">
@@ -55,106 +40,148 @@ export default function TestimonialsCarousel() {
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">In their own words</p>
           <h2 className="mt-3 font-display text-4xl leading-tight text-ink md:text-5xl">
-            Video testimonials from our customers
+            Hear it from our customers
           </h2>
           <p className="mt-4 leading-relaxed text-ink/75">
-            Read enough five-star reviews and they blur. A video is harder to fake. These are
-            Tri-State homeowners in their own homes, telling you how the job went.
+            A video is harder to fake than a five-star rating. These are Tri-State homeowners in
+            their own homes, telling you how the job went.
           </p>
         </div>
 
-        <div className="relative mt-12">
-          {/* Prev / next — hidden on small screens where the row just swipes. */}
-          <button
-            type="button"
-            onClick={() => nudge(-1)}
-            aria-label="Previous testimonials"
-            className="absolute -left-3 top-1/2 z-10 hidden size-11 -translate-y-1/2 items-center justify-center rounded-full bg-ink text-white shadow-lift transition hover:bg-ink-700 lg:flex"
-          >
-            <ChevronLeft className="size-5" />
-          </button>
-          <button
-            type="button"
-            onClick={() => nudge(1)}
-            aria-label="Next testimonials"
-            className="absolute -right-3 top-1/2 z-10 hidden size-11 -translate-y-1/2 items-center justify-center rounded-full bg-ink text-white shadow-lift transition hover:bg-ink-700 lg:flex"
-          >
-            <ChevronRight className="size-5" />
-          </button>
-
+        <div className="mt-12 flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:gap-12">
+          {/* Round face frames — click to switch. Row on mobile, column on desktop. */}
           <div
-            ref={scroller}
-            onScroll={onScroll}
-            className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex shrink-0 flex-row justify-center gap-3 lg:flex-col lg:gap-4"
+            role="tablist"
+            aria-label="Choose a customer"
           >
-            {testimonials.map((t, i) => {
-              const canPlay = Boolean(t.videoUrl);
+            {testimonials.map((item, i) => {
+              const on = i === active;
               return (
-                <div
+                <button
                   key={i}
-                  data-card
-                  className="w-[240px] shrink-0 snap-start sm:w-[260px]"
+                  type="button"
+                  role="tab"
+                  aria-selected={on}
+                  aria-label={item.name ?? `Testimonial ${i + 1}`}
+                  onClick={() => select(i)}
+                  className={`relative size-14 shrink-0 overflow-hidden rounded-full border-2 transition sm:size-16 ${
+                    on
+                      ? 'border-crimson'
+                      : 'border-transparent opacity-60 hover:opacity-100'
+                  }`}
                 >
-                  <div className="group relative aspect-[3/5] overflow-hidden rounded-2xl shadow-lift">
-                    {playing === i && t.videoUrl ? (
-                      <iframe
-                        src={t.videoUrl}
-                        title={t.name ?? 'Customer video testimonial'}
-                        allow="accelerated-motion; autoplay; encrypted-media; picture-in-picture"
-                        allowFullScreen
-                        className="absolute inset-0 h-full w-full"
-                      />
-                    ) : (
-                      <>
-                        <Photo
-                          src={t.thumbnail}
-                          alt={t.alt ?? t.name ?? 'Customer video testimonial'}
-                          label={t.name ?? 'Video Testimonial'}
-                          rounded="rounded-2xl"
-                          className="absolute inset-0 h-full w-full"
-                          sizes="260px"
-                        />
-                        <button
-                          type="button"
-                          onClick={() => canPlay && setPlaying(i)}
-                          aria-label={canPlay ? `Play ${t.name ?? 'testimonial'}` : 'Video coming soon'}
-                          disabled={!canPlay}
-                          className="absolute inset-0 flex items-center justify-center focus:outline-none"
-                        >
-                          <span
-                            className={`flex size-14 items-center justify-center rounded-full bg-white/90 shadow-lift backdrop-blur transition ${
-                              canPlay ? 'group-hover:scale-110' : 'opacity-70'
-                            }`}
-                          >
-                            <Play className="ml-0.5 size-6 fill-crimson text-crimson" />
-                          </span>
-                        </button>
-                      </>
-                    )}
-                    {t.name && (
-                      <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent p-4 font-sans text-sm font-semibold text-white">
-                        {t.name}
-                      </span>
-                    )}
-                  </div>
-                </div>
+                  {item.thumbnail ? (
+                    <Image src={item.thumbnail} alt={item.alt ?? item.name ?? ''} fill sizes="64px" className="object-cover" />
+                  ) : (
+                    <span className="flex h-full w-full items-center justify-center bg-white/40 text-ink/40 backdrop-blur-md">
+                      <User className="size-7" strokeWidth={1.75} />
+                    </span>
+                  )}
+                </button>
               );
             })}
           </div>
 
-          {/* Dot pagination */}
-          <div className="mt-6 flex items-center justify-center gap-2">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                onClick={() => scrollToIndex(i)}
-                aria-label={`Go to testimonial ${i + 1}`}
-                className={`h-2 rounded-full transition-all ${
-                  i === active ? 'w-6 bg-crimson' : 'w-2 bg-ink/20 hover:bg-ink/40'
-                }`}
-              />
-            ))}
+          {/* Name + testimonial text, framed by quote marks and a dash flourish.
+              Keyed by `active` so it remounts and replays the slide on each click. */}
+          <div key={`text-${active}`} className={`min-w-0 flex-1 ${slide}`}>
+            {/* Opening quote mark */}
+            <Quote className="size-9 rotate-180 fill-ink text-ink" strokeWidth={0} aria-hidden="true" />
+
+            {/* Location · project on the left, star rating on the right */}
+            <div className="mt-4 flex items-start justify-between gap-4">
+              <div className="min-w-0">
+                {(t.location || t.project) && (
+                  <p className="text-sm text-ink/55">
+                    {[t.location, t.project].filter(Boolean).join(' · ')}
+                  </p>
+                )}
+                {t.name && (
+                  <p className="mt-1 font-display text-2xl uppercase leading-tight text-crimson md:text-3xl">
+                    {t.name}
+                  </p>
+                )}
+              </div>
+              {t.rating ? (
+                <div
+                  className="flex shrink-0 gap-0.5 pt-1"
+                  aria-label={`${t.rating} out of 5 stars`}
+                >
+                  {Array.from({ length: t.rating }).map((_, i) => (
+                    <Star key={i} className="size-4 fill-crimson text-crimson" strokeWidth={0} />
+                  ))}
+                </div>
+              ) : null}
+            </div>
+
+            {t.quote && (
+              <blockquote className="mt-4 leading-relaxed text-ink/80">{t.quote}</blockquote>
+            )}
+
+            {/* Dash flourish on the left, closing quote mark on the right */}
+            <div className="mt-6 flex items-end justify-between gap-4">
+              <span className="flex items-center gap-1.5" aria-hidden="true">
+                <span className="h-[3px] w-7 rounded bg-crimson" />
+                <span className="h-[3px] w-3 rounded bg-crimson" />
+                <span className="h-[3px] w-3 rounded bg-crimson" />
+                <span className="h-[3px] w-3 rounded bg-crimson" />
+              </span>
+              <Quote className="size-9 fill-ink text-ink" strokeWidth={0} aria-hidden="true" />
+            </div>
+          </div>
+
+          {/* Video (portrait) — same keyed slide so it moves with the text */}
+          <div key={`video-${active}`} className={`w-full max-w-[270px] shrink-0 lg:w-[270px] ${slide}`}>
+            <div className="relative aspect-[9/16] w-full overflow-hidden rounded-2xl border border-white/50 bg-ink shadow-lift">
+              {t.videoUrl && playing ? (
+                // Once play is clicked, load the real video. object-contain so the
+                // footage is never cropped (it may letterbox — that's fine here,
+                // the resting state is the full-bleed poster below).
+                <video
+                  key={t.videoUrl}
+                  autoPlay
+                  controls
+                  playsInline
+                  poster={t.poster ?? t.thumbnail}
+                  className="h-full w-full object-contain"
+                >
+                  <source src={t.videoUrl} type="video/mp4" />
+                </video>
+              ) : t.videoUrl ? (
+                // Resting state: the poster thumbnail fills the frame (object-cover,
+                // no black bars) with a play button. Click loads/plays the video.
+                <button
+                  type="button"
+                  onClick={() => setPlaying(true)}
+                  aria-label={`Play ${t.name ?? 'testimonial'} video`}
+                  className="group absolute inset-0 h-full w-full"
+                >
+                  {(t.poster || t.thumbnail) && (
+                    <Image
+                      src={(t.poster ?? t.thumbnail) as string}
+                      alt={t.alt ?? t.name ?? ''}
+                      fill
+                      sizes="300px"
+                      className="object-cover"
+                    />
+                  )}
+                  <span className="absolute inset-0 flex items-center justify-center bg-ink/10 transition group-hover:bg-ink/25">
+                    <span className="flex size-16 items-center justify-center rounded-full bg-white/85 text-crimson shadow-lift transition group-hover:scale-105">
+                      <Play className="ml-1 size-7 fill-current" strokeWidth={0} />
+                    </span>
+                  </span>
+                </button>
+              ) : (
+                // No video yet — a neutral placeholder with an inert play badge.
+                <div className="flex h-full w-full flex-col items-center justify-center gap-3 text-white/60">
+                  <span className="flex size-14 items-center justify-center rounded-full bg-white/15">
+                    <Play className="ml-0.5 size-6" />
+                  </span>
+                  <span className="text-xs uppercase tracking-widest">Video coming soon</span>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

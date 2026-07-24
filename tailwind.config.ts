@@ -46,9 +46,21 @@ const config: Config = {
           '0%': { opacity: '0', transform: 'translateY(16px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
+        // Directional slide for the testimonial switcher: content enters from
+        // below (clicked a later face) or from above (an earlier face).
+        'slide-in-up': {
+          '0%': { opacity: '0', transform: 'translateY(28px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        'slide-in-down': {
+          '0%': { opacity: '0', transform: 'translateY(-28px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
       },
       animation: {
         'fade-up': 'fade-up 0.6s ease-out both',
+        'slide-in-up': 'slide-in-up 1s ease-out both',
+        'slide-in-down': 'slide-in-down 1s ease-out both',
       },
     },
   },
