@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import TestimonialsCarousel from '@/components/TestimonialsCarousel';
+import TestimonialsList from '@/components/TestimonialsList';
 import CTASection from '@/components/CTASection';
 
 export const metadata: Metadata = {
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function VideoTestimonialsPage() {
   return (
     <>
-      <TestimonialsCarousel />
+      <TestimonialsList />
       <CTASection withForm />
     </>
   );
