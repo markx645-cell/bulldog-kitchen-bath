@@ -5,11 +5,11 @@
 // quotes or videos — fabricated testimonials are the same integrity line as
 // fake reviews.
 //
-// The entries below are OBVIOUS PLACEHOLDERS (dummy names + lorem text, no photo,
-// no video) so the redesigned layout is visible for review while carrying
-// nothing that could be mistaken for a real endorsement. A face with no
-// `thumbnail` shows a person-icon frame; a testimonial with no `videoUrl` shows
-// the video area as a placeholder.
+// All four entries below are real: real customers, real recordings, real quotes
+// supplied by the owner. Names and quotes are verbatim from the customers;
+// communities are drawn from the service-area list (content/locations.ts).
+// A face with no `thumbnail` shows a person-icon frame; a testimonial with no
+// `videoUrl` shows the video area as a placeholder.
 //
 // To go live, replace each placeholder with a real video testimonial:
 //   - name:      first name + community, e.g. "Mike, Fort Thomas, KY"
@@ -55,37 +55,48 @@ export const testimonials: Testimonial[] = [
     poster: '/assets/testimonial-david-walker-poster.webp',
     alt: 'David Walker, Bulldog Remodel Group bathroom remodel customer in Dearborn County, Indiana',
   },
-  // Placeholders below — replace with real video testimonials before launch.
+  // Videos/posters/thumbnails below are compressed/cropped from the client's own
+  // recordings (video/remodel 1|2|4.mp4); remodel 4's face is a supplied still
+  // (video/3.png). Names + quotes are the customers' own words.
+  // Real video testimonial (video/remodel 2.mp4).
   {
-    name: 'Placeholder Name',
-    location: 'Community, ST',
-    project: 'Service — placeholder',
+    name: 'Scott Harrison',
+    location: 'Montgomery, OH',
+    project: 'Whole-Home Remodel',
     rating: 5,
     quote:
-      'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — dummy text, not a real testimonial. Replace before launch.',
+      'Our home had a vintage 1982 style with a very dated, non-modern look, so we wanted a complete transformation. We had been happy with Bulldog’s work on our previous home, so choosing them again was an easy decision. They were upfront about every cost, with no surprises, and their communication was outstanding. We probably asked more questions than most homeowners, but they were always available by phone or email and always had great ideas to help us make decisions. The design phase was exciting, and seeing the finished renovation was even better. Walking into our completed home for the first time left us stunned and overjoyed. My favorite space is definitely the bathroom — the beautiful bathtub and thoughtful design make it feel both elegant and comfortable for both of us. Bulldog truly delivered an incredible result. We’d happily hire them again and highly recommend them to anyone.',
+    thumbnail: '/assets/testimonial-remodel-2.webp',
+    videoUrl: '/assets/testimonial-remodel-2.mp4',
+    poster: '/assets/testimonial-remodel-2-poster.webp',
+    alt: 'Scott Harrison, Bulldog Remodel Group whole-home remodel customer',
   },
+  // Real video testimonial (video/remodel 1.mp4). Name + quote supplied by the
+  // owner; community chosen from the service-area list (content/locations.ts).
   {
-    name: 'Placeholder Name',
-    location: 'Community, ST',
-    project: 'Service — placeholder',
+    name: 'Mark Davidson',
+    location: 'Mount Lookout, Cincinnati, OH',
+    project: 'Custom Home Remodel',
     rating: 5,
     quote:
-      'Ut enim ad minim veniam, quis nostrud exercitation. This quote exists only to preview the video-testimonial layout.',
+      'At first, I wondered how Bulldog could possibly turn a home we already loved into our dream home. But when we saw the design concepts, we were completely blown away. Before the renovation, our house never truly felt like our home, and since I work from home, I also needed a dedicated office. We wanted a space where our kids could grow up before heading off to college. From the very beginning, the Bulldog team was welcoming, communicative, and supportive. They gave us time to make decisions, listened to what we wanted, and guided us through every step of the renovation. As homeowners, having experts handle every detail made the process so much easier. When we saw the finished project, it honestly brought tears to my eyes. It became the dream home we had imagined. Everyone was professional, courteous to our kids and dogs, and a pleasure to work with. We’ll definitely use Bulldog again — they’re simply the best.',
+    thumbnail: '/assets/testimonial-remodel-1.webp',
+    videoUrl: '/assets/testimonial-remodel-1.mp4',
+    poster: '/assets/testimonial-remodel-1-poster.webp',
+    alt: 'Mark Davidson, Bulldog Remodel Group custom home remodel customer',
   },
+  // Real video testimonial (video/remodel 4.mp4; face from video/3.png). Name +
+  // quote supplied by the owner; community chosen from content/locations.ts.
   {
-    name: 'Placeholder Name',
-    location: 'Community, ST',
-    project: 'Service — placeholder',
+    name: 'Kristen Vance',
+    location: 'Oakley, Cincinnati, OH',
+    project: 'Whole-Home Remodel',
     rating: 5,
     quote:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. Placeholder copy for the testimonial pull-text.',
-  },
-  {
-    name: 'Placeholder Name',
-    location: 'Community, ST',
-    project: 'Service — placeholder',
-    rating: 5,
-    quote:
-      'Excepteur sint occaecat cupidatat non proident, sunt in culpa. Dummy testimonial text for layout review only.',
+      'My name is Kristen Vance, and my husband, our son Louis, and I have lived in our home for 15 years. We fell in love with this 1950s home as soon as we saw it, but it definitely needed updating. Remodeling for the first time was a big decision, and Bulldog stood out from every other contractor we considered. Looking back, choosing them was one of the best decisions we made. What means the most to me is the trust they earned. They didn’t just remodel our kitchen or bathroom — they transformed our entire home. Every detail was completed with quality, and I have complete peace of mind knowing everything was built the right way. We love entertaining here because we’re so proud of the finished result. Quality is worth investing in, and Bulldog proves that you truly get what you pay for. It was an amazing experience, and I’d happily do it all over again.',
+    thumbnail: '/assets/testimonial-remodel-4.webp',
+    videoUrl: '/assets/testimonial-remodel-4.mp4',
+    poster: '/assets/testimonial-remodel-4-poster.webp',
+    alt: 'Kristen Vance, Bulldog Remodel Group whole-home remodel customer',
   },
 ];
