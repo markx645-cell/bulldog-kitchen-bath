@@ -143,7 +143,7 @@ export default function OurProcessPage() {
       <section className="relative min-h-[70vh] overflow-hidden">
         <Image
           src="/assets/process-hero.webp"
-          alt="The Bulldog Remodel Group remodeling process"
+          alt="A Bulldog Remodel Group specialist meeting homeowners at their front door for an in-home consultation"
           fill
           priority
           sizes="100vw"

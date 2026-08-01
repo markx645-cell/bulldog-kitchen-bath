@@ -19,7 +19,6 @@ export default function Footer() {
   ];
 
   const company = [
-    { label: 'About Us', href: '/about' },
     { label: 'Our Process', href: '/our-process' },
     { label: 'Pricing Guide', href: '/pricing-guide' },
     { label: 'Featured Projects', href: '/projects' },
