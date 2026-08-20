@@ -176,12 +176,12 @@ export default function Header() {
                 showOffer ? 'pointer-events-none translate-y-full opacity-0' : 'translate-y-0 opacity-100'
               }`}
             >
-              <div className="grid w-full grid-cols-3 items-center">
-                <span className="justify-self-start whitespace-nowrap">{site.headline}</span>
-                <span className="justify-self-center whitespace-nowrap text-center">
-                  Serving {site.serviceArea}
-                </span>
-                <span className="justify-self-end whitespace-nowrap text-right">{site.hours}</span>
+              <div className="flex w-full items-center justify-center gap-3 whitespace-nowrap text-center">
+                <span>{site.headline}</span>
+                <span aria-hidden className="text-white/40">·</span>
+                <span>Serving {site.serviceArea}</span>
+                <span aria-hidden className="text-white/40">·</span>
+                <span>{site.hours}</span>
               </div>
             </div>
           </div>
@@ -246,12 +246,12 @@ export default function Header() {
           paint over it. The bar's own box never overlaps that bar, so only the
           logo actually crosses into it. */}
       <div className="border-b border-white/40 bg-bone/50 shadow-[inset_0_1px_0_rgba(255,255,255,0.55)] backdrop-blur-2xl md:sticky md:top-9 md:z-[60]">
-        <div className="flex h-20 w-full items-center justify-between gap-4 px-5 sm:px-8">
+        <div className="flex h-16 w-full items-center justify-between gap-4 px-5 sm:px-8">
           <Link href="/" className="flex items-center gap-2 sm:gap-3" aria-label={site.name} onClick={close}>
             {/* Portrait badge (750x900). On desktop it deliberately overhangs the
-                h-20 bar in both directions: at 115px, centring leaves ~18px
+                h-16 bar in both directions: at 115px, centring leaves ~26px
                 proud top and bottom, so it rides up over the black utility bar
-                and still breaks out below. The bar keeps its 80px height. */}
+                and still breaks out below. The bar keeps its 64px height. */}
             <Image
               src="/logo.webp"
               alt={site.name}

@@ -49,9 +49,10 @@ export default function TestimonialsCarousel() {
         </div>
 
         <div className="mt-12 flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:gap-12">
-          {/* Round face frames — click to switch. Row on mobile, column on desktop. */}
+          {/* Round face frames — click to switch. On mobile: a bigger row inside a
+              rounded black bar. On desktop: a plain transparent column. */}
           <div
-            className="flex shrink-0 flex-row justify-center gap-3 lg:flex-col lg:gap-4"
+            className="flex w-full shrink-0 flex-row items-center justify-around rounded-2xl bg-crimson px-3 py-3.5 lg:w-auto lg:flex-col lg:justify-center lg:gap-4 lg:rounded-none lg:bg-transparent lg:p-0"
             role="tablist"
             aria-label="Choose a customer"
           >
@@ -65,14 +66,14 @@ export default function TestimonialsCarousel() {
                   aria-selected={on}
                   aria-label={item.name ?? `Testimonial ${i + 1}`}
                   onClick={() => select(i)}
-                  className={`relative size-14 shrink-0 overflow-hidden rounded-full border-2 transition sm:size-16 ${
+                  className={`relative size-16 shrink-0 overflow-hidden rounded-full border-4 transition lg:size-16 lg:border-2 ${
                     on
-                      ? 'border-crimson'
-                      : 'border-transparent opacity-60 hover:opacity-100'
+                      ? 'border-white lg:border-crimson'
+                      : 'border-transparent hover:border-white/40 lg:hover:border-crimson/40'
                   }`}
                 >
                   {item.thumbnail ? (
-                    <Image src={item.thumbnail} alt={item.alt ?? item.name ?? ''} fill sizes="64px" className="object-cover" />
+                    <Image src={item.thumbnail} alt={item.alt ?? item.name ?? ''} fill sizes="72px" className="object-cover" />
                   ) : (
                     <span className="flex h-full w-full items-center justify-center bg-white/40 text-ink/40 backdrop-blur-md">
                       <User className="size-7" strokeWidth={1.75} />
@@ -86,8 +87,8 @@ export default function TestimonialsCarousel() {
           {/* Name + testimonial text, framed by quote marks and a dash flourish.
               Keyed by `active` so it remounts and replays the slide on each click. */}
           <div key={`text-${active}`} className={`min-w-0 flex-1 ${slide}`}>
-            {/* Opening quote mark */}
-            <Quote className="size-9 rotate-180 fill-ink text-ink" strokeWidth={0} aria-hidden="true" />
+            {/* Opening quote mark — hidden on mobile */}
+            <Quote className="hidden size-9 rotate-180 fill-ink text-ink lg:block" strokeWidth={0} aria-hidden="true" />
 
             {/* Location · project on the left, star rating on the right */}
             <div className="mt-4 flex items-start justify-between gap-4">
@@ -127,7 +128,7 @@ export default function TestimonialsCarousel() {
                 <span className="h-[3px] w-3 rounded bg-crimson" />
                 <span className="h-[3px] w-3 rounded bg-crimson" />
               </span>
-              <Quote className="size-9 fill-ink text-ink" strokeWidth={0} aria-hidden="true" />
+              <Quote className="hidden size-9 fill-ink text-ink lg:block" strokeWidth={0} aria-hidden="true" />
             </div>
           </div>
 
