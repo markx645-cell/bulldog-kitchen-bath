@@ -63,7 +63,7 @@ export default function ServiceAreaSection() {
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">Where We Work</p>
           <h2 className="mt-3 font-display text-4xl leading-tight text-ink md:text-5xl">
-            Proudly serving the Tri-State
+            Proudly remodeling the Tri-State
           </h2>
           <p className="mt-4 leading-relaxed text-ink/75">
             Greater Cincinnati, Northern Kentucky and southeastern Indiana — {total} communities
