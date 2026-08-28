@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { CheckCircle2, Phone, Mail, MapPin } from 'lucide-react';
-import { site } from '@/content/site';
+import { site, ogImage } from '@/content/site';
 import ConsultForm from './ConsultForm';
 
 export const metadata: Metadata = {
@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     title: 'Book a Consultation — Bulldog Remodel Group',
     description: 'Tell us about your project and book a quick 15-minute call.',
     url: `${site.url}/consult`,
+    images: [ogImage],
   },
 };
 

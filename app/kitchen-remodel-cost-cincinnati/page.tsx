@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Phone, ArrowRight } from 'lucide-react';
-import { site } from '@/content/site';
+import { site, ogImage } from '@/content/site';
 import FaqAccordion from '@/components/FaqAccordion';
 
 export const metadata: Metadata = {
@@ -16,6 +16,7 @@ export const metadata: Metadata = {
       'Typical Cincinnati kitchen remodel price ranges, cost drivers, timelines, and how to budget — from a local fixed-price remodeler.',
     type: 'article',
     url: `${site.url}/kitchen-remodel-cost-cincinnati`,
+    images: [ogImage],
   },
 };
 

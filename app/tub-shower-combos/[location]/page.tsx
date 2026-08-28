@@ -6,7 +6,7 @@ import ServiceLocationPage, {
 import { getLocation, getNearby, locations, placeName } from '@/content/locations';
 import { tubShowerCombosCopy } from '@/content/location-copy/tub-shower-combos';
 import { services } from '@/content/services';
-import { site } from '@/content/site';
+import { site, ogImage } from '@/content/site';
 
 const service = services['tub-shower-combos'];
 
@@ -58,6 +58,7 @@ export async function generateMetadata({
       title: `Tub Shower Combos in ${place} | ${site.name}`,
       description: `Tub and shower combinations in ${place} — designed, built and backed by one accountable team.`,
       url: `${site.url}/tub-shower-combos/${loc.slug}`,
+      images: [ogImage],
     },
   };
 }

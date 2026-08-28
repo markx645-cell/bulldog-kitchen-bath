@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Anton, Oswald, Inter } from 'next/font/google';
 import './globals.css';
-import { site } from '@/content/site';
+import { site, ogImage } from '@/content/site';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Backdrop from '@/components/Backdrop';
@@ -53,6 +53,14 @@ export const metadata: Metadata = {
     title: `${site.name} — ${site.headline}`,
     description:
       'Kitchen & bath remodeling across Greater Cincinnati and Northern Kentucky. Fixed pricing, in-house design, lifetime workmanship warranty.',
+    images: [ogImage],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${site.name} — ${site.headline}`,
+    description:
+      'Kitchen & bath remodeling across Greater Cincinnati and Northern Kentucky. Fixed pricing, in-house design, lifetime workmanship warranty.',
+    images: [ogImage.url],
   },
   robots: { index: true, follow: true },
 };

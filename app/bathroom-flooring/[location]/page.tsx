@@ -6,7 +6,7 @@ import ServiceLocationPage, {
 import { getLocation, getNearby, locations, placeName } from '@/content/locations';
 import { bathroomFlooringCopy } from '@/content/location-copy/bathroom-flooring';
 import { services } from '@/content/services';
-import { site } from '@/content/site';
+import { site, ogImage } from '@/content/site';
 
 const service = services['bathroom-flooring'];
 
@@ -56,6 +56,7 @@ export async function generateMetadata({
       title: `Bathroom Flooring in ${place} | ${site.name}`,
       description: `Bathroom flooring in ${place} — installed over a substrate built to last, by one accountable team.`,
       url: `${site.url}/bathroom-flooring/${loc.slug}`,
+      images: [ogImage],
     },
   };
 }

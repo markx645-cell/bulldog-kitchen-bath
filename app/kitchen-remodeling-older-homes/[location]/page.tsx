@@ -6,7 +6,7 @@ import ServiceLocationPage, {
 import { getLocation, getNearby, locations, placeName } from '@/content/locations';
 import { olderHomesCopy } from '@/content/location-copy/kitchen-remodeling-older-homes';
 import { services } from '@/content/services';
-import { site } from '@/content/site';
+import { site, ogImage } from '@/content/site';
 
 const service = services['kitchen-remodeling-older-homes'];
 
@@ -54,6 +54,7 @@ export async function generateMetadata({
       title: `Kitchen Remodeling for Older Homes in ${place} | ${site.name}`,
       description: `Older-home kitchens in ${place} — the wiring, the plaster and the out-of-square walls handled by one team.`,
       url: `${site.url}/kitchen-remodeling-older-homes/${loc.slug}`,
+      images: [ogImage],
     },
   };
 }

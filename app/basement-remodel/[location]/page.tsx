@@ -6,7 +6,7 @@ import ServiceLocationPage, {
 import { getLocation, getNearby, locations, placeName } from '@/content/locations';
 import { basementRemodelCopy } from '@/content/location-copy/basement-remodel';
 import { services } from '@/content/services';
-import { site } from '@/content/site';
+import { site, ogImage } from '@/content/site';
 
 const service = services['basement-remodel'];
 
@@ -54,6 +54,7 @@ export async function generateMetadata({
       title: `Basement Remodeling in ${place} | ${site.name}`,
       description: `Basement remodels in ${place} — moisture handled first, then a space worth being in.`,
       url: `${site.url}/basement-remodel/${loc.slug}`,
+      images: [ogImage],
     },
   };
 }

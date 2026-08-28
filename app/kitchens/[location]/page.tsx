@@ -6,7 +6,7 @@ import ServiceLocationPage, {
 import { getLocation, getNearby, locations, placeName } from '@/content/locations';
 import { kitchensCopy } from '@/content/location-copy/kitchens';
 import { services } from '@/content/services';
-import { site } from '@/content/site';
+import { site, ogImage } from '@/content/site';
 
 const service = services['kitchens'];
 
@@ -54,6 +54,7 @@ export async function generateMetadata({
       title: `Kitchen Remodeling in ${place} | ${site.name}`,
       description: `Kitchen remodels in ${place} — designed, built and backed by one accountable team.`,
       url: `${site.url}/kitchens/${loc.slug}`,
+      images: [ogImage],
     },
   };
 }

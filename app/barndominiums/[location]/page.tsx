@@ -6,7 +6,7 @@ import ServiceLocationPage, {
 import { getLocation, getNearby, locations, placeName } from '@/content/locations';
 import { barndominiumCopy } from '@/content/location-copy/barndominiums';
 import { services } from '@/content/services';
-import { site } from '@/content/site';
+import { site, ogImage } from '@/content/site';
 
 const service = services['barndominiums'];
 
@@ -57,6 +57,7 @@ export async function generateMetadata({
       title: `Barndominium Builders near ${place} | ${site.name}`,
       description: `Barn-style homes near ${place} — land and zoning reviewed first, then designed and built by one team.`,
       url: `${site.url}/barndominiums/${loc.slug}`,
+      images: [ogImage],
     },
   };
 }

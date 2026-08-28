@@ -6,7 +6,7 @@ import ServiceLocationPage, {
 import { getLocation, getNearby, locations, placeName } from '@/content/locations';
 import { aduCopy } from '@/content/location-copy/accessory-dwelling-units';
 import { services } from '@/content/services';
-import { site } from '@/content/site';
+import { site, ogImage } from '@/content/site';
 
 const service = services['accessory-dwelling-units'];
 
@@ -54,6 +54,7 @@ export async function generateMetadata({
       title: `Accessory Dwelling Units in ${place} | ${site.name}`,
       description: `ADUs in ${place} — zoning feasibility first, then designed and built by one team.`,
       url: `${site.url}/accessory-dwelling-units/${loc.slug}`,
+      images: [ogImage],
     },
   };
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
-import { site } from '@/content/site';
+import { site, ogImage } from '@/content/site';
 import BookEstimateForm from '@/components/BookEstimateForm';
 
 export const metadata: Metadata = {
@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     title: 'Contact Bulldog Remodel Group',
     description:
       'In-home estimates across Cincinnati, Northern Kentucky, and Southeast Indiana.',
+    images: [ogImage],
   },
 };
 

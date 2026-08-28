@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { site } from '@/content/site';
+import { site, ogImage } from '@/content/site';
 import { projects } from '@/content/projects';
 import ProjectsBrowser from './ProjectsBrowser';
 import AduVideoButton from './AduVideoButton';
@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Featured Projects — Bulldog Remodel Group',
     description: 'Real Cincinnati homes. Real homeowners. Real results.',
+    images: [ogImage],
   },
 };
 

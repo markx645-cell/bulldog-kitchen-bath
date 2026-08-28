@@ -6,7 +6,7 @@ import ServiceLocationPage, {
 import { getLocation, getNearby, locations, placeName } from '@/content/locations';
 import { customHomesCopy } from '@/content/location-copy/custom-homes';
 import { services } from '@/content/services';
-import { site } from '@/content/site';
+import { site, ogImage } from '@/content/site';
 
 const service = services['custom-homes'];
 
@@ -54,6 +54,7 @@ export async function generateMetadata({
       title: `Custom Home Builders in ${place} | ${site.name}`,
       description: `Ground-up homes in ${place} — lot feasibility first, then designed and built by one team.`,
       url: `${site.url}/custom-homes/${loc.slug}`,
+      images: [ogImage],
     },
   };
 }

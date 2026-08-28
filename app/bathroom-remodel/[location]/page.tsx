@@ -5,7 +5,7 @@ import LocationServicePage, {
 } from '@/components/LocationServicePage';
 import { getLocation, getNearby, locations, placeName } from '@/content/locations';
 import { bathroomRemodelCopy } from '@/content/location-copy/bathroom-remodel';
-import { site } from '@/content/site';
+import { site, ogImage } from '@/content/site';
 
 // Written once, reused across every neighborhood. Tokens: {neighborhood}, {place}, {brand}.
 const config: ServiceLocationConfig = {
@@ -74,6 +74,7 @@ export async function generateMetadata({
       title: `Bathroom Remodeling in ${place} | ${site.name}`,
       description: `Full bathroom remodels in ${place} — designed, built and backed by one accountable team.`,
       url: `${site.url}/bathroom-remodel/${loc.slug}`,
+      images: [ogImage],
     },
   };
 }

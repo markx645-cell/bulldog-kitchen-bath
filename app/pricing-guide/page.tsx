@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, ArrowRight } from 'lucide-react';
-import { site } from '@/content/site';
+import { site, ogImage } from '@/content/site';
 
 export const metadata: Metadata = {
   title: 'Remodeling Pricing Guide — Cincinnati, OH',
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description:
       'What does a kitchen or bathroom remodel actually cost in Cincinnati? Real budget ranges from Bulldog Remodel Group.',
     url: `${site.url}/pricing-guide`,
-    images: ['/assets/service-kitchen.webp'],
+    images: [ogImage],
   },
 };
 

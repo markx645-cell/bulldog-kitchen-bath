@@ -236,3 +236,15 @@ export const nav = {
     { label: 'Video Testimonials', href: '/video-testimonials' },
   ],
 } as const;
+
+// The share card every page falls back to: the Bulldog badge on the brand's
+// dark ground, generated at the 1200x630 Facebook/X/LinkedIn ratio from
+// public/logo.webp. Next replaces `openGraph` wholesale in child metadata
+// rather than deep-merging it, so every page that declares an openGraph block
+// has to spread this in explicitly.
+export const ogImage = {
+  url: '/og.png',
+  width: 1200,
+  height: 630,
+  alt: `${site.name} — ${site.tagline}`,
+} as const;

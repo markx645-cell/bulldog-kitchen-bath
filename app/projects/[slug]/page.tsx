@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Phone, ArrowLeft } from 'lucide-react';
-import { site } from '@/content/site';
+import { site, ogImage } from '@/content/site';
 import { projects, projectBySlug } from '@/content/projects';
 import Gallery from './Gallery';
 
@@ -29,7 +29,7 @@ export async function generateMetadata({
     openGraph: {
       title: `${p.title} | ${site.name}`,
       description: p.description,
-      images: p.photos[0] ? [{ url: p.photos[0].src }] : undefined,
+      images: [ogImage],
     },
   };
 }

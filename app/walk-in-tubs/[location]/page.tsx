@@ -6,7 +6,7 @@ import ServiceLocationPage, {
 import { getLocation, getNearby, locations, placeName } from '@/content/locations';
 import { walkInTubsCopy } from '@/content/location-copy/walk-in-tubs';
 import { services } from '@/content/services';
-import { site } from '@/content/site';
+import { site, ogImage } from '@/content/site';
 
 const service = services['walk-in-tubs'];
 
@@ -56,6 +56,7 @@ export async function generateMetadata({
       title: `Walk-In Tubs in ${place} | ${site.name}`,
       description: `Walk-in tubs in ${place} — designed, built and backed by one accountable team.`,
       url: `${site.url}/walk-in-tubs/${loc.slug}`,
+      images: [ogImage],
     },
   };
 }
