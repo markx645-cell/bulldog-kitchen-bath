@@ -86,9 +86,14 @@ export default function TechnicianShowcase() {
   const active = (((idx - 1) % N) + N) % N; // 0..N-1, for the text/thumbnails/counter
   const s = SLIDES[active];
 
+  // Moves are clamped to the track: idx must never leave 0..N+1, or the track
+  // slides past its last frame and the picture area goes blank.
   const go = (dir: 1 | -1) => {
     setAnimate(true);
-    setIdx((i) => i + dir);
+    setIdx((i) => {
+      const n = i + dir;
+      return n < 0 || n > N + 1 ? i : n;
+    });
   };
   const select = (i: number) => {
     setAnimate(true);
@@ -97,15 +102,22 @@ export default function TechnicianShowcase() {
 
   // Once a slide onto a clone finishes, jump (without animation) to the matching
   // real slide, so the next move continues the same direction — no rewind.
-  const onSlideEnd = () => {
-    if (idx === N + 1) {
-      setAnimate(false);
-      setIdx(1);
-    } else if (idx === 0) {
-      setAnimate(false);
-      setIdx(N);
-    }
+  const snap = () => {
+    setAnimate(false);
+    setIdx((i) => (i === N + 1 ? 1 : i === 0 ? N : i));
   };
+  const onSlideEnd = () => {
+    if (idx === N + 1 || idx === 0) snap();
+  };
+
+  // A timer backs up onTransitionEnd: a transition that is interrupted (a fast
+  // second click) or never starts (a hidden tab, where the rAF below cannot
+  // re-enable it) fires no transitionend, and the carousel would sit on a clone.
+  useEffect(() => {
+    if (idx !== 0 && idx !== N + 1) return;
+    const t = setTimeout(snap, 600);
+    return () => clearTimeout(t);
+  }, [idx]);
 
   // Re-enable the transition on the frame after a snap.
   useEffect(() => {
@@ -114,11 +126,14 @@ export default function TechnicianShowcase() {
     return () => cancelAnimationFrame(r);
   }, [animate]);
 
-  // Auto-advance every 10s; keyed to idx so it resets after any change.
+  // Auto-advance every 10s; keyed to idx so it resets after any change. Skipped
+  // while the tab is hidden — nothing animates there, and the ticks would only
+  // pile up unseen.
   useEffect(() => {
     const id = setInterval(() => {
+      if (document.hidden) return;
       setAnimate(true);
-      setIdx((i) => i + 1);
+      setIdx((i) => (i > N ? i : i + 1));
     }, 10000);
     return () => clearInterval(id);
   }, [idx]);
