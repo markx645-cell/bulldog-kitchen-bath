@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { Star, ArrowRight } from 'lucide-react';
 import { reviews, type Review } from '@/content/reviews';
+import { testimonials, type Testimonial } from '@/content/testimonials';
+import VideoReviewButton from './VideoReviewButton';
 
 /**
  * Customer reviews.
@@ -8,12 +10,15 @@ import { reviews, type Review } from '@/content/reviews';
  *   variant="grid" (homepage) — three of the shortest reviews side by side in a
  *   glass-card row, plus a button through to the full /reviews page.
  *
- *   variant="rows" (default, /reviews) — every review as a full-width glass row.
+ *   variant="rows" (default, /reviews) — every review as a full-width glass row,
+ *   with the four video testimonials mixed in among them; those cards carry a
+ *   "Watch their video" button that plays the recording in a lightbox.
  *
  * Each review shows stars, the quote (with a crimson rule down its left edge),
  * then the name with the project where a date would sit (the owner wanted them
  * dateless). Reviews with no `quote` are skipped. Empty array → section removes
- * itself. Server component, no client JS.
+ * itself. Server component; the only client JS is the video button on the cards
+ * that have a recording.
  */
 function Stars({ rating }: { rating: number }) {
   const r = Math.max(0, Math.min(5, rating));
@@ -38,8 +43,49 @@ function Body({ r }: { r: Review }) {
         {r.project && <span className="italic text-ink/50">{` — ${r.project}`}</span>}
         {r.location && <span className="text-ink/50">{` · ${r.location}`}</span>}
       </figcaption>
+      {r.videoUrl && (
+        <VideoReviewButton name={r.name} videoUrl={r.videoUrl} poster={r.poster} />
+      )}
     </>
   );
+}
+
+/**
+ * The people who recorded a video testimonial left a review too — it just lived
+ * only in the recording. Each becomes an ordinary review card carrying its
+ * `videoUrl`, so it reads as text and offers the video alongside the rest.
+ */
+const asReview = (t: Testimonial): Review => ({
+  name: t.name,
+  location: t.location,
+  project: t.project,
+  quote: t.quote,
+  rating: t.rating,
+  videoUrl: t.videoUrl,
+  poster: t.poster ?? t.thumbnail,
+});
+
+/**
+ * Where the video reviews sit in the finished list, 1-based, at the owner's
+ * direction. Spare positions are simply unused, so adding a fifth video
+ * testimonial puts it at the next one without touching this file.
+ */
+const VIDEO_SPOTS = [2, 8, 18, 27, 33];
+
+/**
+ * Mixes the video reviews in among the written ones rather than grouping them.
+ * Positions are fixed, not random — the page is statically exported, so the
+ * order has to come out the same on every build.
+ */
+function mixed(written: Review[], videos: Review[]): Review[] {
+  const out = [...written];
+  // Ascending spots, so each insert lands at exactly its 1-based position:
+  // everything spliced in earlier already sits above it.
+  videos.forEach((v, i) => {
+    const spot = VIDEO_SPOTS[i] ?? out.length + 1;
+    out.splice(Math.min(spot - 1, out.length), 0, v);
+  });
+  return out;
 }
 
 export default function Reviews({ variant = 'rows' }: { variant?: 'rows' | 'grid' }) {
@@ -89,12 +135,16 @@ export default function Reviews({ variant = 'rows' }: { variant?: 'rows' | 'grid
     );
   }
 
+  // The video testimonials join the written reviews here, mixed through the
+  // list. The homepage row above stays written-only — those quotes run long.
+  const rows = mixed(usable, testimonials.filter((t) => t.quote).map(asReview));
+
   return (
     <section className="section">
       <div className="container-x">
         {Header}
         <div className="mx-auto mt-12 max-w-4xl space-y-4">
-          {usable.map((r, i) => (
+          {rows.map((r, i) => (
             <figure key={i} className="glass flex flex-col rounded-2xl p-6 sm:p-8">
               <Body r={r} />
             </figure>

@@ -37,7 +37,10 @@ export type Review = {
   /** 1–5. */
   rating?: number;
   avatar?: string;
+  /** Set on the reviewers who also recorded a video testimonial: their .mp4. */
   videoUrl?: string;
+  /** Still shown before that video plays. */
+  poster?: string;
 };
 
 export const reviews: Review[] = [

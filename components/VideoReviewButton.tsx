@@ -2,14 +2,23 @@
 
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { X } from 'lucide-react';
+import { Play, X } from 'lucide-react';
 
 /**
- * Full-width button above the projects filter bar that opens the ADU build reel
- * (the same video as the homepage/ADU showcase) in a lightbox. Client component
- * for the open/close state and Escape-to-close.
+ * The "Watch their video" button on a review card whose reviewer also recorded a
+ * testimonial. Plays the recording in a lightbox on the page rather than sending
+ * the reader off to /video-testimonials. Client component for the open state;
+ * one instance per card, so each owns its own lightbox.
  */
-export default function AduVideoButton() {
+export default function VideoReviewButton({
+  name,
+  videoUrl,
+  poster,
+}: {
+  name?: string;
+  videoUrl: string;
+  poster?: string;
+}) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -30,32 +39,12 @@ export default function AduVideoButton() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="group flex w-full items-center gap-4 rounded-2xl border border-white/50 bg-white/40 p-4 text-left shadow-lift backdrop-blur-md transition hover:bg-white/60 sm:p-5"
+        className="group mt-6 inline-flex items-center gap-3 self-start rounded-full bg-crimson py-2 pl-2 pr-6 text-white shadow-lift transition hover:bg-crimson-600"
       >
-        {/* Glossy play triangle — no circle. Vertical gradient + shadow for sheen. */}
-        <svg
-          viewBox="0 0 24 24"
-          className="size-11 shrink-0 transition group-hover:scale-110"
-          aria-hidden="true"
-        >
-          <defs>
-            <linearGradient id="adu-play-gloss" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#ef5457" />
-              <stop offset="50%" stopColor="#d01d21" />
-              <stop offset="100%" stopColor="#8c0d10" />
-            </linearGradient>
-          </defs>
-          <path d="M8 5v14l11-7z" fill="url(#adu-play-gloss)" />
-        </svg>
-        <span className="min-w-0">
-          <span className="block font-display text-lg leading-tight text-ink sm:text-xl">
-            A beautiful 2-bed ADU we recently built
-          </span>
-          <span className="mt-0.5 block text-sm text-ink/60">Tap to watch the walkthrough</span>
+        <span className="flex size-9 items-center justify-center rounded-full bg-white text-crimson transition group-hover:scale-105">
+          <Play className="ml-0.5 size-4 fill-current" strokeWidth={0} />
         </span>
-        <span className="ml-auto hidden shrink-0 font-sans text-xs font-bold uppercase tracking-widest text-crimson sm:block">
-          Watch video →
-        </span>
+        <span className="font-display text-base uppercase tracking-wide">Watch their video</span>
       </button>
 
       {/* Portalled to <body>: the reveal animation leaves will-change on the
@@ -70,7 +59,7 @@ export default function AduVideoButton() {
             onClick={() => setOpen(false)}
             role="dialog"
             aria-modal="true"
-            aria-label="ADU build video"
+            aria-label={`${name ?? 'Customer'} video review`}
           >
             <button
               type="button"
@@ -84,11 +73,11 @@ export default function AduVideoButton() {
               controls
               autoPlay
               playsInline
-              poster="/assets/adu-remodel-poster.webp"
+              poster={poster}
               onClick={(e) => e.stopPropagation()}
               className="max-h-[85vh] w-auto rounded-2xl bg-ink"
             >
-              <source src="/assets/adu-remodel.mp4" type="video/mp4" />
+              <source src={videoUrl} type="video/mp4" />
             </video>
           </div>,
           document.body,
