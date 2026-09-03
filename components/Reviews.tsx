@@ -3,6 +3,7 @@ import { Star, ArrowRight } from 'lucide-react';
 import { reviews, type Review } from '@/content/reviews';
 import { testimonials, type Testimonial } from '@/content/testimonials';
 import VideoReviewButton from './VideoReviewButton';
+import ReviewsPager from './ReviewsPager';
 
 /**
  * Customer reviews.
@@ -11,8 +12,9 @@ import VideoReviewButton from './VideoReviewButton';
  *   glass-card row, plus a button through to the full /reviews page.
  *
  *   variant="rows" (default, /reviews) — every review as a full-width glass row,
- *   with the four video testimonials mixed in among them; those cards carry a
- *   "Watch their video" button that plays the recording in a lightbox.
+ *   paged ten at a time, with the four video testimonials mixed in among them;
+ *   those cards carry a "Watch their video" button that plays the recording in
+ *   a lightbox.
  *
  * Each review shows stars, the quote (with a crimson rule down its left edge),
  * then the name with the project where a date would sit (the owner wanted them
@@ -143,13 +145,13 @@ export default function Reviews({ variant = 'rows' }: { variant?: 'rows' | 'grid
     <section className="section">
       <div className="container-x">
         {Header}
-        <div className="mx-auto mt-12 max-w-4xl space-y-4">
+        <ReviewsPager total="600+ reviews">
           {rows.map((r, i) => (
             <figure key={i} className="glass flex flex-col rounded-2xl p-6 sm:p-8">
               <Body r={r} />
             </figure>
           ))}
-        </div>
+        </ReviewsPager>
       </div>
     </section>
   );
