@@ -81,14 +81,13 @@ export default function ProjectsBrowser() {
 
   return (
     <>
-      {/* Filter + search bar */}
-      <section className="sticky top-[88px] z-30 border-y border-ink/10 bg-bone/90 backdrop-blur-xl md:top-[96px] lg:top-[104px]">
-        {/* lg:pl-32 (128px) clears the header logo, which overhangs this bar on
-            desktop and paints above it (header z-60 > z-30). The logo is 96px
-            wide and starts at the header's 32px gutter, so 128px is exact.
-            xl:flex-nowrap keeps the filters and search on one line once there's
+      {/* Filter + search bar — scrolls with the page. It sits mid-page rather
+          than under the header, so it needs no clearance for the overhanging
+          logo and starts at the normal gutter, in line with the grid below. */}
+      <section className="border-y border-ink/10 bg-bone/90">
+        {/* xl:flex-nowrap keeps the filters and search on one line once there's
             room; below that it still wraps rather than overflowing. */}
-        <div className="container-x flex flex-wrap items-center justify-between gap-4 py-4 lg:pl-32 xl:flex-nowrap">
+        <div className="container-x flex flex-wrap items-center justify-between gap-3 py-3 xl:flex-nowrap">
           <div className="flex flex-wrap gap-2 xl:flex-nowrap">
             {CATEGORIES.map((c) => {
               const active = category === c.id;
@@ -139,9 +138,9 @@ export default function ProjectsBrowser() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="pb-14 pt-8 sm:pb-16 sm:pt-10">
         <div className="container-x">
-          <p className="mb-8 font-sans text-sm text-ink/60">
+          <p className="mb-5 font-sans text-sm text-ink/60">
             Showing <strong className="text-ink">{filtered.length}</strong> of {projects.length}{' '}
             projects
           </p>
@@ -167,8 +166,8 @@ export default function ProjectsBrowser() {
               const items = filtered.filter((p) => categoryOf(p.type) === g.id);
               if (!items.length) return null;
               return (
-                <div key={g.id} className="mb-16 last:mb-0">
-                  <div className="mb-8 flex items-end justify-between border-b border-ink/10 pb-3">
+                <div key={g.id} className="mb-12 last:mb-0">
+                  <div className="mb-6 flex items-end justify-between border-b border-ink/10 pb-2">
                     <h2 className="font-display text-3xl text-ink md:text-4xl">{g.label}</h2>
                     <span className="font-sans text-xs uppercase tracking-[0.18em] text-ink/50">
                       {items.length} Projects
