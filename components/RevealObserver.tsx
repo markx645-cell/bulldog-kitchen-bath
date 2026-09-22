@@ -13,7 +13,7 @@ export default function RevealObserver() {
   useEffect(() => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const targets = Array.from(
-      document.querySelectorAll<HTMLElement>('main section, [data-reveal]')
+      document.querySelectorAll<HTMLElement>('main section:not([data-no-reveal]), [data-reveal]')
     );
 
     if (reduce || typeof IntersectionObserver === 'undefined') {

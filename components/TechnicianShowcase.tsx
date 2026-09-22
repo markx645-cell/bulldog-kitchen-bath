@@ -162,9 +162,12 @@ export default function TechnicianShowcase() {
             <p className="mt-4 leading-relaxed text-ink/75">{s.body}</p>
           </div>
 
-          {/* Image — a sliding track that translates to the active slide */}
+          {/* Image — a sliding track that translates to the active slide.
+              isolate + translateZ(0) give the rounded clip its own layer:
+              Safari can otherwise fail to paint a transformed track inside a
+              border-radius overflow clip, leaving the frame blank. */}
           <div className="relative w-full lg:order-2">
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/50 bg-white/40 shadow-lift">
+            <div className="relative isolate aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/50 bg-white/40 shadow-lift [transform:translateZ(0)]">
               <div
                 className={`flex h-full w-full ${
                   animate ? 'transition-transform duration-500 ease-out' : ''

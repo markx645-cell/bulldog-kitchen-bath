@@ -1,9 +1,9 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { Fragment, useMemo, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Search, X } from 'lucide-react';
+import { ArrowDown, Search, X } from 'lucide-react';
 import { projects, categoryOf, type Project } from '@/content/projects';
 
 const CATEGORIES = [
@@ -22,13 +22,21 @@ const GROUPS = [
   { id: 'other', label: 'More Projects' },
 ] as const;
 
-function Card({ p }: { p: Project }) {
+/** The 800px card copy of a photo, made by scripts/make-card-thumbs.mjs. */
+function thumbSrc(src: string) {
+  return src.replace(/^\/assets\//, '/assets/thumbs/').replace(/\.\w+$/, '.webp');
+}
+
+function Card({ p, className = '' }: { p: Project; className?: string }) {
   return (
-    <Link href={`/projects/${p.slug}`} className="group glass glass-hover flex flex-col overflow-hidden">
+    <Link
+      href={`/projects/${p.slug}`}
+      className={`group glass glass-hover flex flex-col overflow-hidden ${className}`}
+    >
       {p.photos[0] && (
         <div className="relative aspect-[4/3] w-full overflow-hidden">
           <Image
-            src={p.photos[0].src}
+            src={thumbSrc(p.photos[0].src)}
             alt={p.photos[0].alt}
             fill
             sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
@@ -49,6 +57,48 @@ function Card({ p }: { p: Project }) {
         )}
       </div>
     </Link>
+  );
+}
+
+/** Cards a phone shows per grid before "View more" — and how many each tap adds. */
+const MOBILE_STEP = 10;
+
+/** What the "View more …" button calls each category's projects. */
+const MORE_LABEL: Record<string, string> = {
+  kitchen: 'kitchen remodels',
+  bath: 'bathroom remodels',
+  basement: 'basement remodels',
+  laundry: 'laundry & mudroom remodels',
+};
+
+/**
+ * A category's grid on the unfiltered view. On phones only it shows the first
+ * ten cards and a "View more" button that adds ten at a time; from sm up every
+ * card shows. A filtered or searched list skips this and shows every match.
+ * Cards past the limit are hidden with CSS rather than dropped, so they stay in
+ * the HTML for search engines, and a hidden card's lazy image never loads.
+ */
+function CardGrid({ items, category }: { items: Project[]; category: string }) {
+  const [shown, setShown] = useState(MOBILE_STEP);
+
+  return (
+    <>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {items.map((p, i) => (
+          <Card key={p.slug} p={p} className={i >= shown ? 'max-sm:hidden' : ''} />
+        ))}
+      </div>
+      {shown < items.length && (
+        <button
+          type="button"
+          onClick={() => setShown((n) => n + MOBILE_STEP)}
+          className="mt-6 flex w-full items-center justify-center gap-2 rounded-full border border-ink/25 bg-transparent px-4 py-3 font-sans text-[11px] font-bold uppercase tracking-[0.08em] text-ink transition hover:border-ink/50 sm:hidden"
+        >
+          <ArrowDown className="size-4" />
+          View more {MORE_LABEL[category] ?? 'projects'} by Bulldog
+        </button>
+      )}
+    </>
   );
 }
 
@@ -88,26 +138,34 @@ export default function ProjectsBrowser() {
         {/* xl:flex-nowrap keeps the filters and search on one line once there's
             room; below that it still wraps rather than overflowing. */}
         <div className="container-x flex flex-wrap items-center justify-between gap-3 py-3 xl:flex-nowrap">
-          <div className="flex flex-wrap gap-2 xl:flex-nowrap">
-            {CATEGORIES.map((c) => {
+          {/* On phones, two set rows — All, Kitchens, Bathrooms on top;
+              Basements and Laundry below — each stretched to the full width,
+              rather than wrapping wherever the widths happen to break. From sm
+              up they flow as one row. The row spacing is a margin on the
+              buttons, not gap-y, which would also space out the zero-height
+              line break and push the second row down. */}
+          <div className="flex w-full flex-wrap gap-x-2 max-sm:-mb-2 sm:w-auto sm:gap-y-2 xl:flex-nowrap">
+            {CATEGORIES.map((c, i) => {
               const active = category === c.id;
               return (
-                <button
-                  key={c.id}
-                  type="button"
-                  onClick={() => setCategory(c.id)}
-                  aria-pressed={active}
-                  className={`rounded-md border px-4 py-2 font-sans text-xs font-medium uppercase tracking-[0.12em] transition-colors ${
-                    active
-                      ? 'border-ink bg-ink text-white'
-                      : 'border-ink/15 bg-white/40 text-ink hover:border-ink/40'
-                  }`}
-                >
-                  {c.label}{' '}
-                  <span className={active ? 'text-white/60' : 'text-ink/45'}>
-                    ({counts[c.id] ?? 0})
-                  </span>
-                </button>
+                <Fragment key={c.id}>
+                  {i === 3 && <span aria-hidden className="basis-full sm:hidden" />}
+                  <button
+                    type="button"
+                    onClick={() => setCategory(c.id)}
+                    aria-pressed={active}
+                    className={`flex-auto whitespace-nowrap rounded-md max-sm:mb-2 border px-2 py-2 font-sans text-[10px] font-medium uppercase tracking-[0.04em] transition-colors min-[380px]:text-[11px] sm:flex-none sm:px-4 sm:text-xs sm:tracking-[0.12em] ${
+                      active
+                        ? 'border-ink bg-ink text-white'
+                        : 'border-ink/15 bg-white/40 text-ink hover:border-ink/40'
+                    }`}
+                  >
+                    {c.label}{' '}
+                    <span className={active ? 'text-white/60' : 'text-ink/45'}>
+                      ({counts[c.id] ?? 0})
+                    </span>
+                  </button>
+                </Fragment>
               );
             })}
           </div>
@@ -138,7 +196,10 @@ export default function ProjectsBrowser() {
         </div>
       </section>
 
-      <section className="pb-14 pt-8 sm:pb-16 sm:pt-10">
+      {/* data-no-reveal: this section can run tens of thousands of px tall. The
+          scroll reveal's will-change turns it into one giant compositing
+          layer, which mobile Safari struggles to paint. */}
+      <section data-no-reveal className="pb-14 pt-8 sm:pb-16 sm:pt-10">
         <div className="container-x">
           <p className="mb-5 font-sans text-sm text-ink/60">
             Showing <strong className="text-ink">{filtered.length}</strong> of {projects.length}{' '}
@@ -173,15 +234,12 @@ export default function ProjectsBrowser() {
                       {items.length} Projects
                     </span>
                   </div>
-                  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    {items.map((p) => (
-                      <Card key={p.slug} p={p} />
-                    ))}
-                  </div>
+                  <CardGrid items={items} category={g.id} />
                 </div>
               );
             })
           ) : (
+            // A chosen category or a search shows every match, on phones too
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {filtered.map((p) => (
                 <Card key={p.slug} p={p} />
