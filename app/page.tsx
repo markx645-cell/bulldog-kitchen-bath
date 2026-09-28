@@ -15,6 +15,7 @@ import ServiceAreaSection from '@/components/ServiceAreaSection';
 import TestimonialsCarousel from '@/components/TestimonialsCarousel';
 import Reviews from '@/components/Reviews';
 import Photo from '@/components/Photo';
+import SpotOurCar from '@/components/SpotOurCar';
 
 export const metadata: Metadata = {
   // The layout's title template does not apply to the root segment, so the
@@ -123,6 +124,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <TestimonialsCarousel />
+
       {/* ---------- FEATURED — BATHROOM REMODELING ---------- */}
       <section id="bathrooms" className="section">
         <div className="container-x grid items-center gap-16 lg:grid-cols-2">
@@ -214,9 +217,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Reviews variant="grid" />
+      <SpotOurCar />
 
-      <TestimonialsCarousel />
+      <Reviews variant="grid" />
 
       {/* Coverage, not navigation — the names here are plain text on purpose.
           See the note at the top of ServiceAreaSection. */}

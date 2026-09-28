@@ -96,8 +96,7 @@ export default function Reviews({ variant = 'rows' }: { variant?: 'rows' | 'grid
 
   const Header = (
     <div className="mx-auto max-w-2xl text-center">
-      <p className="eyebrow">In their words</p>
-      <h2 className="mt-3 font-display text-4xl leading-tight text-ink md:text-5xl">
+      <h2 className="font-display text-4xl leading-tight text-ink md:text-5xl">
         What Tri-State homeowners say
       </h2>
       <p className="mt-4 leading-relaxed text-ink/75">

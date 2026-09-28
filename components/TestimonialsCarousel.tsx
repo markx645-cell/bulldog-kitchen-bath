@@ -33,6 +33,9 @@ export default function TestimonialsCarousel() {
   if (testimonials.length === 0) return null;
   const t = testimonials[active];
   const slide = dir === 1 ? 'animate-slide-in-up' : 'animate-slide-in-down';
+  // The same slide for the text block's pieces on mobile, where the block is
+  // display:contents (no box of its own to animate) — see below.
+  const slideMobile = dir === 1 ? 'max-lg:animate-slide-in-up' : 'max-lg:animate-slide-in-down';
 
   return (
     <section className="section">
@@ -85,13 +88,16 @@ export default function TestimonialsCarousel() {
           </div>
 
           {/* Name + testimonial text, framed by quote marks and a dash flourish.
-              Keyed by `active` so it remounts and replays the slide on each click. */}
-          <div key={`text-${active}`} className={`min-w-0 flex-1 ${slide}`}>
+              Keyed by `active` so it remounts and replays the slide on each click.
+              On mobile the block is display:contents, so its name row and its
+              quote become items of the outer column and the video (order-2) can
+              sit between them. Desktop keeps it one block: faces · words · video. */}
+          <div key={`text-${active}`} className={`contents min-w-0 lg:block lg:flex-1 ${slide}`}>
             {/* Opening quote mark — hidden on mobile */}
             <Quote className="hidden size-9 rotate-180 fill-ink text-ink lg:block" strokeWidth={0} aria-hidden="true" />
 
             {/* Location · project on the left, star rating on the right */}
-            <div className="mt-4 flex items-start justify-between gap-4">
+            <div className={`order-1 flex w-full items-start justify-between gap-4 lg:order-none lg:mt-4 ${slideMobile}`}>
               <div className="min-w-0">
                 {(t.location || t.project) && (
                   <p className="text-sm text-ink/55">
@@ -116,8 +122,9 @@ export default function TestimonialsCarousel() {
               ) : null}
             </div>
 
+            <div className={`order-3 w-full lg:order-none ${slideMobile}`}>
             {t.quote && (
-              <blockquote className="mt-4 leading-relaxed text-ink/80">{t.quote}</blockquote>
+              <blockquote className="leading-relaxed text-ink/80 lg:mt-4">{t.quote}</blockquote>
             )}
 
             {/* Dash flourish on the left, closing quote mark on the right */}
@@ -130,10 +137,11 @@ export default function TestimonialsCarousel() {
               </span>
               <Quote className="hidden size-9 fill-ink text-ink lg:block" strokeWidth={0} aria-hidden="true" />
             </div>
+            </div>
           </div>
 
           {/* Video (portrait) — same keyed slide so it moves with the text */}
-          <div key={`video-${active}`} className={`w-full max-w-[270px] shrink-0 lg:w-[270px] ${slide}`}>
+          <div key={`video-${active}`} className={`order-2 w-full max-w-[270px] shrink-0 lg:order-none lg:w-[270px] ${slide}`}>
             <div className="relative aspect-[9/16] w-full overflow-hidden rounded-2xl border border-white/50 bg-ink shadow-lift">
               {t.videoUrl && playing ? (
                 // Once play is clicked, load the real video. object-contain so the
