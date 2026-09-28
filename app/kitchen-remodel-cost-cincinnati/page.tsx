@@ -3,6 +3,10 @@ import Link from 'next/link';
 import { Phone, ArrowRight } from 'lucide-react';
 import { site, ogImage } from '@/content/site';
 import FaqAccordion from '@/components/FaqAccordion';
+import SpotOurCar from '@/components/SpotOurCar';
+import FeaturedProjects from '@/components/FeaturedProjects';
+import Reviews from '@/components/Reviews';
+import CTASection from '@/components/CTASection';
 
 export const metadata: Metadata = {
   title:
@@ -311,45 +315,36 @@ export default function CostPage() {
         </div>
       </section>
 
-      {/* ---------- CLOSING CTA ---------- */}
-      <section className="section">
-        <div className="container-x">
-          <div className="glass mx-auto max-w-2xl p-12 text-center">
-            <h2 className="mb-4 font-display text-4xl leading-tight text-ink md:text-5xl">
-              Get your exact number
-            </h2>
-            <p className="mb-10 text-lg text-ink/75">
-              Ranges are a starting point — your kitchen deserves a real quote. We’ll measure,
-              design, and give you a fixed price with no surprises.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
-                Let’s Discuss Your Project
+      <FeaturedProjects
+        category="kitchen"
+        eyebrow="Real kitchens"
+        heading="Kitchens we’ve remodeled around Cincinnati"
+      />
+
+      <Reviews variant="grid" />
+
+      <SpotOurCar />
+
+      <CTASection
+        withForm
+        heading="Get your exact number"
+        sub="Ranges are a starting point — your kitchen deserves a real quote. We’ll measure, design, and give you a fixed price with no surprises."
+      >
+        <p className="mt-8 text-sm text-ink/70">
+          Related:{' '}
+          {related.map((r, i) => (
+            <span key={r.href}>
+              <Link href={r.href} className="underline hover:text-crimson">
+                {r.label}
               </Link>
-              <a
-                href={site.phoneHref}
-                className="inline-flex items-center gap-2 rounded-full border border-ink/30 px-7 py-4 font-sans text-xs font-medium uppercase tracking-[0.18em] text-ink transition hover:bg-ink hover:text-white"
-              >
-                <Phone className="size-4" /> Call {site.phone}
-              </a>
-            </div>
-            <p className="mt-10 text-sm text-ink/70">
-              Related:{' '}
-              {related.map((r, i) => (
-                <span key={r.href}>
-                  <Link href={r.href} className="underline hover:text-crimson">
-                    {r.label}
-                  </Link>
-                  {i < related.length - 1 && ' · '}
-                </span>
-              ))}
-            </p>
-            <p className="mt-6 inline-flex items-center gap-2 text-xs text-ink/60">
-              <ArrowRight className="size-3" /> Updated for 2026
-            </p>
-          </div>
-        </div>
-      </section>
+              {i < related.length - 1 && ' · '}
+            </span>
+          ))}
+        </p>
+        <p className="mt-4 inline-flex items-center gap-2 text-xs text-ink/60">
+          <ArrowRight className="size-3" /> Updated for 2026
+        </p>
+      </CTASection>
     </>
   );
 }

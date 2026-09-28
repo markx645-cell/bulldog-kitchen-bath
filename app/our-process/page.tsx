@@ -1,9 +1,13 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Check, Search, ClipboardList, PencilRuler, Hammer, Smile } from 'lucide-react';
-import { site } from '@/content/site';
+import { Check, Search, ClipboardList, PencilRuler, Hammer, Smile } from 'lucide-react';
 import StepNav from './StepNav';
+import SpotOurCar from '@/components/SpotOurCar';
+import TestimonialsCarousel from '@/components/TestimonialsCarousel';
+import Reviews from '@/components/Reviews';
+import Faq from '@/components/Faq';
+import CTASection from '@/components/CTASection';
+import { faqs } from '@/content/site';
 
 export const metadata: Metadata = {
   title: 'Our Process',
@@ -230,29 +234,19 @@ export default function OurProcessPage() {
         </section>
       ))}
 
-      {/* ---------- CLOSING CTA ---------- */}
-      <section className="section">
-        <div className="container-x">
-          <div className="glass mx-auto max-w-3xl p-12 text-center">
-            <p className="eyebrow">Ready When You Are</p>
-            <h2 className="mb-6 mt-4 font-display text-4xl leading-tight text-ink md:text-5xl">
-              A well-organized process means a great experience.
-            </h2>
-            <p className="text-lg leading-relaxed text-ink/75">
-              Let’s see if Bulldog Remodel Group is the right fit for your home. In-home
-              consultations across Cincinnati and the surrounding tri-state area.
-            </p>
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
-                Let’s Discuss Your Project
-              </Link>
-              <a href={site.phoneHref} className="btn-ghost inline-flex items-center gap-2">
-                <Phone className="size-4" /> {site.phone}
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <TestimonialsCarousel />
+
+      <Reviews variant="grid" />
+
+      <Faq faqs={faqs} />
+
+      <SpotOurCar />
+
+      <CTASection
+        withForm
+        heading="A well-organized process means a great experience."
+        sub="Let’s see if Bulldog Remodel Group is the right fit for your home. In-home consultations across Cincinnati and the surrounding tri-state area."
+      />
     </>
   );
 }

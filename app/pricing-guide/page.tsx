@@ -1,8 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { site, ogImage } from '@/content/site';
+import SpotOurCar from '@/components/SpotOurCar';
+import FeaturedProjects from '@/components/FeaturedProjects';
+import Reviews from '@/components/Reviews';
+import CTASection from '@/components/CTASection';
 
 export const metadata: Metadata = {
   title: 'Remodeling Pricing Guide — Cincinnati, OH',
@@ -186,32 +190,17 @@ export default function PricingPage() {
         cta="Read Our Remodeling Process"
       />
 
-      {/* ---------- CTA ---------- */}
-      <section className="section">
-        <div className="container-x">
-          <div className="glass mx-auto max-w-3xl p-12 text-center">
-            <p className="eyebrow">Ready When You Are</p>
-            <h2 className="mt-4 font-display text-4xl leading-tight text-ink md:text-5xl">
-              Get a real number for your project.
-            </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink/75">
-              No-pressure in-home consultations across Cincinnati and the surrounding OH, KY
-              and IN tri-state area.
-            </p>
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
-                Let’s Discuss Your Project
-              </Link>
-              <a
-                href={site.phoneHref}
-                className="inline-flex items-center gap-2 rounded-full border border-ink/30 px-7 py-4 font-sans text-xs font-medium uppercase tracking-[0.18em] text-ink transition hover:bg-ink hover:text-white"
-              >
-                <Phone className="size-4" /> {site.phone}
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FeaturedProjects eyebrow="What the money builds" />
+
+      <Reviews variant="grid" />
+
+      <SpotOurCar />
+
+      <CTASection
+        withForm
+        heading="Get a real number for your project."
+        sub="No-pressure in-home consultations across Cincinnati and the surrounding OH, KY and IN tri-state area."
+      />
     </>
   );
 }

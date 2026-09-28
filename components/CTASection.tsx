@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import type { ReactNode } from 'react';
 import { site } from '@/content/site';
 import QuoteForm from '@/components/QuoteForm';
 
@@ -7,11 +8,14 @@ export default function CTASection({
   sub = 'In-home design consultation. One fixed price. No high-pressure sales — that’s a promise, not a pitch.',
   pitch = 'Meet your designer and project manager, see a 3D rendering of your space, and get an honest, all-in number. One team, start to finish.',
   withForm = false,
+  children,
 }: {
   heading?: string;
   sub?: string;
   pitch?: string;
   withForm?: boolean;
+  /** Extra lines under the call button, beside the form (e.g. related links). */
+  children?: ReactNode;
 }) {
   if (withForm) {
     return (
@@ -29,6 +33,7 @@ export default function CTASection({
             >
               Call {site.phone}
             </a>
+            {children}
           </div>
           <div className="lg:justify-self-end">
             <QuoteForm />

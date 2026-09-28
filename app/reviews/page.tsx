@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Reviews from '@/components/Reviews';
 import CTASection from '@/components/CTASection';
+import SpotOurCar from '@/components/SpotOurCar';
 import TestimonialsCarousel from '@/components/TestimonialsCarousel';
 
 export const metadata: Metadata = {
@@ -15,6 +16,8 @@ export default function ReviewsPage() {
     <>
       <Reviews />
       <TestimonialsCarousel />
+      <SpotOurCar />
+
       <CTASection withForm />
     </>
   );

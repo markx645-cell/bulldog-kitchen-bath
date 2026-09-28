@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { site, ogImage } from '@/content/site';
 import BookEstimateForm from '@/components/BookEstimateForm';
+import SpotOurCar from '@/components/SpotOurCar';
 
 export const metadata: Metadata = {
   title: 'Contact — Cincinnati, OH',
@@ -39,6 +40,8 @@ export default function ContactPage() {
           </p>
         </div>
       </section>
+
+      <SpotOurCar />
 
       {/* ---------- DETAILS + FORM ---------- */}
       <section className="section">

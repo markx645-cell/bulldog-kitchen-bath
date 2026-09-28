@@ -3,7 +3,7 @@ import { PawPrint, Phone } from 'lucide-react';
 import { site } from '@/content/site';
 
 /**
- * "Spot our car around Cincinnati" — the wrapped Bulldog Tesla, shown from the
+ * "Spot our Bulldog Mobile around Cincinnati" — the wrapped Bulldog Tesla, shown from the
  * front and the side. Copy on the left; on the right the two views sit as
  * same-size frames, staggered and overlapping.
  */
@@ -18,7 +18,7 @@ export default function SpotOurCar() {
       <div className="container-x grid items-center gap-8 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
         <div className="contents lg:block">
           <p className="order-1 inline-flex items-center gap-2 lg:order-none font-sans text-sm font-bold uppercase tracking-[0.14em] text-crimson">
-            <PawPrint className="size-4" /> Spot our car around Cincinnati
+            <PawPrint className="size-4 shrink-0" /> Spot our Bulldog Mobile around Cincinnati
           </p>
           <div className="order-3 lg:order-none">
           <h2 className="font-display lg:mt-4 text-4xl leading-tight text-ink md:text-5xl">

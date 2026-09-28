@@ -1,9 +1,12 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { site, ogImage } from '@/content/site';
 import { projects } from '@/content/projects';
 import ProjectsBrowser from './ProjectsBrowser';
 import AduVideoButton from './AduVideoButton';
+import SpotOurCar from '@/components/SpotOurCar';
+import Reviews from '@/components/Reviews';
+import TestimonialsCarousel from '@/components/TestimonialsCarousel';
+import CTASection from '@/components/CTASection';
 
 export const metadata: Metadata = {
   title: 'Featured Projects — Cincinnati, OH',
@@ -63,19 +66,13 @@ export default function ProjectsPage() {
       {/* ---------- FILTER + SEARCH + GRID ---------- */}
       <ProjectsBrowser />
 
-      {/* ---------- CTA ---------- */}
-      <section className="section">
-        <div className="container-x">
-          <div className="glass mx-auto max-w-2xl p-12 text-center">
-            <h2 className="mb-6 font-display text-4xl text-ink md:text-5xl">
-              Want Yours Featured Next?
-            </h2>
-            <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
-              Start Your Project
-            </Link>
-          </div>
-        </div>
-      </section>
+      <Reviews variant="grid" />
+
+      <TestimonialsCarousel />
+
+      <SpotOurCar />
+
+      <CTASection withForm heading="Want yours featured next?" />
     </>
   );
 }

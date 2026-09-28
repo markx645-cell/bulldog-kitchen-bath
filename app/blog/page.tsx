@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { site } from '@/content/site';
 import CTASection from '@/components/CTASection';
+import SpotOurCar from '@/components/SpotOurCar';
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -59,6 +60,8 @@ export default function BlogPage() {
           ) : null}
         </div>
       </section>
+
+      <SpotOurCar />
 
       <CTASection withForm />
     </>

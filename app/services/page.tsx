@@ -3,6 +3,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, ArrowRight } from 'lucide-react';
 import { site } from '@/content/site';
+import SpotOurCar from '@/components/SpotOurCar';
+import WhyChooseUs from '@/components/WhyChooseUs';
+import FeaturedProjects from '@/components/FeaturedProjects';
+import Reviews from '@/components/Reviews';
+import CTASection from '@/components/CTASection';
 
 export const metadata: Metadata = {
   title: 'Our Services',
@@ -154,34 +159,19 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ---------- CTA BAND ---------- */}
-      <section className="section">
-        <div className="container-x">
-          <div className="glass grid items-center gap-10 p-10 sm:p-14 md:grid-cols-[2fr_1fr]">
-            <div>
-              <p className="eyebrow">Ready When You Are</p>
-              <h2 className="mt-3 font-display text-4xl text-ink md:text-5xl">
-                Get Your In-Home Estimate
-              </h2>
-              <p className="mt-4 max-w-xl text-ink/75">
-                Real numbers, real timelines, no pressure. We’ll walk your space, talk through
-                options, and follow up with a fixed-price quote.
-              </p>
-            </div>
-            <div className="flex flex-col gap-3">
-              <a
-                href={site.phoneHref}
-                className="btn-primary !bg-crimson hover:!bg-crimson-600 inline-flex items-center justify-center gap-2"
-              >
-                <Phone className="size-4" /> Call {site.phone}
-              </a>
-              <Link href="/" className="btn-ghost text-center">
-                ← Back To Home
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <WhyChooseUs />
+
+      <FeaturedProjects />
+
+      <Reviews variant="grid" />
+
+      <SpotOurCar />
+
+      <CTASection
+        withForm
+        heading="Get your in-home estimate"
+        sub="Real numbers, real timelines, no pressure. We’ll walk your space, talk through options, and follow up with a fixed-price quote."
+      />
     </>
   );
 }

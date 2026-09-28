@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import type { Metadata } from 'next';
 import { faqs } from '@/content/site';
-import { projects } from '@/content/projects';
+import FeaturedProjects from '@/components/FeaturedProjects';
 import ServicesGrid from '@/components/ServicesGrid';
 import AduShowcase from '@/components/AduShowcase';
 import WhyChooseUs from '@/components/WhyChooseUs';
@@ -25,10 +25,6 @@ export const metadata: Metadata = {
     'Bulldog Remodel Group — Cincinnati’s most organized remodeler. Kitchens, bathrooms, basements, ADUs and custom builds with fixed pricing, in-house design, and a lifetime workmanship warranty. Book a consult.',
   alternates: { canonical: '/' },
 };
-
-// The four projects the production homepage features.
-const FEATURED_SLUGS = ['1217', 'sb-refined-warmth-kitchen-remodel', 'pure-bliss', 'sb-elevated-living-basement-remodel'];
-const featured = FEATURED_SLUGS.map((s) => projects.find((p) => p.slug === s)).filter(Boolean) as typeof projects;
 
 export default function HomePage() {
   return (
@@ -82,47 +78,7 @@ export default function HomePage() {
 
       <AduShowcase />
 
-      {/* ---------- FEATURED PROJECTS ---------- */}
-      <section className="section">
-        <div className="container-x">
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row sm:items-end">
-            <div className="max-w-2xl text-center sm:text-left">
-              <p className="eyebrow">Featured projects</p>
-              <h2 className="mt-2 font-display text-3xl text-ink sm:text-4xl">
-                Cincinnati-area homes we’ve transformed
-              </h2>
-            </div>
-            <Link href="/projects" className="btn-ghost shrink-0">View all projects</Link>
-          </div>
-          {/* Slide rather than the domino tip: these are wide photo cards in a
-              single row, and they read better arriving as one left-to-right
-              wave than hinging individually. */}
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" data-reveal data-reveal-slide>
-            {featured.map((p) => (
-              <Link
-                key={p.slug}
-                href={`/projects/${p.slug}`}
-                className="group flex flex-col overflow-hidden glass glass-hover"
-              >
-                {p.photos[0] && (
-                  <div className="relative aspect-[4/3] w-full overflow-hidden">
-                    <Image
-                      src={p.photos[0].src}
-                      alt={p.photos[0].alt}
-                      fill
-                      sizes="(max-width:640px) 100vw, 25vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                )}
-                <div className="p-5">
-                  <h3 className="font-display text-base text-ink">{p.title}</h3>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FeaturedProjects />
 
       <TestimonialsCarousel />
 

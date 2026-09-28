@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Phone, Clock, ShieldCheck, Calculator, CheckCircle2 } from 'lucide-react';
 import { site } from '@/content/site';
+import SpotOurCar from '@/components/SpotOurCar';
 
 export const metadata: Metadata = {
   title: 'Financing — Cincinnati, OH',
@@ -168,6 +169,8 @@ export default function FinancingPage() {
           </div>
         </div>
       </section>
+
+      <SpotOurCar />
     </>
   );
 }

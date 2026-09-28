@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { CheckCircle2, Phone, Mail, MapPin } from 'lucide-react';
 import { site, ogImage } from '@/content/site';
 import ConsultForm from './ConsultForm';
+import SpotOurCar from '@/components/SpotOurCar';
 
 export const metadata: Metadata = {
   title: 'Book a Consultation',
@@ -38,6 +39,8 @@ export default function ConsultPage() {
           </p>
         </div>
       </section>
+
+      <SpotOurCar />
 
       {/* ---------- SIDE RAIL + FORM ---------- */}
       <section className="section">

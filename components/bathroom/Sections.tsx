@@ -18,6 +18,7 @@ import {
 import { site } from '@/content/site';
 import { services } from '@/content/services';
 import BasicContactForm from '@/components/BasicContactForm';
+import SpotOurCar from '@/components/SpotOurCar';
 import ExpandingTriptych from '@/components/ExpandingTriptych';
 import { serviceGalleries } from '@/content/serviceGalleries';
 
@@ -358,7 +359,11 @@ export function ContactSection({
   /** Service name, so the form's dropdown pre-selects what the page is about. */
   service?: string;
 }) {
+  // The "Spot our Bulldog Mobile" section leads into the form on every page
+  // that uses this one (the service and location pages).
   return (
+    <>
+    <SpotOurCar />
     <section id="contact" className="section">
       <div className="container-x">
         <div className="mb-12 max-w-3xl">
@@ -385,6 +390,7 @@ export function ContactSection({
         </div>
       </div>
     </section>
+    </>
   );
 }
 

@@ -3,6 +3,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Home as HomeIcon, Users, ShieldCheck, Award } from 'lucide-react';
 import { values } from '@/content/site';
+import SpotOurCar from '@/components/SpotOurCar';
+import TechnicianShowcase from '@/components/TechnicianShowcase';
+import TestimonialsCarousel from '@/components/TestimonialsCarousel';
+import Reviews from '@/components/Reviews';
+import ServiceAreaSection from '@/components/ServiceAreaSection';
+import CTASection from '@/components/CTASection';
 
 export const metadata: Metadata = {
   title: 'About — Cincinnati, OH',
@@ -86,19 +92,17 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ---------- READY TO GET STARTED ---------- */}
-      <section className="section">
-        <div className="container-x">
-          <div className="glass mx-auto max-w-2xl p-12 text-center">
-            <h2 className="mb-6 font-display text-4xl text-ink md:text-5xl">
-              Ready To Get Started?
-            </h2>
-            <Link href="/contact" className="btn-primary !bg-crimson hover:!bg-crimson-600">
-              Let’s Discuss Your Project
-            </Link>
-          </div>
-        </div>
-      </section>
+      <TechnicianShowcase />
+
+      <TestimonialsCarousel />
+
+      <Reviews variant="grid" />
+
+      <ServiceAreaSection />
+
+      <SpotOurCar />
+
+      <CTASection withForm heading="Ready to get started?" />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import TestimonialsList from '@/components/TestimonialsList';
 import CTASection from '@/components/CTASection';
+import SpotOurCar from '@/components/SpotOurCar';
 
 export const metadata: Metadata = {
   title: 'Video Testimonials',
@@ -13,6 +14,8 @@ export default function VideoTestimonialsPage() {
   return (
     <>
       <TestimonialsList />
+      <SpotOurCar />
+
       <CTASection withForm />
     </>
   );
