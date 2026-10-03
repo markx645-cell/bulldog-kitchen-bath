@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, ArrowRight } from 'lucide-react';
-import { site } from '@/content/site';
+import { site, openGraphFor } from '@/content/site';
 import SpotOurCar from '@/components/SpotOurCar';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import FeaturedProjects from '@/components/FeaturedProjects';
@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   description:
     'Full bathroom remodels, walk-in showers, tub shower combos, bathroom flooring, walk-in tubs, kitchen remodels, basements and accessory dwelling units — built by one in-house team and backed for life.',
   alternates: { canonical: '/services' },
+  openGraph: openGraphFor('/services'),
 };
 
 // The production hub lists only the first six, with its own blurbs (which

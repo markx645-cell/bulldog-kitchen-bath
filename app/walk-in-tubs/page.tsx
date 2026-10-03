@@ -6,6 +6,7 @@ import { serviceGalleries } from '@/content/serviceGalleries';
 import AreasWeServe from '@/components/AreasWeServe';
 import { locations } from '@/content/locations';
 import { walkInTubsCopy } from '@/content/location-copy/walk-in-tubs';
+import { openGraphFor } from '@/content/site';
 
 const service = services['walk-in-tubs'];
 
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
   title: service.metaTitle,
   description: service.metaDescription,
   alternates: { canonical: '/walk-in-tubs' },
+  openGraph: openGraphFor('/walk-in-tubs'),
 };
 
 export default function Page() {

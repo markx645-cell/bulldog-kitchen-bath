@@ -3,7 +3,7 @@ import { PencilRuler, MapPinned, SunMedium, Eye, DraftingCompass, Blocks, LandPl
 import ServicePage from '@/components/ServicePage';
 import ExpandingTriptych from '@/components/ExpandingTriptych';
 import { services } from '@/content/services';
-import { site } from '@/content/site';
+import { site, openGraphFor } from '@/content/site';
 import { serviceGalleries } from '@/content/serviceGalleries';
 import AreasWeServe from '@/components/AreasWeServe';
 import { locations } from '@/content/locations';
@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   title: service.metaTitle,
   description: service.metaDescription,
   alternates: { canonical: '/custom-homes' },
+  openGraph: openGraphFor('/custom-homes'),
 };
 
 // Why build custom rather than buy.

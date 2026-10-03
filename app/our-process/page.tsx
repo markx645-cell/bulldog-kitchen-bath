@@ -7,13 +7,14 @@ import TestimonialsCarousel from '@/components/TestimonialsCarousel';
 import Reviews from '@/components/Reviews';
 import Faq from '@/components/Faq';
 import CTASection from '@/components/CTASection';
-import { faqs } from '@/content/site';
+import { faqs, openGraphFor } from '@/content/site';
 
 export const metadata: Metadata = {
   title: 'Our Process',
   description:
     'From first call to lifetime warranty — the five-step Bulldog Remodel Group process: Educate, Discover, Design, Build, Enjoy. Serving Ohio, Kentucky and Indiana.',
   alternates: { canonical: '/our-process' },
+  openGraph: openGraphFor('/our-process'),
 };
 
 const STEPS = [

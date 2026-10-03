@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { site } from '@/content/site';
+import { site, openGraphFor } from '@/content/site';
 import CTASection from '@/components/CTASection';
 import SpotOurCar from '@/components/SpotOurCar';
 
@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   title: 'Blog',
   description: 'Articles, tips, and inspiration from Bulldog Remodel Group.',
   alternates: { canonical: '/blog' },
+  openGraph: openGraphFor('/blog'),
+  // An empty "articles on the way" page is thin content. Keep it out of the
+  // index (and the sitemap) until the first posts are published.
+  robots: { index: false, follow: true },
 };
 
 // The production blog reads from a Supabase `articles` table. That table is

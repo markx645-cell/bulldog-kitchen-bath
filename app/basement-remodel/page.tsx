@@ -17,7 +17,7 @@ import {
   BedDouble,
   ArrowRight,
 } from 'lucide-react';
-import { site } from '@/content/site';
+import { site, openGraphFor } from '@/content/site';
 import { services } from '@/content/services';
 import FaqAccordion from '@/components/FaqAccordion';
 import ExpandingTriptych from '@/components/ExpandingTriptych';
@@ -38,6 +38,7 @@ export const metadata: Metadata = {
   title: service.metaTitle,
   description: service.metaDescription,
   alternates: { canonical: '/basement-remodel' },
+  openGraph: openGraphFor('/basement-remodel'),
 };
 
 const serviceCards = [

@@ -11,7 +11,7 @@ import {
   FileCheck,
   ArrowRight,
 } from 'lucide-react';
-import { site } from '@/content/site';
+import { site, openGraphFor } from '@/content/site';
 import { services } from '@/content/services';
 import Photo from '@/components/Photo';
 import ExpandingTriptych from '@/components/ExpandingTriptych';
@@ -32,6 +32,7 @@ export const metadata: Metadata = {
   title: service.metaTitle,
   description: service.metaDescription,
   alternates: { canonical: '/kitchen-remodeling-older-homes' },
+  openGraph: openGraphFor('/kitchen-remodeling-older-homes'),
 };
 
 const signs = [

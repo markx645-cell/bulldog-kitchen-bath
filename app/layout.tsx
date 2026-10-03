@@ -33,31 +33,25 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | Whole-Home Remodeling in Cincinnati & N. Kentucky`,
+    default: `${site.name} | Kitchen, Bath & Basement Remodeling in Cincinnati & N. Kentucky`,
     template: `%s | ${site.name}`,
   },
   description:
     'Whole-home remodeling for Greater Cincinnati and Northern Kentucky — kitchens, bathrooms, basements, ADUs and custom builds. Fixed pricing, in-house design, one accountable team, and a lifetime workmanship warranty.',
-  keywords: [
-    'kitchen remodeling Cincinnati',
-    'bathroom remodeling Cincinnati',
-    'kitchen and bath remodel Northern Kentucky',
-    'Bulldog Remodel Group',
-  ],
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: site.url,
     siteName: site.name,
-    title: `${site.name} — ${site.headline}`,
+    title: `${site.name} — Kitchen, Bath & Basement Remodeling`,
     description:
       'Kitchen & bath remodeling across Greater Cincinnati and Northern Kentucky. Fixed pricing, in-house design, lifetime workmanship warranty.',
     images: [ogImage],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${site.name} — ${site.headline}`,
+    title: `${site.name} — Kitchen, Bath & Basement Remodeling`,
     description:
       'Kitchen & bath remodeling across Greater Cincinnati and Northern Kentucky. Fixed pricing, in-house design, lifetime workmanship warranty.',
     images: [ogImage.url],
@@ -76,10 +70,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@context': 'https://schema.org',
     '@type': 'HomeAndConstructionBusiness',
     name: site.name,
-    '@id': site.url,
-    url: site.url,
+    '@id': `${site.url}/#business`,
+    url: `${site.url}/`,
+    logo: `${site.url}/logo.webp`,
+    image: `${site.url}/og.png`,
     telephone: '+1-513-657-3750',
+    email: site.email,
     priceRange: '$$$',
+    openingHours: 'Mo-Fr 09:00-17:00',
     // Locality only — the real business publishes no street address, and an
     // aggregateRating would be fabricated (there are no published reviews).
     address: {
@@ -88,7 +86,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       addressRegion: site.address.state,
       addressCountry: 'US',
     },
-    areaServed: site.serviceArea,
+    areaServed: [
+      { '@type': 'City', name: 'Cincinnati, OH' },
+      { '@type': 'AdministrativeArea', name: 'Northern Kentucky' },
+      { '@type': 'AdministrativeArea', name: 'Southeast Indiana' },
+    ],
   };
 
   return (

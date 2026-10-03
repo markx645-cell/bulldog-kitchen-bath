@@ -51,7 +51,6 @@ function Card({ p, className = '' }: { p: Project; className?: string }) {
           </p>
         )}
         <h3 className="mt-2 font-display text-xl text-ink">{p.title}</h3>
-        {p.loc && <p className="mt-1 font-sans text-sm text-ink/60">{p.loc}</p>}
         {p.description && (
           <p className="mt-2 flex-1 text-sm leading-relaxed text-ink/75">{p.description}</p>
         )}
@@ -113,7 +112,6 @@ export default function ProjectsBrowser() {
       if (!needle) return true;
       return (
         p.title.toLowerCase().includes(needle) ||
-        p.loc.toLowerCase().includes(needle) ||
         p.type.toLowerCase().includes(needle) ||
         p.description.toLowerCase().includes(needle)
       );
@@ -178,7 +176,7 @@ export default function ProjectsBrowser() {
               type="search"
               value={q}
               onChange={(e) => setQ(e.target.value)}
-              placeholder="Search by name, city..."
+              placeholder="Search by name or style..."
               aria-label="Search projects"
               className="w-full rounded-md border border-ink/15 bg-white/60 py-2.5 pl-9 pr-9 font-sans text-sm text-ink placeholder:text-ink/40 focus:border-crimson focus:outline-none focus:ring-2 focus:ring-crimson/20"
             />
@@ -209,7 +207,7 @@ export default function ProjectsBrowser() {
           {filtered.length === 0 ? (
             <div className="glass mx-auto max-w-lg p-10 text-center">
               <h2 className="font-display text-2xl text-ink">No projects match that search</h2>
-              <p className="mt-3 text-ink/75">Try a different name, city or category.</p>
+              <p className="mt-3 text-ink/75">Try a different name, style or category.</p>
               <button
                 type="button"
                 onClick={() => {

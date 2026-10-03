@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import type { Metadata } from 'next';
-import { faqs } from '@/content/site';
+import { site, faqs, openGraphFor } from '@/content/site';
 import FeaturedProjects from '@/components/FeaturedProjects';
 import ServicesGrid from '@/components/ServicesGrid';
 import AduShowcase from '@/components/AduShowcase';
@@ -20,10 +20,18 @@ import SpotOurCar from '@/components/SpotOurCar';
 export const metadata: Metadata = {
   // The layout's title template does not apply to the root segment, so the
   // brand is spelled out here rather than appended automatically.
-  title: 'Bulldog Remodel Group | Whole-Home Remodeling in Cincinnati & N. Kentucky',
+  // Leads with the core three services, matching the H1 and footer, rather
+  // than "whole-home", which diluted the page's focus.
+  title: 'Bulldog Remodel Group | Kitchen, Bath & Basement Remodeling in Cincinnati & N. Kentucky',
   description:
-    'Bulldog Remodel Group — Cincinnati’s most organized remodeler. Kitchens, bathrooms, basements, ADUs and custom builds with fixed pricing, in-house design, and a lifetime workmanship warranty. Book a consult.',
+    'Bulldog Remodel Group — Cincinnati’s most organized remodeler. Kitchens, bathrooms and basements, plus ADUs and custom builds, with fixed pricing, in-house design, and a lifetime workmanship warranty. Book a consult.',
   alternates: { canonical: '/' },
+  openGraph: {
+    ...openGraphFor('/'),
+    title: `${site.name} — Kitchen, Bath & Basement Remodeling`,
+    description:
+      'Kitchen, bath and basement remodeling across Greater Cincinnati and Northern Kentucky. Fixed pricing, in-house design, lifetime workmanship warranty.',
+  },
 };
 
 export default function HomePage() {

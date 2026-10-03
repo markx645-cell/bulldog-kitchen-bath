@@ -12,7 +12,7 @@ import ServicePage from '@/components/ServicePage';
 import ExpandingTriptych from '@/components/ExpandingTriptych';
 import AduShowcase from '@/components/AduShowcase';
 import { services } from '@/content/services';
-import { site } from '@/content/site';
+import { site, openGraphFor } from '@/content/site';
 import { serviceGalleries } from '@/content/serviceGalleries';
 import AreasWeServe from '@/components/AreasWeServe';
 import { locations } from '@/content/locations';
@@ -71,6 +71,7 @@ export const metadata: Metadata = {
   title: service.metaTitle,
   description: service.metaDescription,
   alternates: { canonical: '/accessory-dwelling-units' },
+  openGraph: openGraphFor('/accessory-dwelling-units'),
 };
 
 export default function Page() {

@@ -31,6 +31,7 @@ export async function generateMetadata({
     description: p.description,
     alternates: { canonical: `/projects/${p.slug}` },
     openGraph: {
+      url: `/projects/${p.slug}`,
       title: `${p.title} | ${site.name}`,
       description: p.description,
       images: [ogImage],
@@ -64,14 +65,6 @@ export default async function ProjectPage({
           </h1>
 
           <div className="mt-10 grid max-w-3xl gap-6 text-sm sm:grid-cols-2">
-            {p.loc && (
-              <div>
-                <div className="mb-2 font-sans text-[10px] uppercase tracking-[0.25em] text-crimson">
-                  Remodel Location
-                </div>
-                <div className="text-ink">{p.loc}</div>
-              </div>
-            )}
             {p.type && (
               <div>
                 <div className="mb-2 font-sans text-[10px] uppercase tracking-[0.25em] text-crimson">

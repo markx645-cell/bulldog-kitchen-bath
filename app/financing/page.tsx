@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Phone, Clock, ShieldCheck, Calculator, CheckCircle2 } from 'lucide-react';
-import { site } from '@/content/site';
+import { site, openGraphFor } from '@/content/site';
 import SpotOurCar from '@/components/SpotOurCar';
 
 export const metadata: Metadata = {
@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description:
     'Flexible financing plans for your Cincinnati kitchen or bath remodel. 0% intro APR, low fixed monthly payments, and same-as-cash options. 60-second pre-qualification, soft pull only.',
   alternates: { canonical: '/financing' },
+  openGraph: openGraphFor('/financing'),
 };
 
 const plans = [

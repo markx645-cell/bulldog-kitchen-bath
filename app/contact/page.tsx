@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     'Get an in-home estimate for your kitchen or bath remodel in Cincinnati. Call (513) 657-3750 or send us a message.',
   alternates: { canonical: '/contact' },
   openGraph: {
+    url: '/contact',
     title: 'Contact Bulldog Remodel Group',
     description:
       'In-home estimates across Cincinnati, Northern Kentucky, and Southeast Indiana.',

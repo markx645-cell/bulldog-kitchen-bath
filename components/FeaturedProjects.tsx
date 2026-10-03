@@ -2,8 +2,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { projects, categoryOf, type Project } from '@/content/projects';
 
-// The four projects the production homepage features.
-const DEFAULT_SLUGS = ['1217', 'sb-refined-warmth-kitchen-remodel', 'pure-bliss', 'sb-elevated-living-basement-remodel'];
+// The homepage's hand-picked four. All are Cincinnati-area jobs, since the
+// default heading says so.
+const DEFAULT_SLUGS = ['1217', 'mid-century-makeover', 'pure-bliss', 'stunning-cellar'];
 
 /**
  * A row of four project cards. By default the homepage's hand-picked four;

@@ -6,6 +6,7 @@ import { serviceGalleries } from '@/content/serviceGalleries';
 import AreasWeServe from '@/components/AreasWeServe';
 import { locations } from '@/content/locations';
 import { bathroomFlooringCopy } from '@/content/location-copy/bathroom-flooring';
+import { openGraphFor } from '@/content/site';
 
 const service = services['bathroom-flooring'];
 
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
   title: service.metaTitle,
   description: service.metaDescription,
   alternates: { canonical: '/bathroom-flooring' },
+  openGraph: openGraphFor('/bathroom-flooring'),
 };
 
 export default function Page() {

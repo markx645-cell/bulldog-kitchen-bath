@@ -11,10 +11,11 @@ export const site = {
   // header ticker, the OG title and the CTA eyebrows.
   headline: 'Whole-Home Remodeling. Built by One Team.',
   positioning: 'Cincinnati’s most organized remodeler',
-  // TODO: swap to the new Remodel Group domain before launch. This single value
-  // drives metadataBase, every canonical URL, all og:url tags, the sitemap and
-  // the JSON-LD — so changing it here updates the whole site.
-  url: 'https://bulldogkitchenbath.com',
+  // The host the live site actually serves from. The bare domain 308s to www,
+  // so canonicals must name www or Google is pointed at a redirect. This single
+  // value drives metadataBase, every canonical URL, all og:url tags, robots.txt,
+  // the sitemap and the JSON-LD — so changing it here updates the whole site.
+  url: 'https://www.bulldogremodelgroup.com',
   phone: '(513) 657-3750',
   phoneHref: 'tel:5136573750',
   // Published on the contact page. Note the bulldogremodel.com domain.
@@ -248,3 +249,16 @@ export const ogImage = {
   height: 630,
   alt: `${site.name} — ${site.tagline}`,
 } as const;
+
+// Open Graph defaults for one page. Child metadata replaces the layout's
+// openGraph wholesale, so a page that sets none inherits the homepage's
+// og:url. Every page spreads this in with its own path instead.
+export function openGraphFor(path: string) {
+  return {
+    type: 'website' as const,
+    locale: 'en_US',
+    siteName: site.name,
+    url: path,
+    images: [ogImage],
+  };
+}

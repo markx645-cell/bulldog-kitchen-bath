@@ -9,13 +9,14 @@ import TestimonialsCarousel from '@/components/TestimonialsCarousel';
 import CTASection from '@/components/CTASection';
 
 export const metadata: Metadata = {
-  title: 'Featured Projects — Cincinnati, OH',
+  title: 'Featured Projects in Cincinnati, OH',
   description:
-    'Recent kitchen, bath, basement, and laundry remodels from Bulldog Remodel Group across Cincinnati neighborhoods.',
+    'Kitchen, bath, basement and laundry remodels by Bulldog Remodel Group across Greater Cincinnati and Northern Kentucky.',
   alternates: { canonical: '/projects' },
   openGraph: {
-    title: 'Featured Projects — Bulldog Remodel Group',
-    description: 'Real Cincinnati homes. Real homeowners. Real results.',
+    url: '/projects',
+    title: 'Featured Projects | Bulldog Remodel Group',
+    description: 'Kitchen, bath and basement remodels across Greater Cincinnati and Northern Kentucky.',
     images: [ogImage],
   },
 };
@@ -48,7 +49,7 @@ export default function ProjectsPage() {
             Transformations That Speak For Themselves
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-ink/75">
-            Real Cincinnati homes. Real homeowners. Real results.
+            Kitchens, bathrooms, basements, laundry rooms and more.
           </p>
 
           {/* Video button, close under the heading */}

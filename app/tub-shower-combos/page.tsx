@@ -6,6 +6,7 @@ import { serviceGalleries } from '@/content/serviceGalleries';
 import AreasWeServe from '@/components/AreasWeServe';
 import { locations } from '@/content/locations';
 import { tubShowerCombosCopy } from '@/content/location-copy/tub-shower-combos';
+import { openGraphFor } from '@/content/site';
 
 const service = services['tub-shower-combos'];
 
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
   title: service.metaTitle,
   description: service.metaDescription,
   alternates: { canonical: '/tub-shower-combos' },
+  openGraph: openGraphFor('/tub-shower-combos'),
 };
 
 export default function Page() {

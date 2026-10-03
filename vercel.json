@@ -1,4 +1,556 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "redirects": [
+    {
+      "source": "/projects/sb-dark-luxe-powder-room/",
+      "destination": "/projects/dark-luxe-powder-room-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-modern-made-beautiful-whole-home-remodel/",
+      "destination": "/projects/modern-made-beautiful-whole-home-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-traditional-elegance-bathroom-remodel/",
+      "destination": "/projects/traditional-elegance-bathroom-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-rich-in-color-and-texture-whole-home-remodel/",
+      "destination": "/projects/rich-in-color-and-texture-whole-home-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-polished-glam-franklin-bathroom-remodel/",
+      "destination": "/projects/polished-glam-bathroom-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-soft-green-pattern-floor-franklin-primary-bathroom/",
+      "destination": "/projects/soft-green-and-pattern-floor-primary-bathroom/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-casual-comfort-franklin-primary-and-guest-bathrooms/",
+      "destination": "/projects/casual-comfort-primary-and-guest-bathrooms/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-columbia-tn-modern-vintage-blend-whole-house-remodel/",
+      "destination": "/projects/modern-vintage-blend-whole-house-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-sugar-grove-il-master-hall-guest-bath-remodel-fairlee/",
+      "destination": "/projects/polished-beauty-hall-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-franklin-tn-whole-house-remodel-watkins/",
+      "destination": "/projects/a-luxurious-retreat-whole-home-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-brentwood-tn-primary-bath-dining-room-remodel-sunset/",
+      "destination": "/projects/contemporary-chic-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-sleek-tranquility-kitchen-bathroom-remodel/",
+      "destination": "/projects/sleek-tranquility-kitchen-and-bathroom-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-naperville-master-bath-remodel-after-photos/",
+      "destination": "/projects/open-concept-living-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-susan-toms-master-bath-remodel-after-photos/",
+      "destination": "/projects/elegant-with-a-twist-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-laura-bobs-master-bath-remodel-after-photos/",
+      "destination": "/projects/the-gift-of-a-wood-accent-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-shelley-franklin-powder-and-master-bath-remodel-after-photos/",
+      "destination": "/projects/traditionally-clean-powder-and-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-tim-mary-lou-master-and-hall-bathroom-remodel-after-photos/",
+      "destination": "/projects/simply-clean-master-and-hall-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-jennifer-craig-hall-bathroom-powder-room-pictures/",
+      "destination": "/projects/creatively-charming-hall-and-powder-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-marcie-rogers-powder-room-after-pictures/",
+      "destination": "/projects/the-love-of-brass-hall-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-craig-angelas-brentwood-tn-master-bathroom-remodel-pictures/",
+      "destination": "/projects/classic-beauty-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-brett-carolyns-bathrooms-remodel-pictures/",
+      "destination": "/projects/rustic-with-a-touch-of-glam-master-and-hall-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-ryan-michelles-hall-bathroom-remodel-pictures/",
+      "destination": "/projects/retro-glam-hall-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-chris-pattys-master-bathroom-remodel-pictures/",
+      "destination": "/projects/marble-and-movement-master-and-powder-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-cory-cindys-master-bathroom-remodel-pictures/",
+      "destination": "/projects/rustic-chic-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-chris-joes-master-bathroom-remodel-pictures/",
+      "destination": "/projects/luxury-cabin-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-scott-aimees-master-bathroom-remodel-pictures/",
+      "destination": "/projects/love-through-detail-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-derek-christines-master-bathroom-remodel-pictures/",
+      "destination": "/projects/dreamy-details-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-derek-christines-hall-bathroom-remodel-pictures/",
+      "destination": "/projects/calming-tones-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-craig-jennifers-master-bathroom-remodel-pictures/",
+      "destination": "/projects/naturally-inviting-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-bob-karens-master-bathroom-remodel-pictures/",
+      "destination": "/projects/tranquilly-open-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-dave-cathys-master-bathroom-remodel-pictures/",
+      "destination": "/projects/warm-inviting-hall-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-shawns-master-bathroom-remodel-pictures/",
+      "destination": "/projects/masculine-sleek-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-chuck-and-joanne-master-bathroom-remodel-pictures/",
+      "destination": "/projects/stunningly-spa-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-craig-victoria-master-bathroom-remodel-pictures/",
+      "destination": "/projects/rustic-living-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-brian-sherri-st-charles-master-bathroom-remodel/",
+      "destination": "/projects/classically-charming-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-doug-brenda-naperville-master-bathroom-remodel/",
+      "destination": "/projects/seamlessly-sharp-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-gerry-tina-naperville-master-bathroom-remodel/",
+      "destination": "/projects/warm-welcoming-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-robert-julia-willow-springs-master-bathroom-remodel/",
+      "destination": "/projects/elegant-touches-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-gregg-merriann-wheaton-bathroom-remodel/",
+      "destination": "/projects/lovingly-warm-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-sarah-ray-naperville-master-bathroom-remodel/",
+      "destination": "/projects/strikingly-tasteful-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-dennis-adelina-downers-grove-basement-bathroom-remodel/",
+      "destination": "/projects/warm-welcomings-basement-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-bobby-lisa-aurora-master-bathroom-remodel/",
+      "destination": "/projects/glam-elegance-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-brad-leas-master-bathroom-remodel/",
+      "destination": "/projects/a-spa-oasis-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-carl-susan-naperville-master-bathroom-remodel/",
+      "destination": "/projects/beautifully-sunkissed-master-bath-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-drew-nicole-winfield-bathroom-remodel/",
+      "destination": "/projects/simplistic-beauty-basement-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-shelley-franklin-laundry-room-remodel-after-photos/",
+      "destination": "/projects/powdered-blue-laundry-room-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-jennifer-craigs-laundry-mudroom-pictures/",
+      "destination": "/projects/traditionally-colored-laundry-and-mudroom-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-michele-jim-wheaton-mudroom-laundry-room-pictures/",
+      "destination": "/projects/beauty-in-the-detail-mudroom-and-laundry-room-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-christine-derek-naperville-mudroom-laundry-room-pictures/",
+      "destination": "/projects/sleek-and-clean-mudroom-and-laundry-room-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-kim-sean-naperville-laundry-room-pictures/",
+      "destination": "/projects/two-toned-touches-laundry-room-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-sarah-ray-naperville-laundry-mudroom-remodel/",
+      "destination": "/projects/clean-country-laundry-and-mudroom-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-melissa-brian-homer-glen-laundry-mudroom-remodel/",
+      "destination": "/projects/crisp-and-clean-laundry-and-mudroom-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-elevated-living-basement-remodel/",
+      "destination": "/projects/elevated-living-basement-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-willowbrook-basement-remodel-pictures/",
+      "destination": "/projects/refined-classic-basement-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-mike-and-kathys-basement-remodel-pictures/",
+      "destination": "/projects/play-with-color-basement-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-pat-denises-basement-basement-remodel-pictures/",
+      "destination": "/projects/sleek-amenities-basement-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-jim-and-micheles-basement-remodel-pictures/",
+      "destination": "/projects/cozy-comfort-basement-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-luxury-garage-remodel-pictures/",
+      "destination": "/projects/luxury-garage-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-kathryn-and-john-basement-remodel-pictures/",
+      "destination": "/projects/creatively-crafted-basement-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-mark-melinda-basement-remodel-pictures/",
+      "destination": "/projects/exquisitely-unique-basement-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-kevin-julia-la-grange-basement-remodel/",
+      "destination": "/projects/basement-turned-brilliant-basement-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-marc-beth-naperville-basement-remodel/",
+      "destination": "/projects/refined-beauty-basement-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-jason-kate-winfield-basement-remodel/",
+      "destination": "/projects/textured-accented-basement-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-bill-julie-st-charles-basement-remodel/",
+      "destination": "/projects/large-scaled-basement-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-mike-melissa-downers-grove-basement-remodel/",
+      "destination": "/projects/clean-lined-basement-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-gregg-merriann-wheaton-basement-remodel/",
+      "destination": "/projects/elevated-basement-bonus-rooms/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-stephan-leslie-elmhurst-basement-remodel/",
+      "destination": "/projects/masculine-masterpiece-basement-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-dennis-adelina-downers-grove-basement-remodel/",
+      "destination": "/projects/specialty-sauna-basement-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-brian-kelli-bolingbrook-basement-remodel/",
+      "destination": "/projects/rustic-sleek-basement-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-derek-christine-naperville-basement-remodel/",
+      "destination": "/projects/luxury-game-point-basement-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-chuck-jen-aurora-basement-remodel/",
+      "destination": "/projects/industrial-basement-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-steve-ann-naperville-basement-remodel/",
+      "destination": "/projects/detailed-beauty-basement-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-sidd-nisha-wheaton-basement-remodel/",
+      "destination": "/projects/modern-luxury-basement-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-jim-gina-naperville-basement-remodel/",
+      "destination": "/projects/treasured-theater-basement-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-michael-debrah-naperville-basement-remodel/",
+      "destination": "/projects/transport-through-time-basement-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-refined-contrast-kitchen-remodel/",
+      "destination": "/projects/refined-contrast-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-warm-heritage-kitchen-remodel/",
+      "destination": "/projects/warm-heritage-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-golden-elegance-kitchen-remodel/",
+      "destination": "/projects/golden-elegance-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-refined-warmth-kitchen-remodel/",
+      "destination": "/projects/refined-warmth-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-casual-comfort-franklin-kitchen-remodel/",
+      "destination": "/projects/casual-comfort-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-brentwood-tn-opulent-elegance-kitchen-remodel/",
+      "destination": "/projects/opulent-elegance-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-coastal-calm-kitchen-remodel/",
+      "destination": "/projects/coastal-calm-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-noir-gold-kitchen-remodel/",
+      "destination": "/projects/noir-gold-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-shelley-franklin-kitchen-remodel-after-photos/",
+      "destination": "/projects/modern-farmhouse-charm-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-blue-serenity-kitchen-remodel/",
+      "destination": "/projects/blue-serenity-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-tasteful-earthiness-kitchen-remodel/",
+      "destination": "/projects/tasteful-earthiness-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-luxe-sophistication-kitchen-remodel/",
+      "destination": "/projects/luxe-sophistication-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-balanced-neutrals-kitchen-remodel/",
+      "destination": "/projects/balanced-neutrals-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-modern-rustic-homestead-kitchen-remodel/",
+      "destination": "/projects/modern-rustic-homestead-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-brett-carolyns-kitchen-remodel-pictures/",
+      "destination": "/projects/cool-contrast-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-colleen-matts-kitchen-remodel-pictures/",
+      "destination": "/projects/sapphire-elegance-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-mike-jaquelines-kitchen-remodel-pictures/",
+      "destination": "/projects/forest-retreat-galley-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-cory-cindys-kitchen-remodel-pictures/",
+      "destination": "/projects/farmhouse-haven-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-erik-nikkis-kitchen-remodel-pictures/",
+      "destination": "/projects/clean-and-transitional-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-joe-pattys-kitchen-remodel-pictures/",
+      "destination": "/projects/traditional-radiance-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-brad-emilys-kitchen-remodel-pictures/",
+      "destination": "/projects/metropolitan-vibes-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-patrick-katherines-kitchen-remodel-pictures/",
+      "destination": "/projects/tranquil-traditional-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-larry-wendys-kitchen-remodel-pictures/",
+      "destination": "/projects/warm-welcome-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-ted-barbaras-kitchen-remodel-pictures/",
+      "destination": "/projects/touches-of-calm-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-anne-regis-kitchen-remodel-pictures/",
+      "destination": "/projects/blue-fashioned-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-skip-margaret-kitchen-remodel-pictures/",
+      "destination": "/projects/elegantly-tasteful-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-tom-marcy-naperville-kitchen-remodel/",
+      "destination": "/projects/traditionally-fresh-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-steve-angie-lisle-kitchen-remodel/",
+      "destination": "/projects/refreshingly-white-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-gregg-merriann-wheaton-kitchen-remodel/",
+      "destination": "/projects/sophisticated-elegance-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-rob-michelle-naperville-kitchen-remodel/",
+      "destination": "/projects/cozy-cottage-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-dale-tracey-elmhurst-kitchen-remodel/",
+      "destination": "/projects/formal-classic-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-derek-christine-naperville-kitchen-remodel/",
+      "destination": "/projects/elegantly-espresso-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-jeff-betsys-oak-brook-kitchen-remodel/",
+      "destination": "/projects/modern-gloss-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-ryan-missy-naperville-kitchen-remodel/",
+      "destination": "/projects/modernly-white-kitchen-remodel/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sb-pete-mary-plainfield-kitchen-remodel/",
+      "destination": "/projects/modern-movement-kitchen-remodel/",
+      "permanent": true
+    }
+  ]
 }

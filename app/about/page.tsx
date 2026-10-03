@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Home as HomeIcon, Users, ShieldCheck, Award } from 'lucide-react';
-import { values } from '@/content/site';
+import { values, openGraphFor } from '@/content/site';
 import SpotOurCar from '@/components/SpotOurCar';
 import TechnicianShowcase from '@/components/TechnicianShowcase';
 import TestimonialsCarousel from '@/components/TestimonialsCarousel';
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   description:
     'Bulldog Remodel Group is Cincinnati’s most organized full-service remodeler. One in-house team. Lifetime workmanship warranty.',
   alternates: { canonical: '/about' },
+  openGraph: openGraphFor('/about'),
 };
 
 const icons = { home: HomeIcon, oneteam: Users, shield: ShieldCheck, pricing: Award };

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Phone, ArrowRight } from 'lucide-react';
-import { site } from '@/content/site';
+import { site, openGraphFor } from '@/content/site';
 import Photo from '@/components/Photo';
 import { services } from '@/content/services';
 import AreasWeServe from '@/components/AreasWeServe';
@@ -29,6 +29,7 @@ export const metadata: Metadata = {
   title: service.metaTitle,
   description: service.metaDescription,
   alternates: { canonical: '/bathroom-remodel' },
+  openGraph: openGraphFor('/bathroom-remodel'),
 };
 
 export default function BathroomRemodelPage() {

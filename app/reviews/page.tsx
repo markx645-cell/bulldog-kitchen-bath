@@ -3,12 +3,14 @@ import Reviews from '@/components/Reviews';
 import CTASection from '@/components/CTASection';
 import SpotOurCar from '@/components/SpotOurCar';
 import TestimonialsCarousel from '@/components/TestimonialsCarousel';
+import { openGraphFor } from '@/content/site';
 
 export const metadata: Metadata = {
   title: 'Customer Reviews',
   description:
     'What Tri-State homeowners say about their Bulldog Remodel Group project — written and video reviews from Cincinnati, Northern Kentucky and Southeast Indiana.',
   alternates: { canonical: '/reviews' },
+  openGraph: openGraphFor('/reviews'),
 };
 
 export default function ReviewsPage() {
